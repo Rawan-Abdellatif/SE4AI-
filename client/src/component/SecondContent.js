@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Engineering from "./svg/component_engineering.svg";
 import Social from "./svg/component_social.svg";
@@ -7,7 +7,68 @@ import Professional from "./svg/component_professional.svg";
 import Engagement from "./svg/component_engagement.svg";
 import Leadership from "./svg/component_leadership.svg";
 
+const smallContainerData = [
+  {
+    imgSrc: Engineering,
+    alt: "component_engineering",
+    title: "Engineering AI Systems",
+    mainText:
+      "Provides trainees with the technical software engineering background in the context of AI-based software systems",
+  },
+  {
+    imgSrc: Social,
+    alt: "component_Social",
+    title: "Social Aspects for AI Systems",
+    mainText:
+      "Provides trainees with knowledge on various social aspects that AI-based systems need to consider, e.g., privacy, ethics, equity, diversity, inclusion (EDI), guided by human rights and sustainable development goals (SDG)",
+  },
+  {
+    imgSrc: Courses,
+    alt: "component_courses",
+    title: "Specialization Courses",
+    mainText:
+      "A curated set of SE, AI, and social aspects courses to strengthen the trainees's specialization. Trainees will select courses that best fit interests.",
+  },
+  {
+    imgSrc: Professional,
+    alt: "component_professional",
+    title: "Professional Development",
+    mainText:
+      "Provides training modules on professional skills in the context of AI-Software Systems.",
+  },
+  {
+    imgSrc: Engagement,
+    alt: "component_engagement",
+    title: "Industrial Engagement",
+    mainText:
+      "Provides trainees with special internship opportunities with our industrial partners and collaborating partners.",
+  },
+  {
+    imgSrc: Leadership,
+    alt: "component_leadership",
+    title: "Leadership and Mentorship Training",
+    mainText:
+      "Provides trainees with specialized training on the critical evaluation of AI-based software systems and related publications.",
+  },
+];
+
 const SecondContent = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % smallContainerData.length
+      );
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const currentSmallContainerData = smallContainerData[currentIndex];
+
   return (
     <Container>
       <TextContent>
@@ -18,78 +79,24 @@ const SecondContent = () => {
       <MainContainer>
         <FirstLine>
           <SmallContainer>
-            <Img src={Engineering} alt="component_engineering" />
+            <Img
+              src={currentSmallContainerData.imgSrc}
+              alt={currentSmallContainerData.alt}
+            />
             <Text>
-              <Title>Engineering AI Systems</Title>
-              <Main>
-                Provides trainees with the technical software engineering
-                background in the context of AI-based software systems
-              </Main>
-            </Text>
-          </SmallContainer>
-          <SmallContainer>
-            <Img src={Social} alt="component_Social" />
-            <Text>
-              <Title>Social Aspects for AI Systems</Title>
-              <Main>
-                Provides trainees with knowledge on various social aspects that
-                AI-based systems need to consider, e.g., privacy, ethics,
-                equity, diversity, inclusion (EDI), guided by human rights and
-                sustainable development goals (SDG)
-              </Main>
-            </Text>
-          </SmallContainer>
-          <SmallContainer>
-            <Img src={Courses} alt="component_courses" />
-            <Text>
-              <Title>Specialization Courses</Title>
-              <Main>
-                A curated set of SE, AI, and social aspects courses to
-                strengthen the trainees's specialization. Trainees will select
-                courses that best fit interests.
-              </Main>
+              <Title>{currentSmallContainerData.title}</Title>
+              <Main>{currentSmallContainerData.mainText}</Main>
             </Text>
           </SmallContainer>
         </FirstLine>
-        <SecondLine>
-          <SmallContainer>
-            <Img src={Professional} alt="component_professional" />
-            <Text>
-              <Title>Professional Development</Title>
-              <Main>
-                Provides training modules on professional skills in the context
-                of AI-Software Systems.
-              </Main>
-            </Text>
-          </SmallContainer>
-          <SmallContainer>
-            <Img src={Engagement} alt="component_engagement" />
-            <Text>
-              <Title>Industrial Engagement</Title>
-              <Main>
-                Provides trainees with special internship opportunities with our
-                industrial partners and collaborating partners.
-              </Main>
-            </Text>
-          </SmallContainer>
-          <SmallContainer>
-            <Img src={Leadership} alt="component_leadership" />
-            <Text>
-              <Title>Leadership and Mentorship Training</Title>
-              <Main>
-                Provides trainees with specialized training on the critical
-                evaluation of AI-based software systems and related
-                publications.
-              </Main>
-            </Text>
-          </SmallContainer>
-        </SecondLine>
       </MainContainer>
     </Container>
   );
 };
 
 export default SecondContent;
+
+// Rest of the code...
 
 const Container = styled.div`
   background-color: black;
