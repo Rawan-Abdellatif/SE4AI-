@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
 
@@ -58,7 +58,14 @@ const Nserc = styled.div`
 const HeroText = styled.div`
   max-width: 600px;
 `;
-
+const fadeInAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 const Button = styled.button`
   background-color: ${(props) => (props.isDarkMode ? "white" : "#db7093")};
   color: ${(props) => (props.isDarkMode ? "#212529" : "black")};
@@ -70,6 +77,7 @@ const Button = styled.button`
   width: 180px;
   cursor: pointer;
   margin-left: 100px;
+  animation: ${fadeInAnimation} 1s ease-in-out;
 `;
 
 const LogoContainer = styled.div`
@@ -121,4 +129,5 @@ const P = styled.p`
   margin-left: -200px;
   text-align: center;
 `;
+
 export default MainContent;
