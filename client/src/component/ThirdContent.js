@@ -26,24 +26,87 @@ const ThirdContent = () => {
         <RedText>Technology Leaders</RedText>
       </Text>
       <ImgContainer>
-        <Img src={Concordia} alt={Concordia} />
-        <Img src={PolyMtl} alt={PolyMtl} />
-        <Img src={Queens} alt={Queens} />
-        <Img src={Alberta} alt={Alberta} />
-        <Img src={NBC} alt={NBC} />
-        <Img src={IBM} alt={IBM} />
-        <Img src={Cisco} alt={Cisco} />
-        <Img src={TD} alt={TD} />
-        <Img src={Ericsson} alt={Ericsson} />
-        <Img src={Airudi} alt={Airudi} />
-        <Img src={GIRO} alt={GIRO} />
-        <Img src={Radio} alt={Radio} />
-        <Img src={NSER} alt={NSER} />
-        <Img src={IVADO} alt={IVADO} />
-        <Img src={OBVIA} alt={OBVIA} />
-        <Img src={MAIEI} alt={MAIEI} />
-        <Img src={Graz} alt={Graz} />
-        <Img src={Vercel} alt={Vercel} />
+        <Items>
+          <Link href="https://www.concordia.ca/" target="_blank">
+            <Img src={Concordia} alt={Concordia} />{" "}
+          </Link>
+        </Items>
+
+        <Items>
+          <Link href="https://www.polymtl.ca/en/" target="_blank">
+            <Img src={PolyMtl} alt={PolyMtl} />{" "}
+          </Link>
+        </Items>
+
+        <Link href="https://www.queensu.ca/" target="_blank">
+          <Img src={Queens} alt={Queens} />
+        </Link>
+
+        <Link href="https://www.ualberta.ca/index.html" target="_blank">
+          <Img src={Alberta} alt={Alberta} />
+        </Link>
+
+        <Link href="https://www.nbc.ca/" target="_blank">
+          <Img src={NBC} alt={NBC} />
+        </Link>
+
+        <Link href="https://www.ibm.com/ca-en" target="_blank">
+          <Img src={IBM} alt={IBM} />
+        </Link>
+
+        <Link href="https://www.cisco.com/" target="_blank">
+          <Img src={Cisco} alt={Cisco} />
+        </Link>
+
+        <Link href="https://www.td.com/ca/en/personal-banking" target="_blank">
+          <Img src={TD} alt={TD} />
+        </Link>
+
+        <Link href="https://www.ericsson.com/en" target="_blank">
+          <Img src={Ericsson} alt={Ericsson} />
+        </Link>
+
+        <Link href="https://airudi.com/en/" target="_blank">
+          <Img src={Airudi} alt={Airudi} />
+        </Link>
+
+        <Link href="https://www.giro.ca/en-ca/" target="_blank">
+          <Img src={GIRO} alt={GIRO} />
+        </Link>
+
+        <Link href="https://cbc.radio-canada.ca/" target="_blank">
+          <Img src={Radio} alt={Radio} />
+        </Link>
+
+        <Link
+          href="https://www.nserc-crsng.gc.ca/index_eng.asp"
+          target="_blank"
+        >
+          <Img src={NSER} alt={NSER} />
+        </Link>
+
+        <Link href="https://ivado.ca/en/" target="_blank">
+          <Img src={IVADO} alt={IVADO} />
+        </Link>
+
+        <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
+          <Img src={OBVIA} alt={OBVIA} />
+        </Link>
+
+        <Link href="https://montrealethics.ai/" target="_blank">
+          <Img src={MAIEI} alt={MAIEI} />
+        </Link>
+
+        <Link href="https://www.uni-graz.at/en/" target="_blank">
+          <Img src={Graz} alt={Graz} />
+        </Link>
+
+        <Link
+          href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
+          target="_blank"
+        >
+          <Img src={Vercel} alt={Vercel} />
+        </Link>
       </ImgContainer>
     </Container>
   );
@@ -76,6 +139,7 @@ const ImgContainer = styled.div`
   align-content: space-between;
   line-height: 1.5;
   text-align: center;
+  /* width: 50px; */
 `;
 
 const Img = styled.img`
@@ -86,4 +150,12 @@ const Img = styled.img`
   margin: 20px;
   text-align: center;
   border-radius: 15px;
+`;
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+  /* width: 150px; */
+`;
+const Items = styled.div`
+  height: 60px;
 `;
