@@ -26,17 +26,13 @@ const ThirdContent = () => {
         <RedText>Technology Leaders</RedText>
       </Text>
       <ImgContainer>
-        <Items>
-          <Link href="https://www.concordia.ca/" target="_blank">
-            <Img src={Concordia} alt={Concordia} />{" "}
-          </Link>
-        </Items>
+        <Link href="https://www.concordia.ca/" target="_blank">
+          <Img src={Concordia} alt={Concordia} />{" "}
+        </Link>
 
-        <Items>
-          <Link href="https://www.polymtl.ca/en/" target="_blank">
-            <Img src={PolyMtl} alt={PolyMtl} />{" "}
-          </Link>
-        </Items>
+        <Link href="https://www.polymtl.ca/en/" target="_blank">
+          <Img src={PolyMtl} alt={PolyMtl} />{" "}
+        </Link>
 
         <Link href="https://www.queensu.ca/" target="_blank">
           <Img src={Queens} alt={Queens} />
