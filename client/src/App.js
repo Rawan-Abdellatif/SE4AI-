@@ -1,15 +1,20 @@
 // App.js
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
-import Footer from "./component/Footer";
 import Homepage from "./component/Homepage";
+import Program from "./component/Program";
+import Events from "./component/Events";
 const App = () => {
   return (
-    <div className="app">
+    <BrowserRouter>
       <Navbar />
-      <Homepage />
-      <Footer />
-    </div>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/intro" element={<Program />} />
+        <Route path="/events" element={<Events />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
