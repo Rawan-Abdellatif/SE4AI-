@@ -38,10 +38,20 @@ const Navbar = () => {
           <a href="/apply">Apply</a>
         </NavMenuItem>
         <NavMenuItem isDarkMode={isDarkMode}>
+          <a href="/industry">Industry</a>
+        </NavMenuItem>
+        <NavMenuItem isDarkMode={isDarkMode}>
+          <a href="/industry">Industry</a>
+        </NavMenuItem>
+        <NavMenuItem isDarkMode={isDarkMode}>
+          <a href="/mentoring">Mentoring </a>
+        </NavMenuItem>
+        <NavMenuItem isDarkMode={isDarkMode}>
           <Contact isDarkMode={isDarkMode}>
             <a href="/contact">Contact</a>
           </Contact>
         </NavMenuItem>
+
         <NavMenuItem>
           <SwitchLabel>
             <SwitchInput
@@ -92,13 +102,16 @@ const Nav = styled.li`
     cursor: pointer;
     margin-top: -10px;
     margin-left: -30px;
+    /* width: 20px; */
   }
   a {
     /* margin-top: -10px; */
 
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
     text-decoration: none;
-    font-size: 16px;
+    /* border: 1px solid black; */
+    font-size: 14px;
+    /* width: 80px; */
     padding-left: 7px;
     transition: 0.2s;
     text-align: center;
@@ -128,7 +141,7 @@ const NavMenuItem = styled.li`
 `;
 
 const Contact = styled.div`
-  padding-left: 580px;
+  padding-left: 380px;
 `;
 
 const SwitchLabel = styled.label`
