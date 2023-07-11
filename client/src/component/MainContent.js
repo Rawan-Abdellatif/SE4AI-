@@ -120,7 +120,7 @@ const WhiteText = styled.span`
 `;
 
 const RedText = styled.span`
-  color: #db7093;
+  color: #bb5a7d;
 `;
 
 const P = styled.p`
