@@ -11,6 +11,8 @@ import ProgramLeadership from "./ProgramLeadership";
 import Adminstrations from "./Adminstrations";
 import Postdocs from "./Postdocs";
 import Alumni from "./Alumni";
+import Students from "./Students";
+
 // import DrEmadShihabImage from "../component/team/photos/Dr-Emad-Shihab.jpg";
 import AfiyaFahmidaSarahImage from "../component/team/photos/Afiya-Fahmida-Sarah.jpg";
 import AhmedHajYahmedImage from "../component/team/photos/Ahmed-Haj-Yahmed.jpg";
@@ -99,6 +101,11 @@ const Team = () => {
         <RedText>A</RedText>lumni
       </Subtitles>
       <Alumni />
+      <Subtitles>
+        {" "}
+        <RedText>S</RedText>tudents
+      </Subtitles>
+      <Students />
     </Container>
   );
 };
