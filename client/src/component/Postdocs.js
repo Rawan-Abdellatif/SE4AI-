@@ -24,8 +24,9 @@ const Postdocs = () => {
               target="blank"
             >
               <SmallIcon>
-                <AiFillLinkedin />
+                <FaArrowUpRightFromSquare />
               </SmallIcon>
+              <KnowMore>Know more</KnowMore>
             </a>
           </li>
           <li>
