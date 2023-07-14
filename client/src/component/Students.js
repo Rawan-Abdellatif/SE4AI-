@@ -504,7 +504,7 @@ const MiniContainer = styled.div`
   &.emadContainer {
     height: 450px;
   }
-`;
+`; //
 
 const Name = styled.div`
   font-weight: bold;
