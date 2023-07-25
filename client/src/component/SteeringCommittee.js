@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 //import  icons
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -45,10 +46,12 @@ const CommitteeData = [
   },
 ];
 const SteeringCommittee = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <MiddContainer>
+    <MiddContainer isDarkMode={isDarkMode}>
       {CommitteeData.map((committee, index) => (
-        <MiniContainer key={index}>
+        <MiniContainer key={index} isDarkMode={isDarkMode}>
           <Img src={committee.img} alt={committee.name} />
           <Name>{committee.name}</Name>
           <Job>{committee.Job}</Job>
@@ -131,7 +134,10 @@ const MiniContainer = styled.div`
   margin-left: 20px;
   margin-top: 40px;
   border-radius: 10px;
-  border: 2px solid #f4f0ec;
+  border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   padding-top: 0px;
   width: 270px;
   height: 400px;
@@ -174,7 +180,7 @@ const SocialMedia = styled.div`
   padding-top: 10px;
   align-items: center;
   list-style: none;
-  /* height: 50px; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin-left: 5px;
 
   a {
@@ -196,13 +202,13 @@ const SocialMedia = styled.div`
 
 const KnowMore = styled.span`
   margin-left: 5px; /* Adjust the left margin for spacing */
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "#585858" : "white")};
   font-size: 15px;
 `;
 
 const SmallIcon = styled.span`
   font-size: 20px;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "#585858" : "white")};
   font-weight: bold;
   /* margin-right: 9px; */
   padding-left: -70px;
