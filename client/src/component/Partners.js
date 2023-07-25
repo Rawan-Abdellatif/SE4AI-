@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 import Concordia from "./png/Concordia.png";
 import PolyMtl from "./png/PolyMTL.png";
 import Queens from "./png/Queens.png";
@@ -20,128 +21,132 @@ import MAIEI from "./png/MAIEI.png";
 import IVADO from "./png/IVADO.png";
 
 const Partners = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
     <Container>
-      <Title>Our Partners</Title>
-      <ParticipatingSection>
-        <RedText>P</RedText>articipating Universities
-      </ParticipatingSection>
-      <Choices>
-        <ChoiceItem>
-          <Link href="https://www.concordia.ca/" target="_blank">
-            <ParticipatingImg src={Concordia} alt={Concordia} />
-          </Link>
-        </ChoiceItem>
+      <Title isDarkMode={isDarkMode}>Our Partners</Title>
+      <Main isDarkMode={isDarkMode}>
+        <ParticipatingSection isDarkMode={isDarkMode}>
+          <RedText>P</RedText>articipating Universities
+        </ParticipatingSection>
+        <Choices>
+          <ChoiceItem>
+            <Link href="https://www.concordia.ca/" target="_blank">
+              <ParticipatingImg src={Concordia} alt={Concordia} />
+            </Link>
+          </ChoiceItem>
 
-        <ChoiceItem>
-          <Link href="https://www.polymtl.ca/en/" target="_blank">
-            <ParticipatingImg src={PolyMtl} alt={PolyMtl} />
-          </Link>
-        </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.polymtl.ca/en/" target="_blank">
+              <ParticipatingImg src={PolyMtl} alt={PolyMtl} />
+            </Link>
+          </ChoiceItem>
 
-        <ChoiceItem>
-          <Link href="https://www.queensu.ca/" target="_blank">
-            <ParticipatingImg src={Queens} alt={Queens} />
-          </Link>
-        </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.queensu.ca/" target="_blank">
+              <ParticipatingImg src={Queens} alt={Queens} />
+            </Link>
+          </ChoiceItem>
 
-        <ChoiceItem>
-          <Link href="https://www.ualberta.ca/index.html" target="_blank">
-            <ParticipatingImg src={Alberta} alt={Alberta} />
-          </Link>
-        </ChoiceItem>
-      </Choices>
-      <IndustrialSection>
-        <RedText>I</RedText>ndustrial Partners
-      </IndustrialSection>
+          <ChoiceItem>
+            <Link href="https://www.ualberta.ca/index.html" target="_blank">
+              <ParticipatingImg src={Alberta} alt={Alberta} />
+            </Link>
+          </ChoiceItem>
+        </Choices>
+        <IndustrialSection isDarkMode={isDarkMode}>
+          <RedText>I</RedText>ndustrial Partners
+        </IndustrialSection>
 
-      <Choices>
-        <ChoiceItem>
-          <Link href="https://www.nbc.ca/" target="_blank">
-            <ParticipatingImg src={NBC} alt={NBC} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://www.ibm.com/ca-en" target="_blank">
-            <ParticipatingImg src={IBM} alt={IBM} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://www.cisco.com/" target="_blank">
-            <ParticipatingImg src={Cisco} alt={Cisco} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link
-            href="https://www.td.com/ca/en/personal-banking"
-            target="_blank"
-          >
-            <CollaboratorsImg src={TD} alt={TD} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://www.ericsson.com/en" target="_blank">
-            <ParticipatingImg src={Ericsson} alt={Ericsson} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://airudi.com/en/" target="_blank">
-            <ParticipatingImg src={Airudi} alt={Airudi} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://www.giro.ca/en-ca/" target="_blank">
-            <IndustrialImg src={GIRO} alt={GIRO} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://cbc.radio-canada.ca/" target="_blank">
-            <ParticipatingImg src={Radio} alt={Radio} />
-          </Link>
-        </ChoiceItem>
-      </Choices>
+        <Choices>
+          <ChoiceItem>
+            <Link href="https://www.nbc.ca/" target="_blank">
+              <ParticipatingImg src={NBC} alt={NBC} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.ibm.com/ca-en" target="_blank">
+              <ParticipatingImg src={IBM} alt={IBM} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.cisco.com/" target="_blank">
+              <ParticipatingImg src={Cisco} alt={Cisco} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link
+              href="https://www.td.com/ca/en/personal-banking"
+              target="_blank"
+            >
+              <CollaboratorsImg src={TD} alt={TD} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.ericsson.com/en" target="_blank">
+              <ParticipatingImg src={Ericsson} alt={Ericsson} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://airudi.com/en/" target="_blank">
+              <ParticipatingImg src={Airudi} alt={Airudi} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.giro.ca/en-ca/" target="_blank">
+              <IndustrialImg src={GIRO} alt={GIRO} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://cbc.radio-canada.ca/" target="_blank">
+              <ParticipatingImg src={Radio} alt={Radio} />
+            </Link>
+          </ChoiceItem>
+        </Choices>
 
-      <CollaboratorsSection>
-        <RedText>C</RedText>ollaborators and Supporters{" "}
-      </CollaboratorsSection>
-      <Choices>
-        <ChoiceItem>
-          <Link
-            href="https://www.nserc-crsng.gc.ca/index_eng.asp"
-            target="_blank"
-          >
-            <CollaboratorsImg src={NSER} alt={NSER} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://ivado.ca/en/" target="_blank">
-            <CollaboratorsImg src={IVADO} alt={IVADO} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
-            <CollaboratorsImg src={OBVIA} alt={OBVIA} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://montrealethics.ai/" target="_blank">
-            <CollaboratorsImg src={MAIEI} alt={MAIEI} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link href="https://www.uni-graz.at/en/" target="_blank">
-            <CollaboratorsImg src={Graz} alt={Graz} />
-          </Link>
-        </ChoiceItem>
-        <ChoiceItem>
-          <Link
-            href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
-            target="_blank"
-          >
-            <CollaboratorsImg src={Vercel} alt={Vercel} />
-          </Link>
-        </ChoiceItem>
-      </Choices>
+        <CollaboratorsSection isDarkMode={isDarkMode}>
+          <RedText>C</RedText>ollaborators and Supporters{" "}
+        </CollaboratorsSection>
+        <Choices>
+          <ChoiceItem>
+            <Link
+              href="https://www.nserc-crsng.gc.ca/index_eng.asp"
+              target="_blank"
+            >
+              <CollaboratorsImg src={NSER} alt={NSER} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://ivado.ca/en/" target="_blank">
+              <CollaboratorsImg src={IVADO} alt={IVADO} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
+              <CollaboratorsImg src={OBVIA} alt={OBVIA} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://montrealethics.ai/" target="_blank">
+              <CollaboratorsImg src={MAIEI} alt={MAIEI} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link href="https://www.uni-graz.at/en/" target="_blank">
+              <CollaboratorsImg src={Graz} alt={Graz} />
+            </Link>
+          </ChoiceItem>
+          <ChoiceItem>
+            <Link
+              href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
+              target="_blank"
+            >
+              <CollaboratorsImg src={Vercel} alt={Vercel} />
+            </Link>
+          </ChoiceItem>
+        </Choices>
+      </Main>
     </Container>
   );
 };
@@ -149,19 +154,33 @@ const Partners = () => {
 export default Partners;
 
 const Container = styled.div`
-  margin-top: 10px;
-  margin-left: 100px;
+  margin-top: 0px;
+  margin-left: -10px;
+  margin-right: -10px;
+  /* margin-left: 100px; */
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
+  /* width: 100%; */
 `;
 
+const Main = styled.div`
+  margin-top: 0;
+  padding-left: 100px;
+  /* width: 100%;
+  height: 100%; */
+  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
+`;
 const Title = styled.div`
   font-weight: bold;
+  margin-top: 0;
+  padding-left: 100px;
   padding-top: 45px;
   font-size: 45px;
-  color: #484848;
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   padding-bottom: 50px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid
+    ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
+  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
 `;
 
 const ParticipatingSection = styled.div`
@@ -171,6 +190,7 @@ const ParticipatingSection = styled.div`
   margin-left: 20px;
   font-size: 35px;
   font-weight: bold;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
 const IndustrialSection = styled.div`
@@ -180,6 +200,7 @@ const IndustrialSection = styled.div`
   margin-left: 20px;
   font-size: 35px;
   font-weight: bold;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
 const CollaboratorsSection = styled.div`
@@ -189,6 +210,7 @@ const CollaboratorsSection = styled.div`
   margin-left: 20px;
   font-size: 35px;
   font-weight: bold;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
 const ParticipatingImg = styled.img`
