@@ -1,6 +1,7 @@
-// This is the ProgramLeaderShip part in Team  Page
-import React from "react";
+// This is the Postdoc part in Team  Page
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 //import  icons
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -10,23 +11,25 @@ import { MdEmail } from "react-icons/md";
 import DrAhmadAbdellatifImage from "../component/team/photos/Dr-Ahmad-Abdellatif.jpg";
 
 const Postdocs = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <MiniContainer>
+    <MiniContainer isDarkMode={isDarkMode}>
       <Img src={DrAhmadAbdellatifImage} alt="Dr .Ahmad Abdellatif" />{" "}
       <Name>AhmadAbdellatif</Name>
       <University>Concordia University</University>
       <Links>
         {" "}
-        <SocialMedia>
+        <SocialMedia isDarkMode={isDarkMode}>
           <li>
             <a
               href="https://das.encs.concordia.ca/members/ahmad-abdellatif"
               target="blank"
             >
-              <SmallIcon>
+              <SmallIcon isDarkMode={isDarkMode}>
                 <FaArrowUpRightFromSquare />
               </SmallIcon>
-              <KnowMore>Know more</KnowMore>
+              <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
             </a>
           </li>
           <li>
@@ -34,14 +37,14 @@ const Postdocs = () => {
               href="https://www.linkedin.com/in/ahmad-abdellatif-8ab82a29"
               target="blank"
             >
-              <SmallIcon>
+              <SmallIcon isDarkMode={isDarkMode}>
                 <AiFillLinkedin />
               </SmallIcon>
             </a>
           </li>
           <li>
             <a href="https://twitter.com/AhmadAbdellatf" target="blank">
-              <SmallIcon>
+              <SmallIcon isDarkMode={isDarkMode}>
                 <BsTwitter />
               </SmallIcon>
             </a>
@@ -64,7 +67,10 @@ const MiniContainer = styled.div`
   margin-left: 20px;
   margin-top: 40px;
   border-radius: 10px;
-  border: 2px solid #f4f0ec;
+  border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   padding-top: 0px;
   width: 270px;
   height: 400px;
@@ -120,6 +126,7 @@ const SocialMedia = styled.div`
   list-style: none;
   height: 50px;
   margin-left: 15px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
 
   a {
     display: flex;
@@ -140,13 +147,13 @@ const SocialMedia = styled.div`
 
 const SmallIcon = styled.span`
   font-size: 20px;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
   font-weight: bold;
   margin-right: 7px;
 `;
 
 const KnowMore = styled.span`
   margin-right: 3px;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
   font-size: 15px;
 `;

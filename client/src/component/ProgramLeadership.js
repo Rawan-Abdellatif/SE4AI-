@@ -1,6 +1,7 @@
 // This is the ProgramLeaderShip part in Team  Page
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 //import  icons
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { AiFillLinkedin } from "react-icons/ai";
@@ -18,10 +19,12 @@ import DrJinqiuYangImage from "../component/team/photos/Dr-Jinqiu-Yang.jpg";
 import DrSarahNadiImage from "../component/team/photos/Dr-Sarah-Nadi.jpg";
 
 const ProgramLeaderShip = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <MiddContainer>
+    <MiddContainer isDarkMode={isDarkMode}>
       {/* Dr.Emad part */}
-      <MiniContainer className="emadContainer ">
+      <MiniContainer className="emadContainer " isDarkMode={isDarkMode}>
         <Img src={DrEmadShihabImage} alt="Dr. Emad Shihab" />
         <Name>Dr. Emad Shihab</Name>
         <Job>Director</Job>
@@ -35,10 +38,10 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
@@ -47,21 +50,21 @@ const ProgramLeaderShip = () => {
                 href="https://www.linkedin.com/in/emad-shihab-8099523/"
                 target="blank"
               >
-                <SmallIcon>
-                  <AiFillLinkedin />
+                <SmallIcon isDarkMode={isDarkMode}>
+                  <AiFillLinkedin isDarkMode={isDarkMode} />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/EmadShihab" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="mailto:emad.shihab@concordia.ca">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <MdEmail />
                 </SmallIcon>
               </a>
@@ -70,7 +73,7 @@ const ProgramLeaderShip = () => {
         </Links>
       </MiniContainer>
       {/* Dr. Foutse Khomh*/}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         <Img src={DrFoutseKhomhImage} alt=" Dr. Foutse Khomh" />{" "}
         <Name>Dr. Foutse Khomh</Name>
         <University>Polytechnique Montréal</University>
@@ -83,24 +86,24 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
-                  <FaArrowUpRightFromSquare />
+                <SmallIcon isDarkMode={isDarkMode}>
+                  <FaArrowUpRightFromSquare isDarkMode={isDarkMode} />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
             <li>
               <a href="https://www.linkedin.com/in/khomh/" target="blank">
-                <SmallIcon>
-                  <AiFillLinkedin />
+                <SmallIcon isDarkMode={isDarkMode}>
+                  <AiFillLinkedin isDarkMode={isDarkMode} />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/SWATLab" target="blank">
-                <SmallIcon>
-                  <BsTwitter />
+                <SmallIcon isDarkMode={isDarkMode}>
+                  <BsTwitter isDarkMode={isDarkMode} />
                 </SmallIcon>
               </a>
             </li>
@@ -108,7 +111,7 @@ const ProgramLeaderShip = () => {
         </Links>
       </MiniContainer>
       {/*Dr. Tanja Tajmel */}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         <Img
           src={DrTanjaTajmelImage}
           alt="Dr. Tanja Tajmel
@@ -125,17 +128,17 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
           </SocialMedia>
         </Links>
       </MiniContainer>
       {/*Dr. Jinqiu Yang */}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         <Img
           src={DrJinqiuYangImage}
           alt="Dr. Jinqiu Yang
@@ -151,10 +154,10 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
@@ -163,14 +166,14 @@ const ProgramLeaderShip = () => {
                 href="https://www.linkedin.com/in/jinqiu-yang-69767220"
                 target="blank"
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <AiFillLinkedin />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/JinqiuYang" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
@@ -180,22 +183,22 @@ const ProgramLeaderShip = () => {
       </MiniContainer>
       {/*Dr. Ying (Jenny) Zou
        */}{" "}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         <Img src={DrYingJennyZouImage} alt="Dr. Ying (Jenny) Zou" />
         <Name>Dr. Ying (Jenny) Zou</Name>
         <University>Queen’s University</University>
         <Links>
-          <SocialMedia>
+          <SocialMedia isDarkMode={isDarkMode}>
             <li>
               <a
                 href="https://engineering.queensu.ca/ece/people/Y-Zou/"
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
@@ -204,14 +207,14 @@ const ProgramLeaderShip = () => {
                 href="https://www.linkedin.com/in/ying-zou-624501159/"
                 target="blank"
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <AiFillLinkedin />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/YingZou8" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
@@ -221,7 +224,7 @@ const ProgramLeaderShip = () => {
       </MiniContainer>
       {/*Dr. Sarah Nadi
        */}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         {" "}
         <Img
           src={DrSarahNadiImage}
@@ -238,10 +241,10 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
@@ -250,14 +253,14 @@ const ProgramLeaderShip = () => {
                 href="https://www.linkedin.com/in/sarah-nadi-b312b665/"
                 target="blank"
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <AiFillLinkedin />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/sarahnadi" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
@@ -267,7 +270,7 @@ const ProgramLeaderShip = () => {
       </MiniContainer>
       {/*Dr. Ahmed E. Hassan
        */}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         <Img src={DrAhmedEHassanImage} alt="Dr. Ahmed E. Hassan" />
         <Name>Dr. Ahmed E. Hassan</Name>
         <University>Queen’s University</University>
@@ -279,10 +282,10 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
@@ -291,14 +294,14 @@ const ProgramLeaderShip = () => {
                 href="https://www.linkedin.com/in/ahmed-e-hassan/"
                 target="blank"
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <AiFillLinkedin />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/sail_lab" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
@@ -308,7 +311,7 @@ const ProgramLeaderShip = () => {
       </MiniContainer>
       {/* Dr. Bram Adams
        */}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         {" "}
         <Img
           src={DrBramAdamsImage}
@@ -326,23 +329,23 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
             <li>
               <a href="https://twitter.com/mcis_lab" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="mailto:bram.adams@queensu.ca; ">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <MdEmail />
                 </SmallIcon>
               </a>
@@ -352,7 +355,7 @@ const ProgramLeaderShip = () => {
       </MiniContainer>
       {/* Dr. Diego Costa
        */}
-      <MiniContainer>
+      <MiniContainer isDarkMode={isDarkMode}>
         {" "}
         <Img
           src={DrDiegoCostaImage}
@@ -370,10 +373,10 @@ const ProgramLeaderShip = () => {
                 target="_blank"
                 style={{ textDecoration: "none" }}
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <FaArrowUpRightFromSquare />
                 </SmallIcon>
-                <KnowMore>Know more</KnowMore>
+                <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
               </a>
             </li>
 
@@ -382,14 +385,14 @@ const ProgramLeaderShip = () => {
                 href="https://www.linkedin.com/in/diego-elias-costa/"
                 target="blank"
               >
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <AiFillLinkedin />
                 </SmallIcon>
               </a>
             </li>
             <li>
               <a href="https://twitter.com/DiegoEliasCosta" target="blank">
-                <SmallIcon>
+                <SmallIcon isDarkMode={isDarkMode}>
                   <BsTwitter />
                 </SmallIcon>
               </a>
@@ -449,7 +452,10 @@ const MiniContainer = styled.div`
   margin-left: 20px;
   margin-top: 40px;
   border-radius: 10px;
-  border: 2px solid #f4f0ec;
+  border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   padding-top: 0px;
   width: 270px;
   height: 400px;
@@ -504,6 +510,7 @@ const SocialMedia = styled.div`
   list-style: none;
   height: 50px;
   margin-left: 15px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   a {
     display: flex;
@@ -524,16 +531,15 @@ const SocialMedia = styled.div`
 
 const SmallIcon = styled.span`
   font-size: 20px;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
   font-weight: bold;
   margin-right: 7px;
 `;
 
 const KnowMore = styled.span`
   margin-right: 3px;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
   font-size: 15px;
-
   /* white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; */

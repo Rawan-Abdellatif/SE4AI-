@@ -72,19 +72,19 @@ const ProgramCommittee = () => {
             <ul>
               {" "}
               {member.website && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a href={member.website} style={{ textDecoration: "none" }}>
-                      <FaArrowUpRightFromSquare />
-                      <SmallIcon>
-                        <KnowMore>Know more</KnowMore>
+                      <FaArrowUpRightFromSquare isDarkMode={isDarkMode} />
+                      <SmallIcon isDarkMode={isDarkMode}>
+                        <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
                       </SmallIcon>
                     </a>
                   </li>
                 </SocialMedia>
               )}
               {member.linkedin && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   {" "}
                   <li>
                     <a
@@ -92,18 +92,18 @@ const ProgramCommittee = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <SmallIcon>
-                        <AiFillLinkedin />
+                      <SmallIcon isDarkMode={isDarkMode}>
+                        <AiFillLinkedin isDarkMode={isDarkMode} />
                       </SmallIcon>
                     </a>
                   </li>
                 </SocialMedia>
               )}
               {member.email && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a href={`mailto:${member.email}`}>
-                      <SmallIcon>
+                      <SmallIcon isDarkMode={isDarkMode}>
                         <MdEmail />
                       </SmallIcon>
                     </a>
@@ -145,6 +145,7 @@ const MiddContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 5px 5px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
 const Name = styled.div`
@@ -198,19 +199,14 @@ const SocialMedia = styled.div`
     border-radius: 5px;
   }
 `;
-
 const KnowMore = styled.span`
-  margin-left: 5px; /* Adjust the left margin for spacing */
-  color: ${(props) => (props.isDarkMode ? "#585858" : "white")};
+  margin-left: 5px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
   font-size: 15px;
 `;
 
 const SmallIcon = styled.span`
   font-size: 20px;
-  /* color: #585858; */
-  color: ${(props) => (props.isDarkMode ? "#585858" : "white")};
-
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
   font-weight: bold;
-  /* margin-right: 9px; */
-  padding-left: -70px;
 `;
