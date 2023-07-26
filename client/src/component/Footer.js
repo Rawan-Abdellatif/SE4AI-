@@ -120,6 +120,9 @@ export default Footer;
 const FooterContainer = styled.footer`
   background-color: #343a40;
   color: #fff;
+  margin-left: -10px;
+  margin-right: -10px;
+
   padding: 0px 70px;
   font-family: "Open Sans", sans-serif;
   /* width: 100%; */

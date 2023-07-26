@@ -12,56 +12,58 @@ const Navbar = () => {
   };
 
   return (
-    <NavbarContainer isDarkMode={isDarkMode}>
-      <NavMenu>
-        <Nav isDarkMode={isDarkMode}>
-          <a href="/">
-            <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
-          </a>
-          <a href="/">CREATE SE4AI</a>
-        </Nav>{" "}
-      </NavMenu>
-      <NavMenu>
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <a href="/intro">Program</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <a href="/team">Team</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <a href="/blog">Events</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <a href="/governance">Governance</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <a href="/partners">Partners</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <a href="/apply">Apply</a>
-        </NavMenuItem>
+    <NavbarStickyContainer>
+      <NavbarContainer isDarkMode={isDarkMode}>
+        <NavMenu>
+          <Nav isDarkMode={isDarkMode}>
+            <a href="/">
+              <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
+            </a>
+            <a href="/">CREATE SE4AI</a>
+          </Nav>{" "}
+        </NavMenu>
+        <NavMenu>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <a href="/intro">Program</a>
+          </NavMenuItem>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <a href="/team">Team</a>
+          </NavMenuItem>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <a href="/blog">Events</a>
+          </NavMenuItem>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <a href="/governance">Governance</a>
+          </NavMenuItem>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <a href="/partners">Partners</a>
+          </NavMenuItem>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <a href="/apply">Apply</a>
+          </NavMenuItem>
 
-        <NavMenuItem isDarkMode={isDarkMode}>
-          <Contact isDarkMode={isDarkMode}>
-            <a href="/contact">Contact</a>
-          </Contact>
-        </NavMenuItem>
+          <NavMenuItem isDarkMode={isDarkMode}>
+            <Contact isDarkMode={isDarkMode}>
+              <a href="/contact">Contact</a>
+            </Contact>
+          </NavMenuItem>
 
-        <NavMenuItem>
-          <SwitchLabel>
-            <SwitchInput
-              type="checkbox"
-              checked={isDarkMode}
-              onChange={handleToggle}
-            />
-            <Slider
-              className={isDarkMode ? "slider round active" : "slider round"}
-              checked={isDarkMode}
-            />
-          </SwitchLabel>
-        </NavMenuItem>
-      </NavMenu>
-    </NavbarContainer>
+          <NavMenuItem>
+            <SwitchLabel>
+              <SwitchInput
+                type="checkbox"
+                checked={isDarkMode}
+                onChange={handleToggle}
+              />
+              <Slider
+                className={isDarkMode ? "slider round active" : "slider round"}
+                checked={isDarkMode}
+              />
+            </SwitchLabel>
+          </NavMenuItem>
+        </NavMenu>
+      </NavbarContainer>
+    </NavbarStickyContainer>
   );
 };
 
@@ -84,8 +86,16 @@ const NavbarContainer = styled.nav`
   font-family: "Open Sans", sans-serif;
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   /* border-bottom: 1px solid #dcdcdc; */
+  position: ${(props) => (props.scrollPosition > 20 ? "sticky" : "relative")};
+  top: ${(props) => (props.scrollPosition > 20 ? "20px" : "0")};
+  z-index: 100;
+  transition: top 0.3s ease; /* Add a transition for smooth movement */
 `;
-
+const NavbarStickyContainer = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`;
 const NavMenu = styled.ul`
   display: flex;
   padding-top: 10px;
