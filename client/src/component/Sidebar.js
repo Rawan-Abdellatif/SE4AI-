@@ -1,118 +1,109 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { DarkModeContext } from "./DarkModeContext";
 
 const Sidebar = () => {
- 
+  const [isFixed, setIsFixed] = useState(true); // Start with the Sidebar sticky
+  const { isDarkMode } = useContext(DarkModeContext);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      const sidebarContainer = document.querySelector(".sidebar-container");
+      const contentContainer = document.querySelector(".content-container");
+      const stopStickyLink = document.querySelector(".stop-sticky-link");
+
+      if (sidebarContainer && contentContainer && stopStickyLink) {
+        const sidebarHeight = sidebarContainer.clientHeight;
+        const contentHeight = contentContainer.clientHeight;
+        const scrollPosition = window.scrollY;
+
+        // Calculate the position of the stopStickyLink element relative to the Sidebar container
+        const linkRect = stopStickyLink.getBoundingClientRect();
+        const linkPosition = linkRect.top + scrollPosition;
+
+        // Calculate the distance from the bottom of the viewport to the bottom of the sidebar container
+        const sidebarBottom = sidebarContainer.offsetTop + sidebarHeight;
+        const viewportHeight = window.innerHeight;
+        const distanceFromBottom =
+          contentHeight - (sidebarBottom - scrollPosition) - viewportHeight;
+
+        if (distanceFromBottom <= 0) {
+          setIsFixed(false); // Remove sticky when the bottom of the sidebar container reaches the bottom of the content
+        } else if (scrollPosition >= linkPosition - sidebarHeight - 200) {
+          setIsFixed(false); // Remove sticky when the link comes into view
+        } else {
+          setIsFixed(true); // Stick to the top otherwise
+        }
+      }
+    };
+
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
 
   return (
-    <SidebarContainer >
-      
+    <SidebarContainer
+      isDarkMode={isDarkMode}
+      isFixed={isFixed}
+      className="sidebar-container"
+    >
+      <SidebarContent isDarkMode={isDarkMode} className="sidebar-content">
+        <SidebarHeading isDarkMode={isDarkMode}>Recent posts</SidebarHeading>
+        <SidebarLink isDarkMode={isDarkMode} href="/blog/past">
+          Past Events
+        </SidebarLink>
+        <SidebarLink isDarkMode={isDarkMode} href="/blog/upcoming">
+          Upcoming Events
+        </SidebarLink>
+        {/* Add a stopStickyLink element at the end of the content */}
+        <div className="stop-sticky-link" />
+      </SidebarContent>
     </SidebarContainer>
   );
 };
 
+export default Sidebar;
+
 const SidebarContainer = styled.div`
-  background-color: #fff;
-  color: #333;
-  width: ${({ isExpanded }) => (isExpanded ? "280px" : "80px")};
-  height: 100vh;
-  position: fixed;
-  top: 5;
-  left: 0;
-  padding: 30px;
-  transition: width 0.3s;
-  z-index: 100;
-  overflow-x: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 140px;
+  margin-left: 40px;
+  font-family: "Open Sans", sans-serif;
+  position: ${({ isFixed }) => (isFixed ? "sticky" : "absolute")};
+  top: ${({ isFixed }) => (isFixed ? "20px" : "20px")};
+  bottom: ${({ isFixed }) => (isFixed ? "auto" : "40px")};
+  /* border: 4px solid yellow; */
+  margin-top: 40px;
 `;
 
-// const SidebarToggle = styled.div`
-//   cursor: pointer;
-//   display: flex;
-//   justify-content: flex-end;
-//   margin-bottom: 30px;
-// `;
+const SidebarContent = styled.div`
+  position: relative;
+  width: 140px;
+  /* border: 3px solid red; */
+`;
 
-// const ToggleIcon = styled.div`
-//   width: 18px;
-//   height: 18px;
+const SidebarHeading = styled.h2`
+  font-size: 20px;
+  font-weight: bold;
+  /* color: #333333; */
+  color: ${(props) => (props.isDarkMode ? "white" : " #333333")};
 
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   transition: transform 0.3s;
+  margin-top: 70px;
+`;
 
-//   &.expanded {
-//     transform: rotate(180deg);
-//   }
-// `;
+const SidebarLink = styled.a`
+  display: block;
+  color: #666666;
+  font-size: 15px;
+  padding-top: 5px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
-// const Logo = styled.h1`
-//   font-size: 24px;
-//   margin-bottom: 30px;
-// `;
-
-// const NavLinksContainer = styled.div`
-//   margin-top: 30px;
-// `;
-
-// const NavLink = styled(Link)`
-//   text-decoration: none;
-//   color: #333;
-//   font-size: 18px;
-//   font-weight: bold;
-//   margin-bottom: 20px;
-//   display: block;
-
-//   &.active {
-//     color: #1e88e5;
-//   }
-// `;
-
-// const Dropdown = styled.div`
-//   position: relative;
-//   margin-bottom: 20px;
-// `;
-
-// const DropdownToggle = styled.div`
-//   cursor: pointer;
-//   font-size: 18px;
-//   font-weight: bold;
-// `;
-
-// const DropdownContent = styled.div`
-//   display: ${({ isExpanded }) => (isExpanded ? "block" : "none")};
-//   position: absolute;
-//   top: 100%;
-//   left: 0;
-//   background-color: #f5f8fa;
-//   padding: 10px;
-//   border-radius: 4px;
-//   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-//   /* Rest of the code */
-
-//   &::before {
-//     content: "";
-//     position: absolute;
-//     top: -8px;
-//     left: 50%;
-//     transform: translateX(-50%);
-//     border-width: 0 8px 8px;
-//     border-style: solid;
-//     border-color: transparent transparent #f5f8fa;
-//   }
-// `;
-
-// const DropdownLink = styled(Link)`
-//   text-decoration: none;
-//   color: #333;
-//   font-size: 16px;
-//   display: block;
-//   padding: 5px 0;
-
-//   &:hover {
-//     color: #1e88e5;
-//   }
-// `;
-
-export default Sidebar;
+  &:hover {
+    color: #bb5a7d;
+  }
+`;

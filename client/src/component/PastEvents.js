@@ -1,6 +1,7 @@
 // This is the Events Page
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 ///// import all of photos
 import apr252023Image from "../component/2022-09-21-past/apr252023.jpg";
 import april32023Image from "../component/2022-09-21-past/april32023.jpg";
@@ -25,21 +26,26 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Sidebar from "./Sidebar";
 import RightSidebar from "./RightSidebar";
 const PastEvents = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <Container>
+    <Container isDarkMode={isDarkMode}>
       <Sidebar />
-      <MainContent>
+      <MainContent isDarkMode={isDarkMode}>
         {" "}
-        <Title>Past Events</Title>
-        <Subtitle id="industry-talks-webinar---april-25-2023">
+        <Title isDarkMode={isDarkMode}>Past Events</Title>
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="industry-talks-webinar---april-25-2023"
+        >
           Industry Talks Webinar - April 25, 2023
           <a href="#industry-talks-webinar---april-25-2023"> #</a>
           <Img src={apr252023Image} alt=" apr252023.jpg" />
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           CREATE SE4AI is pleased to present Patrick Mesana, Consultant at
           National Bank of Canada and PhD Candidate at HEC, who spoke
-          <Bold>
+          <Bold isDarkMode={isDarkMode}>
             {" "}
             on Balancing Data Valorization and Privacy: Industry Challenges and
             Opportunities.
@@ -57,8 +63,8 @@ const PastEvents = () => {
           future disruptors, such as open banking in Canada, particularly
           relevant to the finance sector.
         </Details>
-        <Bold2>About the Speaker:</Bold2>
-        <Details>
+        <Bold2 isDarkMode={isDarkMode}>About the Speaker:</Bold2>
+        <Details isDarkMode={isDarkMode}>
           Patrick Mesana began his career as a software engineer, gaining
           experience with consulting companies and startups before transitioning
           into the field of Data Science. As a former manager in the Data Office
@@ -68,7 +74,7 @@ const PastEvents = () => {
           In addition, Patrick serves as a researcher and scientific lead on
           these topics for the AI Factory at NBC.
         </Details>
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -78,16 +84,19 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>
-        <Subtitle id="trainee-talks-webinar---april-3rd-2023">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="trainee-talks-webinar---april-3rd-2023"
+        >
           Trainee Talks Webinar - April 3rd, 2023{" "}
           <a href="#trainee-talks-webinar---april-3rd-2023"> #</a>
           <Img src={april32023Image} alt=" april32023.jpg" />
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           The Spring Trainee Talks webinar was a huge success and we were
           pleased to have 27 participants join!
         </Details>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           In this webinar, 2 PhD students from Polytechnique Montréal under
           Prof. Foutse Khomh delivered their research topics. Vahid Majdinasab
           spoke on his topic of Mutation Testing of Deep Reinforcement Learning
@@ -95,7 +104,7 @@ const PastEvents = () => {
           Empirical Study on the Usage of Automated Machine Learning Tools. A 10
           min Q&A session followed after each presentation.
         </Details2>
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -105,11 +114,14 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>
-        <Subtitle id="women-in-engineering-wie---march-18-2023">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="women-in-engineering-wie---march-18-2023"
+        >
           Women in Engineering (WIE) - March 18, 2023
           <a href="#women-in-engineering-wie---march-18-2023"> #</a>
         </Subtitle>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           On March 18th , CREATE SE4AI took part in WIE Inspire WIE Empower, an
           annual event hosted by the
           <a href="https://www.womeninengineeringconcordia.com/ ">
@@ -126,37 +138,39 @@ const PastEvents = () => {
           encourages young women to explore engineering and computer science as
           career options.
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           This year, WIE welcomed over 80 high school girls aged 12-17 to
           Concordia for an exciting day of inspiration and exploration. After a
           welcome address by Dr. Gina Cody, students participated in 4 hands-on,
           industry-led workshops. CREATE SE4AI trainees and Master’s students
-          <Bold> Divya Kamath</Bold> (Queen’s University),
-          <Bold> Lorena Barreto </Bold>(Concordia University) and{" "}
-          <Bold>Khaled Badran </Bold>(Concordia University), along with Program
-          Coordinator <Bold>Lori Akiyama </Bold> developed and delivered a fun,
-          interactive workshop on AI and Chatbots to 4 groups of students. The
-          goals of the workshop were to:
+          <Bold isDarkMode={isDarkMode}> Divya Kamath</Bold> (Queen’s
+          University),
+          <Bold isDarkMode={isDarkMode}> Lorena Barreto </Bold>(Concordia
+          University) and <Bold isDarkMode={isDarkMode}>Khaled Badran </Bold>
+          (Concordia University), along with Program Coordinator{" "}
+          <Bold isDarkMode={isDarkMode}>Lori Akiyama </Bold> developed and
+          delivered a fun, interactive workshop on AI and Chatbots to 4 groups
+          of students. The goals of the workshop were to:
         </Details2>
-        <Ol>
-          <Li>
+        <Ol isDarkMode={isDarkMode}>
+          <Li isDarkMode={isDarkMode}>
             Introduce the basic concepts of AI and chatbots to the students
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Encourage the students to develop confidence interacting with
             technology
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Stimulate a discussion of ethics of AI in society through a group
             reflection exercise
           </Li>
         </Ol>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           At the end of the workshop, the students shared their experiences
           interacting with chatbots and reflected on the importance of creating
           responsible and ethical AI.
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           CREATE was proud to contribute to this important initiative, and we
           look forward to more opportunities to engage with youth and inspire
           them to learn more about software engineering and AI in the future.
@@ -166,19 +180,22 @@ const PastEvents = () => {
           <Img2 src={wie2Image} alt="wie2Image" />
           <Img2 src={wie3Image} alt="wie3Image" />
         </Image>
-        <Subtitle id="trainee-talks-webinar---february-27-2023">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="trainee-talks-webinar---february-27-2023"
+        >
           Trainee Talks Webinar - February 27, 2023
           <a href="#trainee-talks-webinar---february-27-2023"> #</a>
           <Img src={feb272023Image} alt=" feb272023.jpg" />
         </Subtitle>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           In the first Trainee Talks webinar of 2023, Pierre-Olivier Côté, a
           Master's student at Polytechnique Montréal spoke about Quality Issues
           in Machine Learning Software Systems. Immediately following,
           University of Alberta PhD student Akalanka Galappaththi presented his
           work on “A Data Set of Generalizable Python Code Change Patterns”.
         </Details2>
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -188,16 +205,19 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>
-        <Subtitle id="industry-talks-webinar---february-10-2023">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="industry-talks-webinar---february-10-2023"
+        >
           Industry Talks Webinar - February 10, 2023
           <a href="#industry-talks-webinar---february-10-2023">#</a>
           <Img src={feb102023Image} alt="feb102023.jpg" />
         </Subtitle>
-        <Bold>
+        <Bold isDarkMode={isDarkMode}>
           Deploying Effective Machine Learning Models in Production: Two Use
           Cases
         </Bold>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           Dr. Gabor Melli, VP of Engineering, AI/ML at San Francisco-based
           Medable joined us for our first industry talk webinar of 2023! Gabor
           Melli is a seasoned professional with a proven track record of leading
@@ -210,8 +230,8 @@ const PastEvents = () => {
           presented his research at various applied AI research conferences,
           including AAAI, KDD, LREC, and ICDM.
         </Details2>
-        <Bold2>Abstract</Bold2>
-        <Details>
+        <Bold2 isDarkMode={isDarkMode}>Abstract</Bold2>
+        <Details isDarkMode={isDarkMode}>
           Predictive machine learning has the ability to automate and optimize
           workflows across a wide range of industries. In this session, we will
           explore real-life examples of how predictive machine learning is being
@@ -227,7 +247,7 @@ const PastEvents = () => {
           comprehensive overview of the various applications and potential of
           predictive machine learning.
         </Details>
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -237,26 +257,29 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>
-        <Subtitle id="trainee-talks-webinar---december-13-2022">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="trainee-talks-webinar---december-13-2022"
+        >
           Trainee Talks Webinar - December 13, 2022{" "}
           <a href="#trainee-talks-webinar---december-13-2022"> #</a>
           <Img src={trainee_talk_2Image} alt=" trainee_talk_2.jpg" />
         </Subtitle>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           Trainee Talks is a monthly webinar series featuring CREATE SE4AI
           trainees sharing their research topics in software engineering and AI.{" "}
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           This time, Queen's University Master's student Ernesto Lang Oreamuno
           joined us and spoke about Documentation Practices of Third-Party
           Models and Datasets.
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           Immediately following, Rached Bouchoucha, École Polytechnique Master's
           student presented his work on de-bugging Deep Reinforcement Learning
           (DLR) Frameworks.
         </Details2>
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -266,43 +289,46 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>
-        <Subtitle id="industry-talks-webinar---november-18-2022">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="industry-talks-webinar---november-18-2022"
+        >
           Industry Talks Webinar - November 18, 2022{" "}
           <a href="#industry-talks-webinar---november-18-2022"> #</a>
           <Img src={telecom2Image} alt=" telecom2.jpg" />
         </Subtitle>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           CREATE SE4AI is pleased to present{" "}
-          <Bold>AI Adoption in Telecom Networks</Bold> as part of our Industry
-          Talks webinar series.
+          <Bold isDarkMode={isDarkMode}>AI Adoption in Telecom Networks</Bold>{" "}
+          as part of our Industry Talks webinar series.
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           Did you know that revenue generated from AI automation in telecom
           networks is expected to reach USD 200 billion by 2027? What are some
           of the current challenges Ericsson, a global leader in ICT solutions
           faces as they adopt new technologies in AI and ML in their products
           and services, and how are they overcoming them?
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           In his presentation, Karthikeyan Premkumar, Data Scientist at Ericsson
           used case studies to highlight several touchpoints involving the ML
           model development process, tools, data quality, ML Ops (monitoring and
           retraining) and deployment as part of model industrialization.
         </Details2>
-        <Bold2>About the Speaker</Bold2>
-        <Details>
+        <Bold2 isDarkMode={isDarkMode}>About the Speaker</Bold2>
+        <Details isDarkMode={isDarkMode}>
           Karthik Premkumar has 18 years of experience in the telecom industry.
           His expertise lies in industrializing AI/ML solutions, designing
           system and solution architectures in BSS, Cloud and infrastructure
           platforms for telecom networks.
         </Details>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           In his current role as Data Scientist at Ericsson in Montreal, QC,
           Karthik Premkumar designs knowledge models and machine reasoning
           technologies for cognitive networks. He has published over 10 patents
           and papers on telecom analytics.
         </Details2>
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -312,36 +338,39 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>
-        <Subtitle id="trainee-talks-webinar---november-4-2022">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="trainee-talks-webinar---november-4-2022"
+        >
           Trainee Talks Webinar - November 4, 2022
           <a href="#trainee-talks-webinar---november-4-2022"> #</a>
           <Img src={trainee_talk_1Image} alt="trainee_talk_1.jpg" />
         </Subtitle>
-        <Details2>
-          <Bold>Topics:</Bold> Dependency Management and Testing of AI-based
-          Software Systems
+        <Details2 isDarkMode={isDarkMode}>
+          <Bold isDarkMode={isDarkMode}>Topics:</Bold> Dependency Management and
+          Testing of AI-based Software Systems
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           Our monthly<Bold> CREATE SE4AI Trainee Talks</Bold> webinar series
           kicked off with 2 graduate Software Engineering students presenting
           their research.
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           In the first of our series of trainee-led webinars, we invited 2
           graduate students to deliver their research topics to the broader
           public.
         </Details2>
-        <Details2>
-          <Bold>Ahmed Haj Yahmed,</Bold> a Master's student at Polytechnique
-          Montréal presented DiverGet: a Search-based Software Testing Approach
-          for Deep Neural Network Quantization Assessment. Immediately
-          following, Concordia University PhD candidate{" "}
-          <Bold>Jasmine Latendresse</Bold>
+        <Details2 isDarkMode={isDarkMode}>
+          <Bold isDarkMode={isDarkMode}>Ahmed Haj Yahmed,</Bold> a Master's
+          student at Polytechnique Montréal presented DiverGet: a Search-based
+          Software Testing Approach for Deep Neural Network Quantization
+          Assessment. Immediately following, Concordia University PhD candidate{" "}
+          <Bold isDarkMode={isDarkMode}>Jasmine Latendresse</Bold>
           presented her work on software production dependencies which she
           recently delivered at the IEEE/ACM 2022 Conference on Automated
           Software Engineering (ASE '22) in Michigan.
         </Details2>{" "}
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -351,11 +380,14 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>{" "}
-        <Subtitle id="create-se4ai-retreat---june-3-2022">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="create-se4ai-retreat---june-3-2022"
+        >
           CREATE SE4AI Retreat - June 3, 2022
           <a href="#create-se4ai-retreat---june-3-2022"> #</a>
         </Subtitle>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           Our 1st annual CREATE SE4AI Program Retreat is a wrap! It was an
           inspiring day of celebrating our collective accomplishments and
           exchanging ideas amongst an amazing team of students, professors and
@@ -392,24 +424,29 @@ const PastEvents = () => {
             <HoverImg3 src={group4Image} alt="  group4.jpg" />
           </HoverContainer>
         </Group>
-        <Subtitle id="guest-speaker-webinar---april-12-2022">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="guest-speaker-webinar---april-12-2022"
+        >
           Guest Speaker Webinar - April 12, 2022{" "}
           <a href="#guest-speaker-webinar---april-12-2022"> #</a>
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           CREATE SE4AI trainees, profs and partners enjoyed a webinar presented
           by Olivier Blais, co-founder and VP of Decision Science at Moov AI in
           Montréal. Olivier spoke about "Delivering High Quality Machine
           Learning Models" including:
         </Details>
-        <Group2>
-          <Ol>
-            <Li>
+        <Group2 isDarkMode={isDarkMode}>
+          <Ol isDarkMode={isDarkMode}>
+            <Li isDarkMode={isDarkMode}>
               What it means to develop high quality artificial intelligence
             </Li>
-            <Li>A better approach to ML model evaluation</Li>
+            <Li isDarkMode={isDarkMode}>
+              A better approach to ML model evaluation
+            </Li>
             <Li>Existing and future certifications for AI systems</Li>
-            <Details>
+            <Details isDarkMode={isDarkMode}>
               Bio:{" "}
               <a href="https://moov.ai/en/olivier-blais">
                 https://moov.ai/en/olivier-blais/
@@ -418,7 +455,7 @@ const PastEvents = () => {
           </Ol>
           <Img4 src={olivierImage} alt="olivier.jpg" />
         </Group2>{" "}
-        <YoutubeChannel>
+        <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
           <a
             href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
@@ -428,29 +465,32 @@ const PastEvents = () => {
             CREATE SE4AI YouTube channel
           </a>
         </YoutubeChannel>{" "}
-        <Subtitle id="guest-speaker-webinar---february-3-2022">
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="guest-speaker-webinar---february-3-2022"
+        >
           Guest Speaker Webinar - February 3, 2022{" "}
           <a href="#guest-speaker-webinar---february-3-2022"> #</a>
         </Subtitle>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           CREATE SE4AI hosted a webinar by Sumon Biswas, PhD Candidate at Iowa
           State University on "Understanding and Reasoning Fairness of Machine
           Learning Pipeline".
         </Details2>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           <Bold>Link to presentation:</Bold>
         </Details2>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
             https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
           </a>
         </Details>
-        <Details2>
+        <Details2 isDarkMode={isDarkMode}>
           <Bold>About the Speaker</Bold>
         </Details2>
         <Group3>
           {" "}
-          <Details3>
+          <Details3 isDarkMode={isDarkMode}>
             Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
             University (ISU) and a Research Assistant in Laboratory for Software
             Design at ISU under the supervision of Professor Hridesh Rajan. His
@@ -469,12 +509,12 @@ const PastEvents = () => {
           </Details3>{" "}
           <Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
         </Group3>
-        <Details2>
-          <Bold>Homepage:</Bold>
+        <Details2 isDarkMode={isDarkMode}>
+          <Bold isDarkMode={isDarkMode}>Homepage:</Bold>
 
           <a href="https://sumonbis.github.io/">https://sumonbis.github.io/</a>
         </Details2>
-        <Button>
+        <Button isDarkMode={isDarkMode}>
           Older Post
           <a href="/blog/upcoming">
             Upcoming Events{" "}
@@ -500,14 +540,14 @@ const MainContent = styled.div`
   /* flex: 1; */
   margin-left: 170px;
   padding-top: -40px;
-  color: #bb5a7d;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 640px;
 `;
 
 const Title = styled.h1`
   font-weight: bold;
   font-size: 60px;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Subtitle = styled.div`
   padding-top: 20px;
@@ -515,10 +555,10 @@ const Subtitle = styled.div`
 
   margin-bottom: 20px;
   font-size: 30px;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-weight: bold;
   a {
-    color: white;
+    color: ${(props) => (props.isDarkMode ? "#181818" : "#484848")};
     font-weight: bold;
   }
   a:hover {
@@ -532,7 +572,7 @@ const Img = styled.img`
   padding-top: 20px;
 `;
 const Details = styled.div`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   /* flex: 1; */
   width: 640px;
   line-height: 1.7em;
@@ -548,10 +588,10 @@ const Details = styled.div`
 
 const Bold = styled.span`
   font-weight: bold;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Details2 = styled.div`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   width: 640px;
   line-height: 2em;
   font-size: 15px;
@@ -567,11 +607,11 @@ const Details2 = styled.div`
 `;
 const Bold2 = styled.span`
   font-weight: bold;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   line-height: 5em;
 `;
 const YoutubeChannel = styled.div`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   line-height: 5em;
   a {
     color: #bb5a7d;
@@ -588,9 +628,10 @@ const Ol = styled.ol`
   line-height: 1.8em;
   width: 600px;
   margin-left: 5px;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Li = styled.li`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-size: 15px;
   margin-bottom: 20px;
   width: 580px;
@@ -644,7 +685,7 @@ const Group2 = styled.div`
   padding-top: 10px;
 
   Li {
-    color: black;
+    color: ${(props) => (props.isDarkMode ? "white" : "black")};
     font-size: 15px;
     margin-bottom: 20px;
     width: 380px;
@@ -669,7 +710,7 @@ const Button = styled.button`
   font-size: 13px;
   font-weight: bold;
   line-height: 1.7em;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
 
   border: 1px solid #e8e8e8;
   &:hover {
@@ -692,7 +733,7 @@ const Icon = styled.div`
   color: #bb5a7d;
 `;
 const Details3 = styled.div`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   flex: 1;
   width: 640px;
   line-height: 1.7em;
@@ -710,4 +751,11 @@ const Img5 = styled.img`
   height: 180px;
   /* margin-left: -200px; */
   margin-right: 170px;
+`;
+const SidebarContainer = styled.div`
+  /* position: sticky; */
+  /* top: 40px; Adjust this value as needed to position the sidebar */
+  max-height: calc(
+    200vh -10px
+  ); /* Adjust this value as needed to set the max height of the sidebar */
 `;

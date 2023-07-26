@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
 import Sidebar from "./Sidebar";
 const UpcomingEvents = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
     <Container>
       <Sidebar />
 
       <MainContent>
-        <Title>Upcoming Events</Title>
-        <Button1>
+        <Title isDarkMode={isDarkMode}>Upcoming Events</Title>
+        <Button1 isDarkMode={isDarkMode}>
           New Post
           <a href="/blog/past">
             {" "}
@@ -41,7 +44,7 @@ const MainContent = styled.div`
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Button1 = styled.button`
   width: 370px;
@@ -57,7 +60,7 @@ const Button1 = styled.button`
   font-weight: bold;
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   &:hover {
     border: 1px solid #bb5a7d;

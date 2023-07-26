@@ -59,22 +59,21 @@ const SteeringCommittee = () => {
             <ul>
               {" "}
               {committee.website && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a
                       href={committee.website}
                       style={{ textDecoration: "none" }}
                     >
-                      <FaArrowUpRightFromSquare />
-                      <SmallIcon>
-                        <KnowMore>Know more</KnowMore>
+                      <SmallIcon isDarkMode={isDarkMode}>
+                        <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
                       </SmallIcon>
                     </a>
                   </li>
                 </SocialMedia>
               )}
               {committee.linkedin && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   {" "}
                   <li>
                     <a
@@ -82,33 +81,33 @@ const SteeringCommittee = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <SmallIcon>
-                        <AiFillLinkedin />
+                      <SmallIcon isDarkMode={isDarkMode}>
+                        <AiFillLinkedin isDarkMode={isDarkMode} />
                       </SmallIcon>
                     </a>
                   </li>
                 </SocialMedia>
               )}
               {committee.twitter && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a
                       href={committee.twitter}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <SmallIcon>
-                        <BsTwitter />
+                      <SmallIcon isDarkMode={isDarkMode}>
+                        <BsTwitter isDarkMode={isDarkMode} />
                       </SmallIcon>
                     </a>
                   </li>{" "}
                 </SocialMedia>
               )}
               {committee.email && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a href={`mailto:${committee.email}`}>
-                      <SmallIcon>
+                      <SmallIcon isDarkMode={isDarkMode}>
                         <MdEmail />
                       </SmallIcon>
                     </a>
@@ -202,13 +201,13 @@ const SocialMedia = styled.div`
 
 const KnowMore = styled.span`
   margin-left: 5px; /* Adjust the left margin for spacing */
-  color: ${(props) => (props.isDarkMode ? "#585858" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 15px;
 `;
 
 const SmallIcon = styled.span`
   font-size: 20px;
-  color: ${(props) => (props.isDarkMode ? "#585858" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-weight: bold;
   /* margin-right: 9px; */
   padding-left: -70px;

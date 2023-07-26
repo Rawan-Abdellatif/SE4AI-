@@ -111,6 +111,8 @@ export default ThirdContent;
 
 const Container = styled.div`
   background-color: #101010;
+  margin-left: -10px;
+  margin-right: -10px;
   padding: 5px 0;
   text-align: center;
   font-family: "Open Sans", sans-serif;

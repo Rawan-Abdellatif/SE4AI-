@@ -1,58 +1,61 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 import ProgramSidebar from "./ProgramSidebar";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 const ProgramObjectives = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <Container>
+    <Container isDarkMode={isDarkMode}>
       <ProgramSidebar />
       <MainContent>
-        <Title>Program Objectives</Title>
-        <Details>
+        <Title isDarkMode={isDarkMode}>Program Objectives</Title>
+        <Details isDarkMode={isDarkMode}>
           The objective of the SE4AI CREATE program is to fill the major
           shortage in HQP that can develop, deploy and service AI-based software
           systems and equally provide the HQP with a solid background on ethical
           and social understanding of AI. Our program is driven by six key
           training objectives:
         </Details>
-        <Ul>
-          <Li>
+        <Ul isDarkMode={isDarkMode}>
+          <Li isDarkMode={isDarkMode}>
             Prepare trainees that are knowledgeable in both technical and social
             aspects needed to develop, deploy and service AI-based software
             systems.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Provide trainees with real-life experiences where they can be
             exposed to challenges and best practices involving the development
             of AI-based software systems.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Bridge the gap between practice and academia by offering trainees
             opportunities to interact closely with practitioners and
             non-technical disciplines in order to train them on effective
             methods to communicate impactful and sustainable academic
             innovations.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Provide trainees with opportunities to develop highly sought-after
             professional skills such as communication, collaboration,
             leadership, entrepreneurship, and mentorship.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Expose trainees to the latest research (both technical and social
             aspects) in the development, deployment, and servicing of AI-based
             software systems and ensure that, by completing world-class research
             projects and theses, they will be prepared to play leadership roles
             in shaping the future of this very important area.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Enable trainees to customize their training program to better suit
             their needs and aspirations.
           </Li>
         </Ul>
-        <Button>
-          <Button1>
+        <Button isDarkMode={isDarkMode}>
+          <Button1 isDarkMode={isDarkMode}>
             Previous
             <a href="/intro">
               {" "}
@@ -62,7 +65,7 @@ const ProgramObjectives = () => {
               Program Overview
             </a>
           </Button1>{" "}
-          <Button2>
+          <Button2 isDarkMode={isDarkMode}>
             Next
             <a href="/training-program/components">
               Program Components
@@ -81,21 +84,25 @@ export default ProgramObjectives;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
+  border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
 const MainContent = styled.div`
   /* flex: 1; */
   margin-left: 20px;
   padding-top: -40px;
-  color: #bb5a7d;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
   color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Details = styled.div`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 700px;
   line-height: 1.7em;
   font-size: 17px;
@@ -106,9 +113,10 @@ const Ul = styled.ul`
   font-size: 15px;
   line-height: 1.7em;
   width: 700px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Li = styled.li`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 15px;
   margin-bottom: 10px;
 `;
@@ -124,7 +132,7 @@ const Button2 = styled.button`
   font-size: 13px;
   font-weight: bold;
   line-height: 1.7em;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   border: 1px solid #e8e8e8;
   &:hover {
@@ -160,7 +168,7 @@ const Button1 = styled.button`
   font-weight: bold;
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   &:hover {
     border: 1px solid #bb5a7d;

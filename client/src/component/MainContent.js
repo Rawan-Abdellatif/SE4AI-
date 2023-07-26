@@ -37,6 +37,8 @@ const MainContainer = styled.div`
   align-content: center;
   color: white;
   font-family: "Open Sans", sans-serif;
+  margin-left: -10px;
+  margin-right: -10px;
 `;
 
 const HeroSection = styled.section`
@@ -50,6 +52,7 @@ const HeroSection = styled.section`
 const Nserc = styled.div`
   font-size: 25px;
   /* position: absolute; */
+
   bottom: -20px;
   left: 90%;
   transform: translateX(-20%);

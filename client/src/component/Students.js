@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 
 //import  icons
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
@@ -402,10 +403,12 @@ const students = [
   },
 ];
 const Students = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <MiddContainer>
+    <MiddContainer isDarkMode={isDarkMode}>
       {students.map((student, index) => (
-        <MiniContainer key={index}>
+        <MiniContainer key={index} isDarkMode={isDarkMode}>
           <Img src={student.img} alt={student.name} />
           <Name>{student.name}</Name>
           <University>{student.University}</University>
@@ -413,7 +416,7 @@ const Students = () => {
             <ul>
               {" "}
               {student.website && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a
                       href={student.website}
@@ -421,15 +424,15 @@ const Students = () => {
                       style={{ textDecoration: "none" }}
                     >
                       <FaArrowUpRightFromSquare />
-                      <SmallIcon>
-                        <KnowMore>Know more</KnowMore>
+                      <SmallIcon isDarkMode={isDarkMode}>
+                        <KnowMore isDarkMode={isDarkMode}>Know more</KnowMore>
                       </SmallIcon>
                     </a>
                   </li>
                 </SocialMedia>
               )}
               {student.linkedin && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   {" "}
                   <li>
                     <a
@@ -437,7 +440,7 @@ const Students = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <SmallIcon>
+                      <SmallIcon isDarkMode={isDarkMode}>
                         <AiFillLinkedin />
                       </SmallIcon>
                     </a>
@@ -445,14 +448,14 @@ const Students = () => {
                 </SocialMedia>
               )}
               {student.twitter && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a
                       href={student.twitter}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <SmallIcon>
+                      <SmallIcon isDarkMode={isDarkMode}>
                         <BsTwitter />
                       </SmallIcon>
                     </a>
@@ -460,10 +463,10 @@ const Students = () => {
                 </SocialMedia>
               )}
               {student.email && (
-                <SocialMedia>
+                <SocialMedia isDarkMode={isDarkMode}>
                   <li>
                     <a href={`mailto:${student.email}`}>
-                      <SmallIcon>
+                      <SmallIcon isDarkMode={isDarkMode}>
                         <MdEmail />
                       </SmallIcon>
                     </a>
@@ -497,7 +500,10 @@ const MiniContainer = styled.div`
   margin-left: 20px;
   margin-top: 40px;
   border-radius: 10px;
-  border: 2px solid #f4f0ec;
+  border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   padding-top: 0px;
   width: 270px;
   height: 400px;
@@ -543,6 +549,8 @@ const SocialMedia = styled.div`
   flex-direction: row;
   list-style: none;
   height: 50px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
+
   margin-left: 15px;
 
   a {
@@ -565,6 +573,7 @@ const SmallIcon = styled.span`
   color: #585858;
   font-weight: bold;
   margin-right: 7px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
 `;
 
 const KnowMore = styled.span`
@@ -573,4 +582,5 @@ const KnowMore = styled.span`
   font-size: 15px;
   align-items: center;
   align-items: center;
+  color: ${(props) => (props.isDarkMode ? "white" : "#585858")};
 `;

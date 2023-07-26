@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { DarkModeContext } from "./DarkModeContext";
 import ProgramSidebar from "./ProgramSidebar";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import ProgramComponentRightSidebar from "./ProgramComponentRightSidebar";
 const ProgramComponents = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <Container>
-      <ProgramSidebar />
-      <MainContent>
-        <Title>Program components</Title>
-        <Subtitle id="engineering-ai-based-software-systems">
+    <Container isDarkMode={isDarkMode}>
+      <ProgramSidebarContainer isDarkMode={isDarkMode}>
+        <ProgramSidebar />
+      </ProgramSidebarContainer>
+      <MainContent isDarkMode={isDarkMode}>
+        <Title isDarkMode={isDarkMode}>Program components</Title>
+        <Subtitle
+          id="engineering-ai-based-software-systems"
+          isDarkMode={isDarkMode}
+        >
           Engineering AI-based Software Systems​
           <a href="#engineering-ai-based-software-systems"> #</a>
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           The main focus of the course is on the interconnection of SE+AI and
           how these topics apply for AI-based systems. For example, issues
           related to CI/CD during development while handling large training data
@@ -27,17 +36,40 @@ const ProgramComponents = () => {
           The prepared cases will be used in following years to enrich our
           training and will be disseminated to the international community.
         </Details>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           Although the course will mainly focus on the engineering of AI-based
           systems, trainees will be asked to reflect on the social aspects and
           how they influenced the engineering aspects of the system.
         </Details>
-        <Subtitle id="professional-development-modules">
-          {" "}
+        <Subtitle
+          id="social-aspects-for-ai-based-software-system"
+          isDarkMode={isDarkMode}
+        >
+          Social Aspects for AI-based Software System{" "}
+          <a href="#social-aspects-for-ai-based-software-system"> #</a>
+        </Subtitle>
+        <Details isDarkMode={isDarkMode}>
+          A newly developed course that focuses on various social criteria that
+          AI-based systems need to consider, e.g., privacy, ethics, equity,
+          diversity, inclusion (EDI), human rights and sustainable development
+          goals (SDG). Trainees will be introduced to the fundamental theories,
+          normative frameworks and ethical concepts and will learn to apply them
+          on AI-based systems. To gain applied knowledge on the concepts they
+          are taught, trainees will be provided with existing AI-based systems,
+          or can use their projects from the Engineering AI-based Software
+          Systems course, and will be asked to write a report on these systems.
+          The reports will examine the various social aspects of the system
+          being studied and report on how these aspects have been considered (or
+          not) in the studied systems. Trainees will be asked to come up with an
+          ethical assessment and concrete recommendations for such systems,
+          while considering the engineering implications of their
+          recommendations.
+        </Details>
+        <Subtitle id="professional-development-modules" isDarkMode={isDarkMode}>
           Professional Development Modules​
           <a href="#professional-development-modules"> #</a>
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           SE4AI CREATE trainees will be offered the opportunity to go on one or
           more internships with our industrial partners. Master’s trainees will
           typically serve a single four-month internship, typically after their
@@ -45,42 +77,55 @@ const ProgramComponents = () => {
           four-month internships. Trainees will be supported by their academic
           supervisors and the relevant contact at the host partner.
         </Details>
-        <Subtitle id="industry-webinars-or-seminars">
+        <Subtitle id="industrial-embedding" isDarkMode={isDarkMode}>
+          {" "}
+          Industrial Embedding​
+          <a href="#industrial-embedding"> #</a>
+        </Subtitle>
+        <Details isDarkMode={isDarkMode}>
+          SE4AI CREATE trainees will be offered the opportunity to go on one or
+          more internships with our industrial partners. Master’s trainees will
+          typically serve a single four-month internship, typically after their
+          second term in the program. PhD trainees will typically serve two
+          four-month internships. Trainees will be supported by their academic
+          supervisors and the relevant contact at the host partner.
+        </Details>
+        <Subtitle id="industry-webinars-or-seminars" isDarkMode={isDarkMode}>
           {" "}
           Industry Webinars or Seminars​
           <a href="#industry-webinars-or-seminars"> #</a>
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           All trainees will have the opportunity to present at least one online
           webinar and/or an on-site seminar to one or more industrial partners.
         </Details>
-        <Details>The seminars will:</Details>
-        <Ul>
-          <Li>
+        <Details isDarkMode={isDarkMode}>The seminars will:</Details>
+        <Ul isDarkMode={isDarkMode}>
+          <Li isDarkMode={isDarkMode}>
             Provide trainees with hands-on real-life presentation experience to
             an academic and non-academic audience.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Provide trainees with an opportunity to expand their professional
             network for post-graduation hiring opportunities.
           </Li>
-          <Li>
+          <Li isDarkMode={isDarkMode}>
             Communicate some of the academic innovations to practitioners and
             academics,
           </Li>
         </Ul>
-        <Subtitle id="specialization-courses">
+        <Subtitle id="specialization-courses" isDarkMode={isDarkMode}>
           {" "}
           Specialization Courses​
           <a href="#specialization-courses"> #</a>
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           Trainees of the SE4AI CREATE program will take one or more
           specialization course from a curated list of courses on SE, AI, and
           Social concepts. The exact number of specialization courses depends on
           the trainee’s home institution and program.
         </Details>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           Specialization courses include courses in (not a complete list):
           Software Analytics, Software Quality, Software Testing, Product Lines,
           Software Re-engineering, Software Architecture, Advanced Concepts in
@@ -93,12 +138,15 @@ const ProgramComponents = () => {
           exact specialization course(s) a trainee will take will be determined
           in consultation with their supervisor.
         </Details>
-        <Subtitle id="hands-on-leadership-and-mentorship-training">
+        <Subtitle
+          id="hands-on-leadership-and-mentorship-training"
+          isDarkMode={isDarkMode}
+        >
           {" "}
           Hands-on Leadership and Mentorship Training​
           <a href="#hands-on-leadership-and-mentorship-training"> #</a>
         </Subtitle>
-        <Details>
+        <Details isDarkMode={isDarkMode}>
           To position trainees to be successful and socially responsible leaders
           in their field the SE4AI CREATE incorporates hands-on leadership and
           mentorship training. This training is achieved through a multitude of
@@ -116,7 +164,7 @@ const ProgramComponents = () => {
           advising them on technical writing, presentation, and research
           methodology issues.
         </Details>
-        <Button>
+        <Button isDarkMode={isDarkMode}>
           {" "}
           Previous
           <a href="/training-program/objectives">
@@ -128,6 +176,7 @@ const ProgramComponents = () => {
           </a>
         </Button>
       </MainContent>
+      <ProgramComponentRightSidebar />
     </Container>
   );
 };
@@ -142,16 +191,18 @@ const MainContent = styled.div`
   /* flex: 1; */
   margin-left: 20px;
   padding-top: -40px;
-  color: #bb5a7d;
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Details = styled.div`
   padding-top: 15px;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 700px;
   line-height: 1.7em;
   font-size: 15px;
@@ -159,11 +210,11 @@ const Details = styled.div`
 const Subtitle = styled.div`
   padding-top: 30px;
   font-size: 30px;
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-weight: bold;
   text-decoration: none;
   a {
-    color: white;
+    color: ${(props) => (props.isDarkMode ? "#181818" : "#484848")};
     font-weight: bold;
     text-decoration: none;
   }
@@ -178,9 +229,10 @@ const Ul = styled.ul`
   font-size: 15px;
   line-height: 1.7em;
   width: 700px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Li = styled.li`
-  color: black;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 15px;
   margin-bottom: 10px;
 `;
@@ -199,7 +251,7 @@ const Button = styled.button`
   font-weight: bold;
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
-  color: #585858;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   &:hover {
     border: 1px solid #bb5a7d;
@@ -219,4 +271,9 @@ const Button = styled.button`
 const Icon = styled.div`
   padding-top: 3px;
   color: #bb5a7d;
+`;
+const ProgramSidebarContainer = styled.div`
+  position: sticky;
+  top: 10px; /* Adjust this value to set the distance from the top of the viewport */
+  margin-bottom: 240px; /* Adjust this value to set the distance from the bottom of the viewport */
 `;

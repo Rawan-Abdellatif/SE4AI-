@@ -1,13 +1,15 @@
 // This is the ProgramLeaderShip part in Team  Page
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-
+import { DarkModeContext } from "./DarkModeContext";
 //import images
 import ErnestoLangOreamunoImage from "../component/team/photos/Ernesto-Lang-Oreamuno.jpg";
 
 const Alumni = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <MiniContainer>
+    <MiniContainer isDarkMode={isDarkMode}>
       <Img src={ErnestoLangOreamunoImage} alt="Ernesto Lang Oreamuno" />{" "}
       <Name>Ernesto Lang Oreamuno</Name>
       <University>Queen's University</University>
@@ -27,7 +29,10 @@ const MiniContainer = styled.div`
   margin-left: 20px;
   margin-top: 40px;
   border-radius: 10px;
-  border: 2px solid #f4f0ec;
+  border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   padding-top: 0px;
   width: 270px;
   height: 350px;
