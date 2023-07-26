@@ -84,8 +84,8 @@ export default ProgramObjectives;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  border: ${(props) =>
-    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
@@ -98,7 +98,7 @@ const MainContent = styled.div`
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
-  color: black;
+  /* color: black; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Details = styled.div`

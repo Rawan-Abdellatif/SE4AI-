@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import ProgramSidebar from "./ProgramSidebar";
@@ -7,7 +7,33 @@ import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import ProgramComponentRightSidebar from "./ProgramComponentRightSidebar";
 const ProgramComponents = () => {
   const { isDarkMode } = useContext(DarkModeContext);
+  const [activeLink, setActiveLink] = useState(null);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const subtitles = document.querySelectorAll(".subtitle");
+
+      subtitles.forEach((subtitle) => {
+        const rect = subtitle.getBoundingClientRect();
+        const linkId = subtitle.getAttribute("id");
+
+        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+          setActiveLink(linkId);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call handleScroll once on mount to initialize the active link
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleSidebarLinkClick = (id) => {
+    setActiveLink(id);
+  };
   return (
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebarContainer isDarkMode={isDarkMode}>
@@ -18,6 +44,7 @@ const ProgramComponents = () => {
         <Subtitle
           id="engineering-ai-based-software-systems"
           isDarkMode={isDarkMode}
+          className="subtitle"
         >
           Engineering AI-based Software Systems​
           <a href="#engineering-ai-based-software-systems"> #</a>
@@ -44,6 +71,7 @@ const ProgramComponents = () => {
         <Subtitle
           id="social-aspects-for-ai-based-software-system"
           isDarkMode={isDarkMode}
+          className="subtitle"
         >
           Social Aspects for AI-based Software System{" "}
           <a href="#social-aspects-for-ai-based-software-system"> #</a>
@@ -65,7 +93,11 @@ const ProgramComponents = () => {
           while considering the engineering implications of their
           recommendations.
         </Details>
-        <Subtitle id="professional-development-modules" isDarkMode={isDarkMode}>
+        <Subtitle
+          id="professional-development-modules"
+          isDarkMode={isDarkMode}
+          className="subtitle"
+        >
           Professional Development Modules​
           <a href="#professional-development-modules"> #</a>
         </Subtitle>
@@ -77,7 +109,11 @@ const ProgramComponents = () => {
           four-month internships. Trainees will be supported by their academic
           supervisors and the relevant contact at the host partner.
         </Details>
-        <Subtitle id="industrial-embedding" isDarkMode={isDarkMode}>
+        <Subtitle
+          id="industrial-embedding"
+          isDarkMode={isDarkMode}
+          className="subtitle"
+        >
           {" "}
           Industrial Embedding​
           <a href="#industrial-embedding"> #</a>
@@ -90,7 +126,11 @@ const ProgramComponents = () => {
           four-month internships. Trainees will be supported by their academic
           supervisors and the relevant contact at the host partner.
         </Details>
-        <Subtitle id="industry-webinars-or-seminars" isDarkMode={isDarkMode}>
+        <Subtitle
+          className="subtitle"
+          id="industry-webinars-or-seminars"
+          isDarkMode={isDarkMode}
+        >
           {" "}
           Industry Webinars or Seminars​
           <a href="#industry-webinars-or-seminars"> #</a>
@@ -114,7 +154,11 @@ const ProgramComponents = () => {
             academics,
           </Li>
         </Ul>
-        <Subtitle id="specialization-courses" isDarkMode={isDarkMode}>
+        <Subtitle
+          className="subtitle"
+          id="specialization-courses"
+          isDarkMode={isDarkMode}
+        >
           {" "}
           Specialization Courses​
           <a href="#specialization-courses"> #</a>
@@ -139,6 +183,7 @@ const ProgramComponents = () => {
           in consultation with their supervisor.
         </Details>
         <Subtitle
+          className="subtitle"
           id="hands-on-leadership-and-mentorship-training"
           isDarkMode={isDarkMode}
         >
@@ -176,7 +221,10 @@ const ProgramComponents = () => {
           </a>
         </Button>
       </MainContent>
-      <ProgramComponentRightSidebar />
+      <ProgramComponentRightSidebar
+        activeLink={activeLink}
+        handleSidebarLinkClick={handleSidebarLinkClick}
+      />
     </Container>
   );
 };
@@ -185,12 +233,14 @@ export default ProgramComponents;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
+  margin-top: 10px;
+  padding-top: 20px;
 `;
 
 const MainContent = styled.div`
   /* flex: 1; */
   margin-left: 20px;
-  padding-top: -40px;
+  padding-top: -30px;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -214,7 +264,7 @@ const Subtitle = styled.div`
   font-weight: bold;
   text-decoration: none;
   a {
-    color: ${(props) => (props.isDarkMode ? "#181818" : "#484848")};
+    color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
     text-decoration: none;
   }
@@ -275,5 +325,5 @@ const Icon = styled.div`
 const ProgramSidebarContainer = styled.div`
   position: sticky;
   top: 10px; /* Adjust this value to set the distance from the top of the viewport */
-  margin-bottom: 240px; /* Adjust this value to set the distance from the bottom of the viewport */
+  margin-bottom: 200px; /* Adjust this value to set the distance from the bottom of the viewport */
 `;

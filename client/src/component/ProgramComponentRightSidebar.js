@@ -2,38 +2,42 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 
-const ProgramComponentRightSidebar = () => {
-  const [activeLink, setActiveLink] = useState(null);
+const ProgramComponentRightSidebar = ({
+  activeLink,
+  handleSidebarLinkClick,
+}) => {
+  // const [activeLink, setActiveLink] = useState(null);
   const { isDarkMode } = useContext(DarkModeContext);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const sections = document.querySelectorAll("section");
 
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const link = document.querySelector(`[href="#${section.id}"]`);
+  //     sections.forEach((section) => {
+  //       const rect = section.getBoundingClientRect();
+  //       const linkId = section.getAttribute("id");
+  //       const link = document.querySelector(`[href="#${linkId}"]`);
 
-        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-          setActiveLink(section.id);
-          link?.classList.add("near-top");
-        } else {
-          link?.classList.remove("near-top");
-        }
-      });
-    };
+  //       if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+  //         setActiveLink(linkId);
+  //         link?.classList.add("near-top");
+  //       } else {
+  //         link?.classList.remove("near-top");
+  //       }
+  //     });
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call handleScroll once on mount to initialize the active link
+  //   window.addEventListener("scroll", handleScroll);
+  //   handleScroll(); // Call handleScroll once on mount to initialize the active link
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-  const handleSidebarLinkClick = (id) => {
-    setActiveLink(id);
-  };
+  // const handleSidebarLinkClick = (id) => {
+  //   setActiveLink(id);
+  // };
 
   return (
     <SidebarContainer isDarkMode={isDarkMode}>
@@ -158,13 +162,12 @@ const SidebarContent = styled.div`
 
 const SidebarLink = styled.a`
   display: block;
-  color: ${(props) => (props.isActive ? "#bb5a7d" : "#666666")};
+  color: ${(props) =>
+    props.isActive ? "#bb5a7d" : props.isDarkMode ? "white" : "#484848"};
   font-size: 13px;
   padding-top: 5px;
   text-decoration: none;
   margin-bottom: 10px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
   cursor: pointer;
 
   &:hover {
@@ -173,6 +176,7 @@ const SidebarLink = styled.a`
 
   &.near-top {
     color: #bb5a7d;
+    font-weight: bold; /* Example: Make the near-top link bold */
     /* Add any other styles you want for the near-top state */
   }
 `;

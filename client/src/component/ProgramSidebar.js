@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
-
+import logo from "./img/logo.svg";
+import logoDark from "./img/logo_dark.svg";
 const ProgramSidebar = () => {
   const [showLinks, setShowLinks] = useState(true);
   const [selectedLink, setSelectedLink] = useState("");
@@ -36,6 +37,22 @@ const ProgramSidebar = () => {
   return (
     <SidebarContainer isDarkMode={isDarkMode}>
       <SidebarContent className="sidebar-content" isDarkMode={isDarkMode}>
+        <SidebarHeading
+          isDarkMode={isDarkMode}
+          selected={selectedLink === "/"}
+          isActive={activeLink === "/"}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <NavMenu>
+            <Nav isDarkMode={isDarkMode}>
+              <a href="/">
+                <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
+              </a>
+              <a href="/">CREATE SE4AI</a>
+            </Nav>{" "}
+          </NavMenu>
+        </SidebarHeading>
         <SidebarHeading
           isDarkMode={isDarkMode}
           selected={selectedLink === "/intro"}
@@ -96,10 +113,12 @@ export default ProgramSidebar;
 
 const SidebarContainer = styled.div`
   width: 290px;
-  margin-left: 0px;
+  margin-left: 1px;
   font-family: "Open Sans", sans-serif;
   position: sticky;
+  margin-top: -90px;
   top: 0;
+  z-index: 1;
   border-right: ${(props) =>
     props.isDarkMode ? "1px solid #e8e8e8" : "1px solid #e8e8e8"};
   max-height: calc(100vh - 200px);
@@ -123,9 +142,14 @@ const SidebarHeading = styled.h2`
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 3px;
-  margin-left: 5px;
-  padding-left: 20px;
-
+  margin-left: 12px;
+  /* padding-left: 20px; */
+  /* margin-top: -20px; */
+  padding-top: 5px;
+  z-index: -1;
+  top: -10px;
+  background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
   &:hover,
   &:active,
   &.active {
@@ -160,8 +184,8 @@ const SidebarLink = styled(Link)`
   padding-left: 20px;
   margin-bottom: 5px;
   font-weight: bold;
-  background-color: ${({ selected }) =>
-    selected && selected !== "/training-program" ? "#e8e8e8" : "transparent"};
+  background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
 
   &:hover,
   &.active,
@@ -173,7 +197,52 @@ const SidebarLink = styled(Link)`
 `;
 
 const Icon = styled.span`
-  margin-left: 70px;
+  /* margin-top: 50px; */
+  /* padding-top: 1px; */
+  margin-left: 80px;
   font-size: 20px;
   font-weight: bold;
+`;
+const NavMenu = styled.ul`
+  display: flex;
+  margin-left: -20px;
+  /* margin-top: -60px; */
+  /* padding-top: 10px; */
+  position: sticky;
+  list-style: none;
+  /* top: 0; */
+`;
+const Nav = styled.li`
+  /* margin-right: 3px; */
+  display: flex;
+  width: 120px;
+  /* top: -90px; */
+
+  img {
+    height: 40px;
+    cursor: pointer;
+    margin-top: -80px;
+    margin-left: -40px;
+    padding-left: 5px;
+    margin-right: 3px;
+    /* width: 20px; */
+  }
+  a {
+    /* margin-top: -10px; */
+    align-items: vertical;
+
+    color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bolder;
+    /* padding-top: -170px; */
+    /* width: 80px; */
+    padding-left: 4px;
+    /* padding-right: -3px; */
+    transition: 0.2s;
+    text-align: center;
+    &:hover {
+      color: #db7093;
+    }
+  }
 `;
