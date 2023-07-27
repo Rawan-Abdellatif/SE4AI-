@@ -1,5 +1,5 @@
 // This is the Events Page
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 ///// import all of photos
@@ -27,14 +27,42 @@ import Sidebar from "./Sidebar";
 import RightSidebar from "./RightSidebar";
 const PastEvents = () => {
   const { isDarkMode } = useContext(DarkModeContext);
+  const [activeLink, setActiveLink] = useState(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const subtitles = document.querySelectorAll(".subtitle");
+
+      subtitles.forEach((subtitle) => {
+        const rect = subtitle.getBoundingClientRect();
+        const linkId = subtitle.getAttribute("id");
+
+        if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+          setActiveLink(linkId);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const handleLinkClick = (linkId) => {
+    setActiveLink(linkId);
+  };
 
   return (
     <Container isDarkMode={isDarkMode}>
-      <Sidebar />
+      <StickySidebar>
+        <Sidebar />
+      </StickySidebar>
       <MainContent isDarkMode={isDarkMode}>
         {" "}
         <Title isDarkMode={isDarkMode}>Past Events</Title>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="industry-talks-webinar---april-25-2023"
         >
@@ -85,6 +113,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="trainee-talks-webinar---april-3rd-2023"
         >
@@ -524,16 +553,25 @@ const PastEvents = () => {
           </a>
         </Button>
       </MainContent>{" "}
-      <RightSidebar />
+      <RightSidebar activeLink={activeLink} handleLinkClick={handleLinkClick} />
     </Container>
   );
 };
 
 export default PastEvents;
+const StickySidebar = styled.div`
+  position: sticky;
+  top: 0px; /* Adjust this value if needed */
+  margin-bottom: 0px;
+  /* margin-top: 20px; */
+  width: 170px; /* Adjust this value to set the sidebar width */
+`;
+
 // This part for css part
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
+  margin-bottom: 50px;
 `;
 
 const MainContent = styled.div`
@@ -542,6 +580,7 @@ const MainContent = styled.div`
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 640px;
+  margin-bottom: 30px;
 `;
 
 const Title = styled.h1`
@@ -552,13 +591,14 @@ const Title = styled.h1`
 const Subtitle = styled.div`
   padding-top: 20px;
   width: 560px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   margin-bottom: 20px;
   font-size: 30px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-weight: bold;
   a {
-    color: ${(props) => (props.isDarkMode ? "#181818" : "#484848")};
+    color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
   }
   a:hover {
@@ -751,11 +791,4 @@ const Img5 = styled.img`
   height: 180px;
   /* margin-left: -200px; */
   margin-right: 170px;
-`;
-const SidebarContainer = styled.div`
-  /* position: sticky; */
-  /* top: 40px; Adjust this value as needed to position the sidebar */
-  max-height: calc(
-    200vh -10px
-  ); /* Adjust this value as needed to set the max height of the sidebar */
 `;
