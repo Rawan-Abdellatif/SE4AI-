@@ -31,7 +31,7 @@ const ProgramComponents = () => {
     };
   }, []);
 
-  const handleSidebarLinkClick = (id) => {
+  const handleLinkClick = (id) => {
     setActiveLink(id);
   };
   return (
@@ -223,7 +223,7 @@ const ProgramComponents = () => {
       </MainContent>
       <ProgramComponentRightSidebar
         activeLink={activeLink}
-        handleSidebarLinkClick={handleSidebarLinkClick}
+        handleLinkClick={handleLinkClick}
       />
     </Container>
   );

@@ -44,15 +44,16 @@ const PastEvents = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call handleScroll once on mount to initialize the active link
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const handleLinkClick = (linkId) => {
-    setActiveLink(linkId);
-  };
 
+  const handleLinkClick = (id) => {
+    setActiveLink(id);
+  };
   return (
     <Container isDarkMode={isDarkMode}>
       <StickySidebar>
@@ -144,6 +145,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="women-in-engineering-wie---march-18-2023"
         >
@@ -210,6 +212,7 @@ const PastEvents = () => {
           <Img2 src={wie3Image} alt="wie3Image" />
         </Image>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="trainee-talks-webinar---february-27-2023"
         >
@@ -235,6 +238,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="industry-talks-webinar---february-10-2023"
         >
@@ -287,6 +291,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="trainee-talks-webinar---december-13-2022"
         >
@@ -319,6 +324,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="industry-talks-webinar---november-18-2022"
         >
@@ -368,6 +374,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="trainee-talks-webinar---november-4-2022"
         >
@@ -380,9 +387,10 @@ const PastEvents = () => {
           Testing of AI-based Software Systems
         </Details2>
         <Details2 isDarkMode={isDarkMode}>
-          Our monthly<Bold> CREATE SE4AI Trainee Talks</Bold> webinar series
-          kicked off with 2 graduate Software Engineering students presenting
-          their research.
+          Our monthly
+          <Bold isDarkMode={isDarkMode}> CREATE SE4AI Trainee Talks</Bold>{" "}
+          webinar series kicked off with 2 graduate Software Engineering
+          students presenting their research.
         </Details2>
         <Details2 isDarkMode={isDarkMode}>
           In the first of our series of trainee-led webinars, we invited 2
@@ -410,6 +418,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>{" "}
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="create-se4ai-retreat---june-3-2022"
         >
@@ -454,6 +463,7 @@ const PastEvents = () => {
           </HoverContainer>
         </Group>
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="guest-speaker-webinar---april-12-2022"
         >
@@ -495,6 +505,7 @@ const PastEvents = () => {
           </a>
         </YoutubeChannel>{" "}
         <Subtitle
+          className="subtitle"
           isDarkMode={isDarkMode}
           id="guest-speaker-webinar---february-3-2022"
         >
@@ -507,7 +518,7 @@ const PastEvents = () => {
           Learning Pipeline".
         </Details2>
         <Details2 isDarkMode={isDarkMode}>
-          <Bold>Link to presentation:</Bold>
+          <Bold isDarkMode={isDarkMode}>Link to presentation:</Bold>
         </Details2>
         <Details isDarkMode={isDarkMode}>
           <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
@@ -515,7 +526,7 @@ const PastEvents = () => {
           </a>
         </Details>
         <Details2 isDarkMode={isDarkMode}>
-          <Bold>About the Speaker</Bold>
+          <Bold isDarkMode={isDarkMode}>About the Speaker</Bold>
         </Details2>
         <Group3>
           {" "}

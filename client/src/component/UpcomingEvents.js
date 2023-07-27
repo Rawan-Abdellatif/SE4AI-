@@ -9,8 +9,9 @@ const UpcomingEvents = () => {
 
   return (
     <Container>
-      <Sidebar />
-
+      <SidebarContainer>
+        <Sidebar />
+      </SidebarContainer>
       <MainContent>
         <Title isDarkMode={isDarkMode}>Upcoming Events</Title>
         <Button1 isDarkMode={isDarkMode}>
@@ -31,6 +32,7 @@ export default UpcomingEvents;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
+  margin-bottom: 20px;
 `;
 
 const MainContent = styled.div`
@@ -80,4 +82,7 @@ const Button1 = styled.button`
 const Icon = styled.div`
   padding-top: 3px;
   color: #bb5a7d;
+`;
+const SidebarContainer = styled.div`
+  margin-bottom: 20px;
 `;

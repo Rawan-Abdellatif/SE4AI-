@@ -540,7 +540,7 @@ const MainContent = styled.div`
   padding-top: -50px;
   color: #bb5a7d;
   width: 640px;
-  /* margin-bottom: -200px; */
+  margin-bottom: 20px;
 `;
 
 // const Title = styled.h1`
