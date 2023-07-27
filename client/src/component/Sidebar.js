@@ -1,10 +1,17 @@
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
-  const [isFixed, setIsFixed] = useState(true); // Start with the Sidebar sticky
+  const [isFixed, setIsFixed] = useState(true);
   const { isDarkMode } = useContext(DarkModeContext);
+  const [selectedLink, setSelectedLink] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    setSelectedLink(location.pathname);
+  }, [location]);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -17,23 +24,18 @@ const Sidebar = () => {
         const contentHeight = contentContainer.clientHeight;
         const scrollPosition = window.scrollY;
 
-        // Calculate the position of the stopStickyLink element relative to the Sidebar container
         const linkRect = stopStickyLink.getBoundingClientRect();
         const linkPosition = linkRect.top + scrollPosition;
 
-        // Calculate the distance from the bottom of the viewport to the bottom of the sidebar container
         const sidebarBottom = sidebarContainer.offsetTop + sidebarHeight;
         const viewportHeight = window.innerHeight;
         const distanceFromBottom =
           contentHeight - (sidebarBottom - scrollPosition) - viewportHeight;
 
-        if (distanceFromBottom <= 0) {
-          setIsFixed(false); // Remove sticky when the bottom of the sidebar container reaches the bottom of the content
-        } else if (scrollPosition >= linkPosition - sidebarHeight - 200) {
-          setIsFixed(false); // Remove sticky when the link comes into view
-        } else {
-          setIsFixed(true); // Stick to the top otherwise
-        }
+        setIsFixed(
+          distanceFromBottom > 0 &&
+            scrollPosition < linkPosition - sidebarHeight - 200
+        );
       }
     };
 
@@ -52,13 +54,25 @@ const Sidebar = () => {
     >
       <SidebarContent isDarkMode={isDarkMode} className="sidebar-content">
         <SidebarHeading isDarkMode={isDarkMode}>Recent posts</SidebarHeading>
-        <SidebarLink isDarkMode={isDarkMode} href="/blog/past">
+        <SidebarLink
+          isDarkMode={isDarkMode}
+          to="/blog/past"
+          selected={selectedLink === "/blog/past"}
+          activeClassName="active"
+          inactiveClassName="inactive"
+        >
           Past Events
         </SidebarLink>
-        <SidebarLink isDarkMode={isDarkMode} href="/blog/upcoming">
+        <SidebarLink
+          isDarkMode={isDarkMode}
+          to="/blog/upcoming"
+          selected={selectedLink === "/blog/upcoming"}
+          activeClassName="active"
+          inactiveClassName="inactive"
+        >
           Upcoming Events
         </SidebarLink>
-        {/* Add a stopStickyLink element at the end of the content */}
+
         <div className="stop-sticky-link" />
       </SidebarContent>
     </SidebarContainer>
@@ -69,41 +83,57 @@ export default Sidebar;
 
 const SidebarContainer = styled.div`
   width: 140px;
-  margin-left: 40px;
+  padding-left: 70px;
   font-family: "Open Sans", sans-serif;
-  position: ${({ isFixed }) => (isFixed ? "sticky" : "absolute")};
-  top: ${({ isFixed }) => (isFixed ? "20px" : "20px")};
-  bottom: ${({ isFixed }) => (isFixed ? "auto" : "40px")};
-  /* border: 4px solid yellow; */
-  margin-top: 40px;
+  position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
+  top: ${({ isFixed }) => (isFixed ? "100px" : "80px")};
+  transition: transform 0.3s ease;
+  transform: translateY(${({ isFixed }) => (isFixed ? "-20px" : "10px")});
 `;
 
 const SidebarContent = styled.div`
   position: relative;
-  width: 140px;
-  /* border: 3px solid red; */
+  width: 150px;
+  height: 110px;
+  margin-top: 10px;
+  padding-top: 7px;
 `;
 
 const SidebarHeading = styled.h2`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  /* color: #333333; */
-  color: ${(props) => (props.isDarkMode ? "white" : " #333333")};
-
-  margin-top: 70px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#333333")};
+  margin-top: 15px;
+  padding-top: 1px;
 `;
 
-const SidebarLink = styled.a`
+const SidebarLink = styled(NavLink)`
   display: block;
-  color: #666666;
-  font-size: 15px;
-  padding-top: 5px;
+  font-size: 12px;
+  padding-top: 1px;
   text-decoration: none;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   padding-bottom: 2px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode
+      ? "#282828"
+      : selected
+      ? "#e8e8e8"
+      : "transparent"}; */
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: #bb5a7d;
+  }
+
+  &.active {
+    color: ${(props) => (props.isDarkMode ? "#bb5a7d" : "#bb5a7d")};
+    /* Add any additional styles for the active link */
+  }
+
+  &.inactive {
+    color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+    /* Add any additional styles for the inactive link */
   }
 `;
