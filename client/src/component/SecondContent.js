@@ -33,7 +33,7 @@ const SecondContent = ({ isDarkMode }) => {
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       {" "}
       <Container className="main-container">
-        <TextContent>
+        <TextContent isDarkMode={isDarkMode}>
           A Unique, Comprehensive Program that Focuses on
           <RedText className="red-text"> Academic</RedText>,{" "}
           <RedText className="red-text">Practical</RedText>, and
@@ -44,8 +44,10 @@ const SecondContent = ({ isDarkMode }) => {
             <SmallContainer>
               <Img src={Engineering} alt="component_engineering" />
               <Text>
-                <Title className="title">Engineering AI Systems</Title>
-                <Main className="main">
+                <Title className="title" isDarkMode={isDarkMode}>
+                  Engineering AI Systems
+                </Title>
+                <Main className="main" isDarkMode={isDarkMode}>
                   Provides trainees with the technical software engineering
                   background in the context of AI-based software systems
                 </Main>
@@ -54,8 +56,10 @@ const SecondContent = ({ isDarkMode }) => {
             <SmallContainer>
               <Img src={Social} alt="component_Social" />
               <Text>
-                <Title className="title">Social Aspects for AI Systems</Title>
-                <Main className="main">
+                <Title className="title" isDarkMode={isDarkMode}>
+                  Social Aspects for AI Systems
+                </Title>
+                <Main className="main" isDarkMode={isDarkMode}>
                   Provides trainees with knowledge on various social aspects
                   that AI-based systems need to consider, e.g., privacy, ethics,
                   equity, diversity, inclusion (EDI), guided by human rights and
@@ -66,8 +70,10 @@ const SecondContent = ({ isDarkMode }) => {
             <SmallContainer>
               <Img src={Courses} alt="component_courses" />
               <Text>
-                <Title className="title">Specialization Courses</Title>
-                <Main className="main">
+                <Title className="title" isDarkMode={isDarkMode}>
+                  Specialization Courses
+                </Title>
+                <Main className="main" isDarkMode={isDarkMode}>
                   A curated set of SE, AI, and social aspects courses to
                   strengthen the trainees's specialization. Trainees will select
                   courses that best fit interests.
@@ -79,8 +85,10 @@ const SecondContent = ({ isDarkMode }) => {
             <SmallContainer>
               <Img src={Professional} alt="component_professional" />
               <Text>
-                <Title className="title">Professional Development</Title>
-                <Main className="main">
+                <Title className="title" isDarkMode={isDarkMode}>
+                  Professional Development
+                </Title>
+                <Main className="main" isDarkMode={isDarkMode}>
                   Provides training modules on professional skills in the
                   context of AI-Software Systems.
                 </Main>
@@ -89,8 +97,10 @@ const SecondContent = ({ isDarkMode }) => {
             <SmallContainer>
               <Img src={Engagement} alt="component_engagement" />
               <Text>
-                <Title className="title">Industrial Engagement</Title>
-                <Main className="main">
+                <Title className="title" isDarkMode={isDarkMode}>
+                  Industrial Engagement
+                </Title>
+                <Main className="main" isDarkMode={isDarkMode}>
                   Provides trainees with special internship opportunities with
                   our industrial partners and collaborating partners.
                 </Main>
@@ -99,10 +109,10 @@ const SecondContent = ({ isDarkMode }) => {
             <SmallContainer>
               <Img src={Leadership} alt="component_leadership" />
               <Text>
-                <Title className="title">
+                <Title className="title" isDarkMode={isDarkMode}>
                   Leadership and Mentorship Training
                 </Title>
-                <Main className="main">
+                <Main className="main" isDarkMode={isDarkMode}>
                   Provides trainees with specialized training on the critical
                   evaluation of AI-based software systems and related
                   publications.
@@ -147,6 +157,7 @@ const MainContainer = styled.div`
   align-items: center;
   max-width: 2000px;
   margin-left: 90px;
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
 const FirstLine = styled.div`
@@ -154,12 +165,16 @@ const FirstLine = styled.div`
   justify-content: center;
   gap: 30px;
   margin-bottom: 50px;
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+
   /* max-width: 1200px; */
 `;
 
 const SecondLine = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: center
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+;
 `;
 
 const Img = styled.img`
@@ -171,18 +186,21 @@ const SmallContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
 const Text = styled.div`
   margin-top: 20px;
   color: black;
   padding-left: 25px;
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
 const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 10px;
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
 const Main = styled.div`
