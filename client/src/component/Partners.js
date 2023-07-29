@@ -31,31 +31,27 @@ const Partners = () => {
           <RedText>P</RedText>articipating Universities
         </ParticipatingSection>
         <Choices>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.concordia.ca/" target="_blank">
               <img src={Concordia} alt={Concordia} />
             </a>
           </ChoiceItem>
 
-          <ChoiceItem>
-            <a
-              isDarkMode={isDarkMode}
-              href="https://www.polymtl.ca/en/"
-              target="_blank"
-            >
-              <ParticipatingImg src={PolyMtl} alt={PolyMtl} />
+          <ChoiceItem isDarkMode={isDarkMode}>
+            <a href="https://www.polymtl.ca/en/" target="_blank">
+              <img src={PolyMtl} alt={PolyMtl} />
             </a>
           </ChoiceItem>
 
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.queensu.ca/" target="_blank">
-              <ParticipatingImg src={Queens} alt={Queens} />
+              <img src={Queens} alt={Queens} />
             </a>
           </ChoiceItem>
 
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.ualberta.ca/index.html" target="_blank">
-              <ParticipatingImg src={Alberta} alt={Alberta} />
+              <img src={Alberta} alt={Alberta} />
             </a>
           </ChoiceItem>
         </Choices>
@@ -64,44 +60,44 @@ const Partners = () => {
         </IndustrialSection>
 
         <Choices>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.nbc.ca/" target="_blank">
-              <ParticipatingImg src={NBC} alt={NBC} />
+              <img src={NBC} alt={NBC} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.ibm.com/ca-en" target="_blank">
-              <ParticipatingImg src={IBM} alt={IBM} />
+              <img src={IBM} alt={IBM} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.cisco.com/" target="_blank">
-              <ParticipatingImg src={Cisco} alt={Cisco} />
+              <img src={Cisco} alt={Cisco} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.td.com/ca/en/personal-banking" target="_blank">
-              <CollaboratorsImg src={TD} alt={TD} />
+              <img src={TD} alt={TD} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.ericsson.com/en" target="_blank">
-              <ParticipatingImg src={Ericsson} alt={Ericsson} />
+              <img src={Ericsson} alt={Ericsson} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://airudi.com/en/" target="_blank">
-              <ParticipatingImg src={Airudi} alt={Airudi} />
+              <img src={Airudi} alt={Airudi} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.giro.ca/en-ca/" target="_blank">
-              <IndustrialImg src={GIRO} alt={GIRO} />
+              <img src={GIRO} alt={GIRO} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://cbc.radio-canada.ca/" target="_blank">
-              <ParticipatingImg src={Radio} alt={Radio} />
+              <img src={Radio} alt={Radio} />
             </a>
           </ChoiceItem>
         </Choices>
@@ -110,40 +106,40 @@ const Partners = () => {
           <RedText>C</RedText>ollaborators and Supporters{" "}
         </CollaboratorsSection>
         <Choices>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a
               href="https://www.nserc-crsng.gc.ca/index_eng.asp"
               target="_blank"
             >
-              <CollaboratorsImg src={NSER} alt={NSER} />
+              <img src={NSER} alt={NSER} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://ivado.ca/en/" target="_blank">
-              <CollaboratorsImg src={IVADO} alt={IVADO} />
+              <img src={IVADO} alt={IVADO} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
-              <CollaboratorsImg src={OBVIA} alt={OBVIA} />
+              <img src={OBVIA} alt={OBVIA} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://montrealethics.ai/" target="_blank">
-              <CollaboratorsImg src={MAIEI} alt={MAIEI} />
+              <img src={MAIEI} alt={MAIEI} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.uni-graz.at/en/" target="_blank">
-              <CollaboratorsImg src={Graz} alt={Graz} />
+              <img src={Graz} alt={Graz} />
             </a>
           </ChoiceItem>
-          <ChoiceItem>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a
               href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
               target="_blank"
             >
-              <CollaboratorsImg src={Vercel} alt={Vercel} />
+              <img src={Vercel} alt={Vercel} />
             </a>
           </ChoiceItem>
         </Choices>
@@ -214,67 +210,42 @@ const CollaboratorsSection = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
-const ParticipatingImg = styled.img`
-  /* background-color: #c0c0c0; */
-  padding: 20px 130px;
-  width: 170px;
-  height: 45px;
-  margin-left: -250px;
-  text-align: center;
-  border-radius: 15px;
-`;
-/* const Link = styled.a`
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid yellow;
-`; */
 const Choices = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  margin-left: 150px;
+  margin-left: 120px;
+  /* padding-left: 20px; */
 `;
 
 const ChoiceItem = styled.div`
   /* background-color: #db7093; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
+  background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
+
+  padding: 20px 30px;
+  width: 180px;
+  margin-right: 15px;
+  margin-top: 15px;
   font-size: 16px;
   font-weight: bold;
-  padding: 10px 20px;
-  margin: 20px;
-  border-radius: 4px;
+  /* padding-left: 2px; */
+  /* margin: 20px; */
+  border-radius: 9px;
   a {
     text-decoration: none;
     color: inherit;
   }
   img {
-    padding: 20px 130px;
-    width: 170px;
+    padding-top: 10px;
+    width: 150px;
     height: 45px;
-    margin-left: -250px;
+    padding-left: 2px;
     text-align: center;
     border-radius: 15px;
-    background-color: ${(props) => (props.isDarkMode ? " #282828" : "white")};
   }
 `;
 const RedText = styled.span`
   color: #bb5a7d;
-`;
-const IndustrialImg = styled.img`
-  /* background-color: #c0c0c0; */
-  padding: 20px 170px;
-  width: 70px;
-  height: 70px;
-  margin-left: -250px;
-  text-align: center;
-  border-radius: 15px;
-`;
-const CollaboratorsImg = styled.img`
-  /* background-color: #c0c0c0; */
-  padding: 20px 130px;
-  width: 170px;
-  height: 45px;
-  margin-left: -250px;
-  text-align: center;
-  border-radius: 15px;
 `;
