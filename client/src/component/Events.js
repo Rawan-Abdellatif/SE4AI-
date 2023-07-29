@@ -557,7 +557,7 @@ const Subtitle = styled.div`
   font-size: 30px;
   font-weight: bold;
   a {
-    color: ${(props) => (props.isDarkMode ? "#181818" : "#484848")};
+    color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
   }
   a:hover {

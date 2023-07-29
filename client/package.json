@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "proxy": "http://localhost:9999/",
-
+  "homepage": "https://creatse4ai.online",
   "private": true,
   "dependencies": {
     "@testing-library/react": "^13.4.0",

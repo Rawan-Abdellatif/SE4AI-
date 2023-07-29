@@ -32,27 +32,31 @@ const Partners = () => {
         </ParticipatingSection>
         <Choices>
           <ChoiceItem>
-            <Link href="https://www.concordia.ca/" target="_blank">
-              <ParticipatingImg src={Concordia} alt={Concordia} />
-            </Link>
+            <a href="https://www.concordia.ca/" target="_blank">
+              <img src={Concordia} alt={Concordia} />
+            </a>
           </ChoiceItem>
 
           <ChoiceItem>
-            <Link href="https://www.polymtl.ca/en/" target="_blank">
+            <a
+              isDarkMode={isDarkMode}
+              href="https://www.polymtl.ca/en/"
+              target="_blank"
+            >
               <ParticipatingImg src={PolyMtl} alt={PolyMtl} />
-            </Link>
+            </a>
           </ChoiceItem>
 
           <ChoiceItem>
-            <Link href="https://www.queensu.ca/" target="_blank">
+            <a href="https://www.queensu.ca/" target="_blank">
               <ParticipatingImg src={Queens} alt={Queens} />
-            </Link>
+            </a>
           </ChoiceItem>
 
           <ChoiceItem>
-            <Link href="https://www.ualberta.ca/index.html" target="_blank">
+            <a href="https://www.ualberta.ca/index.html" target="_blank">
               <ParticipatingImg src={Alberta} alt={Alberta} />
-            </Link>
+            </a>
           </ChoiceItem>
         </Choices>
         <IndustrialSection isDarkMode={isDarkMode}>
@@ -61,47 +65,44 @@ const Partners = () => {
 
         <Choices>
           <ChoiceItem>
-            <Link href="https://www.nbc.ca/" target="_blank">
+            <a href="https://www.nbc.ca/" target="_blank">
               <ParticipatingImg src={NBC} alt={NBC} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://www.ibm.com/ca-en" target="_blank">
+            <a href="https://www.ibm.com/ca-en" target="_blank">
               <ParticipatingImg src={IBM} alt={IBM} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://www.cisco.com/" target="_blank">
+            <a href="https://www.cisco.com/" target="_blank">
               <ParticipatingImg src={Cisco} alt={Cisco} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link
-              href="https://www.td.com/ca/en/personal-banking"
-              target="_blank"
-            >
+            <a href="https://www.td.com/ca/en/personal-banking" target="_blank">
               <CollaboratorsImg src={TD} alt={TD} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://www.ericsson.com/en" target="_blank">
+            <a href="https://www.ericsson.com/en" target="_blank">
               <ParticipatingImg src={Ericsson} alt={Ericsson} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://airudi.com/en/" target="_blank">
+            <a href="https://airudi.com/en/" target="_blank">
               <ParticipatingImg src={Airudi} alt={Airudi} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://www.giro.ca/en-ca/" target="_blank">
+            <a href="https://www.giro.ca/en-ca/" target="_blank">
               <IndustrialImg src={GIRO} alt={GIRO} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://cbc.radio-canada.ca/" target="_blank">
+            <a href="https://cbc.radio-canada.ca/" target="_blank">
               <ParticipatingImg src={Radio} alt={Radio} />
-            </Link>
+            </a>
           </ChoiceItem>
         </Choices>
 
@@ -110,40 +111,40 @@ const Partners = () => {
         </CollaboratorsSection>
         <Choices>
           <ChoiceItem>
-            <Link
+            <a
               href="https://www.nserc-crsng.gc.ca/index_eng.asp"
               target="_blank"
             >
               <CollaboratorsImg src={NSER} alt={NSER} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://ivado.ca/en/" target="_blank">
+            <a href="https://ivado.ca/en/" target="_blank">
               <CollaboratorsImg src={IVADO} alt={IVADO} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
+            <a href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
               <CollaboratorsImg src={OBVIA} alt={OBVIA} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://montrealethics.ai/" target="_blank">
+            <a href="https://montrealethics.ai/" target="_blank">
               <CollaboratorsImg src={MAIEI} alt={MAIEI} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link href="https://www.uni-graz.at/en/" target="_blank">
+            <a href="https://www.uni-graz.at/en/" target="_blank">
               <CollaboratorsImg src={Graz} alt={Graz} />
-            </Link>
+            </a>
           </ChoiceItem>
           <ChoiceItem>
-            <Link
+            <a
               href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
               target="_blank"
             >
               <CollaboratorsImg src={Vercel} alt={Vercel} />
-            </Link>
+            </a>
           </ChoiceItem>
         </Choices>
       </Main>
@@ -222,10 +223,11 @@ const ParticipatingImg = styled.img`
   text-align: center;
   border-radius: 15px;
 `;
-const Link = styled.a`
+/* const Link = styled.a`
   text-decoration: none;
   color: inherit;
-`;
+  border: 1px solid yellow;
+`; */
 const Choices = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -235,12 +237,25 @@ const Choices = styled.div`
 
 const ChoiceItem = styled.div`
   /* background-color: #db7093; */
-  color: #ffffff;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 16px;
   font-weight: bold;
   padding: 10px 20px;
   margin: 20px;
   border-radius: 4px;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  img {
+    padding: 20px 130px;
+    width: 170px;
+    height: 45px;
+    margin-left: -250px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: ${(props) => (props.isDarkMode ? " #282828" : "white")};
+  }
 `;
 const RedText = styled.span`
   color: #bb5a7d;

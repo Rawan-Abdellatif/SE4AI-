@@ -24,7 +24,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/intro/" element={<Program />} />
+          <Route path="/intro" element={<Program />} />
           <Route
             path="/training-program/objectives"
             element={<ProgramObjectives />}
@@ -41,6 +41,7 @@ const App = () => {
           <Route path="/blog/past" element={<PastEvents />} />
           <Route path="/blog/upcoming" element={<UpcomingEvents />} />
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </DarkModeProvider>

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { DarkModeContext } from "./DarkModeContext";
 import styled, { keyframes } from "styled-components";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
 const MainContent = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <MainContainer>
@@ -25,7 +27,9 @@ const MainContent = () => {
             A Training Program on the Development, Deployment and Servicing of
             Artificial Intelligence-based Software Systems
           </P>
-          <Button isDarkMode={isDarkMode}>Apply Now</Button>
+          <ButtonLink to="/apply" isDarkMode={isDarkMode}>
+            Apply Now
+          </ButtonLink>
         </HeroText>
       </HeroSection>
     </MainContainer>
@@ -69,9 +73,9 @@ const fadeInAnimation = keyframes`
     opacity: 1;
   }
 `;
-const Button = styled.button`
-  background-color: ${(props) => (props.isDarkMode ? "white" : "#db7093")};
-  color: ${(props) => (props.isDarkMode ? "#212529" : "black")};
+const ButtonLink = styled(Link)`
+  background-color: ${(props) => (props.isDarkMode ? "#bb5a7d" : "#bb5a7d")};
+  color: ${(props) => (props.isDarkMode ? "black" : "white")};
   font-weight: bold;
   padding: 12px 24px;
   font-size: 20px;
@@ -80,6 +84,7 @@ const Button = styled.button`
   width: 180px;
   cursor: pointer;
   margin-left: 100px;
+  text-decoration: none;
   animation: ${fadeInAnimation} 1s ease-in-out;
 `;
 
