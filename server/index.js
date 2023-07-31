@@ -5,23 +5,18 @@ const express = require("express");
 const morgan = require("morgan");
 const port = 9999;
 const app = express();
+const { getAdmins } = require("./getAdmins");
+const { getAdmin } = require("./getAdmin");
 // Below are methods that are included in express(). We chain them for convenience.
 // --------------------------------------------------------------------------------
-
-// This will give us will log more info to the console. see https://www.npmjs.com/package/morgan
-app.use(morgan("tiny"));
+app
+  // This will give us will log more info to the console. see https://www.npmjs.com/package/morgan
+  .use(morgan("tiny"));
 app.use(express.json());
 
-app.get("/test", (req, res) => {
-  res.status(200).json({ itWorked: true });
-});
-
-app.get("*", (req, res) => {
-  res.status(404).json({
-    status: 404,
-    message: "This is obviously not what you are looking for.",
-  });
-});
-
+// Get All Of Admins
+app.get("/api/admins", getAdmins);
+//Get Specific Admin
+app.get("/api/admins/:adminId", getAdmin);
 // Node spins up our server and sets it to listen on port 8888.
 app.listen(port, () => console.log(`Listening on port $(port)`));
