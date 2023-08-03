@@ -1,47 +1,39 @@
-const admins = require("./data/Admin.json");
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
+const User = require("./userModel");
+const userData = require("./userData");
 const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
-const { MONGO_URI } = process.env;
 
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
+const MONGO_URI = process.env.MONGO_URI;
 
-// creates a new client
-const client = new MongoClient(MONGO_URI, options);
-
-// Add Admin
 const addAdmin = async () => {
   try {
-    // connect to the client
-    await client.connect();
+    // Connect to MongoDB using Mongoose
+    await mongoose.connect(MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
-    // connect to the database
-    const db = client.db("se4ai");
-    console.log("Connected to MongoDB!");
+    console.log("Connected to MongoDB database!");
 
-    // generate a unique ID for the Admins and add it to the document
-    const AdminsWithId = admins.map((admin) => ({
+    // Generate a unique ID for each document using uuidv4
+    const AdminsWithId = userData.map((admin) => ({
       ...admin,
       _id: uuidv4(),
     }));
 
-    // insert the Admins into the 'Admins' collection
-    const result = await db.collection("Admins").insertMany(AdminsWithId);
+    // Insert the Admins into the 'users' collection using User.insertMany()
+    await User.insertMany(AdminsWithId);
 
-    // On success, send a response
-    console.log(`Successfully added ${result} Admins to MongoDB`);
-  } catch (err) {
-    // on failure/error, send an error response
-    console.log("Error:", err);
-    //res.status(500).json({ status: 500, data: req.body, message: err.message });
-  } finally {
-    // close the connection to the database server
-    await client.close();
+    console.log("Data inserted successfully!");
+
+    // Close the connection to the database
+    await mongoose.connection.close();
+
     console.log("Disconnected from MongoDB!");
+  } catch (err) {
+    console.error("Error inserting data:", err);
   }
 };
+
 addAdmin();
-// module.exports = { addAdmin };
