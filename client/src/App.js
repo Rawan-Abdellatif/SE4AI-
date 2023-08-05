@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -16,8 +16,11 @@ import UpcomingEvents from "./component/UpcomingEvents";
 import ProgramObjectives from "./component/ProgramObjectives";
 import ProgramComponents from "./component/ProgramComponents";
 import { DarkModeProvider } from "./component/DarkModeContext";
-
+import AdminLogin from "./component/AdminLogin";
+import AdminProfile from "./component/AdminProfile";
 const App = () => {
+  const [AppointmentId, setAppointmentId] = useState("");
+  const [adminId, setAdminId] = useState("");
   return (
     <DarkModeProvider>
       <BrowserRouter>
@@ -40,6 +43,8 @@ const App = () => {
           <Route path="/team" element={<Team />} />
           <Route path="/blog/past" element={<PastEvents />} />
           <Route path="/blog/upcoming" element={<UpcomingEvents />} />
+          <Route path="/adminlogin" element={<AdminLogin />} />
+          <Route path="/adminlogin/:adminId" element={<AdminProfile />} />
         </Routes>
 
         <Footer />
