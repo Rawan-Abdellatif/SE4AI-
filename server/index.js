@@ -5,8 +5,12 @@ const express = require("express");
 const morgan = require("morgan");
 const port = 9999;
 const app = express();
+
 const { getAdmins } = require("./getAdmins");
 const { getAdmin } = require("./getAdmin");
+const { updateAdmin } = require("./updateAdmin");
+const { postAdmin } = require("./postAdmin");
+const { deleteAdmin } = require("./deleteAdmin");
 // Below are methods that are included in express(). We chain them for convenience.
 // --------------------------------------------------------------------------------
 app
@@ -18,5 +22,11 @@ app.use(express.json());
 app.get("/api/admins", getAdmins);
 //Get Specific Admin
 app.get("/api/admins/:adminId", getAdmin);
-// Node spins up our server and sets it to listen on port 8888.
-app.listen(port, () => console.log(`Listening on port $(port)`));
+// Update(Edit)Admin information
+app.put("/api/admins/:adminId", updateAdmin);
+// Add new Admin
+app.post("/api/admins", postAdmin);
+// Delete Admin
+app.delete("/api/admins/:adminId", deleteAdmin);
+// Node spins up our server and sets it to listen on port 9999.
+app.listen(port, () => console.log(`Listening on port ${port}`));
