@@ -1,13 +1,35 @@
 const mongoose = require("mongoose");
-const User = require("./userModel");
+const UserModel = require("./userModel");
 const userData = require("./userData");
 const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 
+// Load MongoDB URI from the .env file
 const MONGO_URI = process.env.MONGO_URI;
 
-const addAdmin = async () => {
+// Function to generate unique IDs for each document using uuidv4
+function addUniqueIdsToUserData(userData) {
+  return userData.map((admin) => ({
+    ...admin,
+    _id: uuidv4(),
+  }));
+}
+
+// Function to check for duplicate usernames in the userData array
+function hasDuplicateUsernames(userData) {
+  const usernames = userData.map((admin) => admin.username);
+  return new Set(usernames).size !== userData.length;
+}
+
+// Function to insert admin data into the database
+async function insertAdminData() {
   try {
+    // Check for duplicate usernames in userData
+    if (hasDuplicateUsernames(userData)) {
+      console.error("Duplicate usernames found in the userData array.");
+      return;
+    }
+
     // Connect to MongoDB using Mongoose
     await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
@@ -16,14 +38,11 @@ const addAdmin = async () => {
 
     console.log("Connected to MongoDB database!");
 
-    // Generate a unique ID for each document using uuidv4
-    const AdminsWithId = userData.map((admin) => ({
-      ...admin,
-      _id: uuidv4(),
-    }));
+    // Generate unique IDs for the admin data
+    const adminDataWithIds = addUniqueIdsToUserData(userData);
 
-    // Insert the Admins into the 'users' collection using User.insertMany()
-    await User.insertMany(AdminsWithId);
+    // Insert the admin data into the 'admins' collection using UserModel.insertMany()
+    await UserModel.insertMany(adminDataWithIds);
 
     console.log("Data inserted successfully!");
 
@@ -34,6 +53,7 @@ const addAdmin = async () => {
   } catch (err) {
     console.error("Error inserting data:", err);
   }
-};
+}
 
-addAdmin();
+// Call the function to insert admin data
+insertAdminData();

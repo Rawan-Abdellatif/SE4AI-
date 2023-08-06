@@ -36,11 +36,16 @@ const adminLogin = async (req, res) => {
         });
       }
     }
-    // If the credentials are incorrect or the doctor doesn't exist, return an error message
+
+    // If the credentials are incorrect or the admin doesn't exist, return an error message
     return res.status(401).json({ message: "Invalid username or password" });
+  } catch (error) {
+    // Handle any errors that occur during the login process
+    console.error(error);
+    return res.status(500).json({ message: "Internal Server Error" });
   } finally {
-    // Close the connection to the database
-    await mongoose.connection.close();
+    // Close the connection to the database after the login process is complete
+    mongoose.connection.close();
   }
 };
 

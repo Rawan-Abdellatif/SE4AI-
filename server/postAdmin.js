@@ -20,7 +20,7 @@ const postAdmin = async (req, res) => {
       Name,
       Job,
       University,
-      Image,
+      Image, // Assuming Image is a valid Buffer containing image data
       Website,
       LinkedIn,
       Twitter,

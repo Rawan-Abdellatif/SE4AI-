@@ -22,16 +22,11 @@ const updateAdmin = async (req, res) => {
       return res.status(404).json({ message: "Admin not found" });
     }
 
-    // Check if the new username or name is available
-    if (
-      updateData.username &&
-      (await Admin.exists({ username: updateData.username }))
-    ) {
-      return res.status(400).json({ message: "Username already exists" });
-    }
-
-    if (updateData.Name && (await Admin.exists({ Name: updateData.Name }))) {
-      return res.status(400).json({ message: "Name already exists" });
+    // Handle image update separately
+    if (req.file) {
+      // Assuming you are using multer or a similar library to handle file uploads
+      // Convert the image data to a Buffer and save it to the admin document
+      updateData.Image = req.file.buffer;
     }
 
     // Update the admin in the 'Admins' collection based on the adminId
