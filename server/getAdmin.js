@@ -53,5 +53,4 @@ const getAdmin = async (req, res) => {
   }
 };
 
-// Export the getAdmin function
 module.exports = { getAdmin };
