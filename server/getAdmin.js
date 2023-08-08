@@ -1,16 +1,17 @@
+"use strict";
 const mongoose = require("mongoose");
-const Admin = require("./userModel");
 require("dotenv").config();
 
 const MONGO_URI = process.env.MONGO_URI;
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
 // Connect to MongoDB using Mongoose
 const connectToDatabase = async () => {
   try {
-    await mongoose.connect(MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(MONGO_URI, options);
     console.log("Connected to MongoDB database!");
   } catch (error) {
     console.error("MongoDB connection error:", error);
@@ -33,6 +34,14 @@ const getAdmin = async (req, res) => {
   const adminId = req.params.adminId;
   console.log(adminId);
   try {
+    // Ensure the database connection is established before querying
+    if (!db.readyState) {
+      await connectToDatabase();
+    }
+
+    // Use the Admin model defined in userModel.js
+    const Admin = require("./userModel");
+
     const admin = await Admin.findById(adminId);
     if (!admin) {
       return res.status(404).json({ message: "Admin not found" });
