@@ -29,18 +29,44 @@ const updateAdmin = async (req, res) => {
       updateData.Image = req.file.buffer;
     }
 
+    // Check if the new username is valid and not already taken
+    if (updateData.username) {
+      if (updateData.username === admin.username) {
+        // Username is the same, continue with the update
+      } else {
+        // Check if the new username is available
+        const existingAdmin = await Admin.findOne({
+          username: updateData.username,
+        });
+
+        if (existingAdmin && existingAdmin._id.toString() !== adminId) {
+          return res
+            .status(400)
+            .json({ message: "Username already taken. Try another username." });
+        }
+      }
+    }
+
+    // Check if the new password is the same as the existing password
+    const isPasswordChanged =
+      updateData.password && updateData.password !== admin.password;
+
     // Update the admin in the 'Admins' collection based on the adminId
     const result = await Admin.updateOne(
       { _id: adminId },
       { $set: updateData }
     );
 
-    // Check if the update was successful and any changes were made
-    if (result.nModified === 0) {
-      return res.status(200).json({ message: "No changes made to admin data" });
+    // Check if the update was successful
+    if (result.nModified >= 0 || isPasswordChanged) {
+      console.log("New Name:", updateData.name);
+      console.log("nModified:", result.nModified);
+      console.log("Update Data:", updateData);
+
+      return res.status(200).json({ message: "Admin updated successfully" });
     }
 
-    res.status(200).json({ message: "Admin updated successfully" });
+    res.status(200).json({ message: "No changes made to admin data" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error updating Admin" });
