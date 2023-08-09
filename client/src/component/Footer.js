@@ -125,13 +125,19 @@ const FooterContainer = styled.footer`
 
   padding: 0px 70px;
   font-family: "Open Sans", sans-serif;
-  /* width: 100%; */
+  /* width: 100%; */@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:-70px;  }
 `;
 
 const FooterContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between;@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:-170px;  }
 `;
 
 const FooterColumn = styled.div`

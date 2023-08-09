@@ -53,7 +53,10 @@ const Container = styled.div`
   /* margin-left: 100px; */
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
-  /* width: 100%; */
+  /* width: 100%; */@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:-120px;  }
 `;
 
 const Title = styled.div`
@@ -65,15 +68,13 @@ const Title = styled.div`
   border-bottom: 2px solid
     ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:20px;  }
 `;
 
-const Img = styled.img`
-  width: 270px;
-  height: 250px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-`;
+
 
 const Subtitles = styled.div`
   display: flex;

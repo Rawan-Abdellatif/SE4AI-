@@ -86,6 +86,13 @@ export default Program;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
+  @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:0px;  
+width:320px;
+
+}
 `;
 
 const MainContent = styled.div`
@@ -94,7 +101,13 @@ const MainContent = styled.div`
   padding-top: -40px;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:0px;  
+width:380px;
+
+}
 `;
 
 const Title = styled.h1`
@@ -106,7 +119,13 @@ const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 700px;
   line-height: 1.7em;
-  font-size: 17px;
+  font-size: 17px; @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:0px;  
+width:380px;
+
+}
 `;
 const Details2 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -114,7 +133,13 @@ const Details2 = styled.div`
   line-height: 1.7em;
   font-size: 17px;
   padding-top: 23px;
-  margin-bottom: 70px;
+  margin-bottom: 70px; @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:0px;  
+width:380px;
+
+}
 `;
 const Ul = styled.ul`
   list-style-type: disc;
@@ -128,7 +153,14 @@ const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   font-size: 17px;
-  margin-bottom: 10px;
+  margin-bottom: 10px; @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:0px;  
+width:350px; 
+
+
+}
 `;
 const Button = styled.button`
   width: 350px;
@@ -157,7 +189,14 @@ const Button = styled.button`
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
-  }
+  } @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+margin-left:0px;  
+
+
+
+}
 `;
 const Icon = styled.div`
   padding-top: 3px;

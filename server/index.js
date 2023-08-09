@@ -3,8 +3,11 @@
 // import the needed node_modules.
 const express = require("express");
 const morgan = require("morgan");
+
 const port = 9999;
 const app = express();
+const cors = require('cors'); // Make sure to require the 'cors' module
+
 const { getAdmins } = require("./getAdmins");
 const { getAdmin } = require("./getAdmin");
 const { updateAdmin } = require("./updateAdmin");
@@ -18,6 +21,7 @@ app
   .use(morgan("tiny"));
 app.use(express.json());
 app.use("/photos", express.static("photos")); // Corrected the middleware usage
+app.use(cors());
 
 // Get All Of Admins
 app.get("/api/admins", getAdmins);
@@ -31,5 +35,9 @@ app.post("/api/admins", postAdmin);
 app.delete("/api/admins/:adminId", deleteAdmin);
 // Login Admin
 app.post("/api/admins/login", adminLogin);
+app.get("/", (req, res) => {
+  res.send("Welcome to the SE4AI Server!");
+});
+
 // Node spins up our server and sets it to listen on port 9999.
 app.listen(port, () => console.log(`Listening on port ${port}`));

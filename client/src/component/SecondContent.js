@@ -111,7 +111,10 @@ const Container = styled.div`
   /* background-color: black; */
   padding: 50px 0;
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:0px;  }
 `;
 
 const TextContent = styled.div`
@@ -122,7 +125,11 @@ const TextContent = styled.div`
   font-size: 30px;
   max-width: 900px;
   font-family: "Open Sans", sans-serif;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    /* align-items: center; */
+padding-left:0px;
+font-size:20px;  } 
 `;
 
 const RedText = styled.span`
@@ -145,12 +152,19 @@ const FirstLine = styled.div`
   margin-bottom: 50px;
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 
-  /* max-width: 1200px; */
-`;
+  @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+  }`;
 
 const SecondLine = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: center;@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:0px;  }
 `;
 
 const Img = styled.img`
@@ -162,7 +176,10 @@ const SmallContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:-70px;  }
 `;
 
 const Text = styled.div`
@@ -184,5 +201,8 @@ const Main = styled.div`
   line-height: 1.5;
   text-align: center;
   width: 314px;
-  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:0px;  }
 `;

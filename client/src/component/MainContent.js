@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { DarkModeContext } from "./DarkModeContext";
 import styled, { keyframes } from "styled-components";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
 
 const MainContent = () => {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -38,11 +38,15 @@ const MainContent = () => {
 
 const MainContainer = styled.div`
   text-align: center;
-  align-content: center;
   color: white;
   font-family: "Open Sans", sans-serif;
   margin-left: -10px;
   margin-right: -10px;
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    /* padding: 20px; */
+  }
 `;
 
 const HeroSection = styled.section`
@@ -51,20 +55,36 @@ const HeroSection = styled.section`
   justify-content: center;
   background-color: #282e3a;
   padding: 50px 0;
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    padding: 30px 0;
+  }
 `;
 
 const Nserc = styled.div`
   font-size: 25px;
-  /* position: absolute; */
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
 
-  bottom: -20px;
-  left: 90%;
-  transform: translateX(-20%);
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const HeroText = styled.div`
   max-width: 600px;
+  margin: 0 auto;
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    max-width: 70%;
+  }
 `;
+
 const fadeInAnimation = keyframes`
   0% {
     opacity: 0;
@@ -73,6 +93,7 @@ const fadeInAnimation = keyframes`
     opacity: 1;
   }
 `;
+
 const ButtonLink = styled(Link)`
   background-color: ${(props) => (props.isDarkMode ? "#bb5a7d" : "#bb5a7d")};
   color: ${(props) => (props.isDarkMode ? "black" : "white")};
@@ -83,9 +104,18 @@ const ButtonLink = styled(Link)`
   border-radius: 8px;
   width: 180px;
   cursor: pointer;
-  margin-left: 100px;
+  margin-top: 20px;
   text-decoration: none;
   animation: ${fadeInAnimation} 1s ease-in-out;
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 160px;
+    margin-top: 10px;
+  }@media (min-width: 768px) and (max-width: 1024px) {
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -98,22 +128,30 @@ const LogoContainer = styled.div`
 
 const Logo = styled.img`
   position: absolute;
-  top: 0;
+  top: -5;
   left: 0;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
+  @media (max-width: 768px) {
+   width: 150px;  height: 150px;
+
+  }@media (min-width: 768px) and (max-width: 1024px) {
+  }
 `;
 
 const LogoOverlay = styled.img`
   position: absolute;
-  top: 0;
+  top: -5;
   left: 0;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50%;@media (max-width: 768px) {
+   width: 150px;  height: 150px;
+
+  }
 `;
 
 const CustomText = styled.div`
@@ -136,6 +174,13 @@ const P = styled.p`
   width: 1100px;
   margin-left: -200px;
   text-align: center;
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 768px) {
+    font-size: 18px;
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 
 export default MainContent;

@@ -115,7 +115,10 @@ const Container = styled.div`
   margin-right: -10px;
   padding: 5px 0;
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;@media (max-width: 768px) {
+    /* align-items: center; */
+    
+ }
 `;
 
 const Text = styled.div`
@@ -125,7 +128,12 @@ const Text = styled.div`
   padding-left: 200px;
   font-size: 30px;
   text-align: center;
-  width: 800px;
+  width: 800px;@media (max-width: 768px) {
+    flex-direction: column; 
+    /* align-items: center; */
+margin-left:-170px;  
+width:350px; 
+ }
 `;
 const RedText = styled.span`
   color: #db7093;
@@ -137,7 +145,10 @@ const ImgContainer = styled.div`
   align-content: space-between;
   line-height: 1.5;
   text-align: center;
-  /* width: 50px; */
+  /* width: 50px; */@media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:-70px;  }
 `;
 
 const Img = styled.img`

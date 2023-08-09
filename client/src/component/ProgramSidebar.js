@@ -125,6 +125,9 @@ const SidebarContainer = styled.div`
   overflow-y: auto;
   /* background-color: ${(props) =>
     props.isDarkMode ? "#282828" : "white"}; */
+  @media (max-width: 768px) {
+    display: none; // Hide the ProgramSidebar on screens with max-width: 768px
+  }
 `;
 
 const SidebarContent = styled.div`
