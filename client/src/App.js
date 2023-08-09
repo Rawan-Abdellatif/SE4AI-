@@ -18,6 +18,7 @@ import ProgramComponents from "./component/ProgramComponents";
 import { DarkModeProvider } from "./component/DarkModeContext";
 import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
+import Contact from "./component/Contact";
 const App = () => {
   const [AppointmentId, setAppointmentId] = useState("");
   const [adminId, setAdminId] = useState("");
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/blog/upcoming" element={<UpcomingEvents />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/adminlogin/:adminId" element={<AdminProfile />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
 
         <Footer />
