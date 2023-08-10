@@ -38,7 +38,12 @@ const Container = styled.div`
   margin-left: 100px;
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+   @media (max-width: 768px) {
+    flex-direction:row;
+    
+margin-left:5px; 
+ }
 `;
 
 const Title = styled.div`
@@ -55,10 +60,10 @@ const EmailText = styled.p`
 
 const EmailLink = styled.a`
   text-decoration: none;
-  color: #db7093;
+  color: #BB5A7D;
 
   &:hover {
-    color: #db7093;
+    color:#BB5A7D;
     text-decoration: underline;
   }
 `;

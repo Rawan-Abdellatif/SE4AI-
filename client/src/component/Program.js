@@ -176,6 +176,14 @@ const Button = styled.button`
   font-size: 15px;
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
+  @media (max-width: 768px) {
+width:100px;
+padding-left:140px;
+flex-direction:column;
+height:90px;
+
+
+}
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
@@ -191,10 +199,9 @@ const Button = styled.button`
     font-weight: bold;
   } @media (max-width: 768px) {
     flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:0px;  
-
-
+/* width:10px; */
+margin-left:150px;  
+ padding-right: 70px;
 
 }
 `;

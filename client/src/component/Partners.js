@@ -166,7 +166,11 @@ const Main = styled.div`
   /* width: 100%;
   height: 100%; */
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
-`;
+  @media (max-width: 768px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    align-items: center;
+margin-left:-120px;  }`;
+
 const Title = styled.div`
   font-weight: bold;
   margin-top: 0;
@@ -178,7 +182,11 @@ const Title = styled.div`
   border-bottom: 2px solid
     ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-`;
+  @media (max-width: 768px) {
+    flex-direction:row;
+    
+margin-left:-80px; 
+ }`;
 
 const ParticipatingSection = styled.div`
   display: flex;
@@ -188,7 +196,10 @@ const ParticipatingSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-`;
+  @media (max-width: 768px) {
+    align-items: center;
+margin-left:40px;   font-size: 25px;
+ }`;
 
 const IndustrialSection = styled.div`
   display: flex;
@@ -198,7 +209,10 @@ const IndustrialSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-`;
+  @media (max-width: 768px) {
+    align-items: center;
+margin-left:40px;   font-size: 25px;
+ }`;
 
 const CollaboratorsSection = styled.div`
   display: flex;
@@ -208,7 +222,10 @@ const CollaboratorsSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-`;
+  @media (max-width: 768px) {
+    align-items: center;
+margin-left:40px;   font-size: 25px;
+ }`;
 
 const Choices = styled.div`
   display: flex;

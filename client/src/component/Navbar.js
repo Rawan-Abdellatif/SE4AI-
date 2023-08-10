@@ -159,7 +159,7 @@ const Nav = styled.li`
     transition: 0.2s;
     text-align: center;
     &:hover {
-      color: #db7093;
+      color: #BB5A7D;
     }
   }
 `;
@@ -184,7 +184,7 @@ const NavMenuItem = styled.li`
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 
     &:hover {
-      color: #db7093;
+      color: #BB5A7D;
     }
   }
 `;
@@ -293,6 +293,6 @@ const DropdownItem = styled.div`
 
   &:hover {
     background-color: #f0f0f0;
-    color: #db7093;
+    color: #BB5A7D;
   }
 `;

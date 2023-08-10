@@ -498,7 +498,7 @@ const Events = () => {
           <Details3 isDarkMode={isDarkMode}>
             Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
             University (ISU) and a Research Assistant in Laboratory for Software
-            Design at ISU under the supervision of Professor Hridesh Rajan. His
+            Design <Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />at ISU under the supervision of Professor Hridesh Rajan. His
             research interests are in the intersection of Software Engineering,
             Programming Languages, and Artificial Intelligence. He has worked on
             Machine Learning (ML) software repository mining and analysis in
@@ -512,7 +512,7 @@ const Events = () => {
             pipelines. His research results appeared in reputed software
             engineering venues including ICSE and ESEC/FSE.
           </Details3>{" "}
-          <Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
+          
         </Group3>
         <Details2>
           <Bold isDarkMode={isDarkMode}>Homepage:</Bold>
@@ -531,7 +531,10 @@ export default Events;
 // This part for css part
 const Container = styled.div`
   display: flex;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;   @media (max-width: 768px) {
+   flex-direction:column;
+margin-left:-150px; 
+ }
 `;
 
 const MainContent = styled.div`
@@ -540,7 +543,11 @@ const MainContent = styled.div`
   padding-top: -50px;
   color: #bb5a7d;
   width: 640px;
-  margin-bottom: 20px;
+  margin-bottom: 20px;   @media (max-width: 768px) {
+    flex-direction:row;
+
+
+ }
 `;
 
 // const Title = styled.h1`
@@ -563,23 +570,36 @@ const Subtitle = styled.div`
   a:hover {
     color: #bb5a7d;
     text-decoration: underline;
-  }
+  }@media (max-width: 768px) {
+width:340px; }
 `;
 const Img = styled.img`
   width: 650px;
   height: 350px;
   padding-top: 20px;
+  @media (max-width: 768px) {
+width:340px; height:200px;}
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* flex: 1; */
   width: 640px;
   line-height: 1.7em;
-  font-size: 15px;
-  a {
+  font-size: 15px;   @media (max-width: 768px) {
+    /* flex-direction:row; */
+    width:350px;
+margin-left:5px; 
+ } 
+
+  a {  
+
     color: #bb5a7d;
-    text-decoration: none;
+    text-decoration: none;  
+    @media (max-width: 768px) {
+
+} 
   }
+
   a:hover {
     text-decoration: underline;
   }
@@ -595,14 +615,19 @@ const Details2 = styled.div`
   line-height: 2em;
   font-size: 15px;
   margin-top: 20px;
-
+  @media (max-width: 768px) {
+    flex-direction:row;
+    
+margin-left:5px; 
+ }
   a {
     color: #bb5a7d;
     text-decoration: none;
   }
   a:hover {
     text-decoration: underline;
-  }
+  }@media (max-width: 768px) {
+width:340px; }
 `;
 const Bold2 = styled.span`
   font-weight: bold;
@@ -611,10 +636,16 @@ const Bold2 = styled.span`
 `;
 const YoutubeChannel = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  line-height: 5em;
+  line-height: 5em;@media (max-width: 768px) {
+width:340px; padding-left: 2px; line-height:2em;
+
+}
   a {
     color: #bb5a7d;
-    text-decoration: none;
+    text-decoration: none;@media (max-width: 768px) {
+width:340px; padding-left: 2px;
+
+}
   }
   a:hover {
     text-decoration: underline;
@@ -626,26 +657,37 @@ const Ol = styled.ol`
   font-size: 15px;
   line-height: 1.8em;
   width: 600px;
-  margin-left: 5px;
+  margin-left: 5px;@media (max-width: 768px) {
+width:340px; padding-left: 2px}
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 15px;
   margin-bottom: 20px;
-  width: 580px;
+  width: 580px;@media (max-width: 768px) {
+width:340px;margin-left: 4px}
 `;
 const Img2 = styled.img`
   width: 250px;
   height: 350px;
   margin-left: 4px;
   margin-top: 10px;
+  @media (max-width: 768px) {
+    flex-direction:column;
+width:270px;
+ padding-left: 2px;
+
+}
 `;
 const Image = styled.div`
   width: 520px;
 `;
 const Group = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;@media (max-width: 768px) {
+width:340px; padding-left: 2px;
+
+}
 `;
 const ImgContainer = styled.div`
   position: relative;
@@ -687,7 +729,10 @@ const Group2 = styled.div`
     color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     font-size: 15px;
     margin-bottom: 20px;
-    width: 380px;
+    width: 380px;@media (max-width: 768px) {
+width:130px;
+
+}
   }
 `;
 
@@ -727,30 +772,56 @@ const Button = styled.button`
     font-weight: bold;
   }
 `;
-const Icon = styled.div`
-  padding-top: 3px;
-  color: #bb5a7d;
-`;
+
 const Details3 = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? 'white' : '#484848')};
   flex: 1;
-  width: 640px;
+  width: calc(100% - 220px); /* Adjust width to leave space for the image */
   line-height: 1.7em;
   font-size: 15px;
+  margin-top: 0;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    width: 100%; /* Reset width on smaller screens */
+  }
 `;
-const Group3 = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-right: 5px;
-  padding-top: 10px;
-  width: 840px;
-`;
+
 const Img5 = styled.img`
   width: 200px;
   height: 180px;
-  /* margin-left: -200px; */
-  margin-right: 170px;
+  margin: 10px; /* Adjust margin for spacing around the image */
+  float: right;
+
+  @media (max-width: 768px) {
+    width: 200px; /* Make the image width 100% on smaller screens */
+    height: 180px; /* Reset height for responsiveness */
+    float: right;
+    margin: 0 auto 30px;
+    /* display: block; */
+  }
 `;
+
+const Group3 = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Align items to the top of the container */
+  margin: 10px; /* Adjust margin for spacing around the group */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width:340px; /* Change to a single column on smaller screens */
+  }
+`;
+
+// const Img5 = styled.img`
+//   width: 200px;
+//   height: 180px;
+//   /* margin-left: -200px; */
+//   margin-right: 170px; @media (max-width: 768px) { 
+//   float: left; /* Float the image to the left */
+//   margin-right: 120px; /* Add some space to separate image from text */}
+// `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
@@ -761,7 +832,11 @@ const Title = styled.h1`
   a:hover {
     color: #bb5a7d;
     text-decoration: underline;
-  }
+  }   @media (max-width: 768px) {
+    flex-direction:row;
+    width:350px;
+margin-left:5px; 
+ }
 `;
 const StickySidebar = styled.div`
   position: sticky;

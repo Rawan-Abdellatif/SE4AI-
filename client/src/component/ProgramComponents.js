@@ -234,7 +234,7 @@ const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
   margin-top: 10px;
-  padding-top: 20px;
+  padding-top: 20px;   
 `;
 
 const MainContent = styled.div`
@@ -244,25 +244,39 @@ const MainContent = styled.div`
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  @media (max-width: 768px) {
+    flex-direction:column;
+margin-left:5px;   margin-top: 1px;
+
+ }
 `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
+   @media (max-width: 768px) {
+    flex-direction:column;
+margin-left:5px; width:100px;
+ }
 `;
 const Details = styled.div`
   padding-top: 15px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 700px;
   line-height: 1.7em;
-  font-size: 15px;
+  font-size: 15px; 
+   @media (max-width: 768px) {
+    flex-direction:column;
+    width:360px;}
 `;
 const Subtitle = styled.div`
   padding-top: 30px;
   font-size: 30px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: none;   @media (max-width: 768px) {
+    flex-direction:column;
+    width:360px;}
   a {
     color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
@@ -279,7 +293,10 @@ const Ul = styled.ul`
   font-size: 15px;
   line-height: 1.7em;
   width: 700px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
+   @media (max-width: 768px) {
+    flex-direction:column;
+    width:320px;}
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -302,7 +319,11 @@ const Button = styled.button`
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
+  @media (max-width: 768px) {
+ width:20px;
+height:120px;
+padding-right:170px;
+    }
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
@@ -315,7 +336,8 @@ const Button = styled.button`
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: bold;  @media (max-width: 768px) {
+ width:20px;}
   }
 `;
 const Icon = styled.div`

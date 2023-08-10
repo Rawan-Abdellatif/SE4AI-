@@ -32,7 +32,11 @@ export default UpcomingEvents;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  margin-bottom: 20px;
+  margin-bottom: 20px;   @media (max-width: 768px) {
+    flex-direction:row;
+    
+margin-left:5px; 
+ }
 `;
 
 const MainContent = styled.div`
@@ -40,13 +44,22 @@ const MainContent = styled.div`
   margin-left: 170px;
   padding-top: -40px;
   color: #bb5a7d;
-  width: 640px;
+  width: 640px;   @media (max-width: 768px) {
+    flex-direction:row;
+    
+margin-left:5px; 
+ }
 `;
 
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};   
+  @media (max-width: 768px) {
+    flex-direction:row;
+    
+margin-left:5px; 
+ }
 `;
 const Button1 = styled.button`
   width: 370px;
