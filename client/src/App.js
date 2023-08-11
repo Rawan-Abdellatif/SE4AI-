@@ -19,16 +19,35 @@ import { DarkModeProvider } from "./component/DarkModeContext";
 import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
 import Contact from "./component/Contact";
-import HomePageSidebar from "./component/HomePageSidebar";
 const App = () => {
   const [AppointmentId, setAppointmentId] = useState("");
   const [adminId, setAdminId] = useState("");
+  
+  const GlobalStyle = createGlobalStyle`
+  /* Add your global styles here */
+  body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+   /* Apply responsive styles for smaller screens */
+  /* Apply responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    position: absolute;
+    z-index: 1;
+    /* Adjust Routes component to prevent horizontal scrolling */
+    #root {
+      overflow-x: hidden;
+    }
+  }
+`;
+
   return (
     <DarkModeProvider>
-      <BrowserRouter>
+      <BrowserRouter >
+      <GlobalStyle />
         <Navbar />
-       
-        <Routes>
+        <Routes >
           <Route path="/" element={<Homepage />} />
           <Route path="/intro" element={<Program />} />
           <Route
@@ -50,7 +69,6 @@ const App = () => {
           <Route path="/adminlogin/:adminId" element={<AdminProfile />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
-
         <Footer />
       </BrowserRouter>
     </DarkModeProvider>

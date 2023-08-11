@@ -222,13 +222,17 @@ const SwitchLabel = styled.label`
   position: relative;
   display: inline-block;
   width: 50px;
-  height: 20px;
+  height: 20px;   @media (max-width: 768px) {
+    display: none; 
+  }
 `;
 
 const SwitchInput = styled.input`
   opacity: 0;
   width: 0;
-  height: 0;
+  height: 0;   @media (max-width: 768px) {
+    display: none; 
+  }
 
   &:checked + .slider {
     background-color: #404040;
@@ -248,7 +252,9 @@ const Slider = styled.span`
   bottom: 0;
   background-color: #404040;
   transition: 0.2s;
-  border-radius: 34px;
+  border-radius: 34px;   @media (max-width: 768px) {
+    display: none; 
+  }
 
   &:before {
     position: absolute;
