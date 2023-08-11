@@ -4,12 +4,28 @@ import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
 import { DarkModeContext } from "./DarkModeContext";
 import { Link, useNavigate } from "react-router-dom";
+import HomePageSidebar from "./HomePageSidebar";
+import { useLocation } from "react-router-dom";
+import ProgramSidebarMedia from "./ProgramSidebarMedia";
+
 
 const Navbar = () => {
   const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const shouldShowSidebar =
+  location.pathname !== "/intro" &&
+  location.pathname !== "/training-program/objectives" &&
+  location.pathname !== "/training-program/components";
+
+
+
+  const shouldShowProgramSidebar =
+  location.pathname === "/intro" ||
+  location.pathname === "/training-program/objectives" ||
+  location.pathname === "/training-program/components";
 
   const handleLoginToggle = () => {
     setShowDropdown(!showDropdown); // Toggle the visibility of the dropdown
@@ -29,7 +45,9 @@ const Navbar = () => {
   };
   return (
     // <NavbarStickyContainer>
-    <NavbarContainer isDarkMode={isDarkMode}>
+    <NavbarContainer isDarkMode={isDarkMode}>  
+    {shouldShowProgramSidebar &&<ProgramSidebarMedia/>}    
+        {shouldShowSidebar && <HomePageSidebar />}
       <NavMenu>
         <Nav isDarkMode={isDarkMode}>
           <a href="/">
@@ -115,7 +133,7 @@ const NavbarContainer = styled.nav`
   /* justify-content: space-between; */
   font-weight: bold;
   font-size: 12px;
-  margin-left: -10px;
+  margin-left: -5px;
   /* margin-right: -10px; */
   padding: 5px 0px;
   font-family: "Open Sans", sans-serif;
@@ -131,12 +149,15 @@ const NavMenu = styled.ul`
   display: flex;
   padding-top: 10px;
   list-style: none;
+  margin-left: 0px;
+
 `;
 const Nav = styled.li`
   /* margin-right: 3px; */
   display: flex;
-  margin-left: -30px;
-
+  margin-left: -10px;
+  padding-left:0px;
+width:170px;
   img {
     height: 40px;
     cursor: pointer;
@@ -148,12 +169,13 @@ const Nav = styled.li`
   a {
     /* margin-top: -10px; */
     align-items: vertical;
+    flex-direction:row;
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
     text-decoration: none;
     font-size: 15px;
     font-weight: bolder;
     padding-top: 1px;
-    width: 120px;
+    width: 140px;
     margin-left: -40px;
     /* padding-right: -3px; */
     transition: 0.2s;
@@ -185,7 +207,10 @@ const NavMenuItem = styled.li`
 
     &:hover {
       color: #BB5A7D;
-    }
+    } 
+    @media (max-width: 768px) {
+    display: none; 
+  }
   }
 `;
 

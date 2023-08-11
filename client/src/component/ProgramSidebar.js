@@ -112,13 +112,13 @@ const ProgramSidebar = () => {
 export default ProgramSidebar;
 
 const SidebarContainer = styled.div`
-  width: 290px;
+  width: 300px;
   margin-left: 1px;
   font-family: "Open Sans", sans-serif;
   position: sticky;
   margin-top: -90px;
   top: 0;
-  z-index: 1;
+  z-index: -1;
   border-right: ${(props) =>
     props.isDarkMode ? "1px solid #e8e8e8" : "1px solid #e8e8e8"};
   max-height: calc(100vh - 200px);
@@ -145,7 +145,8 @@ const SidebarHeading = styled.h2`
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 3px;
-  margin-left: 12px;
+  padding-left:10px;
+  /* margin-left: 10px; */
   /* padding-left: 20px; */
   /* margin-top: -20px; */
   padding-top: 5px;
@@ -208,8 +209,8 @@ const Icon = styled.span`
 `;
 const NavMenu = styled.ul`
   display: flex;
-  margin-left: -20px;
-  /* margin-top: -60px; */
+  margin-left: 4px;
+  margin-top: 0px;
   /* padding-top: 10px; */
   position: sticky;
   list-style: none;
@@ -218,13 +219,13 @@ const NavMenu = styled.ul`
 const Nav = styled.li`
   /* margin-right: 3px; */
   display: flex;
-  width: 120px;
+  width: 140px;
   /* top: -90px; */
 
   img {
     height: 40px;
     cursor: pointer;
-    margin-top: -80px;
+    margin-top: -9px;
     margin-left: -40px;
     padding-left: 5px;
     margin-right: 3px;
@@ -235,6 +236,7 @@ const Nav = styled.li`
     align-items: vertical;
 
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+    padding-top:3px;
     text-decoration: none;
     font-size: 15px;
     font-weight: bolder;

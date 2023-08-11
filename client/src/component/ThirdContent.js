@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DarkModeContext } from "./DarkModeContext";
+
 import styled from "styled-components";
 import Concordia from "./png/Concordia.png";
 import PolyMtl from "./png/PolyMTL.png";
@@ -19,89 +21,91 @@ import Vercel from "./png/Vercel.png";
 import MAIEI from "./png/MAIEI.png";
 import IVADO from "./png/IVADO.png";
 const ThirdContent = () => {
+  const { isDarkMode } = useContext(DarkModeContext);
+
   return (
-    <Container>
+    <Container isDarkMode={isDarkMode}>
       <Text>
         In Collaboration with World-renowned <RedText>Researchers</RedText> and
         <RedText>Technology Leaders</RedText>
       </Text>
-      <ImgContainer>
+      <ImgContainer >
         <Link href="https://www.concordia.ca/" target="_blank">
-          <Img src={Concordia} alt={Concordia} />{" "}
+          <Img  isDarkMode={isDarkMode} src={Concordia} alt={Concordia} />{" "}
         </Link>
 
         <Link href="https://www.polymtl.ca/en/" target="_blank">
-          <Img src={PolyMtl} alt={PolyMtl} />{" "}
+          <Img  isDarkMode={isDarkMode}  src={PolyMtl} alt={PolyMtl} />{" "}
         </Link>
 
         <Link href="https://www.queensu.ca/" target="_blank">
-          <Img src={Queens} alt={Queens} />
+          <Img   isDarkMode={isDarkMode} src={Queens} alt={Queens} />
         </Link>
 
         <Link href="https://www.ualberta.ca/index.html" target="_blank">
-          <Img src={Alberta} alt={Alberta} />
+          <Img src={Alberta}  isDarkMode={isDarkMode} alt={Alberta} />
         </Link>
 
         <Link href="https://www.nbc.ca/" target="_blank">
-          <Img src={NBC} alt={NBC} />
+          <Img  isDarkMode={isDarkMode}  src={NBC} alt={NBC} />
         </Link>
 
         <Link href="https://www.ibm.com/ca-en" target="_blank">
-          <Img src={IBM} alt={IBM} />
+          <Img src={IBM} alt={IBM}  isDarkMode={isDarkMode} />
         </Link>
 
         <Link href="https://www.cisco.com/" target="_blank">
-          <Img src={Cisco} alt={Cisco} />
+          <Img   isDarkMode={isDarkMode} src={Cisco} alt={Cisco} />
         </Link>
 
         <Link href="https://www.td.com/ca/en/personal-banking" target="_blank">
-          <Img src={TD} alt={TD} />
+          <Img   isDarkMode={isDarkMode} src={TD} alt={TD} />
         </Link>
 
         <Link href="https://www.ericsson.com/en" target="_blank">
-          <Img src={Ericsson} alt={Ericsson} />
+          <Img  isDarkMode={isDarkMode} src={Ericsson} alt={Ericsson} />
         </Link>
 
         <Link href="https://airudi.com/en/" target="_blank">
-          <Img src={Airudi} alt={Airudi} />
+          <Img  isDarkMode={isDarkMode} src={Airudi} alt={Airudi} />
         </Link>
 
         <Link href="https://www.giro.ca/en-ca/" target="_blank">
-          <Img src={GIRO} alt={GIRO} />
+          <Img  isDarkMode={isDarkMode} src={GIRO} alt={GIRO} />
         </Link>
 
         <Link href="https://cbc.radio-canada.ca/" target="_blank">
-          <Img src={Radio} alt={Radio} />
+          <Img  isDarkMode={isDarkMode} src={Radio} alt={Radio} />
         </Link>
 
         <Link
           href="https://www.nserc-crsng.gc.ca/index_eng.asp"
           target="_blank"
         >
-          <Img src={NSER} alt={NSER} />
+          <Img  isDarkMode={isDarkMode}  src={NSER} alt={NSER} />
         </Link>
 
         <Link href="https://ivado.ca/en/" target="_blank">
-          <Img src={IVADO} alt={IVADO} />
+          <Img  isDarkMode={isDarkMode} src={IVADO} alt={IVADO} />
         </Link>
 
         <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
-          <Img src={OBVIA} alt={OBVIA} />
+          <Img  isDarkMode={isDarkMode} src={OBVIA} alt={OBVIA} />
         </Link>
 
         <Link href="https://montrealethics.ai/" target="_blank">
-          <Img src={MAIEI} alt={MAIEI} />
+          <Img  isDarkMode={isDarkMode} src={MAIEI} alt={MAIEI} />
         </Link>
 
         <Link href="https://www.uni-graz.at/en/" target="_blank">
-          <Img src={Graz} alt={Graz} />
+          <Img  isDarkMode={isDarkMode} src={Graz} alt={Graz} />
         </Link>
 
         <Link
           href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
           target="_blank"
         >
-          <Img src={Vercel} alt={Vercel} />
+          <Img  isDarkMode={isDarkMode} src={Vercel} alt={Vercel} />
         </Link>
       </ImgContainer>
     </Container>
@@ -110,29 +114,35 @@ const ThirdContent = () => {
 export default ThirdContent;
 
 const Container = styled.div`
-  background-color: #101010;
+  color: ${(props) => (props.isDarkMode ? "#f7f7f7": "#484848")};
+  background-color: ${(props) => (props.isDarkMode ? "#282828" : " #faf5f5")};
+
   margin-left: -10px;
   margin-right: -10px;
   padding: 5px 0;
   text-align: center;
-  font-family: "Open Sans", sans-serif;@media (max-width: 768px) {
-    /* align-items: center; */
-    
+  font-family: "Open Sans", sans-serif;
+
+  @media (max-width: 768px) {
+    /* flex-direction:column; */
+margin-left:-320px;
+text-align :center;
+width:300px;
  }
 `;
 
 const Text = styled.div`
-  margin-top: 30px;
-  color: white;
-  font-weight: bold;
-  padding-left: 200px;
+  padding-top: 40px;
+  /* color: white; */
+  font-weight: bolder;
+  padding-left: 300px;
   font-size: 30px;
   text-align: center;
-  width: 800px;@media (max-width: 768px) {
-    flex-direction: column; 
-    /* align-items: center; */
-margin-left:-170px;  
-width:350px; 
+  width: 800px;
+  @media (max-width: 768px) {
+    /* flex-direction:column; */
+padding-left:320px;
+width:350px;
  }
 `;
 const RedText = styled.span`
@@ -142,27 +152,38 @@ const ImgContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 60px 160px;
-  align-content: space-between;
+  width:1200px;
+  /* align-content: space-between; */
   line-height: 1.5;
   text-align: center;
-  /* width: 50px; */@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    align-items: center;
-margin-left:-70px;  }
+border-radius:5px;
+
+/* background-color: ${(props) => (props.isDarkMode ? "black" : "D3D3D3")}; */
+
+color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
+@media (max-width: 768px) {
+    flex-direction:column;
+padding-left:320px;
+width:350px;
+ }
 `;
 
 const Img = styled.img`
-  background-color: #c0c0c0;
+  /* background-color: #c0c0c0; */
   padding: 30px 30px;
-  width: 150px;
+  width: 200px;
   height: 60px;
   margin: 20px;
   text-align: center;
-  border-radius: 15px;
+  background-color: ${(props) => (props.isDarkMode ?  "	#A8A8A8":"#f7f7f7" )};
+
+border-radius:10px;
+  /* border-radius: 15px; */
 `;
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
+  
   /* width: 150px; */
 `;
 const Items = styled.div`

@@ -19,6 +19,7 @@ import { DarkModeProvider } from "./component/DarkModeContext";
 import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
 import Contact from "./component/Contact";
+import HomePageSidebar from "./component/HomePageSidebar";
 const App = () => {
   const [AppointmentId, setAppointmentId] = useState("");
   const [adminId, setAdminId] = useState("");
@@ -26,6 +27,7 @@ const App = () => {
     <DarkModeProvider>
       <BrowserRouter>
         <Navbar />
+       
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/intro" element={<Program />} />

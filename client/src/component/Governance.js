@@ -3,12 +3,13 @@ import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import ProgramCommittee from "./ProgramCommiittee";
 import SteeringCommittee from "./SteeringCommittee";
-
 const Governance = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <Container>
+          
+
       <Title isDarkMode={isDarkMode}>Governance</Title>
       <Main isDarkMode={isDarkMode}>
         <Subtitles isDarkMode={isDarkMode}>

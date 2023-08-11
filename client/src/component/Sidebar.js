@@ -88,8 +88,9 @@ const SidebarContainer = styled.div`
   position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
   top: ${({ isFixed }) => (isFixed ? "100px" : "80px")};
   transition: transform 0.3s ease;
-  transform: translateY(${({ isFixed }) => (isFixed ? "-20px" : "10px")}); @media (max-width: 768px) {
-    display: none; // Hide the ProgramSidebar on screens with max-width: 768px
+  transform: translateY(${({ isFixed }) => (isFixed ? "-20px" : "10px")}); 
+  @media (max-width: 768px) {
+    display: none; 
   }
 `;
 
