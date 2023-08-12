@@ -64,11 +64,11 @@ const HeroSection = styled.section`
 
 const Nserc = styled.div`
   font-size: 25px;
-  position: absolute;
+  /* position: absolute; */
   bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-
+  /* left: 70%; */
+  transform: translateX(-10%);
+/* right:90%; */
   /* Media Query for Mobile Devices */
   @media (max-width: 768px) {
     font-size: 20px;
@@ -76,7 +76,7 @@ const Nserc = styled.div`
 `;
 
 const HeroText = styled.div`
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 0 auto;
 
   /* Media Query for Mobile Devices */
@@ -98,13 +98,13 @@ const ButtonLink = styled(Link)`
   background-color: ${(props) => (props.isDarkMode ? "#bb5a7d" : "#bb5a7d")};
   color: ${(props) => (props.isDarkMode ? "black" : "white")};
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 12px 35px;
   font-size: 20px;
   border: none;
   border-radius: 8px;
   width: 180px;
   cursor: pointer;
-  margin-top: 20px;
+  /* margin-top: 50px; */
   text-decoration: none;
   animation: ${fadeInAnimation} 1s ease-in-out;
 
@@ -171,9 +171,10 @@ const RedText = styled.span`
 
 const P = styled.p`
   font-size: 23px;
-  width: 1100px;
+  /* width: 1100px; */
   margin-left: -200px;
   text-align: center;
+padding-bottom:20px;
 
   /* Media Query for Mobile Devices */
   @media (max-width: 768px) {

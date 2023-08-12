@@ -48,34 +48,48 @@ const Navbar = () => {
     <NavbarContainer isDarkMode={isDarkMode}>  
     {shouldShowProgramSidebar &&<ProgramSidebarMedia/>}    
         {shouldShowSidebar && <HomePageSidebar />}
-      <NavMenu>
-        <Nav isDarkMode={isDarkMode}>
+      
+  <NavMenu1>
+        <Nav1 isDarkMode={isDarkMode}>
           <a href="/">
             <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
           </a>
-          <a href="/">CREATE SE4AI</a>
-        </Nav>{" "}
-      </NavMenu>
-      <NavMenu>
-        <NavMenuItem isDarkMode={isDarkMode}>
+          <Creat>
+          <a href="/">CREATE SE4AI</a></Creat>
+          </Nav1>
+          </NavMenu1>
+<NavMenu>
+        <Nav isDarkMode={isDarkMode}>
           <a href="/intro">Program</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
+        </Nav></NavMenu>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           <a href="/team">Team</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
+        </Nav></NavMenu>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           <a href="/blog">Events</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
+        </Nav></NavMenu>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           <a href="/governance">Governance</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
+        </Nav></NavMenu>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           <a href="/partners">Partners</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
+        </Nav></NavMenu>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           <a href="/apply">Apply</a>
-        </NavMenuItem>
-        <NavMenuItem isDarkMode={isDarkMode}>
+        </Nav></NavMenu>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           {/* Click event for "Login" */}
           <LoginLink onClick={handleLoginToggle}>Login</LoginLink>
 
@@ -93,15 +107,19 @@ const Navbar = () => {
               </DropdownMenu>
             </DropdownMenuWrapper>
           )}
-        </NavMenuItem>
+        </Nav></NavMenu>
 
-        <NavMenuItem isDarkMode={isDarkMode}>
+        <NavMenu>
+
+        <Nav isDarkMode={isDarkMode}>
           <Contact isDarkMode={isDarkMode}>
             <a href="/contact">Contact</a>
           </Contact>
-        </NavMenuItem>
+        </Nav>
+        </NavMenu>
+        <NavMenu>
 
-        <NavMenuItem>
+        <Nav>
           <SwitchLabel>
             <SwitchInput
               type="checkbox"
@@ -113,8 +131,8 @@ const Navbar = () => {
               checked={isDarkMode}
             />
           </SwitchLabel>
-        </NavMenuItem>
-      </NavMenu>
+        </Nav>
+        </NavMenu>
     </NavbarContainer>
     // </NavbarStickyContainer>
   );
@@ -125,16 +143,12 @@ export default Navbar;
 const NavbarContainer = styled.nav`
   /* background-color: #212529; */
   color: #fff;
-  /* width: 100%; */
-  margin-top: -10px;
+  margin-top: 0px;
   height: 45px;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   font-weight: bold;
   font-size: 12px;
-  margin-left: -5px;
-  /* margin-right: -10px; */
   padding: 5px 0px;
   font-family: "Open Sans", sans-serif;
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
@@ -147,75 +161,84 @@ const NavbarContainer = styled.nav`
 
 const NavMenu = styled.ul`
   display: flex;
-  padding-top: 10px;
   list-style: none;
-  margin-left: 0px;
+  position: relative;
+  cursor: pointer;
+/* margin-left:-50px; */
+/* border:2px solid yellow; */
+margin-left:-15px;
 
-`;
+ `
+
 const Nav = styled.li`
-  /* margin-right: 3px; */
-  display: flex;
-  margin-left: -10px;
-  padding-left:0px;
-width:170px;
-  img {
+ display: flex;
+  cursor: pointer;
+  /* position: relative; */
+/* margin-left:5px;  */
+ /* border:2px solid orange; */
+padding-left:-10px;
+/* width:115px;  */
+ img {
     height: 40px;
-    cursor: pointer;
-    margin-top: -10px;
-    /* padding-left: 7px; */
-    /* margin-right: 3px; */
-    /* width: 20px; */
+  cursor: pointer;
+  margin-top: -10px;
+margin-left:-40px;
+/* border:2px solid blue; */
   }
   a {
-    /* margin-top: -10px; */
-    align-items: vertical;
-    flex-direction:row;
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
     text-decoration: none;
-    font-size: 15px;
-    font-weight: bolder;
-    padding-top: 1px;
-    width: 140px;
-    margin-left: -40px;
-    /* padding-right: -3px; */
-    transition: 0.2s;
-    text-align: center;
-    &:hover {
+/* padding-left:-10px;  */
+   font-size: 15px;
+  transition: 0.2s;
+  margin-top: 10px; 
+  /* padding-left:-20px; */
+padding-left:-10px;
+/* width:80px; */
+  /* border:2px solid green; */
+  &:hover {
       color: #BB5A7D;
     }
-  }
-`;
-
-const NavMenuItem = styled.li`
-  /* margin-right: 10px; */
-  text-align: center;
-  margin-left: 25px;
-  /* width: 90px; */
-  display: flex;
-  /* border: 1px solid green; */
-  a {
-    /* color: #fff; */
-    text-decoration: none;
-    font-size: 16px;
-    padding-left: 2px;
-    padding-right: 2px;
-
-    transition: 0.2s;
-    /* align-items: center; */
-    padding-bottom: 6px;
-    color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-
-    &:hover {
-      color: #BB5A7D;
-    } 
     @media (max-width: 768px) {
-    display: none; 
+     display: none; 
+   }
+    
   }
-  }
+ 
 `;
+
+// const NavMenuItem = styled.li`
+//   /* margin-right: 10px; */
+//   /* text-align: center; */
+//   margin-left:70px;
+//   border:2px solid red;
+// /* padding-left:4px;  display: flex; */
+//   a {
+//     /* margin-left:5px; */
+//     /* padding-left:10px; */
+//     text-decoration: none;
+//     font-size: 16px;
+//     padding-right: 2px;
+//     border:2px solid blue;
+
+//     transition: 0.2s;
+//     /* align-items: center; */
+//     padding-bottom: 6px;
+//     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+
+//     &:hover {
+//       color: #BB5A7D;
+//     } 
+//     @media (max-width: 768px) {
+//     display: none; 
+//   }
+//   }
+// `;
 
 const Contact = styled.div`
-  padding-left: 350px;
+margin-left: 650px;
+/* padding-right:3px; */
+
 `;
 
 const SwitchLabel = styled.label`
@@ -326,4 +349,52 @@ const DropdownItem = styled.div`
     background-color: #f0f0f0;
     color: #BB5A7D;
   }
+`;
+const Creat=styled.div`
+width:120px;
+padding-top:17px;
+margin-left:-3px;
+`
+const NavMenu1 = styled.ul`
+  display: flex;
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+/* margin-left:-50px; */
+/* border:2px solid yellow; */
+
+ `
+ const Nav1 = styled.li`
+ display: flex;
+  cursor: pointer;
+  /* position: relative; */
+/* margin-left:5px;  */
+ /* border:2px solid orange; */
+ padding-left:0px;
+/* width:115px;  */
+ img {
+    height: 35px;
+  cursor: pointer;
+  margin-top: 0px;
+margin-left:-40px;
+/* border:2px solid blue; */
+  }
+  a {
+    color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+    text-decoration: none;
+/* padding-left:-10px;  */
+   font-size: 15px;
+  transition: 0.2s;
+  margin-top: 10px; 
+  /* padding-left:-20px; */
+margin-left:2px;
+/* width:80px; */
+  /* border:2px solid green; */
+  &:hover {
+      color: #BB5A7D;
+    }
+  
+    
+  }
+ 
 `;
