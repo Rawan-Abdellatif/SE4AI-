@@ -95,7 +95,7 @@ const fadeInAnimation = keyframes`
 `;
 
 const ButtonLink = styled(Link)`
-  background-color: ${(props) => (props.isDarkMode ? "#bb5a7d" : "#bb5a7d")};
+  background-color: ${(props) => (props.isDarkMode ? "#BB5A7D" : "#BB5A7D")};
   color: ${(props) => (props.isDarkMode ? "black" : "white")};
   font-weight: bold;
   padding: 12px 35px;
@@ -166,7 +166,7 @@ const WhiteText = styled.span`
 `;
 
 const RedText = styled.span`
-  color: #bb5a7d;
+  color: #BB5A7D;
 `;
 
 const P = styled.p`
