@@ -138,8 +138,8 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 2000px;
-  margin-left: 90px;
+  /* max-width: 2000px; */
+  /* margin-left: 90px; */
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
@@ -162,28 +162,36 @@ const SecondLine = styled.div`
   justify-content: center;@media (max-width: 768px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
-margin-left:0px;  }
+ }
 `;
 
 const Img = styled.img`
   width: 200px;
   height: 200px;
+  align-items: center;
+text-align:center;
 `;
 
 const SmallContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
+width:345px; 
+/* padding-right:40px; */
+/* padding-left:40px; */
+ color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+  @media (max-width: 768px) {
     align-items: center;
-margin-left:-70px;  }
+    /* padding-right:0px; */
+
+}
 `;
+
 
 const Text = styled.div`
   margin-top: 20px;
   color: black;
-  padding-left: 25px;
+  /* padding-left: 25px; */
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
@@ -191,14 +199,22 @@ const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 10px;
+  text-align: center;
+
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
 const Main = styled.div`
   font-size: 15px;
-  line-height: 1.5;
+/* margin-left:15px;  */
+display: block;
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px; */
+    margin-inline-end: 0px;  line-height: 1.7;
   text-align: center;
-  width: 314px;
+  /* width: 75%; */
+/* margin-right:40px; */
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};@media (max-width: 768px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;

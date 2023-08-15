@@ -74,6 +74,7 @@ import YangLiuImage from "../component/team/photos/Yang-Liu.jpg";
 import YipingJiaImage from "../component/team/photos/Yiping-Jia.jpg";
 import ZhiminZhaoImage from "../component/team/photos/Zhimin-Zhao.jpg";
 import SharonHoImage from "../component/team/photos/Sharon-Ho.jpg";
+import LinLingImage from "../component/team/photos/Lin-Ling.jpg"
 ////import Students data
 
 const students = [
@@ -400,7 +401,13 @@ const students = [
     linkedin: "https://www.linkedin.com/in/mruiz27/",
     twitter: "",
     email: "",
-  },
+  },{  name: "Lin Ling ",
+  University: "Concordia University",
+  img: LinLingImage,
+  website: "",
+  linkedin: "https://www.linkedin.com/in/lin-ling-4705b0260/",
+  twitter: "",
+  email: "",}
 ];
 const Students = () => {
   const { isDarkMode } = useContext(DarkModeContext);
@@ -484,43 +491,42 @@ export default Students;
 //css part
 
 const MiddContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px 5px;
+   display: flex;
+   flex-direction:row;
+   flex-wrap:wrap;
+gap:30px;
+  
+  
+    @media (max-width: 768px) {
+
+
+    }
 `;
 
 const Img = styled.img`
-  width: 270px;
-  height: 250px;
+  width:100%;
+  height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
     /* align-items: center; */
-margin-left:-0px;   width: 350px;  height: 320px;
+/* margin-left:-0px;   width: 350px;  height: 320px; */
 
  }
 `;
 
 const MiniContainer = styled.div`
-  margin-left: 20px;
-  margin-top: 40px;
+ margin-top: 20px; /* Change this value to decrease the margin */
   border-radius: 10px;
   border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
   background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  padding-top: 0px;
-  width: 270px;
-  height: 400px;
-  &.emadContainer {
-    height: 450px;
-  }@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-;   width:350px;   height: 430px;
-
-
- }
+  /* ... other styles ... */
+  /* margin-left: -5px;  */
+width:290px;  /* width:100vw; */
+/* border:5px solid orange;  */
+ @media (max-width: 768px) {
+  width:340px;}
 `; //
 
 const Name = styled.div`

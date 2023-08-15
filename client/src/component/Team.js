@@ -47,21 +47,28 @@ const Team = () => {
 export default Team;
 //style of all of the page
 const Container = styled.div`
-  margin-top: 0px;
-  margin-left: -10px;
-  margin-right: -10px;
+  /* margin-top: 0px; */
+  margin-left:100px; 
+
+    /* margin: 0 120px; */
+    /* max-width: var(--ifm-container-width); */
+
+    /* padding: 0 var(--ifm-spacing-horizontal); */
+    /* width: 100%; */
+  /* margin-left: -10px; */
+  /* margin-right: -10px; */
   /* margin-left: 100px; */
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
   /* width: 100%; */@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:-120px;  }
+margin-left:20px;
+}
 `;
 
 const Title = styled.div`
-  font-weight: bold;
-  padding-left: 100px;
+  font-weight:800;
+  /* padding-left: 100px; */
+  /* margin-left:120px; */
   padding-top: 45px;
   font-size: 45px;
   padding-bottom: 50px;
@@ -69,9 +76,9 @@ const Title = styled.div`
     ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:20px;  }
+    font-size: 45px;
+margin-left:5px;
+  }
 `;
 
 
@@ -80,19 +87,23 @@ const Subtitles = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
-  margin-left: 20px;
-  font-size: 35px;
+  /* margin-left:120px; */
+  font-size: 30px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
+  @media (max-width: 768px) {
+    font-size: 25px;
+}
 `;
+
 
 const RedText = styled.span`
   color: #bb5a7d;
 `;
 const Main = styled.div`
-  margin-top: 0;
-  padding-left: 100px;
-  /* width: 100%;
-  height: 100%; */
+  /* margin-left:100px; */
+  /* padding-left: 100px; */
+  /* width: 100%; */
+  /* height: 100%; */
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
 `;

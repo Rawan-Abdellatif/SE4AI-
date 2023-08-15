@@ -28,86 +28,123 @@ const ThirdContent = () => {
       <Text>
         In Collaboration with World-renowned <RedText>Researchers</RedText> and
         <RedText>Technology Leaders</RedText>
-      </Text>
+      </Text>    
+<Main>
       <ImgContainer >
         <Link href="https://www.concordia.ca/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={Concordia} alt={Concordia} />{" "}
         </Link>
+        </ImgContainer >
 
+
+      <ImgContainer >
         <Link href="https://www.polymtl.ca/en/" target="_blank">
           <Img  isDarkMode={isDarkMode}  src={PolyMtl} alt={PolyMtl} />{" "}
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://www.queensu.ca/" target="_blank">
           <Img   isDarkMode={isDarkMode} src={Queens} alt={Queens} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://www.ualberta.ca/index.html" target="_blank">
           <Img src={Alberta}  isDarkMode={isDarkMode} alt={Alberta} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://www.nbc.ca/" target="_blank">
           <Img  isDarkMode={isDarkMode}  src={NBC} alt={NBC} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://www.ibm.com/ca-en" target="_blank">
           <Img src={IBM} alt={IBM}  isDarkMode={isDarkMode} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://www.cisco.com/" target="_blank">
           <Img   isDarkMode={isDarkMode} src={Cisco} alt={Cisco} />
         </Link>
-
+        </ImgContainer >
+      
+      <ImgContainer >
         <Link href="https://www.td.com/ca/en/personal-banking" target="_blank">
           <Img   isDarkMode={isDarkMode} src={TD} alt={TD} />
         </Link>
+        </ImgContainer >
 
+        <ImgContainer >
         <Link href="https://www.ericsson.com/en" target="_blank">
           <Img  isDarkMode={isDarkMode} src={Ericsson} alt={Ericsson} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://airudi.com/en/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={Airudi} alt={Airudi} />
         </Link>
+        </ImgContainer >
 
+        <ImgContainer >
         <Link href="https://www.giro.ca/en-ca/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={GIRO} alt={GIRO} />
         </Link>
+        </ImgContainer >
 
+        <ImgContainer >
         <Link href="https://cbc.radio-canada.ca/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={Radio} alt={Radio} />
         </Link>
+        </ImgContainer >
 
+        <ImgContainer >
         <Link
           href="https://www.nserc-crsng.gc.ca/index_eng.asp"
           target="_blank"
-        >
+        >     
+  
           <Img  isDarkMode={isDarkMode}  src={NSER} alt={NSER} />
         </Link>
+        </ImgContainer >
 
+        <ImgContainer >
         <Link href="https://ivado.ca/en/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={IVADO} alt={IVADO} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={OBVIA} alt={OBVIA} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://montrealethics.ai/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={MAIEI} alt={MAIEI} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link href="https://www.uni-graz.at/en/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={Graz} alt={Graz} />
         </Link>
+        </ImgContainer >
 
+      <ImgContainer >
         <Link
           href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
-          target="_blank"
-        >
-          <Img  isDarkMode={isDarkMode} src={Vercel} alt={Vercel} />
+          target="_blank">
+<Img  isDarkMode={isDarkMode} src={Vercel} alt={Vercel} />
         </Link>
       </ImgContainer>
+</Main>
     </Container>
   );
 };
@@ -119,7 +156,7 @@ const Container = styled.div`
 
   /* margin-left: -10px; */
   /* margin-right: -10px; */
-  padding: 10px 0;
+  /* padding: 10px 0; */
   text-align: center;
   font-family: "Open Sans", sans-serif;
 
@@ -144,19 +181,20 @@ color:black;  /* font-size: 30px; */
   @media (max-width: 768px) {
     flex-direction:column;
     /* font-size: 1rem; */
-width:350px;
+/* width:350px; */
  }
 `;
 const RedText = styled.span`
   color: #BB5A7D;
 `;
 const ImgContainer = styled.div`
-display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  padding: 60px 160px;
-  /* width:1200px; */
-  /* align-content: space-between; */
+/* display: flex;
+flex-direction:row; */
+width:250px;
+ align-items: center;
+padding:40px;
+/* padding-right:120px; */
+
   line-height: 1.5;
   /* text-align: center; */
 border-radius:5px;
@@ -166,23 +204,30 @@ border-radius:5px;
 
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
 @media (max-width: 768px) {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 
 
 text-align: center;
-align-content:center;
+align-content:center; */
 }`;
 
 const Img = styled.img`
-  /* background-color: #c0c0c0; */
-  padding: 30px 30px;
-  width: 200px;
-  height: 60px;
-  margin: 20px;
-  text-align: center;
-  background-color: ${(props) => (props.isDarkMode ?  "	#A8A8A8":"#f7f7f7" )};
+  /* width: 200px;
+  height: 60px; */
+
+  /* left: 50%; */
+    /* margin: 0; */
+    max-height: 60px;
+    max-width: 180px;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* transform: translate(-50%,-50%); */
+/* padding: 50px; */
+  /* padding-right:50px; */
+  /* text-align: center; */
+  background-color: ${(props) => (props.isDarkMode ?  "	#A8A8A8":"inharit" )};
 
 border-radius:10px;
   /* border-radius: 15px; */
@@ -196,3 +241,12 @@ const Link = styled.a`
 const Items = styled.div`
   height: 60px;
 `;
+const Main=styled.div`   
+ display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+margin-left: 50px;
+/* margin-right:60px; */
+/* margin: 0 calc(var(--ifm-spacing-horizontal)*-1) */
+
+`

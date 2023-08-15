@@ -20,36 +20,29 @@ const Alumni = () => {
 export default Alumni;
 
 const Img = styled.img`
-  width: 270px;
-  height: 250px;
+      width: 100%;
+
+      display:block;
+  height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;@media (max-width: 768px) {
     flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:-0px;   width: 350px;  height: 320px;
 
  }
 `;
 const MiniContainer = styled.div`
-  margin-left: 20px;
-  margin-top: 40px;
+ margin-top: 20px; /* Change this value to decrease the margin */
   border-radius: 10px;
   border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
   background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  padding-top: 0px;
-  width: 270px;
-  height: 350px;
-  &.emadContainer {
-    height: 450px;
-  }@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-;   width:350px;   height: 430px;
-
-
- }
+  /* ... other styles ... */
+  /* margin-left: -5px;  */
+width:290px;  /* width:100vw; */
+/* border:5px solid orange;   */
+@media (max-width: 768px) {
+  width:340px;}
 `;
 
 const Name = styled.div`

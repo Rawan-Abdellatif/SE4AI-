@@ -26,8 +26,8 @@ const ProgramLeaderShip = () => {
       {/* Dr.Emad part */}
       <MiniContainer className="emadContainer " isDarkMode={isDarkMode}>
         <Img src={DrEmadShihabImage} alt="Dr. Emad Shihab" />
-        <Name>Dr. Emad Shihab</Name>
-        <Job>Director</Job>
+        <Div><Name>Dr. Emad Shihab</Name>        <Job>Director</Job>
+</Div>
         <University>Concordia University</University>
         <Links>
           {" "}
@@ -406,83 +406,63 @@ const ProgramLeaderShip = () => {
 
 export default ProgramLeaderShip;
 //style of all of the page
-const Container = styled.div`
-  margin-top: 10px;
-  margin-left: 100px;
-  font-family: "Open Sans", sans-serif;
-  padding-bottom: 20px;
-  width: 100%;@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:-120px;  }
-`;
-const MiddContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px 5px;@media (max-width: 768px) {}
-`;
 
-// const Title = styled.div`
-//   font-weight: bold;
-//   padding-top: 45px;
-//   font-size: 45px;
-//   color: #484848;
-//   padding-bottom: 50px;
-//   border-bottom: 2px solid #f0f0f0;
-// `;
+const MiddContainer = styled.div`
+   display: flex;
+   flex-direction:row;
+   flex-wrap:wrap;
+gap:30px;
+  
+  
+    @media (max-width: 768px) {
+
+
+    }
+`;
 
 const Img = styled.img`
-  width: 270px;
-  height: 250px;
+    width: 100%;
+  height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
+    /* flex-direction: column;  */
+    /* Display items in a column on mobile */
     /* align-items: center; */
-margin-left:-0px;   width: 350px;  height: 320px;
+/* margin-left:-0px;   width: 350px;  height: 320px; */
 
  }
 `;
 
-// const Program = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   margin-top: 40px;
-//   margin-left: 20px;
-//   font-size: 35px;
-//   font-weight: bold;
-// `;
-
-const RedText = styled.span`
-  color: #bb5a7d;
-`;
 
 const MiniContainer = styled.div`
-  margin-left: 20px;
-  margin-top: 40px;
+ margin-top: 20px; /* Change this value to decrease the margin */
   border-radius: 10px;
   border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"};
   background-color: ${(props) => (props.isDarkMode ? "#404040" : "white")};
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  padding-top: 0px;
-  width: 270px;
-  height: 400px;
-  &.emadContainer {
-    height: 450px;
-  }@media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-;   width:350px;   height: 430px;
+  /* ... other styles ... */
+  /* margin-left: -5px;  */
+width:290px;  /* width:100vw; */
+/* border:5px solid orange; */
+  @media (max-width: 768px) {
+  width:340px;
+ };`
 
 
- }
-`;
+const Div=styled.div`
+display:flex;
+flex-direction:row;
+/* margin-top: 20px; */
 
+
+`
 const Name = styled.div`
   font-weight: bold;
   font-size: 20px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-left: 15px;
+  margin-top:20px;
 `;
 
 const Job = styled.div`
@@ -492,12 +472,13 @@ const Job = styled.div`
   width: 80px;
   text-align: center;
   font-weight: bold;
-  padding: 2px 2px;
-  margin-left: 15px;
+margin-top:20px;  margin-left: 5px;
 `;
 
 const University = styled.div`
   margin-left: 15px;
+  margin-top:3px;
+  
 `;
 
 const Links = styled.div`
