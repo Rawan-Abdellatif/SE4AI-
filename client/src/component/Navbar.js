@@ -166,7 +166,7 @@ const NavMenu = styled.ul`
   cursor: pointer;
 /* margin-left:-50px; */
 /* border:2px solid yellow; */
-margin-left:-15px;
+margin-left:-17px;
 
  `
 
