@@ -13,6 +13,8 @@ const Navbar = () => {
   const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedLink, setSelectedLink] = useState(null);
+
   const navigate = useNavigate();
   const location = useLocation();
   const shouldShowSidebar =
@@ -60,32 +62,35 @@ const Navbar = () => {
           </NavMenu1>
 <NavMenu>
         <Nav isDarkMode={isDarkMode}>
-          <a href="/intro">Program</a>
+          <a href="/intro"   
+               className={location.pathname === "/intro" ? "selected" : ""}>
+               Program</a>
         </Nav></NavMenu>
         <NavMenu>
 
         <Nav isDarkMode={isDarkMode}>
-          <a href="/team">Team</a>
+          <a href="/team"
+          className={location.pathname === "/team" ? "selected" : ""}>Team</a>
         </Nav></NavMenu>
         <NavMenu>
 
         <Nav isDarkMode={isDarkMode}>
-          <a href="/blog">Events</a>
+          <a href="/blog" className={location.pathname === "/blog" ? "selected" : ""}>Events</a>
         </Nav></NavMenu>
         <NavMenu>
 
         <Nav isDarkMode={isDarkMode}>
-          <a href="/governance">Governance</a>
+          <a href="/governance" className={location.pathname === "/governance" ? "selected" : ""}>Governance</a>
         </Nav></NavMenu>
         <NavMenu>
 
         <Nav isDarkMode={isDarkMode}>
-          <a href="/partners">Partners</a>
+          <a href="/partners" className={location.pathname === "/partners" ? "selected" : ""}>Partners</a>
         </Nav></NavMenu>
         <NavMenu>
 
         <Nav isDarkMode={isDarkMode}>
-          <a href="/apply">Apply</a>
+          <a href="/apply" className={location.pathname === "/apply" ? "selected" : ""}>Apply</a>
         </Nav></NavMenu>
         <NavMenu>
 
@@ -195,7 +200,9 @@ margin-left:-40px;
   /* padding-left:-20px; */
 padding-left:-10px;
 /* width:80px; */
-  /* border:2px solid green; */
+ &.selected {
+  color: #BB5A7D;
+    }
   &:hover {
       color: #BB5A7D;
     }
