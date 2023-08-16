@@ -8,6 +8,7 @@ const Apply = () => {
   return (
     <Container>
       <Title isDarkMode={isDarkMode}>Apply Now</Title>
+      <Main>
       <EmailText isDarkMode={isDarkMode}>
         To apply, please send an email to{" "}
         <EmailLink href="mailto:apply@se4ai.org">apply@se4ai.org</EmailLink>{" "}
@@ -23,7 +24,7 @@ const Apply = () => {
           </ListItem>
           <ListItem isDarkMode={isDarkMode}>Your CV</ListItem>
         </List>
-      </EmailContent>
+      </EmailContent></Main>
     </Container>
   );
 };
@@ -43,14 +44,25 @@ const Container = styled.div`
     flex-direction:row;
     
 margin-left:5px; 
+ }@media (min-width: 1440px) { width:100%;
+height:100vh;
+/* margin-left:300px; */
+
+
  }
+
 `;
 
 const Title = styled.div`
   font-weight: bold;
   padding-top: 20px;
   font-size: 30px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};@media (min-width: 1440px) { width:100%;
+/* height:100vh; */
+margin-left:500px;
+
+
+ }
 `;
 
 const EmailText = styled.p`
@@ -76,7 +88,10 @@ const EmailContent = styled.div`
 const List = styled.ul`
   list-style-type: none;
   padding-left: 2px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};  @media (min-width: 1440px) {
+ /* margin-left:900px; */
+
+  }
 `;
 
 const ListItem = styled.li`
@@ -96,3 +111,7 @@ const ListItem = styled.li`
     margin-right: 10px;
   }
 `;
+const Main=styled.div`@media (min-width: 1440px) { 
+margin-left:500px;
+   }
+`

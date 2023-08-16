@@ -129,6 +129,12 @@ const FooterContainer = styled.footer`
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
 margin-left:-70px;  }
+@media (min-width: 1440px) {
+  align-items: center;
+  flex-direction: column; /* Display items in a column on mobile */
+    }
+
+
 `;
 
 const FooterContent = styled.div`
@@ -138,14 +144,22 @@ const FooterContent = styled.div`
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
 margin-left:-170px;  }
-`;
+@media (min-width: 1440px) {
+  /* align-items: center; */
+  justify-content:center;
+  margin-left:270px;
+   }`;
 
 const FooterColumn = styled.div`
   width: 17%;
   padding: 5px 30px;
   margin-bottom: 20px;
   padding-top: 20px;
+  @media (min-width: 1440px) {
+    width: 16%;
+  justify-content:center;  
 
+}
   h4 {
     font-size: 18px;
     margin-bottom: 15px;

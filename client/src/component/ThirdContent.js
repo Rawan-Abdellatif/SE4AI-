@@ -165,7 +165,10 @@ const Container = styled.div`
 /* margin-left:-320px; */
 text-align :center;
 /* width:300px; */
- }
+ }  @media (min-width: 1440px) {   
+text-align :center;
+align-items:center;}
+
 `;
 
 const Text = styled.div`
@@ -182,6 +185,10 @@ color:black;  /* font-size: 30px; */
     flex-direction:column;
     /* font-size: 1rem; */
 /* width:350px; */
+    flex-direction:column;
+ }  @media (min-width: 1440px) {  text-align :center;
+align-items:center; 
+
  }
 `;
 const RedText = styled.span`
@@ -238,15 +245,20 @@ const Link = styled.a`
   
   /* width: 150px; */
 `;
-const Items = styled.div`
-  height: 60px;
-`;
+
 const Main=styled.div`   
  display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 margin-left: 50px;
-/* margin-right:60px; */
-/* margin: 0 calc(var(--ifm-spacing-horizontal)*-1) */
+@media (min-width: 1440px) {   
+  display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+margin-left: 350px;
+width:1600px;
+/* text-align:center; */
+/* align-items:right; */
+}
 
 `
