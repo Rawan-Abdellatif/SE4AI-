@@ -425,7 +425,7 @@ const Img = styled.img`
   height: 300px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;@media (max-width: 768px) {
-    /* flex-direction: column;  */
+    height: 350px;
     /* Display items in a column on mobile */
     /* align-items: center; */
 /* margin-left:-0px;   width: 350px;  height: 320px; */
@@ -446,7 +446,7 @@ const MiniContainer = styled.div`
 width:290px;  /* width:100vw; */
 /* border:5px solid orange; */
   @media (max-width: 768px) {
-  width:340px;
+  width:370px;
  };`
 
 

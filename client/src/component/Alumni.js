@@ -42,7 +42,7 @@ const MiniContainer = styled.div`
 width:290px;  /* width:100vw; */
 /* border:5px solid orange;   */
 @media (max-width: 768px) {
-  width:340px;}
+  width:370px;}
 `;
 
 const Name = styled.div`

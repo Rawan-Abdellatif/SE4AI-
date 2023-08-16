@@ -129,7 +129,7 @@ const Img = styled.img`
   border-top-right-radius: 10px;@media (max-width: 768px) {
     /* flex-direction: column;  */
     /* Display items in a column on mobile */
-    /* align-items: center; */
+    height: 350px;
 /* margin-left:-0px;   width: 350px;  height: 320px; */
 
  }
@@ -146,7 +146,8 @@ const MiniContainer = styled.div`
   /* margin-left: -5px;  */
 width:290px;  /* width:100vw; */
 /* border:5px solid orange;  @media (max-width: 768px) { */
-  width:340px;
+@media (max-width: 768px) {
+  width:370px;
  };`
 
 const MiddContainer = styled.div`
