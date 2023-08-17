@@ -4,6 +4,8 @@ import { DarkModeContext } from "./DarkModeContext";
 
 const RightSidebar = ({ activeLink, handleLinkClick }) => {
   const { isDarkMode } = useContext(DarkModeContext);
+  const [isFixed, setIsFixed] = useState(true);
+
   // const [activeLink, setActiveLink] = useState(""); // Step 1: State to track the active link
 
   // useEffect(() => {
@@ -24,8 +26,10 @@ const RightSidebar = ({ activeLink, handleLinkClick }) => {
   // };
 
   return (
-    <SidebarContainer>
-      <SidebarContent className="sidebar-content">
+    <SidebarContainer isFixed={isFixed}
+    className={isFixed ? "" : "scrolled"}>
+      <SidebarContent isFixed={isFixed}
+      className={isFixed ? "" : "scrolled"}>
         <SidebarLink
           isDarkMode={isDarkMode}
           href="#industry-talks-webinar---april-25-2023"
@@ -147,36 +151,30 @@ const SidebarContainer = styled.div`
   font-family: "Open Sans", sans-serif;
   margin-left: 40px;
   padding-left: 20px;
-  position: sticky;
-  top: 40px;
-  max-height: calc(100vh - 40px);
+  /* padding-top:40px; */
+
+  position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
+  top: ${({ isFixed }) => (isFixed ? "80px" : "10px")};
+  max-height: calc(85vh - 40px);
   border-left: 1px solid #f0f0f0;
   overflow-y: auto;
   margin-top: 40px;
-  margin-bottom: 40px;
+  /* margin-bottom: 20px; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
-  /* Hide the scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-  ::-webkit-scrollbar {
-    width: 0.5em;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #bbb;
-    border-radius: 999px; /* Make the scrollbar thumb circular */
-  }
+  
 `;
 
 const SidebarContent = styled.div`
-  position: relative;
+/* padding-top: 170px; */
+
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 
 const SidebarLink = styled.a`
   display: block;
   font-size: 13px;
-  padding-top: 5px;
+  padding-top:10px;
   color: ${(props) =>
     props.isActive ? "#bb5a7d" : props.isDarkMode ? "white" : "#484848"};
 
@@ -186,6 +184,7 @@ const SidebarLink = styled.a`
     color: #bb5a7d;
   }
   &.near-top {
+    /* margin-top:20px; */
     color: #bb5a7d;
     font-weight: bold;
   }

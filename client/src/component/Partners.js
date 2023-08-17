@@ -157,7 +157,14 @@ const Container = styled.div`
   /* margin-left: 100px; */
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
-  /* width: 100%; */
+  @media (min-width: 1440px) { width:100%;
+height:100vh;
+margin-left:300px;
+width:1300px;
+line-height:7rem;
+/* padding-bottom: 200px; */
+
+ }
 `;
 
 const Main = styled.div`
@@ -169,7 +176,10 @@ const Main = styled.div`
   @media (max-width: 768px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
-margin-left:-120px;  }`;
+margin-left:-120px;  }
+@media (min-width: 1440px) { width:100%;
+
+}`;
 
 const Title = styled.div`
   font-weight: bold;

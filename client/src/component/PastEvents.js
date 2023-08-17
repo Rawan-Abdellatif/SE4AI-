@@ -78,7 +78,7 @@ const PastEvents = () => {
             {" "}
             on Balancing Data Valorization and Privacy: Industry Challenges and
             Opportunities.
-          </Bold>{" "}
+          </Bold>{" "}</Details><Details2>
           In his talk, Patrick delved into the distinct characteristics of data
           as a digital asset and examined the challenges of striking a balance
           between data valorization and privacy. Emphasizing the importance of
@@ -91,7 +91,7 @@ const PastEvents = () => {
           within organizations. Furthermore, he brought to light potential
           future disruptors, such as open banking in Canada, particularly
           relevant to the finance sector.
-        </Details>
+        </Details2>
         <Bold2 isDarkMode={isDarkMode}>About the Speaker:</Bold2>
         <Details isDarkMode={isDarkMode}>
           Patrick Mesana began his career as a software engineer, gaining
@@ -573,16 +573,22 @@ export default PastEvents;
 const StickySidebar = styled.div`
   position: sticky;
   top: 0px; /* Adjust this value if needed */
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
   /* margin-top: 20px; */
   width: 170px; /* Adjust this value to set the sidebar width */
+  @media (min-width: 1440px) { 
+/* width:50%; */
+ }
 `;
 
 // This part for css part
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  margin-bottom: 50px;
+  margin-bottom: 50px; 
+  @media (min-width: 1440px) { 
+/* margin-left:500px; */
+ }
 `;
 
 const MainContent = styled.div`
@@ -591,13 +597,20 @@ const MainContent = styled.div`
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 640px;
-  margin-bottom: 30px;
+  margin-bottom: 30px;    @media (min-width: 1440px) { 
+margin-left:500px;
+width:800px;
+ }
+
 `;
 
 const Title = styled.h1`
   font-weight: bold;
   font-size: 60px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+   @media (min-width: 1440px) { 
+/* margin-left:5000px; */
+ }
 `;
 const Subtitle = styled.div`
   padding-top: 20px;
@@ -620,7 +633,10 @@ const Subtitle = styled.div`
 const Img = styled.img`
   width: 650px;
   height: 350px;
-  padding-top: 20px;
+  padding-top: 20px;  @media (min-width: 1440px) { width:100%;
+width:737px;
+height: 415px;
+ }
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
@@ -635,6 +651,10 @@ const Details = styled.div`
   a:hover {
     text-decoration: underline;
   }
+  @media (min-width: 1440px) {
+  width: 737px;   
+
+ }
 `;
 
 const Bold = styled.span`
@@ -654,7 +674,10 @@ const Details2 = styled.div`
   }
   a:hover {
     text-decoration: underline;
-  }
+  }@media (min-width: 1440px) {
+  width: 737px;;   
+
+ }
 `;
 const Bold2 = styled.span`
   font-weight: bold;
@@ -694,7 +717,11 @@ const Img2 = styled.img`
   margin-top: 10px;
 `;
 const Image = styled.div`
-  width: 520px;
+  width: 520px; 
+     @media (min-width: 1440px) { 
+width:800px;
+margin-bottom:40px;
+ }
 `;
 const Group = styled.div`
   display: flex;

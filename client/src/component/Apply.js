@@ -57,11 +57,13 @@ const Title = styled.div`
   font-weight: bold;
   padding-top: 20px;
   font-size: 30px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};@media (min-width: 1440px) { width:100%;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  
+  
+  
+  @media (min-width: 1440px) { width:100%;
 /* height:100vh; */
 margin-left:500px;
-
-
  }
 `;
 

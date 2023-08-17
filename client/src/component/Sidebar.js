@@ -50,9 +50,10 @@ const Sidebar = () => {
     <SidebarContainer
       isDarkMode={isDarkMode}
       isFixed={isFixed}
-      className="sidebar-container"
-    >
-      <SidebarContent isDarkMode={isDarkMode} className="sidebar-content">
+      className={isFixed ? "" : "scrolled"}
+      >
+      <SidebarContent isDarkMode={isDarkMode}   isFixed={isFixed}
+      className={isFixed ? "" : "scrolled"}>
         <SidebarHeading isDarkMode={isDarkMode}>Recent posts</SidebarHeading>
         <SidebarLink
           isDarkMode={isDarkMode}
@@ -86,20 +87,33 @@ const SidebarContainer = styled.div`
   padding-left: 70px;
   font-family: "Open Sans", sans-serif;
   position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
-  top: ${({ isFixed }) => (isFixed ? "100px" : "80px")};
+  top: ${({ isFixed }) => (isFixed ? "80px" : "10px")};
   transition: transform 0.3s ease;
-  transform: translateY(${({ isFixed }) => (isFixed ? "-20px" : "10px")}); 
+  max-height: calc(70vh - 40px);
+  /* overflow-y: auto; */
   @media (max-width: 768px) {
     display: none; 
   }
+  @media (min-width: 1440px) { 
+    padding-left: 385px;
+
+ }
+ 
+
 `;
 
 const SidebarContent = styled.div`
-  position: relative;
+  position: absolute; /* Change position to absolute */
   width: 150px;
   height: 110px;
-  margin-top: 10px;
-  padding-top: 7px;
+  /* margin-top: 0px; */
+  /* padding-top: 20px; */
+  /* transition: padding-top 0.3s ease; */
+
+  @media (min-width: 1440px) { 
+/* width:2000px;   */
+
+ } 
 `;
 
 const SidebarHeading = styled.h2`
@@ -107,7 +121,10 @@ const SidebarHeading = styled.h2`
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#333333")};
   margin-top: 15px;
-  padding-top: 1px;
+  padding-top: 1px; 
+   @media (min-width: 1440px) { 
+    /* font-size:20px; */
+ }
 `;
 
 const SidebarLink = styled(NavLink)`
@@ -115,8 +132,8 @@ const SidebarLink = styled(NavLink)`
   font-size: 12px;
   padding-top: 1px;
   text-decoration: none;
-  margin-bottom: 7px;
-  padding-bottom: 2px;
+  margin-bottom: 1px;
+  /* padding-bottom: 2px; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* background-color: ${({ selected, isDarkMode }) =>
     selected && isDarkMode
@@ -124,7 +141,10 @@ const SidebarLink = styled(NavLink)`
       : selected
       ? "#e8e8e8"
       : "transparent"}; */
-
+      @media (min-width: 1440px) { 
+    /* font-size:15px; */
+    line-height:2rem
+ }
   &:hover,
   &:focus {
     color: #bb5a7d;

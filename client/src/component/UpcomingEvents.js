@@ -35,7 +35,12 @@ const Container = styled.div`
   margin-bottom: 20px;   @media (max-width: 768px) {
     flex-direction:row;
     
-margin-left:5px; 
+margin-left:5px;  @media (min-width: 1440px) {
+  /* height:200vh; */
+margin-top:50px;/* width:1300px; */
+/* padding-bottom: 200px; */
+
+ }
  }
 `;
 
@@ -47,7 +52,11 @@ const MainContent = styled.div`
   width: 640px;   @media (max-width: 768px) {
     flex-direction:row;
     
-margin-left:5px; 
+margin-left:5px;   @media (min-width: 1440px) {
+  height:5000vh;
+/* padding-bottom: 200px; */
+
+ }
  }
 `;
 
@@ -60,6 +69,9 @@ const Title = styled.h1`
     
 margin-left:5px; 
  }
+ @media (min-width: 1440px) {margin-top:50px; 
+/* width:1300px; */
+}
 `;
 const Button1 = styled.button`
   width: 370px;
@@ -97,5 +109,9 @@ const Icon = styled.div`
   color: #bb5a7d;
 `;
 const SidebarContainer = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
+   @media (min-width: 1440px) {
+height:100vh/* padding-bottom: 200px; */
+
+ }
 `;

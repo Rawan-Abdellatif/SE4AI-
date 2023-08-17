@@ -147,7 +147,7 @@ margin-left:-170px;  }
 @media (min-width: 1440px) {
   /* align-items: center; */
   justify-content:center;
-  margin-left:270px;
+  margin-left:160px;
    }`;
 
 const FooterColumn = styled.div`

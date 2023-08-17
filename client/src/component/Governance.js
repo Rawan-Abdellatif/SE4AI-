@@ -53,8 +53,12 @@ const Subtitles = styled.div`
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   @media (max-width: 768px) {
     font-size: 25px;
-  }
-`;
+  }@media (min-width: 1440px) {
+padding-top:50px; 
+
+   };
+`
+
 
 const RedText = styled.span`
   color: #bb5a7d;
@@ -68,7 +72,13 @@ font-family: "Open Sans", sans-serif;
 padding-bottom: 20px;
 /* width: 100%; */@media (max-width: 768px) {
 margin-left:20px;
-}
+}  @media (min-width: 1440px) {
+/* padding-top:100px;  */
+ justify-content:center;
+  margin-left:450px;
+  width:1400px;
+  padding-bottom:20px;
+   };
 `;
 
 const Main = styled.div`
@@ -76,12 +86,8 @@ const Main = styled.div`
   padding-left: 100px; */
   /* width: 100%;
   height: 100%; */
-  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};@media (max-width: 768px) {
-    /* align-items: center; */
-    /* margin-left:5px;    margin-top: -350px;
-    margin-bottom: 20px; */
-
-
-
+  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
+  @media (max-width: 768px) {
  }
+ @media (min-width: 1440px) {}
 `;
