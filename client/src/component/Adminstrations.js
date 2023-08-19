@@ -48,7 +48,9 @@ const Img = styled.img`
        width: 100%;
   height: 300px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px;@media (max-width: 768px) {
+  border-top-right-radius: 10px; 
+  @media (max-width: 995px) {
+
     height: 350px;
 /* margin-left:-0px;   width: 350px;  height: 320px; */
 
@@ -65,8 +67,11 @@ const MiniContainer = styled.div`
   /* margin-left: -5px;  */
 width:290px;  /* width:100vw; */
 /* border:5px solid orange;  */
- @media (max-width: 768px) {
-  width:370px;
+@media (max-width: 995px) {
+    flex-direction:column;
+width:90vw;
+margin-left:1px; 
+
  }
 `;
 

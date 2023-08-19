@@ -111,7 +111,8 @@ const Container = styled.div`
   /* background-color: black; */
   padding: 50px 0;
   text-align: center;
-  font-family: "Open Sans", sans-serif;@media (max-width: 768px) {
+  font-family: "Open Sans", sans-serif;
+  @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
 margin-left:0px;  }
@@ -125,7 +126,8 @@ const TextContent = styled.div`
     margin-bottom: 3rem;
     max-width: 850px;
     text-align: center;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")}; @media (max-width: 768px) {
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+  @media (max-width: 995px) {
     /* flex-direction: column;  */
  } 
 `;
@@ -150,7 +152,7 @@ const FirstLine = styled.div`
   margin-bottom: 50px;
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
     gap: 20px;
@@ -159,7 +161,8 @@ const FirstLine = styled.div`
 
 const SecondLine = styled.div`
   display: flex;
-  justify-content: center;@media (max-width: 768px) {
+  justify-content: center;
+  @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
  }
@@ -180,7 +183,7 @@ width:345px;
 /* padding-right:40px; */
 /* padding-left:40px; */
  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     align-items: center;
     /* padding-right:0px; */
 
@@ -215,7 +218,8 @@ display: block;
   text-align: center;
   /* width: 75%; */
 /* margin-right:40px; */
-  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};@media (max-width: 768px) {
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+  @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
 margin-left:0px;  }

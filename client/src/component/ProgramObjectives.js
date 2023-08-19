@@ -86,39 +86,50 @@ const Container = styled.div`
   font-family: "Open Sans", sans-serif;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 
 const MainContent = styled.div`
   /* flex: 1; */
   margin-left: 20px;
   padding-top: -40px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; 
-    @media (max-width: 768px) {
-    flex-direction:row;
-    width:50%;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+  @media (max-width: 995px) {
+    flex-direction:column;
+width:75vw;
 margin-left:5px; 
+border-left:none;
  }
+ @media (min-width: 1600px) {
+    margin-left:200px;
+   height:100vh;
+   }
 `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
   /* color: black; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};   @media (max-width: 768px) {
-    flex-direction:row;
-    
-margin-left:5px; 
- }
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};  
+   @media (max-width: 995px) {
+    flex-direction: column; /* Display items in a column on mobile */
+width:100% ;
+margin-left:0px;}
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width: 700px;
   line-height: 1.7em;
-  font-size: 17px;   @media (max-width: 768px) {
-    flex-direction:row;
-    width:360px;;
-margin-left:5px; 
- }
+  font-size: 17px;  
+   @media (max-width: 995px) {
+  
+    flex-direction: column; /* Display items in a column on mobile */
+width:91vw;
+margin-left:0px;
+
+ } 
+ @media (min-width: 1600px) {
+  width:50vw;
+   }
 `;
 const Ul = styled.ul`
   list-style-type: disc;
@@ -126,12 +137,16 @@ const Ul = styled.ul`
   font-size: 15px;
   line-height: 1.7em;
   width: 700px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};   @media (max-width: 768px) {
-    flex-direction:row;
-    width:320px;;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};   
+  @media (max-width:995px) {
+    flex-direction: column; /* Display items in a column on mobile */
+width:100% ;
+margin-left:0px;
 
-margin-left:2px; 
- }
+ } 
+ @media (min-width: 1600px) {
+  width:50vw;
+   }
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -153,13 +168,14 @@ const Button2 = styled.button`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   border: 1px solid #e8e8e8; 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     /* flex-direction:row; */
     width:150px;
     height:100px;
     padding-left:117px;
     margin-right:5px;
  }
+
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
@@ -172,10 +188,14 @@ const Button2 = styled.button`
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
-    font-weight: bold;@media (max-width: 768px) {
+    font-weight: bold;
+    @media (max-width: 995px) {
     width:100px;
   padding-left:20px;}
   }
+  @media (min-width: 1600px) {
+    margin-left: 370px;
+   }
 `;
 const Icon = styled.div`
   padding-top: 3px;
@@ -196,13 +216,14 @@ const Button1 = styled.button`
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 768px) {
+  @media (max-width:995px) {
     /* flex-direction:row; */
     width:150px;
     height:100px;
     padding-right:120px;
     margin-left:5px;
  }
+
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
@@ -215,7 +236,8 @@ const Button1 = styled.button`
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
-    font-weight: bold;@media (max-width: 768px) {
+    font-weight: bold;
+    @media (max-width: 995px) {
     width:100px;}
   }
 `;

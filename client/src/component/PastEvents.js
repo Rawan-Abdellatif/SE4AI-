@@ -633,7 +633,8 @@ const Subtitle = styled.div`
 const Img = styled.img`
   width: 650px;
   height: 350px;
-  padding-top: 20px;  @media (min-width: 1440px) { width:100%;
+  padding-top: 20px;
+   @media (min-width: 1440px) { 
 width:737px;
 height: 415px;
  }

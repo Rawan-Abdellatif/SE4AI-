@@ -37,10 +37,18 @@ const Title = styled.div`
   border-bottom: 2px solid
     ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};@media (max-width: 768px) {
-    font-size: 45px;
-margin-left:5px;
-  }
+  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+  @media (max-width: 995px) {max-width:995px;
+    margin-left:-30px; 
+  padding-left:20px;}
+  @media (min-width: 1600px) {
+min-width:1600px;
+margin-left:-500px;
+padding-left:500px;
+background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+} 
+
+
 `;
 
 const Subtitles = styled.div`
@@ -51,7 +59,7 @@ const Subtitles = styled.div`
   font-size: 30px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     font-size: 25px;
   }@media (min-width: 1440px) {
 padding-top:50px; 
@@ -70,7 +78,8 @@ const Container = styled.div`
 
 font-family: "Open Sans", sans-serif;
 padding-bottom: 20px;
-/* width: 100%; */@media (max-width: 768px) {
+/* width: 100%; */
+@media (max-width: 995px) {
 margin-left:20px;
 }  @media (min-width: 1440px) {
 /* padding-top:100px;  */
@@ -87,7 +96,11 @@ const Main = styled.div`
   /* width: 100%;
   height: 100%; */
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
+    flex-direction:column;
+width:90vw;
+margin-left:1px; 
+border-left:none;
  }
  @media (min-width: 1440px) {}
 `;

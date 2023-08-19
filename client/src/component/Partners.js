@@ -157,7 +157,7 @@ const Container = styled.div`
   /* margin-left: 100px; */
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
-  @media (min-width: 1440px) { width:100%;
+  @media (min-width: 1600px) { 
 height:100vh;
 margin-left:300px;
 width:1300px;
@@ -173,13 +173,11 @@ const Main = styled.div`
   /* width: 100%;
   height: 100%; */
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
 margin-left:-120px;  }
-@media (min-width: 1440px) { width:100%;
-
-}`;
+`;
 
 const Title = styled.div`
   font-weight: bold;
@@ -192,11 +190,15 @@ const Title = styled.div`
   border-bottom: 2px solid
     ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-  @media (max-width: 768px) {
-    flex-direction:row;
-    
-margin-left:-80px; 
- }`;
+  @media (max-width: 995px) {max-width:995px;
+    margin-left:-30px; 
+  padding-left:40px;}
+  @media (min-width: 1600px) {
+min-width:1600px;
+margin-left:-350px;
+padding-left:500px;
+background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+} `;
 
 const ParticipatingSection = styled.div`
   display: flex;
@@ -206,9 +208,9 @@ const ParticipatingSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 768px) {
-    align-items: center;
-margin-left:40px;   font-size: 25px;
+  @media (max-width: 995px) {
+    /* align-items: center; */
+margin-left:60px;   font-size: 35px;
  }`;
 
 const IndustrialSection = styled.div`
@@ -219,9 +221,9 @@ const IndustrialSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 768px) {
+  @media (max-width:995px) {
     align-items: center;
-margin-left:40px;   font-size: 25px;
+margin-left:60px;   font-size:35px;
  }`;
 
 const CollaboratorsSection = styled.div`
@@ -232,9 +234,9 @@ const CollaboratorsSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     align-items: center;
-margin-left:40px;   font-size: 25px;
+margin-left:60px;   font-size: 35px;
  }`;
 
 const Choices = styled.div`
@@ -272,6 +274,13 @@ const ChoiceItem = styled.div`
     text-align: center;
     border-radius: 15px;
   }
+  @media (max-width:995px) {
+    flex-direction: column; /* Display items in a column on mobile */
+width:95% ;
+text-align:center;
+margin-left:-70px;  
+}
+
 `;
 const RedText = styled.span`
   color: #bb5a7d;

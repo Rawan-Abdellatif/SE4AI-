@@ -5,10 +5,15 @@ import ProgramSidebar from "./ProgramSidebar";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import ProgramComponentRightSidebar from "./ProgramComponentRightSidebar";
+import ProgramComponentDropDownMedia from "./ProgramComponentDropDownMedia";
 const ProgramComponents = () => {
   const { isDarkMode } = useContext(DarkModeContext);
   const [activeLink, setActiveLink] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   useEffect(() => {
     const handleScroll = () => {
       const subtitles = document.querySelectorAll(".subtitle");
@@ -30,6 +35,7 @@ const ProgramComponents = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  // const isMobileView = window.innerWidth <= 995;
 
   const handleLinkClick = (id) => {
     setActiveLink(id);
@@ -38,8 +44,20 @@ const ProgramComponents = () => {
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebarContainer isDarkMode={isDarkMode}>
         <ProgramSidebar />
-      </ProgramSidebarContainer>
-      <MainContent isDarkMode={isDarkMode}>
+      </ProgramSidebarContainer>              
+
+      {window.innerWidth <= 995 && (
+         <ProgramComponentDropDownMedia
+         activeLink={activeLink}
+         isDropdownOpen={isDropdownOpen}
+         toggleDropdown={toggleDropdown}
+       />
+      
+      )}
+      <MainContent isDarkMode={isDarkMode} isDropdownOpen={isDropdownOpen}>
+         
+
+
         <Title isDarkMode={isDarkMode}>Program components</Title>
         <Subtitle
           id="engineering-ai-based-software-systems"
@@ -238,45 +256,55 @@ const Container = styled.div`
 `;
 
 const MainContent = styled.div`
-  /* flex: 1; */
-  margin-left: 20px;
-  padding-top: -30px;
+  border-left: ${(props) =>
+    props.isDarkMode ? "1px solid gray" : "1px solid #e8e8e8"};
+   margin-left: 20px;
+  /* padding-top: -30px; */
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 768px) {
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  @media (max-width: 995px) {
     flex-direction:column;
-margin-left:5px;   margin-top: 1px;
-
+  margin-top: ${(props) => (props.isDropdownOpen ? '280px' : '20px')}; /* Adjust this value as needed */
+  transition: margin-top 0.2s ease-in-out; /* Add a transition for smooth movement */
+  margin-left: ${(props) => (props.isDropdownOpen ? '-300px' : '-300px')}; /* Adjust this value as needed */
  }
+ @media (min-width: 1600px) {
+    margin-left:280px;
+}
 `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
-   @media (max-width: 768px) {
-    flex-direction:column;
-margin-left:5px; width:100px;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};  
+   @media (max-width:995px) {
+    flex-direction:row;
+    /* width:350px; */
  }
 `;
 const Details = styled.div`
   padding-top: 15px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 700px;
+  width: 900px;
   line-height: 1.7em;
   font-size: 15px; 
-   @media (max-width: 768px) {
-    flex-direction:column;
-    width:360px;}
+   @media (max-width:995px) {
+    flex-direction:row;
+width:350px;
+margin-left:5px; 
+    }
 `;
 const Subtitle = styled.div`
   padding-top: 30px;
   font-size: 30px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-weight: bold;
-  text-decoration: none;   @media (max-width: 768px) {
-    flex-direction:column;
-    width:360px;}
+  text-decoration: none;  
+   @media (max-width: 995px) {
+    flex-direction:row;
+    width:350px;
+margin-left:5px; 
+  }
   a {
     color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
@@ -294,9 +322,11 @@ const Ul = styled.ul`
   line-height: 1.7em;
   width: 700px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
-   @media (max-width: 768px) {
-    flex-direction:column;
-    width:320px;}
+   @media (max-width:995px) {
+    flex-direction:row;
+    width:320px;
+margin-left:2px; 
+    }
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -319,7 +349,7 @@ const Button = styled.button`
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
  width:20px;
 height:120px;
 padding-right:170px;
@@ -336,7 +366,8 @@ padding-right:170px;
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
-    font-weight: bold;  @media (max-width: 768px) {
+    font-weight: bold;  
+    @media (max-width: 995px) {
  width:20px;}
   }
 `;

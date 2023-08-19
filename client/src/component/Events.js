@@ -533,7 +533,7 @@ export default Events;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;   
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
    flex-direction:column;
 margin-left:-150px; 
  }
@@ -546,7 +546,8 @@ const MainContent = styled.div`
   padding-top: -50px;
   color: #bb5a7d;
   width: 640px;
-  margin-bottom: 20px;   @media (max-width: 768px) {
+  margin-bottom: 20px;  
+   @media (max-width: 995px) {
     flex-direction:row;
  }
  @media (min-width: 1440px) { 
@@ -575,7 +576,8 @@ const Subtitle = styled.div`
   a:hover {
     color: #bb5a7d;
     text-decoration: underline;
-  }@media (max-width: 768px) {
+  }
+  @media (max-width: 995px) {
 width:340px; }
 @media (min-width: 1440px) {
   width: 737px;   
@@ -588,7 +590,7 @@ const Img = styled.img`
   padding-top: 20px;
   @media (max-width: 768px) {
 width:340px; height:200px;}
-  @media (min-width: 1440px) { width:100%;
+  @media (min-width: 1440px) {
 width:737px;
 height: 415px;
  }
@@ -598,7 +600,8 @@ const Details = styled.div`
   /* flex: 1; */
   width: 640px;
   line-height: 1.7em;
-  font-size: 15px;   @media (max-width: 768px) {
+  font-size: 15px;  
+   @media (max-width: 995px) {
     /* flex-direction:row; */
     width:350px;
 margin-left:5px; 
@@ -610,7 +613,7 @@ margin-left:5px;
 
     color: #bb5a7d;
     text-decoration: none;  
-    @media (max-width: 768px) {
+    @media (max-width: 995px) {
 
 } 
   }
@@ -630,7 +633,7 @@ const Details2 = styled.div`
   line-height: 2em;
   font-size: 15px;
   margin-top: 20px;
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction:row;
     width:340px;
 margin-left:5px; }
@@ -654,14 +657,15 @@ const Bold2 = styled.span`
 `;
 const YoutubeChannel = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  line-height: 5em;@media (max-width: 768px) {
+  line-height: 5em;
+  @media (max-width: 995px) {
 width:340px; padding-left: 2px; line-height:2em;
 
 }
   a {
     color: #bb5a7d;
     text-decoration: none;
-    @media (max-width: 768px) {
+    @media (max-width: 995px) {
 width:340px; 
 padding-left: 2px;
 }
@@ -676,14 +680,16 @@ const Ol = styled.ol`
   font-size: 15px;
   line-height: 1.8em;
   width: 600px;
-  margin-left: 5px;@media (max-width: 768px) {
+  margin-left: 5px;
+  @media (max-width: 995px) {
 width:340px; padding-left: 2px}
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 15px;
   margin-bottom: 20px;
-  width: 580px;@media (max-width: 768px) {
+  width: 580px;
+  @media (max-width: 995px) {
 width:340px;margin-left: 4px}
 `;
 const Img2 = styled.img`
@@ -691,7 +697,7 @@ const Img2 = styled.img`
   height: 350px;
   margin-left: 4px;
   margin-top: 10px;
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction:column;
 width:270px;
  padding-left: 2px;
@@ -707,7 +713,8 @@ margin-bottom:40px;
 `;
 const Group = styled.div`
   display: flex;
-  flex-wrap: wrap;@media (max-width: 768px) {
+  flex-wrap: wrap;
+  @media (max-width: 995px) {
 width:340px; padding-left: 2px;
 
 }
@@ -817,7 +824,7 @@ const Img5 = styled.img`
   margin: 10px; /* Adjust margin for spacing around the image */
   float: right;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     width: 200px; /* Make the image width 100% on smaller screens */
     height: 180px; /* Reset height for responsiveness */
     float: right;
@@ -832,7 +839,7 @@ const Group3 = styled.div`
   align-items: flex-start; /* Align items to the top of the container */
   margin: 10px; /* Adjust margin for spacing around the group */
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction: column;
     width:340px; /* Change to a single column on smaller screens */
   }
@@ -856,7 +863,8 @@ const Title = styled.h1`
   a:hover {
     color: #bb5a7d;
     text-decoration: underline;
-  }   @media (max-width: 768px) {
+  }   
+  @media (max-width: 995px) {
     flex-direction:row;
     width:350px;
 margin-left:5px; 

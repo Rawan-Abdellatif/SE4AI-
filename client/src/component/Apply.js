@@ -40,7 +40,7 @@ const Container = styled.div`
   font-family: "Open Sans", sans-serif;
   padding-bottom: 20px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
-   @media (max-width: 768px) {
+   @media (max-width: 995px) {
     flex-direction:row;
     
 margin-left:5px; 

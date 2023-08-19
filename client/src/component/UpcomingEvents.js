@@ -32,7 +32,8 @@ export default UpcomingEvents;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  margin-bottom: 20px;   @media (max-width: 768px) {
+  margin-bottom: 20px;   
+  @media (max-width:995px) {
     flex-direction:row;
     
 margin-left:5px;  @media (min-width: 1440px) {
@@ -49,7 +50,8 @@ const MainContent = styled.div`
   margin-left: 170px;
   padding-top: -40px;
   color: #bb5a7d;
-  width: 640px;   @media (max-width: 768px) {
+  width: 640px;  
+   @media (max-width: 995px) {
     flex-direction:row;
     
 margin-left:5px;   @media (min-width: 1440px) {
@@ -64,7 +66,7 @@ const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};   
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction:row;
     
 margin-left:5px; 

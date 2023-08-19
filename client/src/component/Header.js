@@ -45,7 +45,7 @@ import { DarkModeContext } from "./DarkModeContext";
   top: ${(props) => (props.scrollPosition > 20 ? "20px" : "0")};
   z-index: 1;
   transition: top 0.3s ease; /* Add a transition for smooth movement */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     display: none; 
   }
 `;

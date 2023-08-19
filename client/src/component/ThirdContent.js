@@ -160,7 +160,7 @@ const Container = styled.div`
   text-align: center;
   font-family: "Open Sans", sans-serif;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction:column;
 /* margin-left:-320px; */
 text-align :center;
@@ -181,7 +181,7 @@ const Text = styled.div`
 color:black;  /* font-size: 30px; */
   /* text-align: center; */
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     flex-direction:column;
     /* font-size: 1rem; */
 /* width:350px; */
@@ -210,7 +210,7 @@ border-radius:5px;
 /* background-color: ${(props) => (props.isDarkMode ? "black" : "D3D3D3")}; */
 
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
-@media (max-width: 768px) {
+@media (max-width:995px) {
   /* display: flex;
   flex-direction: column;
   flex-wrap: wrap;

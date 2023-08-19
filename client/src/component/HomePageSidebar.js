@@ -147,7 +147,7 @@ const SidebarButton = styled.button`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 
-  @media (min-width: 769px) {
+  @media (min-width: 995px) {
     display: none;
     border:none;
 ; margin-right:10px;
@@ -163,7 +163,7 @@ const SidebarContainer = styled.div`
   overflow-x: hidden;
   transition: 0.5s;
 
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     position: absolute;
     z-index: 1;
     width: ${(props) => (props.isOpen ? "85%" : "0")};

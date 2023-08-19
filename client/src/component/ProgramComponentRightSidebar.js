@@ -125,18 +125,17 @@ const ProgramComponentRightSidebar = ({
 export default ProgramComponentRightSidebar;
 
 const SidebarContainer = styled.div`
-  width: 140px;
-  height: 400px;
-  margin-right: 0px;
+  width: 270px;
+  height: 250px;
+  /* margin-right: 0px; */
   font-family: "Open Sans", sans-serif;
-  margin-left: 40px;
+  margin-left: 20px;
   padding-left: 20px;
   position: sticky;
   top: 40px;
   max-height: calc(100vh - 10px);
-
   border-left: ${(props) =>
-    props.isDarkMode ? " 1px solid #A0A0A0" : "  1px solid	#A0A0A0"};
+    props.isDarkMode ? " 1px solid 	#E0E0E0" : "  1px solid		#E0E0E0"};
 
   overflow-y: auto;
   margin-top: 40px;
@@ -153,6 +152,7 @@ const SidebarContainer = styled.div`
     background-color: #bbb;
     border-radius: 999px; /* Make the scrollbar thumb circular */
   }
+  @media (max-width: 995px) {display:none;}
 `;
 
 const SidebarContent = styled.div`

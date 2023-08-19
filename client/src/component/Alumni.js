@@ -25,7 +25,8 @@ const Img = styled.img`
       display:block;
   height: 300px;
   border-top-left-radius: 10px;
-  border-top-right-radius: 10px;@media (max-width: 768px) {
+  border-top-right-radius: 10px;
+  @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
 
  }
@@ -41,8 +42,12 @@ const MiniContainer = styled.div`
   /* margin-left: -5px;  */
 width:290px;  /* width:100vw; */
 /* border:5px solid orange;   */
-@media (max-width: 768px) {
-  width:370px;}
+@media (max-width: 995px) {
+    flex-direction:column;
+width:90vw;
+margin-left:1px; 
+border-left:none;
+ }
 `;
 
 const Name = styled.div`

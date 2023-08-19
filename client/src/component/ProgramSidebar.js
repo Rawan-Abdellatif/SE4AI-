@@ -12,8 +12,15 @@ const ProgramSidebar = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   const toggleLinks = () => {
+    if (!showLinks) {
+      setSelectedLink('/training-program/objectives');
+    }
     setShowLinks(!showLinks);
   };
+  
+  
+  
+  
 
   const location = useLocation();
 
@@ -69,21 +76,22 @@ const ProgramSidebar = () => {
           </Link>
         </SidebarHeading>
         <SidebarHeading
-          isDarkMode={isDarkMode}
-          onClick={toggleLinks}
-          selected={selectedLink.includes("/training-program")}
-        >
-          Training Program
-          {showLinks ? (
-            <Icon>
-              <IoIosArrowDown />
-            </Icon>
-          ) : (
-            <Icon>
-              <IoIosArrowForward />
-            </Icon>
-          )}
-        </SidebarHeading>
+  isDarkMode={isDarkMode}
+  onClick={toggleLinks}
+  selected={selectedLink.includes("/training-program")}
+>
+  Training Program
+  {showLinks ? (
+    <Icon>
+      <IoIosArrowDown />
+    </Icon>
+  ) : (
+    <Icon>
+      <IoIosArrowForward />
+    </Icon>
+  )}
+</SidebarHeading>
+
         {showLinks && (
           <>
             <SidebarLink
@@ -112,29 +120,42 @@ const ProgramSidebar = () => {
 export default ProgramSidebar;
 
 const SidebarContainer = styled.div`
-  width: 300px;
   margin-left: 1px;
   font-family: "Open Sans", sans-serif;
   position: sticky;
   margin-top: -90px;
   top: 0;
-  z-index: -1;
-  border-right: ${(props) =>
-    props.isDarkMode ? "1px solid #e8e8e8" : "1px solid #e8e8e8"};
-  max-height: calc(100vh - 200px);
-  overflow-y: auto;
-  /* background-color: ${(props) =>
-    props.isDarkMode ? "#282828" : "white"}; */
-  @media (max-width: 768px) {
-    display: none; // Hide the ProgramSidebar on screens with max-width: 768px
+  /* z-index: 1; */
+
+  max-height: calc(70vh - 40px);
+  cursor: pointer;
+  text-decoration: none;
+  /* margin-bottom: 3px; */
+  margin-left: 12px;
+  /* padding-left: 20px; */
+  /* margin-top: -20px; */
+  padding-top: 5px;
+  /* margin-bottom: 15px; */
+  font-weight: bold;
+  background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
+
+  &.active,
+  a:active {
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#282828" : "#e8e8e8"};
+    color: #bb5a7d;
+  }
+  @media (max-width: 995px) {
+    display: none; 
   }
 `;
 
 const SidebarContent = styled.div`
   position: sticky;
   top: 0;
-  z-index: 1;
-`;
+  width: 280px;
+  `;
 
 const SidebarHeading = styled.h2`
   display: flex;
@@ -149,11 +170,11 @@ const SidebarHeading = styled.h2`
   /* margin-left: 10px; */
   /* padding-left: 20px; */
   /* margin-top: -20px; */
-  padding-top: 5px;
-  z-index: -1;
-  top: -10px;
+  /* padding-top: 5px; */
+  /* z-index: -1; */
+  /* top: -10px; */
   background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
+    selected && isDarkMode ? "#282828" : selected ? "#F0F0F0" : "transparent"};
   &:hover,
   &:active,
   &.active {
@@ -214,8 +235,7 @@ const NavMenu = styled.ul`
   /* padding-top: 10px; */
   position: sticky;
   list-style: none;
-  /* top: 0; */
-`;
+z-index:1 ;`;
 const Nav = styled.li`
   /* margin-right: 3px; */
   display: flex;

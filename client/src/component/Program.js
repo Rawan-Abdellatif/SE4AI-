@@ -10,7 +10,7 @@ const Program = () => {
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebar />
       <MainContent isDarkMode={isDarkMode}>
-        {" "}
+
         <Title isDarkMode={isDarkMode}>Program Overview</Title>
         <Details isDarkMode={isDarkMode}>
           The field of Artificial Intelligence (AI) has seen significant demand
@@ -86,78 +86,86 @@ export default Program;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  @media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:0px;  
-width:320px;
-
-}
-`;
-
-const MainContent = styled.div`
-  /* flex: 1; */
-  margin-left: 20px;
-  padding-top: -40px;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; @media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
-margin-left:0px;  
-width:380px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+`;
 
+
+
+const MainContent = styled.div`
+  border-left: ${(props) =>
+    props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"};
+    padding-left:20px;
+      margin-left: 20px;
+      width:850px;
+  padding-top: -40px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; 
+    @media (max-width: 995px) {
+    flex-direction:column;
+width:75vw;
+margin-left:5px; 
+border-left:none;
+ }
+ @media (min-width: 1600px) {
+    margin-left:250px;
+  border-left:none;
 }
+
 `;
 
 const Title = styled.h1`
+ 
   font-weight: bold;
   font-size: 45px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Details = styled.div`
+
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 700px;
+  /* width: 800px; */
   line-height: 1.7em;
-  font-size: 17px; @media (max-width: 768px) {
+  font-size: 15px; 
+  @media (max-width:995px) {
     flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
+width:100% ;
 margin-left:0px;  
-width:380px;
+
 
 }
 `;
 const Details2 = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 700px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
+  /* width: 800px; */
   line-height: 1.7em;
-  font-size: 17px;
+  font-size: 15px;
   padding-top: 23px;
-  margin-bottom: 70px; @media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
+  margin-bottom: 70px;
+   @media (max-width: 995px) {
+width:100%;
 margin-left:0px;  
-width:380px;
+
 
 }
 `;
-const Ul = styled.ul`
+const Ul = styled.ul` 
+  margin-top:-40px;
+
   list-style-type: disc;
-  padding-top: 20px;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.7em;
-  width: 700px;
+  /* width: 800px; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
+  padding-top:-20px;
   font-size: 17px;
-  margin-bottom: 10px; @media (max-width: 768px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    /* align-items: center; */
+  /* margin-bottom: 10px;  */
+  @media (max-width: 995px) {
+width:100% ; 
 margin-left:0px;  
-width:350px; 
+
 
 
 }
@@ -169,18 +177,18 @@ const Button = styled.button`
 
   background-color: inherit;
   margin-bottom: 30px;
-  margin-left: 450px;
+  margin-left: 500px;
   border-radius: 5px;
-  padding-left: 270px;
+  padding-left:270px;
   padding-top: -2px;
   font-size: 15px;
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
-  @media (max-width: 768px) {
-width:100px;
+  @media (max-width: 995px) {
 padding-left:140px;
 flex-direction:column;
 height:90px;
+
 
 
 }
@@ -197,11 +205,13 @@ height:90px;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
-  } @media (max-width: 768px) {
+  }
+   @media (max-width:995px) {
     flex-direction: column; /* Display items in a column on mobile */
 /* width:10px; */
-margin-left:150px;  
- padding-right: 70px;
+margin-left:120px;  
+ padding-right: 80px;    width: 100px;
+
 
 }
 `;

@@ -91,7 +91,7 @@ const SidebarContainer = styled.div`
   transition: transform 0.3s ease;
   max-height: calc(70vh - 40px);
   /* overflow-y: auto; */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     display: none; 
   }
   @media (min-width: 1440px) { 

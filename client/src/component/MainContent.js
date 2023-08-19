@@ -44,7 +44,7 @@ const MainContainer = styled.div`
   margin-right: -10px;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     /* padding: 20px; */
   }
 `;
@@ -57,7 +57,7 @@ const HeroSection = styled.section`
   padding: 50px 0;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     padding: 30px 0;
   }
 `;
@@ -70,7 +70,7 @@ const Nserc = styled.div`
   transform: translateX(-10%);
 /* right:90%; */
   /* Media Query for Mobile Devices */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     font-size: 20px;
   }
 `;
@@ -80,7 +80,7 @@ const HeroText = styled.div`
   margin: 0 auto;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     max-width: 70%;
   }
 `;
@@ -109,12 +109,11 @@ const ButtonLink = styled(Link)`
   animation: ${fadeInAnimation} 1s ease-in-out;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     padding: 10px 20px;
     font-size: 18px;
     width: 160px;
     margin-top: 10px;
-  }@media (min-width: 768px) and (max-width: 1024px) {
   }
 `;
 
@@ -134,10 +133,9 @@ const Logo = styled.img`
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
    width: 150px;  height: 150px;
 
-  }@media (min-width: 768px) and (max-width: 1024px) {
   }
 `;
 
@@ -148,7 +146,8 @@ const LogoOverlay = styled.img`
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border-radius: 50%;@media (max-width: 768px) {
+  border-radius: 50%;
+  @media (max-width: 995px) {
    width: 150px;  height: 150px;
 
   }
@@ -177,7 +176,7 @@ const P = styled.p`
 padding-bottom:20px;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 768px) {
+  @media (max-width: 995px) {
     font-size: 18px;
     width: 100%;
     margin-left: 0;
