@@ -38,19 +38,21 @@ const Container = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
    @media (max-width: 995px) {
     flex-direction:row;
-    @media (max-width: 768px) {
-    flex-direction:row;
-    
-margin-left:5px; 
+    margin-left:5px; 
  }
+ @media (min-width: 1600px) {
+    margin-left:450px;
+  border-left:none;
+  height:100vh;
+}
 
- }
+
 `;
 
 const Title = styled.div`
   font-weight: bold;
   padding-top: 20px;
-  font-size: 30px;
+  font-size: 25px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 

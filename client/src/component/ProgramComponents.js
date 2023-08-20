@@ -271,6 +271,8 @@ const MainContent = styled.div`
  }
  @media (min-width: 1600px) {
     margin-left:280px;
+    border-left:none;
+
 }
 `;
 const Title = styled.h1`

@@ -27,9 +27,13 @@ const Partners = () => {
     <Container>
       <Title isDarkMode={isDarkMode}>Our Partners</Title>
       <Main isDarkMode={isDarkMode}>
-        <ParticipatingSection isDarkMode={isDarkMode}>
-          <RedText>P</RedText>articipating Universities
-        </ParticipatingSection>
+      <ParticipatingSection isDarkMode={isDarkMode}>
+  <div className="flex-container">
+    <RedText>P</RedText>articipating
+  </div>
+  <div className="university">Universities</div>
+</ParticipatingSection>
+
         <Choices>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.concordia.ca/" target="_blank">
@@ -59,6 +63,7 @@ const Partners = () => {
           <RedText>I</RedText>ndustrial Partners
         </IndustrialSection>
 
+
         <Choices>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.nbc.ca/" target="_blank">
@@ -70,11 +75,11 @@ const Partners = () => {
               <img src={IBM} alt={IBM} />
             </a>
           </ChoiceItem>
-          <ChoiceItem isDarkMode={isDarkMode}>
+          <ChoiceItem3 isDarkMode={isDarkMode}>
             <a href="https://www.cisco.com/" target="_blank">
               <img src={Cisco} alt={Cisco} />
             </a>
-          </ChoiceItem>
+          </ChoiceItem3>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.td.com/ca/en/personal-banking" target="_blank">
               <img src={TD} alt={TD} />
@@ -90,11 +95,11 @@ const Partners = () => {
               <img src={Airudi} alt={Airudi} />
             </a>
           </ChoiceItem>
-          <ChoiceItem isDarkMode={isDarkMode}>
+          <ChoiceItem2 isDarkMode={isDarkMode}>
             <a href="https://www.giro.ca/en-ca/" target="_blank">
               <img src={GIRO} alt={GIRO} />
             </a>
-          </ChoiceItem>
+          </ChoiceItem2>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://cbc.radio-canada.ca/" target="_blank">
               <img src={Radio} alt={Radio} />
@@ -103,8 +108,12 @@ const Partners = () => {
         </Choices>
 
         <CollaboratorsSection isDarkMode={isDarkMode}>
-          <RedText>C</RedText>ollaborators and Supporters{" "}
-        </CollaboratorsSection>
+  <div className="flex-container">
+    <RedText>C</RedText>ollaborators
+  </div>
+  <div className="supporters">and Supporters</div>
+</CollaboratorsSection>
+
         <Choices>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a
@@ -168,15 +177,18 @@ line-height:7rem;
 `;
 
 const Main = styled.div`
-  margin-top: 0;
+  margin-top: 20px;
   padding-left: 100px;
-  /* width: 100%;
-  height: 100%; */
+   width: 1400px;
+/* text-align:center; */
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
   @media (max-width: 995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    align-items: center;
-margin-left:-120px;  }
+    flex-direction:column;
+width:90vw;
+margin-left:5px; 
+border-left:none;
+
+ }
 `;
 
 const Title = styled.div`
@@ -192,7 +204,7 @@ const Title = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
   @media (max-width: 995px) {max-width:995px;
     margin-left:-30px; 
-  padding-left:40px;}
+  padding-left:60px;}
   @media (min-width: 1600px) {
 min-width:1600px;
 margin-left:-350px;
@@ -208,10 +220,26 @@ const ParticipatingSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 995px) {
-    /* align-items: center; */
-margin-left:60px;   font-size: 35px;
- }`;
+@media (max-width: 995px) {
+  .flex-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .university {
+    order: 2;
+  }
+
+  .flex-container,
+  .university {
+    font-size: 35px;
+    margin-left: -70px;
+    width: 85vw;
+    height: 70px;
+  }
+}
+
+`;
 
 const IndustrialSection = styled.div`
   display: flex;
@@ -221,10 +249,16 @@ const IndustrialSection = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width:995px) {
+  @media (max-width: 995px) {
+    display: flex;
     align-items: center;
-margin-left:60px;   font-size:35px;
- }`;
+    margin-left: -70px;
+    font-size: 35px;
+    margin-left: -70px;
+    width: 85vw;
+    height: 70px;
+  }
+`
 
 const CollaboratorsSection = styled.div`
   display: flex;
@@ -235,31 +269,79 @@ const CollaboratorsSection = styled.div`
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   @media (max-width: 995px) {
+  .flex-container {
+    display: flex;
     align-items: center;
-margin-left:60px;   font-size: 35px;
- }`;
+  }
+
+  .supporters {
+    order: 2;
+  }
+
+  .flex-container,
+  .supporters {
+    font-size: 35px;
+    margin-left: -70px;
+    width: 85vw;
+    height: 70px;
+  }
+}
+`;
 
 const Choices = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  margin-left: 120px;
+  /* margin-left: 120px; */
   /* padding-left: 20px; */
 `;
 
 const ChoiceItem = styled.div`
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
+height:60px;
+  padding: 20px 5px;
+  width: 250px;
+  margin-right:20px;
+  margin-top: 15px;
+margin-left:20px;  
+  border-radius: 9px;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  img {
+    width: 200px;
+    height: 50px;
+    padding-left: 30px;
+    text-align: center;
+    border-radius: 15px;
+  }
+  @media (max-width:995px) {
+    flex-direction: column; /* Display items in a column on mobile */
+width:95% ;
+margin-left:-75px;  
+text-align:center;
+margin-top:20px;
+
+}
+`
+
+const RedText = styled.span`
+  color: #bb5a7d;  
+`;
+const ChoiceItem2 = styled.div`
   /* background-color: #db7093; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
   background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
-
-  padding: 20px 30px;
-  width: 180px;
-  margin-right: 15px;
+height:60px;
+  padding: 20px 5px;
+  width: 250px;
+  margin-right:20px;
   margin-top: 15px;
-  font-size: 16px;
-  font-weight: bold;
-  /* padding-left: 2px; */
+  /* font-size: 16px; */
+margin-left:20px;  /* padding-left: 2px; */
   /* margin: 20px; */
   border-radius: 9px;
   a {
@@ -267,21 +349,53 @@ const ChoiceItem = styled.div`
     color: inherit;
   }
   img {
-    padding-top: 10px;
-    width: 150px;
-    height: 45px;
-    padding-left: 2px;
+    width: 60px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+    padding-left: 80px;
     text-align: center;
     border-radius: 15px;
   }
   @media (max-width:995px) {
     flex-direction: column; /* Display items in a column on mobile */
-width:95% ;
-text-align:center;
-margin-left:-70px;  
+    width:80% ;
+margin-left:-75px;
+padding-left:60px;
+margin-top:20px;
+/* padding-top:-100px; */
 }
+ `
+ const ChoiceItem3 = styled.div`
+  /* background-color: #db7093; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
+  background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
+height:60px;
+  padding: 20px 5px;
+  width: 250px;
+  margin-right:20px;
+  margin-top: 15px;
+  /* font-size: 16px; */
+margin-left:20px;  /* padding-left: 2px; */
+  /* margin: 20px; */
+  border-radius: 9px;
+ a {
+   text-decoration: none;
+   color: inherit;
+ }
+ img {
+   width: 100px; /* Adjust the width as needed */
+ height: auto; /* Maintain aspect ratio */
+   padding-left: 80px;
+   text-align: center;
+   border-radius: 15px;
+ }
+ @media (max-width:995px) {
+    flex-direction: column; /* Display items in a column on mobile */
+    width:85% ;
+margin-left:-75px; 
+padding-left:40px;
+margin-top:20px;
 
-`;
-const RedText = styled.span`
-  color: #bb5a7d;
-`;
+
+}
+`

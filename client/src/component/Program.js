@@ -109,6 +109,7 @@ border-left:none;
  }
  @media (min-width: 1600px) {
     margin-left:250px;
+    height:100vh;
   border-left:none;
 }
 
@@ -130,10 +131,9 @@ const Details = styled.div`
     flex-direction: column; /* Display items in a column on mobile */
 width:100% ;
 margin-left:0px;  
-
-
 }
 `;
+
 const Details2 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
   /* width: 800px; */

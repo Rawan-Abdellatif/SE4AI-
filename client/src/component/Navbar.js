@@ -162,6 +162,8 @@ const NavbarContainer = styled.nav`
   top: ${(props) => (props.scrollPosition > 20 ? "20px" : "0")};
   z-index: 1;
   transition: top 0.3s ease; /* Add a transition for smooth movement */
+
+
 `;
 
 const NavMenu = styled.ul`
@@ -172,7 +174,8 @@ const NavMenu = styled.ul`
 /* margin-left:-50px; */
 /* border:2px solid yellow; */
 margin-left:-17px;
-
+@media (min-width: 1600px) {
+}
  `
 
 const Nav = styled.li`
@@ -206,7 +209,7 @@ padding-left:-10px;
   &:hover {
       color: #BB5A7D;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 995px) {
      display: none; 
    }
     
@@ -214,37 +217,13 @@ padding-left:-10px;
  
 `;
 
-// const NavMenuItem = styled.li`
-//   /* margin-right: 10px; */
-//   /* text-align: center; */
-//   margin-left:70px;
-//   border:2px solid red;
-// /* padding-left:4px;  display: flex; */
-//   a {
-//     /* margin-left:5px; */
-//     /* padding-left:10px; */
-//     text-decoration: none;
-//     font-size: 16px;
-//     padding-right: 2px;
-//     border:2px solid blue;
-
-//     transition: 0.2s;
-//     /* align-items: center; */
-//     padding-bottom: 6px;
-//     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-
-//     &:hover {
-//       color: #BB5A7D;
-//     } 
-//     @media (max-width: 768px) {
-//     display: none; 
-//   }
-//   }
-// `;
 
 const Contact = styled.div`
 margin-left: 650px;
-/* padding-right:3px; */
+@media (min-width: 1600px) {
+    margin-left:1050px;
+
+}
 
 `;
 
@@ -368,7 +347,10 @@ const NavMenu1 = styled.ul`
   position: relative;
   cursor: pointer;
 /* margin-left:-50px; */
-/* border:2px solid yellow; */
+@media (min-width: 1600px) {
+   margin-left:-1980px;
+
+}
 
  `
  const Nav1 = styled.li`

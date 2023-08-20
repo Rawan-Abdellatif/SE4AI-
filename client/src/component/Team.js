@@ -124,5 +124,6 @@ border-left:none;
  @media (min-width: 1600px) {
     margin-left:250px;
   border-left:none;
+  width:1400px;
 }
 `;

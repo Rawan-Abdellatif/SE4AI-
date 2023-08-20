@@ -78,7 +78,7 @@ const PastEvents = () => {
             {" "}
             on Balancing Data Valorization and Privacy: Industry Challenges and
             Opportunities.
-          </Bold>{" "}</Details><Details2>
+          </Bold>{" "}</Details ><Details2 isDarkMode={isDarkMode}>
           In his talk, Patrick delved into the distinct characteristics of data
           as a digital asset and examined the challenges of striking a balance
           between data valorization and privacy. Emphasizing the importance of
@@ -719,7 +719,7 @@ const Img2 = styled.img`
 `;
 const Image = styled.div`
   width: 520px; 
-     @media (min-width: 1440px) { 
+     @media (min-width: 1600px) { 
 width:800px;
 margin-bottom:40px;
  }

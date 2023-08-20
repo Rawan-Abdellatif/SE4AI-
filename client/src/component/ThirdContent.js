@@ -25,7 +25,7 @@ const ThirdContent = () => {
 
   return (
     <Container isDarkMode={isDarkMode}>
-      <Text>
+      <Text   isDarkMode={isDarkMode}>
         In Collaboration with World-renowned <RedText>Researchers</RedText> and
         <RedText>Technology Leaders</RedText>
       </Text>    
@@ -151,7 +151,6 @@ const ThirdContent = () => {
 export default ThirdContent;
 
 const Container = styled.div`
-  color: ${(props) => (props.isDarkMode ? "#f7f7f7": "#484848")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : " #F0F0F0")};
 
   /* margin-left: -10px; */
@@ -178,7 +177,7 @@ const Text = styled.div`
     margin-bottom: 3rem;
     max-width: 900px;
   font-weight:900;
-color:black;  /* font-size: 30px; */
+  color: ${(props) => (props.isDarkMode ? "white": "#484848")};
   /* text-align: center; */
 
   @media (max-width: 995px) {
@@ -197,7 +196,7 @@ const RedText = styled.span`
 const ImgContainer = styled.div`
 /* display: flex;
 flex-direction:row; */
-width:250px;
+width:300px;
  align-items: center;
 padding:40px;
 /* padding-right:120px; */
@@ -226,15 +225,15 @@ const Img = styled.img`
 
   /* left: 50%; */
     /* margin: 0; */
-    max-height: 60px;
-    max-width: 180px;
+    height: 50px;
+   width: 180px;
     /* position: absolute; */
     /* top: 50%; */
     /* transform: translate(-50%,-50%); */
-/* padding: 50px; */
+padding:40px 80px;
   /* padding-right:50px; */
   /* text-align: center; */
-  background-color: ${(props) => (props.isDarkMode ?  "	#A8A8A8":"inharit" )};
+  background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
 
 border-radius:10px;
   /* border-radius: 15px; */
@@ -251,11 +250,11 @@ const Main=styled.div`
 flex-direction: row;
 flex-wrap: wrap;
 margin-left: 50px;
-@media (min-width: 1440px) {   
+@media (min-width: 1600px) {   
   display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-margin-left: 350px;
+margin-left: 300px;
 width:1600px;
 /* text-align:center; */
 /* align-items:right; */

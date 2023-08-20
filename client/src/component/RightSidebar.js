@@ -155,7 +155,7 @@ const SidebarContainer = styled.div`
 
   position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
   top: ${({ isFixed }) => (isFixed ? "80px" : "10px")};
-  max-height: calc(85vh - 40px);
+  max-height: calc(40vh - 40px);
   border-left: 1px solid #f0f0f0;
   overflow-y: auto;
   margin-top: 40px;

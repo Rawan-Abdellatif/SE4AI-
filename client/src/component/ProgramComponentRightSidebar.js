@@ -2,10 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 
-const ProgramComponentRightSidebar = ({
-  activeLink,
-  handleSidebarLinkClick,
-}) => {
+const ProgramComponentRightSidebar = ({ activeLink, handleLinkClick }) => {
   // const [activeLink, setActiveLink] = useState(null);
   const { isDarkMode } = useContext(DarkModeContext);
 
@@ -46,9 +43,10 @@ const ProgramComponentRightSidebar = ({
           isDarkMode={isDarkMode}
           isActive={activeLink === "engineering-ai-based-software-systems"}
           onClick={() =>
-            handleSidebarLinkClick("engineering-ai-based-software-systems")
+            handleLinkClick("engineering-ai-based-software-systems")
           }
           href="#engineering-ai-based-software-systems"
+          id="#engineering-ai-based-software-systems"
         >
           Engineering AI-based Software Systems
         </SidebarLink>
@@ -59,29 +57,31 @@ const ProgramComponentRightSidebar = ({
             activeLink === "social-aspects-for-ai-based-software-system"
           }
           onClick={() =>
-            handleSidebarLinkClick(
+            handleLinkClick(
               "social-aspects-for-ai-based-software-system"
             )
           }
           href="#social-aspects-for-ai-based-software-system"
-        >
+          id="#social-aspects-for-ai-based-software-system"
+          >
           Social Aspects for AI-based Software System
         </SidebarLink>
         <SidebarLink
           isDarkMode={isDarkMode}
           isActive={activeLink === "professional-development-modules"}
           onClick={() =>
-            handleSidebarLinkClick("professional-development-modules")
+            handleLinkClick("professional-development-modules")
           }
           href="#professional-development-modules"
-        >
+        id="#professional-development-modules">
           Professional Development Modules
         </SidebarLink>
         <SidebarLink
           isDarkMode={isDarkMode}
           isActive={activeLink === "industrial-embedding"}
-          onClick={() => handleSidebarLinkClick("industrial-embedding")}
+          onClick={() => handleLinkClick("industrial-embedding")}
           href="#industrial-embedding"
+          id="#industrial-embedding"
         >
           Industrial Embedding
         </SidebarLink>
@@ -89,17 +89,19 @@ const ProgramComponentRightSidebar = ({
           isDarkMode={isDarkMode}
           isActive={activeLink === "industry-webinars-or-seminars"}
           onClick={() =>
-            handleSidebarLinkClick("industry-webinars-or-seminars")
+            handleLinkClick("industry-webinars-or-seminars")
           }
           href="#industry-webinars-or-seminars"
+          id="#industry-webinars-or-seminars"
         >
           Industry Webinars or Seminars
         </SidebarLink>
         <SidebarLink
           isDarkMode={isDarkMode}
           isActive={activeLink === "specialization-courses"}
-          onClick={() => handleSidebarLinkClick("specialization-courses")}
+          onClick={() => handleLinkClick("specialization-courses")}
           href="#specialization-courses"
+          id="#specialization-courses"
         >
           Specialization Courses
         </SidebarLink>
@@ -109,11 +111,12 @@ const ProgramComponentRightSidebar = ({
             activeLink === "hands-on-leadership-and-mentorship-training"
           }
           onClick={() =>
-            handleSidebarLinkClick(
+            handleLinkClick(
               "hands-on-leadership-and-mentorship-training"
             )
           }
           href="#hands-on-leadership-and-mentorship-training"
+          id="#hands-on-leadership-and-mentorship-training"
         >
           Hands-on Leadership and Mentorship Training
         </SidebarLink>
@@ -126,7 +129,7 @@ export default ProgramComponentRightSidebar;
 
 const SidebarContainer = styled.div`
   width: 270px;
-  height: 250px;
+  height: 300px;
   /* margin-right: 0px; */
   font-family: "Open Sans", sans-serif;
   margin-left: 20px;
@@ -136,10 +139,10 @@ const SidebarContainer = styled.div`
   max-height: calc(100vh - 10px);
   border-left: ${(props) =>
     props.isDarkMode ? " 1px solid 	#E0E0E0" : "  1px solid		#E0E0E0"};
-
+/* border:3px solid orange; */
   overflow-y: auto;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  /* margin-top: 40px; */
+  /* margin-bottom: 40px; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   /* Hide the scrollbar */
@@ -153,6 +156,11 @@ const SidebarContainer = styled.div`
     border-radius: 999px; /* Make the scrollbar thumb circular */
   }
   @media (max-width: 995px) {display:none;}
+  @media (min-width: 1600px) {
+
+  border-left:none;
+}
+
 `;
 
 const SidebarContent = styled.div`
