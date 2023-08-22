@@ -152,7 +152,6 @@ export default ThirdContent;
 
 const Container = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : " #F0F0F0")};
-
   /* margin-left: -10px; */
   /* margin-right: -10px; */
   /* padding: 10px 0; */
@@ -196,17 +195,20 @@ const RedText = styled.span`
 const ImgContainer = styled.div`
 /* display: flex;
 flex-direction:row; */
-width:300px;
+height: 90px;
+   width:250px;
  align-items: center;
-padding:40px;
-/* padding-right:120px; */
-
-  line-height: 1.5;
+margin-top:20; 
+padding-left:90;
+padding-right:40px;
+padding-top:0px;
+padding-bottom:20px;
+border:4px solid orange;
+  line-height:1.5;
   /* text-align: center; */
 border-radius:5px;
 
 
-/* background-color: ${(props) => (props.isDarkMode ? "black" : "D3D3D3")}; */
 
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
 @media (max-width:995px) {
@@ -222,15 +224,15 @@ align-content:center; */
 const Img = styled.img`
   /* width: 200px;
   height: 60px; */
-
+/* border:4px solid green; */
   /* left: 50%; */
     /* margin: 0; */
     height: 50px;
-   width: 180px;
+   width: 120px;
     /* position: absolute; */
     /* top: 50%; */
     /* transform: translate(-50%,-50%); */
-padding:40px 80px;
+padding:20px 80px;
   /* padding-right:50px; */
   /* text-align: center; */
   background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
@@ -249,15 +251,46 @@ const Main=styled.div`
  display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-margin-left: 50px;
-@media (min-width: 1600px) {   
+margin-left: 200px;
+width:1200px;
+border:4px solid red;
+padding-top:0;
+@media (min-width: 1660px) {   
   display: flex;
 flex-direction: row;
 flex-wrap: wrap;
-margin-left: 300px;
-width:1600px;
+margin-left: 400px;
+width:1300px;
 /* text-align:center; */
 /* align-items:right; */
 }
-
+@media (max-width:995px) {
+  flex-direction: column; /* Display items in a column on mobile */
+  margin-left:45px;}
+`
+const ImgContainer2=styled.div`  /* background-color: #db7093; */
+display: flex;
+border:4px solid yellow;
+width:300px;
+ align-items: center;
+padding:40px;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  width: 60px; /* Adjust the width as needed */
+height: auto; /* Maintain aspect ratio */
+  padding-left: 80px;
+  text-align: center;
+  border-radius: 15px;
+}
+@media (max-width:995px) {
+  flex-direction: column; /* Display items in a column on mobile */
+  width:80% ;
+margin-left:-75px;
+padding-left:60px;
+margin-top:20px;
+/* padding-top:-100px; */
+}
 `
