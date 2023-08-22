@@ -206,9 +206,8 @@ border-radius:5px;
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
 @media (max-width:995px) { 
     width:300px;
-  /* text-align :center; */
- margin:5px;
- padding:3px
+ margin-left:15px;
+margin-bottom:20px;
 
 
 }`;
@@ -221,7 +220,8 @@ const Img = styled.img`
     border-radius:10px;
     @media (max-width:995px) {  
        width:240px;
-       /* padding:20px 110px; */
+height:70px;
+/* border:4px solid blue; */
 }
 `;
 const Link = styled.a`
@@ -282,11 +282,13 @@ img{
 @media (max-width:995px) {
  
 width:220px;
-margin-bottom:15px;
-margin-top:10px;
-
+margin-bottom:35px;
+margin-top:5px;
+margin-left:15px;
 img{
-padding:20px 155px;
+  /* width:50px;
+height: 66px; */
+padding:25px 155px;
 }
 }
 `;
