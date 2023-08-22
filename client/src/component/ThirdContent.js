@@ -91,11 +91,11 @@ const ThirdContent = () => {
         </Link>
         </ImgContainer >
 
-        <ImgContainer >
+        <ImgContainer2  isDarkMode={isDarkMode}>
         <Link href="https://www.giro.ca/en-ca/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={GIRO} alt={GIRO} />
+          <img  isDarkMode={isDarkMode} src={GIRO} alt={GIRO} />
         </Link>
-        </ImgContainer >
+        </ImgContainer2 >
 
         <ImgContainer >
         <Link href="https://cbc.radio-canada.ca/" target="_blank">
@@ -152,18 +152,15 @@ export default ThirdContent;
 
 const Container = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : " #F0F0F0")};
-  /* margin-left: -10px; */
-  /* margin-right: -10px; */
-  /* padding: 10px 0; */
   text-align: center;
   font-family: "Open Sans", sans-serif;
-
+// mobile Size 
   @media (max-width: 995px) {
     flex-direction:column;
-/* margin-left:-320px; */
 text-align :center;
-/* width:300px; */
- }  @media (min-width: 1440px) {   
+ }  
+ // large screen 
+ @media (min-width: 1660px) {   
 text-align :center;
 align-items:center;}
 
@@ -177,14 +174,14 @@ const Text = styled.div`
     max-width: 900px;
   font-weight:900;
   color: ${(props) => (props.isDarkMode ? "white": "#484848")};
-  /* text-align: center; */
 
+  //mobile Size
   @media (max-width: 995px) {
     flex-direction:column;
-    /* font-size: 1rem; */
-/* width:350px; */
-    flex-direction:column;
- }  @media (min-width: 1440px) {  text-align :center;
+ }  
+
+ // Large Screen 
+ @media (min-width: 1660px) {  text-align :center;
 align-items:center; 
 
  }
@@ -193,104 +190,85 @@ const RedText = styled.span`
   color: #BB5A7D;
 `;
 const ImgContainer = styled.div`
-/* display: flex;
-flex-direction:row; */
 height: 90px;
-   width:250px;
+   width:240px;
  align-items: center;
 margin-top:20; 
-padding-left:90;
-padding-right:40px;
+/* padding-left:10px; */
+margin-left:5px;
+padding-right:50px;
 padding-top:0px;
 padding-bottom:20px;
-border:4px solid orange;
+/* border:4px solid orange; */
   line-height:1.5;
   /* text-align: center; */
 border-radius:5px;
-
-
-
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
 @media (max-width:995px) {
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-
-text-align: center;
-align-content:center; */
 }`;
 
 const Img = styled.img`
-  /* width: 200px;
-  height: 60px; */
-/* border:4px solid green; */
-  /* left: 50%; */
-    /* margin: 0; */
     height: 50px;
-   width: 120px;
-    /* position: absolute; */
-    /* top: 50%; */
-    /* transform: translate(-50%,-50%); */
-padding:20px 80px;
-  /* padding-right:50px; */
-  /* text-align: center; */
-  background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
-
-border-radius:10px;
-  /* border-radius: 15px; */
+    width: 140px;
+    padding:20px 60px;
+    background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
+    border-radius:10px;
 `;
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
-  
-  /* width: 150px; */
-`;
+  `;
 
 const Main=styled.div`   
  display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 margin-left: 200px;
-width:1200px;
-border:4px solid red;
+width:1400px;
+/* border:4px solid red; */
 padding-top:0;
+
+
+
+//Mobile Size
+@media (max-width:995px) {
+  flex-direction: column; /* Display items in a column on mobile */
+  margin-left:45px;
+}
+//Large Screen 
 @media (min-width: 1660px) {   
   display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-margin-left: 400px;
-width:1300px;
-/* text-align:center; */
-/* align-items:right; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 400px;
+  width:1300px;
 }
-@media (max-width:995px) {
-  flex-direction: column; /* Display items in a column on mobile */
-  margin-left:45px;}
+
 `
 const ImgContainer2=styled.div`  /* background-color: #db7093; */
-display: flex;
-border:4px solid yellow;
-width:300px;
+height: 90px;
+   width:240px;
  align-items: center;
-padding:40px;
-a {
-  text-decoration: none;
-  color: inherit;
-}
-img {
-  width: 60px; /* Adjust the width as needed */
-height: auto; /* Maintain aspect ratio */
-  padding-left: 80px;
-  text-align: center;
-  border-radius: 15px;
+margin-top:20; 
+/* margin-right:2px; */
+margin-left:5px;
+/* padding-left:10px; */
+padding-right:50px;
+padding-top:0px;
+margin-bottom:20px;
+/* border:4px solid blue; */
+  line-height:1.5;
+border-radius:5px;
+color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
+img{
+
+    height: 55px;
+    width: 50px;
+    padding:20px  105px;
+    background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
+    border-radius:10px;
+/* border:3px solid purple; */
 }
 @media (max-width:995px) {
-  flex-direction: column; /* Display items in a column on mobile */
-  width:80% ;
-margin-left:-75px;
-padding-left:60px;
-margin-top:20px;
-/* padding-top:-100px; */
-}
-`
+ 
+}`;
