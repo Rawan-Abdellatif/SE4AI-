@@ -282,7 +282,7 @@ img{
 @media (max-width:995px) {
  
 width:220px;
-margin-bottom:35px;
+margin-bottom:30px;
 margin-top:5px;
 margin-left:15px;
 img{
