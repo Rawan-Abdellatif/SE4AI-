@@ -1,36 +1,41 @@
 import React, { useContext } from "react";
 import { DarkModeContext } from "./DarkModeContext";
 import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
+import { Grid } from "@mui/material";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
-import { Link } from "react-router-dom";
-import {Grid} from "@mui/material"
+
 const MainContent = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <MainContainer>
       <HeroSection>
-        <HeroText>
-          <LogoContainer>
-            <Logo src={logo} alt="CREATE SE4AI" />
-            <LogoOverlay src={logoDark} alt="CREATE SE4AI" />
-          </LogoContainer>
-          <Nserc>NSERC</Nserc>
-          <CustomText>
-            CREATE{" "}
-            <RedText>
-              SE<WhiteText>4</WhiteText>AI
-            </RedText>
-          </CustomText>
-          <P>
-            A Training Program on the Development, Deployment and Servicing of
-            Artificial Intelligence-based Software Systems
-          </P>
-          <ButtonLink to="/apply" isDarkMode={isDarkMode}>
-            Apply Now
-          </ButtonLink>
-        </HeroText>
+        <Grid container justifyContent="center" alignItems="center">
+          <Grid item xs={10} md={6} lg={6} xl={12}>
+            <HeroText>
+              <LogoContainer>
+                <Logo src={logo} alt="CREATE SE4AI" />
+                <LogoOverlay src={logoDark} alt="CREATE SE4AI" />
+              </LogoContainer>
+              <Nserc>NSERC</Nserc>
+              <CustomText>
+                CREATE{" "}
+                <RedText>
+                  SE<WhiteText>4</WhiteText>AI
+                </RedText>
+              </CustomText>
+              <P>
+                A Training Program on the Development, Deployment and Servicing of
+                Artificial Intelligence-based Software Systems
+              </P>
+              <ButtonLink to="/apply" isDarkMode={isDarkMode}>
+                Apply Now
+              </ButtonLink>
+            </HeroText>
+          </Grid>
+        </Grid>
       </HeroSection>
     </MainContainer>
   );
@@ -40,8 +45,9 @@ const MainContainer = styled.div`
   text-align: center;
   color: white;
   font-family: "Open Sans", sans-serif;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: 0px;
+
+  margin-right: 0px;
 
   /* Media Query for Mobile Devices */
   @media (max-width: 995px) {
@@ -50,39 +56,35 @@ const MainContainer = styled.div`
 `;
 
 const HeroSection = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #282e3a;
-  padding: 50px 0;
+  padding: 0px 0;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 995px) {
+  /* @media (max-width: 995px) {
     padding: 30px 0;
-  }
+  } */
 `;
-
 const Nserc = styled.div`
   font-size: 25px;
-  /* position: absolute; */
-  bottom: -5px;
-  /* left: 70%; */
-  transform: translateX(-10%);
-/* right:90%; */
-  /* Media Query for Mobile Devices */
-  @media (max-width: 995px) {
-    font-size: 20px;
-  }
+  position: relative;
+  top:15%; 
+  left:-5%; 
+  padding: 0;
 `;
+
+
+
+
+
 
 const HeroText = styled.div`
   /* max-width: 600px; */
   margin: 0 auto;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 995px) {
+  /* @media (max-width: 995px) {
     max-width: 70%;
-  }
+  } */
 `;
 
 const fadeInAnimation = keyframes`
@@ -109,12 +111,12 @@ const ButtonLink = styled(Link)`
   animation: ${fadeInAnimation} 1s ease-in-out;
 
   /* Media Query for Mobile Devices */
-  @media (max-width: 995px) {
+  /* @media (max-width: 995px) {
     padding: 10px 20px;
     font-size: 18px;
     width: 160px;
     margin-top: 10px;
-  }
+  } */
 `;
 
 const LogoContainer = styled.div`
@@ -127,30 +129,32 @@ const LogoContainer = styled.div`
 
 const Logo = styled.img`
   position: absolute;
-  top: -5;
+  top: -5px;
   left: 0;
   width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  @media (max-width: 995px) {
-   width: 150px;  height: 150px;
 
-  }
+  /* @media (max-width: 995px) {
+    width: 150px;
+    height: 150px;
+  } */
 `;
 
 const LogoOverlay = styled.img`
   position: absolute;
-  top: -5;
+  top: -5px;
   left: 0;
   width: 180px;
   height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  @media (max-width: 995px) {
-   width: 150px;  height: 150px;
 
-  }
+  /* @media (max-width: 995px) {
+    width: 150px;
+    height: 150px;
+  } */
 `;
 
 const CustomText = styled.div`
@@ -165,22 +169,21 @@ const WhiteText = styled.span`
 `;
 
 const RedText = styled.span`
-  color: #BB5A7D;
+  color: #bb5a7d;
 `;
 
 const P = styled.p`
   font-size: 23px;
-  /* width: 1100px; */
-  margin-left: -100px;
-  text-align: center;
-padding-bottom:20px;
-
+  /* margin-left:10px; */
+  /* text-align: center; */
+  padding-bottom: 40px;
+align-items:2.5rem;
   /* Media Query for Mobile Devices */
-  @media (max-width: 995px) {
+  /* @media (max-width: 995px) {
     font-size: 18px;
     width: 100%;
     margin-left: 0;
-  }
+  } */
 `;
 
 export default MainContent;
