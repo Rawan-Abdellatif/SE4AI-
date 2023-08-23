@@ -219,7 +219,7 @@ padding-left:-10px;
 
 
 const Contact = styled.div`
-margin-left: 650px;
+margin-left: 600px;
 @media (min-width: 1600px) {
     margin-left:1050px;
 

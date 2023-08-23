@@ -246,7 +246,7 @@ padding-top:0;
   margin-left:0px;
 }
 //Large Screen 
-@media (min-width: 1660px) {   
+@media (min-width: xl) {   
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -255,6 +255,8 @@ padding-top:0;
 }
 
 `
+
+//// This part for Giro Partner
 const ImgContainer2=styled.div`  /* background-color: #db7093; */
 height: 90px;
    width:240px;
@@ -286,8 +288,6 @@ margin-bottom:30px;
 margin-top:5px;
 margin-left:15px;
 img{
-  /* width:50px;
-height: 66px; */
 padding:25px 155px;
 }
 }

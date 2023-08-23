@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
 import { Link } from "react-router-dom";
-
+import {Grid} from "@mui/material"
 const MainContent = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
@@ -171,7 +171,7 @@ const RedText = styled.span`
 const P = styled.p`
   font-size: 23px;
   /* width: 1100px; */
-  margin-left: -200px;
+  margin-left: -100px;
   text-align: center;
 padding-bottom:20px;
 
