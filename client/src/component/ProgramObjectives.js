@@ -4,6 +4,8 @@ import { DarkModeContext } from "./DarkModeContext";
 import ProgramSidebar from "./ProgramSidebar";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import {Grid} from "@mui/material"
+
 const ProgramObjectives = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
@@ -11,6 +13,14 @@ const ProgramObjectives = () => {
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebar />
       <MainContent>
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        style={{ flex: 1, padding: "20px" }}
+      >
+        <Grid item xs={10} md={6} lg={6} xl={12}>
+
         <Title isDarkMode={isDarkMode}>Program Objectives</Title>
         <Details isDarkMode={isDarkMode}>
           The objective of the SE4AI CREATE program is to fill the major
@@ -75,7 +85,10 @@ const ProgramObjectives = () => {
             </a>
           </Button2>
         </Button>
+        </Grid>
+      </Grid>
       </MainContent>
+      
     </Container>
   );
 };
@@ -84,69 +97,45 @@ export default ProgramObjectives;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  /* border: ${(props) =>
-    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 
 const MainContent = styled.div`
-  /* flex: 1; */
-  margin-left: 20px;
-  padding-top: -40px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
-  @media (max-width: 995px) {
-    flex-direction:column;
-width:75vw;
-margin-left:5px; 
-border-left:none;
- }
- @media (min-width: 1600px) {
-    margin-left:200px;
-   height:100vh;
-   }
+  /* border-left: ${(props) =>
+    props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
+  /* padding-left: -20px; */
+  width: 100%; /* Set the width to 90% of the available space */
+  max-width: 1000px; /* Adjust the maximum width as needed */
+  padding-left:-20px;
+  margin: -20px auto; /* Center the content horizontally */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+height:100%;
 `;
+
+
+
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
   /* color: black; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")};  
-   @media (max-width: 995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-width:100% ;
-margin-left:0px;}
+
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 700px;
+width:100%;
   line-height: 1.7em;
   font-size: 17px;  
-   @media (max-width: 995px) {
-  
-    flex-direction: column; /* Display items in a column on mobile */
-width:91vw;
-margin-left:0px;
 
- } 
- @media (min-width: 1600px) {
-  width:50vw;
-   }
 `;
 const Ul = styled.ul`
   list-style-type: disc;
   padding-top: 20px;
   font-size: 15px;
   line-height: 1.7em;
-  width: 700px;
+width:100%;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};   
-  @media (max-width:995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-width:100% ;
-margin-left:0px;
 
- } 
- @media (min-width: 1600px) {
-  width:50vw;
-   }
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -154,13 +143,17 @@ const Li = styled.li`
   margin-bottom: 10px;
 `;
 const Button2 = styled.button`
-  width: 370px;
+  width: 100%;
   height: 70px;
   background-color: inherit;
   margin-bottom: 30px;
   margin-left: 50px;
   border-radius: 5px;
-  padding-left: 270px;
+  justify-content: flex-end; /* Align the content to the right */
+  align-items: center; /* Center the content vertically */
+  /* padding-left: 270px; */
+  align-items: center; /* Center the content vertically */
+  padding-right: 20px;
   padding-top: -2px;
   font-size: 13px;
   font-weight: bold;
@@ -168,13 +161,7 @@ const Button2 = styled.button`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   border: 1px solid #e8e8e8; 
-  @media (max-width: 995px) {
-    /* flex-direction:row; */
-    width:150px;
-    height:100px;
-    padding-left:117px;
-    margin-right:5px;
- }
+
 
   &:hover {
     border: 1px solid #bb5a7d;
@@ -183,31 +170,29 @@ const Button2 = styled.button`
   a {
     display: flex;
     flex-direction: row;
-    width: 200px;
-    margin-left: -120px;
+    width: 100%; /* Set the width to 100% */
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
-    @media (max-width: 995px) {
-    width:100px;
-  padding-left:20px;}
+    justify-content: center; /* Center the content horizontally */
+
   }
-  @media (min-width: 1600px) {
-    margin-left: 370px;
-   }
 `;
+
 const Icon = styled.div`
   padding-top: 3px;
   color: #bb5a7d;
 `;
 const Button1 = styled.button`
-  width: 370px;
+  width: 100%;
   height: 70px;
   background-color: inherit;
   margin-bottom: 30px;
   margin-left: 2px;
-  padding-right: 270px;
+  justify-content: flex-end; /* Align the content to the right */
+  align-items: center; /* Center the content vertically */
+  padding-right: 20px; /* Add some right padding to the button */
   border-radius: 5px;
   /* padding-left: 270px; */
   padding-top: -2px;
@@ -216,13 +201,7 @@ const Button1 = styled.button`
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width:995px) {
-    /* flex-direction:row; */
-    width:150px;
-    height:100px;
-    padding-right:120px;
-    margin-left:5px;
- }
+
 
   &:hover {
     border: 1px solid #bb5a7d;
@@ -231,14 +210,12 @@ const Button1 = styled.button`
   a {
     display: flex;
     flex-direction: row;
-    width: 200px;
-    margin-left: 5px;
+    width: 100%; /* Set the width to 100% */
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
-    @media (max-width: 995px) {
-    width:100px;}
+    justify-content: center; /* Center the content horizontally */
   }
 `;
 const Button = styled.div`

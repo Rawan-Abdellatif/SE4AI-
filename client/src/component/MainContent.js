@@ -80,6 +80,7 @@ const Nserc = styled.div`
 const HeroText = styled.div`
   /* max-width: 600px; */
   margin: 0 auto;
+  padding-bottom:70px;
 
   /* Media Query for Mobile Devices */
   /* @media (max-width: 995px) {
@@ -106,7 +107,9 @@ const ButtonLink = styled(Link)`
   border-radius: 8px;
   width: 180px;
   cursor: pointer;
-  /* margin-top: 50px; */
+  /* margin-top: 150px; */
+  /* padding-bottom:-20px; */
+  /* border :5px solid yellow; */
   text-decoration: none;
   animation: ${fadeInAnimation} 1s ease-in-out;
 
@@ -123,14 +126,17 @@ const LogoContainer = styled.div`
   position: relative;
   width: 170px;
   height: 170px;
-  padding-top: 5px;
+  /* border:4px solid orange; */
+  /* padding-bottom: -10px; */
   margin: 0 auto;
+  margin-top:70px;
 `;
 
 const Logo = styled.img`
   position: absolute;
-  top: -5px;
+  top: 10px;
   left: 0;
+  /* border:4px solid yellow; */
   width: 180px;
   height: 180px;
   object-fit: cover;

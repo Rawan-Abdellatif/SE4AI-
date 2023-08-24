@@ -3,12 +3,21 @@ import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import ProgramSidebar from "./ProgramSidebar";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import {Grid} from "@mui/material";
 const Program = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebar />
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        style={{ flex: 1, padding: "20px" }}
+      >
+        <Grid item xs={10} md={6} lg={6} xl={12}>
+
       <MainContent isDarkMode={isDarkMode}>
 
         <Title isDarkMode={isDarkMode}>Program Overview</Title>
@@ -78,6 +87,9 @@ const Program = () => {
           </a>
         </Button>
       </MainContent>
+    
+      </Grid>
+      </Grid>
     </Container>
   );
 };
@@ -89,32 +101,22 @@ const Container = styled.div`
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-`;
+    height:100%;
 
+`;
 
 
 const MainContent = styled.div`
-  border-left: ${(props) =>
-    props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"};
-    padding-left:20px;
-      margin-left: 20px;
-      width:850px;
+  /* border-left: ${(props) =>
+    props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
+  padding-left:0px;
+  margin-left: 5px;
+  width: 100%; /* Set the width to 100% */
+  max-width: 1000px; /* Adjust the maximum width as needed */
   padding-top: -40px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; 
-    @media (max-width: 995px) {
-    flex-direction:column;
-width:75vw;
-margin-left:5px; 
-border-left:none;
- }
- @media (min-width: 1600px) {
-    margin-left:250px;
-    height:100vh;
-  border-left:none;
-}
-
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin: 0 auto; /* Center the content horizontally */
 `;
-
 const Title = styled.h1`
  
   font-weight: bold;
@@ -127,11 +129,7 @@ const Details = styled.div`
   /* width: 800px; */
   line-height: 1.7em;
   font-size: 15px; 
-  @media (max-width:995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-width:100% ;
-margin-left:0px;  
-}
+
 `;
 
 const Details2 = styled.div`
@@ -141,12 +139,7 @@ const Details2 = styled.div`
   font-size: 15px;
   padding-top: 23px;
   margin-bottom: 70px;
-   @media (max-width: 995px) {
-width:100%;
-margin-left:0px;  
 
-
-}
 `;
 const Ul = styled.ul` 
   margin-top:-40px;
@@ -162,36 +155,23 @@ const Li = styled.li`
   padding-top:-20px;
   font-size: 17px;
   /* margin-bottom: 10px;  */
-  @media (max-width: 995px) {
-width:100% ; 
-margin-left:0px;  
 
-
-
-}
 `;
 const Button = styled.button`
-  width: 350px;
+  width: 100%; /* Set the width to 100% */
+  max-width: 350px; /* Adjust the maximum width as needed */
   height: 70px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
   background-color: inherit;
   margin-bottom: 30px;
-  margin-left: 500px;
+  margin-left: auto; /* Center the button horizontally */
+  margin-right: auto; /* Center the button horizontally */
   border-radius: 5px;
-  padding-left:270px;
+  padding-left: 0; /* Reset padding */
   padding-top: -2px;
   font-size: 15px;
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
-  @media (max-width: 995px) {
-padding-left:140px;
-flex-direction:column;
-height:90px;
-
-
-
-}
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
@@ -199,22 +179,15 @@ height:90px;
   a {
     display: flex;
     flex-direction: row;
-    width: 200px;
-    margin-left: -100px;
+    width: 100%; /* Set the width to 100% */
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
+    justify-content: center; /* Center the content horizontally */
   }
-   @media (max-width:995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-/* width:10px; */
-margin-left:120px;  
- padding-right: 80px;    width: 100px;
-
-
-}
 `;
+
 const Icon = styled.div`
   padding-top: 3px;
   color: #bb5a7d;

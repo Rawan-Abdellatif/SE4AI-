@@ -6,6 +6,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import ProgramComponentRightSidebar from "./ProgramComponentRightSidebar";
 import ProgramComponentDropDownMedia from "./ProgramComponentDropDownMedia";
+import { Grid } from "@mui/material";
 const ProgramComponents = () => {
   const { isDarkMode } = useContext(DarkModeContext);
   const [activeLink, setActiveLink] = useState(null);
@@ -46,7 +47,7 @@ const ProgramComponents = () => {
         <ProgramSidebar />
       </ProgramSidebarContainer>              
 
-      {window.innerWidth <= 995 && (
+      {window.innerWidth < 995 && (
          <ProgramComponentDropDownMedia
          activeLink={activeLink}
          isDropdownOpen={isDropdownOpen}
@@ -54,6 +55,7 @@ const ProgramComponents = () => {
        />
       
       )}
+
       <MainContent isDarkMode={isDarkMode} isDropdownOpen={isDropdownOpen}>
          
 
@@ -243,6 +245,7 @@ const ProgramComponents = () => {
         activeLink={activeLink}
         handleLinkClick={handleLinkClick}
       />
+
     </Container>
   );
 };
@@ -263,6 +266,7 @@ const MainContent = styled.div`
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
+ 
   @media (max-width: 995px) {
     flex-direction:column;
   margin-top: ${(props) => (props.isDropdownOpen ? '280px' : '20px')}; /* Adjust this value as needed */
@@ -272,8 +276,8 @@ const MainContent = styled.div`
  @media (min-width: 1600px) {
     margin-left:280px;
     border-left:none;
-
 }
+
 `;
 const Title = styled.h1`
   font-weight: bold;
