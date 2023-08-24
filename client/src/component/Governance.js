@@ -3,15 +3,29 @@ import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import ProgramCommittee from "./ProgramCommiittee";
 import SteeringCommittee from "./SteeringCommittee";
+import {Grid} from "@mui/material";
+
 const Governance = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <Container>
-          
+         <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}></Grid> 
+
+      <Main isDarkMode={isDarkMode}>
+      <Grid item xs={6} md={6} lg={12} xl={12}>
 
       <Title isDarkMode={isDarkMode}>Governance</Title>
-      <Main isDarkMode={isDarkMode}>
+      </Grid>
+
         <Subtitles isDarkMode={isDarkMode}>
           <RedText>P</RedText>rogram Committee
         </Subtitles>
@@ -21,6 +35,7 @@ const Governance = () => {
         </Subtitles>
         <SteeringCommittee isDarkMode={isDarkMode} />
       </Main>
+      </Grid>
     </Container>
   );
 };
@@ -28,43 +43,35 @@ const Governance = () => {
 export default Governance;
 
 const Title = styled.div`
-  font-weight:800;
-  /* padding-left: 100px; */
-  /* margin-left:120px; */
-  padding-top: 45px;
-  font-size:45px;
-  padding-bottom: 50px;
-  border-bottom: 2px solid
-    ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
+  font-weight: bolder;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  margin-top:-20px;
+  padding-top:60px;
+  font-size: 45px;
+  padding-bottom: 60px;
+  border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-  @media (max-width: 995px) {max-width:995px;
-    margin-left:-30px; 
-  padding-left:20px;}
-  @media (min-width: 1600px) {
-min-width:1600px;
-margin-left:-500px;
-padding-left:500px;
-background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-} 
-
+  width: 100%; /* Set the width to 100% */
+  min-width:100vw;
+  /* margin-right:-750px; */
+  margin-left:-800px;
+padding-left:800px;
 
 `;
 
 const Subtitles = styled.div`
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
   /* margin-left:120px; */
   font-size: 30px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  @media (max-width: 995px) {
-    font-size: 25px;
-  }@media (min-width: 1440px) {
-padding-top:50px; 
 
-   };
+;
 `
 
 
@@ -74,33 +81,27 @@ const RedText = styled.span`
 
 const Container = styled.div`
    /* margin-top: 0px; */
-   margin-left:100px; 
+   /* margin-left:100px;  */
 
 font-family: "Open Sans", sans-serif;
 padding-bottom: 20px;
 /* width: 100%; */
-@media (max-width: 995px) {
-margin-left:20px;
-}  @media (min-width: 1440px) {
-/* padding-top:100px;  */
- justify-content:center;
-  margin-left:450px;
-  width:1400px;
-  padding-bottom:20px;
-   };
+display: flex;
+  font-family: "Open Sans", sans-serif;
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+    height:100%;
+
+  width: 100%;
 `;
 
 const Main = styled.div`
-  /* margin-top: 0;
-  padding-left: 100px; */
-  /* width: 100%;
-  height: 100%; */
+  width: 100%;
+  max-width: 1500px;
+  padding-top: -40px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin: 0 auto;
+height:100%;
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
-  @media (max-width: 995px) {
-    flex-direction:column;
-width:90vw;
-margin-left:1px; 
-border-left:none;
- }
- @media (min-width: 1440px) {}
-`;
+  `

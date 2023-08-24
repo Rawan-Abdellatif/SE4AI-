@@ -19,14 +19,27 @@ import TD from "./png/TD.png";
 import Vercel from "./png/Vercel.png";
 import MAIEI from "./png/MAIEI.png";
 import IVADO from "./png/IVADO.png";
-
+import { Grid } from "@mui/material";
 const Partners = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <Container>
-      <Title isDarkMode={isDarkMode}>Our Partners</Title>
+            <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
+
       <Main isDarkMode={isDarkMode}>
+      <Grid item xs={12} md={12} lg={12} xl={12}>
+
+      <Title isDarkMode={isDarkMode}>Our Partners</Title>
+</Grid>
       <ParticipatingSection isDarkMode={isDarkMode}>
   <div className="flex-container">
     <RedText>P</RedText>articipating
@@ -153,6 +166,8 @@ const Partners = () => {
           </ChoiceItem>
         </Choices>
       </Main>
+      </Grid>
+      </Grid>
     </Container>
   );
 };
@@ -160,171 +175,109 @@ const Partners = () => {
 export default Partners;
 
 const Container = styled.div`
-  margin-top: 0px;
-  margin-left: -10px;
-  margin-right: -10px;
-  /* margin-left: 100px; */
+   display: flex;
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 20px;
-  @media (min-width: 1600px) { 
-height:100vh;
-margin-left:300px;
-width:1300px;
-line-height:7rem;
-/* padding-bottom: 200px; */
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
- }
+
+  width: 100%;
+
 `;
 
 const Main = styled.div`
-  margin-top: 20px;
-  padding-left: 100px;
-   width: 1400px;
-/* text-align:center; */
-  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
-  @media (max-width: 995px) {
-    flex-direction:column;
-width:90vw;
-margin-left:5px; 
-border-left:none;
+   width: 100%;
+  max-width: 1400px;
+  padding-top: -40px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin: 0 auto;
 
- }
 `;
 
 const Title = styled.div`
-  font-weight: bold;
-  margin-top: 0;
-  padding-left: 100px;
-  padding-top: 45px;
+    font-weight: bolder;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  margin-top:-20px;
+  padding-top:60px;
   font-size: 45px;
+  padding-bottom: 60px;
+  border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  padding-bottom: 50px;
-  border-bottom: 2px solid
-    ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-  @media (max-width: 995px) {max-width:995px;
-    margin-left:-30px; 
-  padding-left:60px;}
-  @media (min-width: 1600px) {
-min-width:1600px;
-margin-left:-350px;
-padding-left:500px;
-background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-} `;
+  width: 100%; /* Set the width to 100% */
+  min-width:100vw;
+  margin-left:-750px;
+padding-left:750px;
+ `;
 
 const ParticipatingSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
-  margin-left: 20px;
-  font-size: 35px;
+  /* margin-left:120px; */
+  font-size: 30px;
   font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-@media (max-width: 995px) {
-  .flex-container {
-    display: flex;
-    align-items: center;
-  }
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
 
-  .university {
-    order: 2;
-  }
-
-  .flex-container,
-  .university {
-    font-size: 35px;
-    margin-left: -70px;
-    width: 85vw;
-    height: 70px;
-  }
-}
 
 `;
 
 const IndustrialSection = styled.div`
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
-  margin-left: 20px;
-  font-size: 35px;
+  /* margin-left:120px; */
+  font-size: 30px;
   font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 995px) {
-    display: flex;
-    align-items: center;
-    margin-left: -70px;
-    font-size: 35px;
-    margin-left: -70px;
-    width: 85vw;
-    height: 70px;
-  }
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
+
 `
 
 const CollaboratorsSection = styled.div`
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
-  margin-left: 20px;
-  font-size: 35px;
+  /* margin-left:120px; */
+  font-size: 30px;
   font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 995px) {
-  .flex-container {
-    display: flex;
-    align-items: center;
-  }
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
 
-  .supporters {
-    order: 2;
-  }
 
-  .flex-container,
-  .supporters {
-    font-size: 35px;
-    margin-left: -70px;
-    width: 85vw;
-    height: 70px;
-  }
-}
+
 `;
 
 const Choices = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  /* margin-left: 120px; */
-  /* padding-left: 20px; */
+  width: 100%;
+  /* max-width: 1300px;  */
+   /* padding-left: 20px; */
 `;
 
 const ChoiceItem = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
 height:60px;
-  padding: 20px 5px;
-  width: 250px;
+  padding: 20px 50px;
+  width:250px;
   margin-right:20px;
   margin-top: 15px;
-margin-left:20px;  
   border-radius: 9px;
   a {
     text-decoration: none;
     color: inherit;
   }
   img {
-    width: 200px;
+    width: 150px;
     height: 50px;
-    padding-left: 30px;
-    text-align: center;
-    border-radius: 15px;
+    padding-left: 50px;
+    /* text-align: center; */
   }
-  @media (max-width:995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-width:95% ;
-margin-left:-75px;  
-text-align:center;
-margin-top:20px;
 
-}
 `
 
 const RedText = styled.span`
@@ -336,12 +289,11 @@ const ChoiceItem2 = styled.div`
   /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
   background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
 height:60px;
-  padding: 20px 5px;
+  padding: 20px 50px;
   width: 250px;
   margin-right:20px;
   margin-top: 15px;
   /* font-size: 16px; */
-margin-left:20px;  /* padding-left: 2px; */
   /* margin: 20px; */
   border-radius: 9px;
   a {
@@ -355,14 +307,7 @@ margin-left:20px;  /* padding-left: 2px; */
     text-align: center;
     border-radius: 15px;
   }
-  @media (max-width:995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    width:80% ;
-margin-left:-75px;
-padding-left:60px;
-margin-top:20px;
-/* padding-top:-100px; */
-}
+
  `
  const ChoiceItem3 = styled.div`
   /* background-color: #db7093; */
@@ -370,12 +315,10 @@ margin-top:20px;
   /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
   background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
 height:60px;
-  padding: 20px 5px;
+  padding: 20px 50px;
   width: 250px;
   margin-right:20px;
   margin-top: 15px;
-  /* font-size: 16px; */
-margin-left:20px;  /* padding-left: 2px; */
   /* margin: 20px; */
   border-radius: 9px;
  a {
@@ -383,19 +326,10 @@ margin-left:20px;  /* padding-left: 2px; */
    color: inherit;
  }
  img {
-   width: 100px; /* Adjust the width as needed */
+   width: 120px; /* Adjust the width as needed */
  height: auto; /* Maintain aspect ratio */
-   padding-left: 80px;
-   text-align: center;
+   padding-left: 60px;
    border-radius: 15px;
  }
- @media (max-width:995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    width:85% ;
-margin-left:-75px; 
-padding-left:40px;
-margin-top:20px;
 
-
-}
 `
