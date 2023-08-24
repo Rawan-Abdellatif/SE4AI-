@@ -25,9 +25,15 @@ const Team = () => {
     
   >     
 
-    <Grid item xs={12} md={12} lg={6} xl={12}>
+    <Grid item xs={12} md={12} lg={12} xl={12}>
+ 
+
+
       <Main isDarkMode={isDarkMode}>
-  <Title isDarkMode={isDarkMode}>Our Team</Title>
+      <Grid item xs={12} md={12} lg={12} xl={12}>
+
+      <Title isDarkMode={isDarkMode}>Our Team</Title>
+</Grid>
         <Subtitles isDarkMode={isDarkMode}>
           <RedText>P</RedText>rogram Leadership
         </Subtitles>
@@ -68,7 +74,7 @@ const Container = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
 
-  /* width: 100%; */
+  width: 100%;
   /* @media (max-width: 995px) {
 margin-left:20px;
 }   */
@@ -80,16 +86,19 @@ const Title = styled.div`
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
-  padding-top: 45px;
+  margin-top:-20px;
+  padding-top:60px;
   font-size: 45px;
-  padding-bottom: 50px;
+  padding-bottom: 60px;
   border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
-  /* width: 300vw; */
-  /* margin-left:-1200px;
-  padding-left:1210px; */
-`;
+  width: 100%; /* Set the width to 100% */
+  min-width:100vw;
+  margin-left:-750px;
+padding-left:750px;
+  `
+
 
 
 
@@ -110,15 +119,11 @@ const RedText = styled.span`
   color: #bb5a7d;
 `;
 const Main = styled.div`
-  /* border-left: ${(props) =>
-    props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
-    /* padding-left:0px; */
-  /* margin-left: 5px; */
-  width: 100%; /* Set the width to 100% */
-  max-width: 1500px; /* Adjust the maximum width as needed */
+  width: 100%;
+  max-width: 1500px;
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto; /* Center the content horizontally */
+  margin: 0 auto;
 `;
 
 
