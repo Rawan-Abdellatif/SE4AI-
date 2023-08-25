@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
+import { Grid } from "@mui/material";
 ///// import all of photos
 import apr252023Image from "../component/2022-09-21-past/apr252023.jpg";
 import april32023Image from "../component/2022-09-21-past/april32023.jpg";
@@ -33,10 +34,21 @@ const Events = () => {
       <StickySidebar>
         <Sidebar />
       </StickySidebar>
+      <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
       <MainContent isDarkMode={isDarkMode}>
+      <Grid item xs={12} md={12} lg={12} xl={12}>
+
         <Title>
           <a href="/blog/past">Past Events</a>
-        </Title>
+        </Title></Grid>
         <Subtitle
           isDarkMode={isDarkMode}
           id="industry-talks-webinar---april-25-2023"
@@ -152,7 +164,7 @@ const Events = () => {
           <Bold isDarkMode={isDarkMode}> Lorena Barreto </Bold>(Concordia
           University) and <Bold isDarkMode={isDarkMode}>Khaled Badran </Bold>
           (Concordia University), along with Program Coordinator{" "}
-          <Bold>Lori Akiyama </Bold> developed and delivered a fun, interactive
+          <Bold isDarkMode={isDarkMode}>Lori Akiyama </Bold> developed and delivered a fun, interactive
           workshop on AI and Chatbots to 4 groups of students. The goals of the
           workshop were to:
         </Details2>
@@ -355,7 +367,7 @@ const Events = () => {
           Testing of AI-based Software Systems
         </Details2>
         <Details2 isDarkMode={isDarkMode}>
-          Our monthly<Bold> CREATE SE4AI Trainee Talks</Bold> webinar series
+          Our monthly<Bold isDarkMode={isDarkMode}> CREATE SE4AI Trainee Talks</Bold> webinar series
           kicked off with 2 graduate Software Engineering students presenting
           their research.
         </Details2>
@@ -452,12 +464,13 @@ const Events = () => {
             <Li isDarkMode={isDarkMode}>
               Existing and future certifications for AI systems
             </Li>
-            <Details isDarkMode={isDarkMode}>
-              Bio:{" "}
-              <a href="https://moov.ai/en/olivier-blais">
-                https://moov.ai/en/olivier-blais/
-              </a>
-            </Details>
+            <Details isDarkMode={isDarkMode} style={{ display: 'flex', width:'100%' }}>
+  <Span>Bio:</Span>
+  <a href="https://moov.ai/en/olivier-blais" >
+    https://moov.ai/en/olivier-blais/
+  </a>
+</Details>
+
           </Ol>
           <Img4 src={olivierImage} alt="olivier.jpg" />
         </Group2>{" "}
@@ -484,7 +497,7 @@ const Events = () => {
           Learning Pipeline".
         </Details2>
         <Details2>
-          <Bold>Link to presentation:</Bold>
+          <Bold isDarkMode={isDarkMode}>Link to presentation:</Bold>
         </Details2>
         <Details isDarkMode={isDarkMode}>
           <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
@@ -524,6 +537,8 @@ const Events = () => {
           <a href="/blog/upcoming">Upcoming Events</a>
         </Title>
       </MainContent>
+      </Grid>
+      </Grid>
     </Container>
   );
 };
@@ -531,28 +546,28 @@ const Events = () => {
 export default Events;
 // This part for css part
 const Container = styled.div`
-  display: flex;
-  font-family: "Open Sans", sans-serif;   
-  @media (max-width: 995px) {
-   flex-direction:column;
-margin-left:-150px; 
- }
+   display: flex;
+  font-family: "Open Sans", sans-serif;
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+    height:100%;
+
+  width: 100%;  
+
 
 `;
 
 const MainContent = styled.div`
   /* flex: 1; */
-  margin-left: 170px;
-  padding-top: -50px;
-  color: #bb5a7d;
-  width: 640px;
-  margin-bottom: 20px;  
-   @media (max-width: 995px) {
-    flex-direction:row;
- }
- @media (min-width: 1440px) { 
-width:800px;
- }
+  /* margin-left: 170px; */
+  width: 100%;
+  max-width: 640px;
+  padding-top: -40px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin: 0 auto;
+
+
 `;
 
 // const Title = styled.h1`
@@ -561,13 +576,14 @@ width:800px;
 //   color: black;
 // `;
 const Subtitle = styled.div`
-  padding-top: 20px;
-  width: 560px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
-  margin-bottom: 20px;
+display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  /* margin-left:120px; */
   font-size: 30px;
-  font-weight: bold;  
+  font-weight: bold;
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
+
 
   a {
     color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
@@ -577,45 +593,29 @@ const Subtitle = styled.div`
     color: #bb5a7d;
     text-decoration: underline;
   }
-  @media (max-width: 995px) {
-width:340px; }
-@media (min-width: 1440px) {
-  width: 737px;   
 
- }
 `;
 const Img = styled.img`
-  width: 650px;
-  height: 350px;
+width:100%;
+  /* max-width: 650px;
+  height: 200px; */
   padding-top: 20px;
-  @media (max-width: 768px) {
-width:340px; height:200px;}
-  @media (min-width: 1440px) {
-width:737px;
-height: 415px;
- }
+  padding-bottom:20px;
+
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* flex: 1; */
-  width: 640px;
+width:100%; 
+max-width: 640px;
   line-height: 1.7em;
   font-size: 15px;  
-   @media (max-width: 995px) {
-    /* flex-direction:row; */
-    width:350px;
-margin-left:5px; 
- }  @media (min-width: 1440px) {
-  width:735px;
- } 
+padding-top:20px;
 
   a {  
 
     color: #bb5a7d;
     text-decoration: none;  
-    @media (max-width: 995px) {
 
-} 
   }
 
   a:hover {
@@ -626,21 +626,16 @@ margin-left:5px;
 const Bold = styled.span`
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* margin-top:100px; */
+  padding-top:100px;
 `;
 const Details2 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 640px;
-  line-height: 2em;
+  width:100%; 
+max-width: 640px;  line-height: 2em;
   font-size: 15px;
   margin-top: 20px;
-  @media (max-width: 995px) {
-    flex-direction:row;
-    width:340px;
-margin-left:5px; }
-@media (min-width: 1440px) {
-  width: 737px;;   
 
- }
 
   a {
     color: #bb5a7d;
@@ -657,67 +652,56 @@ const Bold2 = styled.span`
 `;
 const YoutubeChannel = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  line-height: 5em;
-  @media (max-width: 995px) {
-width:340px; padding-left: 2px; line-height:2em;
+  line-height: 2em;
 
-}
   a {
     color: #bb5a7d;
     text-decoration: none;
-    @media (max-width: 995px) {
-width:340px; 
-padding-left: 2px;
-}
+
   }
   a:hover {
     text-decoration: underline;
   }
 `;
 const Ol = styled.ol`
+display:flex;
+flex-wrap:wrap;
   list-style-type: decimal;
   padding-top: 5px;
   font-size: 15px;
   line-height: 1.8em;
-  width: 600px;
-  margin-left: 5px;
-  @media (max-width: 995px) {
-width:340px; padding-left: 2px}
+  width:100%;
+  max-width: 500px;
+  margin-left: -4px;
+
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   font-size: 15px;
   margin-bottom: 20px;
-  width: 580px;
-  @media (max-width: 995px) {
-width:340px;margin-left: 4px}
+  width:100%;
+
+
 `;
 const Img2 = styled.img`
-  width: 250px;
-  height: 350px;
+ width: 200px;
+   /* height: 350px; */
   margin-left: 4px;
   margin-top: 10px;
-  @media (max-width: 995px) {
-    flex-direction:column;
-width:270px;
- padding-left: 2px;
 
-}
 `;
-const Image = styled.div`
-  width: 520px;  
-    @media (min-width: 1440px) { 
-width:800px;
-margin-bottom:40px;
- }
+const Image = styled.div`display: flex;
+flex-wrap: wrap;
+width:100%;
+
+ max-width: 520px;  
+
 `;
 const Group = styled.div`
   display: flex;
   flex-wrap: wrap;
-  @media (max-width: 995px) {
-width:340px; padding-left: 2px;
 
-}
+
 `;
 const ImgContainer = styled.div`
   position: relative;
@@ -727,7 +711,7 @@ const ImgContainer = styled.div`
 
 const Img3 = styled.img`
   width: 200px;
-  height: 160px;
+  height: 150px;
   padding-left: 2px;
   padding-top: 4px;
   transition: transform 0.3s;
@@ -751,58 +735,26 @@ const HoverContainer = styled(ImgContainer)`
 `;
 const Group2 = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
+  /* flex-direction: row; */
   margin-right: 5px;
   padding-top: 10px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
   Li {
     color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     font-size: 15px;
     margin-bottom: 20px;
-    width: 380px;@media (max-width: 768px) {
-width:130px;
-
-}
+    max-width: 380px;
   }
 `;
 
 const Img4 = styled.img`
-  width: 200px;
+  max-width: 200px;
   height: 180px;
-  margin-left: -200px;
+  /* margin-left: 190px; */
   /* margin-right: 10px; */
 `;
-const Button = styled.button`
-  width: 370px;
-  height: 70px;
-  background-color: inherit;
-  margin-bottom: 30px;
-  margin-left: 270px;
-  border-radius: 5px;
-  padding-left: 270px;
-  padding-top: -2px;
-  font-size: 13px;
-  font-weight: bold;
-  line-height: 1.7em;
-  color: #585858;
 
-  border: 1px solid #e8e8e8;
-  &:hover {
-    border: 1px solid #bb5a7d;
-    cursor: pointer;
-  }
-  a {
-    display: flex;
-    flex-direction: row;
-    width: 200px;
-    margin-left: -80px;
-    text-decoration: none;
-    color: #bb5a7d;
-    font-size: 17px;
-    font-weight: bold;
-  }
-`;
 
 const Details3 = styled.div`
   color: ${(props) => (props.isDarkMode ? 'white' : '#484848')};
@@ -812,25 +764,16 @@ const Details3 = styled.div`
   font-size: 15px;
   margin-top: 0;
 
-  @media (max-width: 768px) {
-    margin-top: 20px;
-    width: 100%; /* Reset width on smaller screens */
-  }
+
 `;
 
 const Img5 = styled.img`
-  width: 200px;
+  /* width: 200px; */
   height: 180px;
   margin: 10px; /* Adjust margin for spacing around the image */
   float: right;
 
-  @media (max-width: 995px) {
-    width: 200px; /* Make the image width 100% on smaller screens */
-    height: 180px; /* Reset height for responsiveness */
-    float: right;
-    margin: 0 auto 30px;
-    /* display: block; */
-  }
+ 
 `;
 
 const Group3 = styled.div`
@@ -839,20 +782,9 @@ const Group3 = styled.div`
   align-items: flex-start; /* Align items to the top of the container */
   margin: 10px; /* Adjust margin for spacing around the group */
 
-  @media (max-width: 995px) {
-    flex-direction: column;
-    width:340px; /* Change to a single column on smaller screens */
-  }
 `;
 
-// const Img5 = styled.img`
-//   width: 200px;
-//   height: 180px;
-//   /* margin-left: -200px; */
-//   margin-right: 170px; @media (max-width: 768px) { 
-//   float: left; /* Float the image to the left */
-//   margin-right: 120px; /* Add some space to separate image from text */}
-// `;
+
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
@@ -864,11 +796,7 @@ const Title = styled.h1`
     color: #bb5a7d;
     text-decoration: underline;
   }   
-  @media (max-width: 995px) {
-    flex-direction:row;
-    width:350px;
-margin-left:5px; 
- }
+
 `;
 const StickySidebar = styled.div`
   position: sticky;
@@ -876,8 +804,11 @@ const StickySidebar = styled.div`
   margin-bottom: 90px;
   /* margin-top: 20px; */
   width: 170px; /* Adjust this value to set the sidebar width */
-  @media (min-width: 1440px) { 
-width:600px;  
 
- }
+`
+
+const Span = styled.span`
+  margin-right: 2px;
+  margin-left: -25px;
+  padding-left: 0;
 `;

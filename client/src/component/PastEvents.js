@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
+import { Grid } from "@mui/material";
 ///// import all of photos
 import apr252023Image from "../component/2022-09-21-past/apr252023.jpg";
 import april32023Image from "../component/2022-09-21-past/april32023.jpg";
@@ -58,10 +59,18 @@ const PastEvents = () => {
     <Container isDarkMode={isDarkMode}>
       <StickySidebar>
         <Sidebar />
-      </StickySidebar>
+      </StickySidebar> <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
       <MainContent isDarkMode={isDarkMode}>
-        {" "}
-        <Title isDarkMode={isDarkMode}>Past Events</Title>
+      <Grid item xs={12} md={12} lg={12} xl={12}>
+        <Title isDarkMode={isDarkMode}>Past Events</Title></Grid>
         <Subtitle
           className="subtitle"
           isDarkMode={isDarkMode}
@@ -477,6 +486,7 @@ const PastEvents = () => {
           Learning Models" including:
         </Details>
         <Group2 isDarkMode={isDarkMode}>
+
           <Ol isDarkMode={isDarkMode}>
             <Li isDarkMode={isDarkMode}>
               What it means to develop high quality artificial intelligence
@@ -493,6 +503,7 @@ const PastEvents = () => {
             </Details>
           </Ol>
           <Img4 src={olivierImage} alt="olivier.jpg" />
+
         </Group2>{" "}
         <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
@@ -521,16 +532,14 @@ const PastEvents = () => {
           <Bold isDarkMode={isDarkMode}>Link to presentation:</Bold>
         </Details2>
         <Details isDarkMode={isDarkMode}>
-          <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
+          <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos" >
             https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
           </a>
         </Details>
         <Details2 isDarkMode={isDarkMode}>
           <Bold isDarkMode={isDarkMode}>About the Speaker</Bold>
         </Details2>
-        <Group3>
-          {" "}
-          <Details3 isDarkMode={isDarkMode}>
+        <Group3>          <Details3 isDarkMode={isDarkMode}>
             Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
             University (ISU) and a Research Assistant in Laboratory for Software
             Design at ISU under the supervision of Professor Hridesh Rajan. His
@@ -546,7 +555,8 @@ const PastEvents = () => {
             and reasoning about fairness property and its mitigation in ML
             pipelines. His research results appeared in reputed software
             engineering venues including ICSE and ESEC/FSE.
-          </Details3>{" "}
+          </Details3>{" "}      
+
           <Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
         </Group3>
         <Details2 isDarkMode={isDarkMode}>
@@ -563,7 +573,7 @@ const PastEvents = () => {
             </Icon>
           </a>
         </Button>
-      </MainContent>{" "}
+      </MainContent></Grid></Grid>
       <RightSidebar activeLink={activeLink} handleLinkClick={handleLinkClick} />
     </Container>
   );
@@ -586,21 +596,22 @@ const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
   margin-bottom: 50px; 
-  @media (min-width: 1440px) { 
-/* margin-left:500px; */
- }
+
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+    height:100%;
+
+  /* width: 100%; */
 `;
 
 const MainContent = styled.div`
   /* flex: 1; */
-  margin-left: 170px;
+  /* margin-left: 170px; */
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 640px;
-  margin-bottom: 30px;    @media (min-width: 1440px) { 
-margin-left:500px;
-width:800px;
- }
+ max-width: 640px;
+  margin-bottom: 30px;     width: 100%;
+  /* max-width: 1500px; */
+  margin: 0 auto;
 
 `;
 
@@ -608,15 +619,14 @@ const Title = styled.h1`
   font-weight: bold;
   font-size: 60px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
-   @media (min-width: 1440px) { 
-/* margin-left:5000px; */
- }
+
 `;
 const Subtitle = styled.div`
   padding-top: 20px;
-  width: 560px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
+ max-width: 560px;
+  /* color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; */
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
   font-size: 30px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
@@ -631,64 +641,67 @@ const Subtitle = styled.div`
   }
 `;
 const Img = styled.img`
-  width: 650px;
-  height: 350px;
+  /* max-width: 650px; */
+  width:100%;
+  /* height: 350px; */
   padding-top: 20px;
-   @media (min-width: 1440px) { 
-width:737px;
-height: 415px;
- }
+
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  /* flex: 1; */
-  width: 640px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 640px;
   line-height: 1.7em;
   font-size: 15px;
   a {
     color: #bb5a7d;
+
     text-decoration: none;
+      display: flex;
+  flex-wrap: wrap;
   }
   a:hover {
     text-decoration: underline;
   }
-  @media (min-width: 1440px) {
-  width: 737px;   
 
- }
 `;
 
 const Bold = styled.span`
   font-weight: bold;
+  display:flex;
+  flex-wrap:wrap;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Details2 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  width: 640px;
+  max-width: 640px;
   line-height: 2em;
   font-size: 15px;
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
 
   a {
     color: #bb5a7d;
-    text-decoration: none;
+    text-decoration: none;  display: flex;
+  flex-wrap: wrap;
   }
   a:hover {
     text-decoration: underline;
-  }@media (min-width: 1440px) {
-  width: 737px;;   
-
- }
+  }
 `;
 const Bold2 = styled.span`
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   line-height: 5em;
 `;
-const YoutubeChannel = styled.div`
+const YoutubeChannel = styled.div`  
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   line-height: 5em;
   a {
+    display: flex;
+flex-wrap: wrap;
     color: #bb5a7d;
     text-decoration: none;
   }
@@ -701,28 +714,28 @@ const Ol = styled.ol`
   padding-top: 5px;
   font-size: 15px;
   line-height: 1.8em;
-  width: 600px;
-  margin-left: 5px;
+  max-width: 600px;
+  /* margin-left: 5px; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-size: 15px;
   margin-bottom: 20px;
-  width: 580px;
+  max-width: 580px;
 `;
 const Img2 = styled.img`
-  width: 250px;
-  height: 350px;
+  width: 200px;
+  /* height: 350px; */
   margin-left: 4px;
   margin-top: 10px;
 `;
 const Image = styled.div`
-  width: 520px; 
-     @media (min-width: 1600px) { 
-width:800px;
-margin-bottom:40px;
- }
+flex-wrap: wrap;
+width:100%;
+
+ max-width: 640px;  
+
 `;
 const Group = styled.div`
   display: flex;
@@ -759,7 +772,8 @@ const HoverContainer = styled(ImgContainer)`
 `;
 const Group2 = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction:row;
+  /* flex-direction: row; */
   margin-right: 5px;
   padding-top: 10px;
 
@@ -767,22 +781,26 @@ const Group2 = styled.div`
     color: ${(props) => (props.isDarkMode ? "white" : "black")};
     font-size: 15px;
     margin-bottom: 20px;
-    width: 380px;
+    max-width: 380px;
   }
 `;
 
 const Img4 = styled.img`
-  width: 200px;
+  max-width: 200px;
   height: 180px;
-  margin-left: -200px;
+  /* margin-left: -200px; */
   /* margin-right: 10px; */
 `;
 const Button = styled.button`
-  width: 370px;
+display:flex;
+flex-wrap:wrap;
+  max-width: 370px;
+  width:100%;
   height: 70px;
   background-color: inherit;
   margin-bottom: 30px;
-  margin-left: 270px;
+  float:right;
+  /* margin-left: 270px; */
   border-radius: 5px;
   padding-left: 270px;
   padding-top: -2px;
@@ -799,7 +817,7 @@ const Button = styled.button`
   a {
     display: flex;
     flex-direction: row;
-    width: 200px;
+    max-width: 200px;
     margin-left: -80px;
     text-decoration: none;
     color: #bb5a7d;
@@ -813,8 +831,10 @@ const Icon = styled.div`
 `;
 const Details3 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  flex: 1;
-  width: 640px;
+  /* flex: 1; */
+  display: flex;
+
+  /* max-width: 640px; */
   line-height: 1.7em;
   font-size: 15px;
 `;
@@ -823,11 +843,12 @@ const Group3 = styled.div`
   flex-direction: row;
   margin-right: 5px;
   padding-top: 10px;
-  width: 840px;
 `;
 const Img5 = styled.img`
-  width: 200px;
+  max-width: 200px;
   height: 180px;
-  /* margin-left: -200px; */
-  margin-right: 170px;
+
+  align-self:left; /* Center the image horizontally */
+
+  /* margin-right: 170px; */
 `;

@@ -1,14 +1,25 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
+import {Grid} from "@mui/material";
 
 const Apply = () => {
   const { isDarkMode } = useContext(DarkModeContext);
 
   return (
     <Container>
-      <Title isDarkMode={isDarkMode}>Apply Now</Title>
+       <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
       <Main>
+      <Title isDarkMode={isDarkMode}>Apply Now</Title>
+
       <EmailText isDarkMode={isDarkMode}>
         To apply, please send an email to{" "}
         <EmailLink href="mailto:apply@se4ai.org">apply@se4ai.org</EmailLink>{" "}
@@ -24,7 +35,8 @@ const Apply = () => {
           </ListItem>
           <ListItem isDarkMode={isDarkMode}>Your CV</ListItem>
         </List>
-      </EmailContent></Main>
+      </EmailContent></Main></Grid>
+      </Grid>
     </Container>
   );
 };
@@ -33,23 +45,14 @@ export default Apply;
 
 // The CSS Part
 const Container = styled.div`
-  margin-top: 10px;
-  width: 100%;
-  /* border-top: 2px solid #f4f0ec; */
-  margin-left: 100px;
+   display: flex;
   font-family: "Open Sans", sans-serif;
-  padding-bottom: 20px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
-   @media (max-width: 995px) {
-    flex-direction:row;
-    
-margin-left:5px; 
- }@media (min-width: 1440px) { width:100%;
-height:100vh;
-/* margin-left:300px; */
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+    height:100%;
 
-
- }
+ 
 
 `;
 
@@ -58,13 +61,8 @@ const Title = styled.div`
   padding-top: 20px;
   font-size: 30px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  
-  
-  
-  @media (min-width: 1440px) { width:100%;
-/* height:100vh; */
-margin-left:500px;
- }
+  width: 100%; /* Set the width to 100% */
+
 `;
 
 const EmailText = styled.p`
@@ -113,7 +111,10 @@ const ListItem = styled.li`
     margin-right: 10px;
   }
 `;
-const Main=styled.div`@media (min-width: 1440px) { 
-margin-left:500px;
-   }
+const Main=styled.div`  width: 100%;
+max-width: 1500px;
+padding-top: -40px;
+color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+margin: 0 auto;
+
 `
