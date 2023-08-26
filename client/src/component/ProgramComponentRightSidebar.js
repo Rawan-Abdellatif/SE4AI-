@@ -155,11 +155,8 @@ const SidebarContainer = styled.div`
     background-color: #bbb;
     border-radius: 999px; /* Make the scrollbar thumb circular */
   }
-  @media (max-width: 995px) {display:none;}
-  @media (min-width: 1600px) {
+  @media (max-width: 1000px) {display:none;}
 
-  border-left:none;
-}
 
 `;
 

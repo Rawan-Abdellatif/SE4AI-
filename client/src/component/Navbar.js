@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import HomePageSidebar from "./HomePageSidebar";
 import { useLocation } from "react-router-dom";
 import ProgramSidebarMedia from "./ProgramSidebarMedia";
-
+import { Grid } from "@mui/material";
 
 const Navbar = () => {
   const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
@@ -50,51 +50,60 @@ const Navbar = () => {
     <NavbarContainer isDarkMode={isDarkMode}>  
     {shouldShowProgramSidebar &&<ProgramSidebarMedia/>}    
         {shouldShowSidebar && <HomePageSidebar />}
-      
-  <NavMenu1>
-        <Nav1 isDarkMode={isDarkMode}>
+     
+
+ 
+        <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
+    <NavMenu  >
+        <Nav isDarkMode={isDarkMode} className="logo-nav">
           <a href="/">
             <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
           </a>
           <Creat>
           <a href="/">CREATE SE4AI</a></Creat>
-          </Nav1>
-          </NavMenu1>
-<NavMenu>
+          </Nav>
+      
+
         <Nav isDarkMode={isDarkMode}>
           <a href="/intro"   
                className={location.pathname === "/intro" ? "selected" : ""}>
                Program</a>
-        </Nav></NavMenu>
-        <NavMenu>
+        </Nav>
+    
 
         <Nav isDarkMode={isDarkMode}>
           <a href="/team"
           className={location.pathname === "/team" ? "selected" : ""}>Team</a>
-        </Nav></NavMenu>
-        <NavMenu>
+        </Nav>
+      
 
         <Nav isDarkMode={isDarkMode}>
           <a href="/blog" className={location.pathname === "/blog" ? "selected" : ""}>Events</a>
-        </Nav></NavMenu>
-        <NavMenu>
+        </Nav>
+      
 
         <Nav isDarkMode={isDarkMode}>
           <a href="/governance" className={location.pathname === "/governance" ? "selected" : ""}>Governance</a>
-        </Nav></NavMenu>
-        <NavMenu>
+        </Nav>
+
 
         <Nav isDarkMode={isDarkMode}>
           <a href="/partners" className={location.pathname === "/partners" ? "selected" : ""}>Partners</a>
-        </Nav></NavMenu>
-        <NavMenu>
-
+        </Nav>
         <Nav isDarkMode={isDarkMode}>
           <a href="/apply" className={location.pathname === "/apply" ? "selected" : ""}>Apply</a>
-        </Nav></NavMenu>
-        <NavMenu>
+        </Nav>
+     
 
-        <Nav isDarkMode={isDarkMode}>
+        <Nav isDarkMode={isDarkMode} >
           {/* Click event for "Login" */}
           <LoginLink onClick={handleLoginToggle}>Login</LoginLink>
 
@@ -112,19 +121,14 @@ const Navbar = () => {
               </DropdownMenu>
             </DropdownMenuWrapper>
           )}
-        </Nav></NavMenu>
+        </Nav>
 
-        <NavMenu>
+ 
 
-        <Nav isDarkMode={isDarkMode}>
+        <Nav isDarkMode={isDarkMode} className="right-nav">
           <Contact isDarkMode={isDarkMode}>
             <a href="/contact">Contact</a>
           </Contact>
-        </Nav>
-        </NavMenu>
-        <NavMenu>
-
-        <Nav>
           <SwitchLabel>
             <SwitchInput
               type="checkbox"
@@ -137,7 +141,10 @@ const Navbar = () => {
             />
           </SwitchLabel>
         </Nav>
+
         </NavMenu>
+</Grid>
+</Grid>
     </NavbarContainer>
     // </NavbarStickyContainer>
   );
@@ -148,49 +155,50 @@ export default Navbar;
 const NavbarContainer = styled.nav`
   /* background-color: #212529; */
   color: #fff;
-  margin-top: 0px;
+  /* margin-top: 0px; */
   height: 45px;
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   font-weight: bold;
   font-size: 12px;
-  padding: 5px 0px;
+  /* padding: 5px 0px; */
   font-family: "Open Sans", sans-serif;
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   /* border-bottom: 1px solid #dcdcdc; */
-  position: ${(props) => (props.scrollPosition > 20 ? "sticky" : "relative")};
+  /* position: ${(props) => (props.scrollPosition > 20 ? "sticky" : "relative")}; */
   top: ${(props) => (props.scrollPosition > 20 ? "20px" : "0")};
-  z-index: 1;
-  transition: top 0.3s ease; /* Add a transition for smooth movement */
-
+  /* z-index: 1; */
+/* border:4px solid orange; */
 
 `;
 
 const NavMenu = styled.ul`
-  display: flex;
+  display:flex;
+  flex-direction:row;
   list-style: none;
-  position: relative;
+/* float:left; */
   cursor: pointer;
 /* margin-left:-50px; */
+padding-left:0;
 /* border:2px solid yellow; */
-margin-left:-17px;
-@media (min-width: 1600px) {
-}
+margin-top:-65px;
+/* border:4px solid yellow; */
+
+
  `
 
 const Nav = styled.li`
  display: flex;
   cursor: pointer;
   /* position: relative; */
-/* margin-left:5px;  */
- /* border:2px solid orange; */
+margin-right:20px; 
+/* border:2px solid blue; */
 padding-left:-10px;
-/* width:115px;  */
+align-items:center;
  img {
     height: 40px;
   cursor: pointer;
-  margin-top: -10px;
-margin-left:-40px;
+margin-right:10px/* margin-left:-40px; */
 /* border:2px solid blue; */
   }
   a {
@@ -198,10 +206,10 @@ margin-left:-40px;
     text-decoration: none;
 /* padding-left:-10px;  */
    font-size: 15px;
-  transition: 0.2s;
-  margin-top: 10px; 
+  /* transition: 0.2s; */
+  /* margin-top: 10px;  */
   /* padding-left:-20px; */
-padding-left:-10px;
+/* padding-left:-10px; */
 /* width:80px; */
  &.selected {
   color: #BB5A7D;
@@ -209,23 +217,30 @@ padding-left:-10px;
   &:hover {
       color: #BB5A7D;
     }
-    @media (max-width: 995px) {
+    /* @media (max-width: 995px) {
      display: none; 
-   }
+   } */
     
   }
- 
+  &.right-nav {
+    margin-left: auto; /* This will push the last Nav to the right */
+  }
+  @media (max-width: 1000px) {
+    /* Hide all Nav elements */
+    
+      display: none;
+
+
+    /* Override display for the first Nav element (logo) */
+  &.logo-nav {
+      display: flex;
+    }
+  }
 `;
 
 
 const Contact = styled.div`
-margin-left: 600px;
-@media (min-width: 1600px) {
-    margin-left:1050px;
-
-}
-
-`;
+margin-right:20px;`;
 
 const SwitchLabel = styled.label`
   position: relative;
@@ -237,9 +252,7 @@ const SwitchLabel = styled.label`
 `;
 
 const SwitchInput = styled.input`
-  opacity: 0;
-  width: 0;
-  height: 0;   @media (max-width: 768px) {
+   @media (max-width: 768px) {
     display: none; 
   }
 
@@ -269,15 +282,15 @@ const Slider = styled.span`
     position: absolute;
     content: "${(props) => (props.checked ? "" : "")}";
     height: 20px;
-    width: 20px;
+    max-width: 20px;
     left: ${(props) => (props.checked ? "2px" : "2px")};
     bottom: 0px;
     background-color: ${(props) => (props.checked ? " white" : " white")};
     transition: 0.2s;
     border-radius: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     font-size: 12px;
     color: ${(props) => (props.checked ? "white" : "black")};
   }
@@ -338,19 +351,16 @@ const DropdownItem = styled.div`
 `;
 const Creat=styled.div`
 width:120px;
-padding-top:17px;
+/* padding-top:17px; */
 margin-left:-3px;
 `
 const NavMenu1 = styled.ul`
   display: flex;
   list-style: none;
-  position: relative;
+  /* position: relative; */
   cursor: pointer;
 /* margin-left:-50px; */
-@media (min-width: 1600px) {
-   margin-left:-1980px;
 
-}
 
  `
  const Nav1 = styled.li`
@@ -359,7 +369,7 @@ const NavMenu1 = styled.ul`
   /* position: relative; */
 /* margin-left:5px;  */
  /* border:2px solid orange; */
- padding-left:0px;
+ /* padding-left:0px; */
 /* width:115px;  */
  img {
     height: 35px;

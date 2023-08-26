@@ -146,7 +146,7 @@ const SidebarContainer = styled.div`
       isDarkMode ? "#282828" : "#e8e8e8"};
     color: #bb5a7d;
   }
-  @media (max-width: 995px) {
+  @media (max-width:1000px) {
     display: none; 
   }
 `;
@@ -230,8 +230,8 @@ const Icon = styled.span`
 `;
 const NavMenu = styled.ul`
   display: flex;
-  margin-left: 4px;
-  margin-top: 0px;
+  margin-left:-10px;
+  margin-top: -5px;
   /* padding-top: 10px; */
   position: sticky;
   list-style: none;
@@ -241,12 +241,17 @@ const Nav = styled.li`
   display: flex;
   width: 140px;
   /* top: -90px; */
-
+  cursor: pointer;
+  /* position: relative; */
+margin-right:20px; 
+/* border:2px solid blue; */
+padding-left:-16px;
   img {
     height: 40px;
-    cursor: pointer;
-    margin-top: -9px;
-    margin-left: -40px;
+  cursor: pointer;
+margin-right:10px;
+    margin-top: -12px;
+    margin-left: -41px;
     padding-left: 5px;
     margin-right: 3px;
     /* width: 20px; */
@@ -259,7 +264,7 @@ const Nav = styled.li`
     padding-top:3px;
     text-decoration: none;
     font-size: 15px;
-    font-weight: bolder;
+    /* font-weight: bolder; */
     /* padding-top: -170px; */
     /* width: 80px; */
     padding-left: 4px;

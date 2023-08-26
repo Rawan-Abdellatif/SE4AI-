@@ -18,7 +18,7 @@ const Governance = () => {
     
   >     
 
-    <Grid item xs={12} md={12} lg={12} xl={12}></Grid> 
+    <Grid item xs={12} md={12} lg={12} xl={12}>
 
       <Main isDarkMode={isDarkMode}>
       <Grid item xs={6} md={6} lg={12} xl={12}>
@@ -35,7 +35,7 @@ const Governance = () => {
         </Subtitles>
         <SteeringCommittee isDarkMode={isDarkMode} />
       </Main>
-      </Grid>
+      </Grid></Grid> 
     </Container>
   );
 };

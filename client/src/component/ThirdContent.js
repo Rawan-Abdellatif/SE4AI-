@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DarkModeContext } from "./DarkModeContext";
-
+import { Grid } from "@mui/material";
 import styled from "styled-components";
 import Concordia from "./png/Concordia.png";
 import PolyMtl from "./png/PolyMTL.png";
@@ -25,11 +25,23 @@ const ThirdContent = () => {
 
   return (
     <Container isDarkMode={isDarkMode}>
-      <Text   isDarkMode={isDarkMode}>
+      <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
+      
+<Main>
+<Grid item xs={12} md={12} lg={12} xl={12}>
+
+  <Text   isDarkMode={isDarkMode}>
         In Collaboration with World-renowned <RedText>Researchers</RedText> and
         <RedText>Technology Leaders</RedText>
-      </Text>    
-<Main>
+      </Text>   </Grid> 
       <ImgContainer >
         <Link href="https://www.concordia.ca/" target="_blank">
           <Img  isDarkMode={isDarkMode} src={Concordia} alt={Concordia} />{" "}
@@ -145,6 +157,7 @@ const ThirdContent = () => {
         </Link>
       </ImgContainer>
 </Main>
+</Grid></Grid>
     </Container>
   );
 };
@@ -154,17 +167,11 @@ const Container = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : " #F0F0F0")};
   text-align: center;
   font-family: "Open Sans", sans-serif;
-// mobile Size 
-  @media (max-width: 995px) {
-    flex-direction:column;
-text-align :center;
- }  
- // large screen 
- @media (min-width: 1660px) {   
-text-align :center;
-align-items:center;}
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+    height:100%;
 
-`;
+  width: 100%;
+`
 
 const Text = styled.div`
   padding-top: 30px;
@@ -172,30 +179,24 @@ const Text = styled.div`
     font-size: 2rem;
     margin-bottom: 3rem;
     max-width: 900px;
+    width:100%;
   font-weight:900;
   color: ${(props) => (props.isDarkMode ? "white": "#484848")};
 
-  //mobile Size
-  @media (max-width: 995px) {
-    flex-direction:column;
- }  
 
- // Large Screen 
- @media (min-width: 1660px) {  text-align :center;
-align-items:center; 
 
- }
 `;
 const RedText = styled.span`
   color: #BB5A7D;
 `;
 const ImgContainer = styled.div`
 height: 90px;
-   width:240px;
+max-width:550px;
+ /* width:100%; */
  align-items: center;
 margin-top:20; 
 /* padding-left:10px; */
-margin-left:5px;
+/* margin-left:5px; */
 padding-right:50px;
 padding-top:0px;
 padding-bottom:20px;
@@ -204,25 +205,15 @@ padding-bottom:20px;
   /* text-align: center; */
 border-radius:5px;
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
-@media (max-width:995px) { 
-    width:300px;
- margin-left:15px;
-margin-bottom:20px;
-
-
-}`;
+`;
 
 const Img = styled.img`
     height: 50px;
     width: 140px;
-    padding:20px 60px;
+    padding:20px 100px;
     background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
     border-radius:10px;
-    @media (max-width:995px) {  
-       width:240px;
-height:70px;
-/* border:4px solid blue; */
-}
+
 `;
 const Link = styled.a`
   text-decoration: none;
@@ -231,41 +222,29 @@ const Link = styled.a`
 
 const Main=styled.div`   
  display: flex;
-flex-direction: row;
+/* flex-direction: row; */
 flex-wrap: wrap;
-margin-left: 200px;
-width:1400px;
+/* width:100% ; */
+max-width:1600px;
 /* border:4px solid red; */
-padding-top:0;
-
-
-
-//Mobile Size
-@media (max-width:995px) {
-  flex-direction: column; /* Display items in a column on mobile */
-  margin-left:0px;
-}
-//Large Screen 
-@media (min-width: xl) {   
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-left: 400px;
-  width:1300px;
-}
+  margin: 0 auto;
+  padding-top: -40px;
+  /* padding-left:100px; */
+  /* text-align:center; */
 
 `
 
 //// This part for Giro Partner
 const ImgContainer2=styled.div`  /* background-color: #db7093; */
 height: 90px;
-   width:240px;
+ width:240px;
+  /* width:100%; */
  align-items: center;
 margin-top:20; 
 /* margin-right:2px; */
-margin-left:5px;
+/* margin-left:5px; */
 /* padding-left:10px; */
-padding-right:50px;
+padding-right:150px;
 padding-top:0px;
 margin-bottom:20px;
 /* border:4px solid blue; */
@@ -276,19 +255,10 @@ img{
 
     height: 55px;
     width: 50px;
-    padding:20px  105px;
+    padding:20px  145px;
     background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
     border-radius:10px;
 /* border:3px solid purple; */
 }
-@media (max-width:995px) {
- 
-width:220px;
-margin-bottom:30px;
-margin-top:5px;
-margin-left:15px;
-img{
-padding:25px 155px;
-}
-}
+
 `;

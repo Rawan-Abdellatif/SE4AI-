@@ -11,6 +11,8 @@ const ProgramComponents = () => {
   const { isDarkMode } = useContext(DarkModeContext);
   const [activeLink, setActiveLink] = useState(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const mainContentMarginTop = isDropdownOpen ? "290px" : "0";
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -22,7 +24,9 @@ const ProgramComponents = () => {
       subtitles.forEach((subtitle) => {
         const rect = subtitle.getBoundingClientRect();
         const linkId = subtitle.getAttribute("id");
-
+        const handleLinkClick = (id) => {
+          setActiveLink(id);
+        };
         if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
           setActiveLink(linkId);
         }
@@ -39,28 +43,53 @@ const ProgramComponents = () => {
   // const isMobileView = window.innerWidth <= 995;
 
   const handleLinkClick = (id) => {
+    console.log("Link clicked:", id);
     setActiveLink(id);
   };
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array to run the effect only once
+  
   return (
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebarContainer isDarkMode={isDarkMode}>
         <ProgramSidebar />
       </ProgramSidebarContainer>              
-
-      {window.innerWidth < 995 && (
+      <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >      
+      {window.innerWidth <=1300 && (
          <ProgramComponentDropDownMedia
          activeLink={activeLink}
          isDropdownOpen={isDropdownOpen}
          toggleDropdown={toggleDropdown}
-       />
+         handleLinkClick={handleLinkClick} // Pass the handleLinkClick function
+         />
       
       )}
-
-      <MainContent isDarkMode={isDarkMode} isDropdownOpen={isDropdownOpen}>
+        <Grid item xs={12} md={12} lg={12} xl={12}>
+ 
+      <MainContent isDarkMode={isDarkMode} isDropdownOpen={isDropdownOpen}       style={{ marginTop: mainContentMarginTop }}>
          
 
+      <Grid item xs={12} md={12} lg={12} xl={12}>
 
         <Title isDarkMode={isDarkMode}>Program components</Title>
+        </Grid>
+
         <Subtitle
           id="engineering-ai-based-software-systems"
           isDarkMode={isDarkMode}
@@ -230,17 +259,18 @@ const ProgramComponents = () => {
           methodology issues.
         </Details>
         <Button isDarkMode={isDarkMode}>
-          {" "}
-          Previous
+    <div>          Previous
+</div><div>
           <a href="/training-program/objectives">
             {" "}
             <Icon>
               <MdKeyboardDoubleArrowLeft />
             </Icon>
-            Program Objectives
-          </a>
+         <div>            Program Objectives
+</div>
+          </a></div>
         </Button>
-      </MainContent>
+      </MainContent></Grid></Grid>
       <ProgramComponentRightSidebar
         activeLink={activeLink}
         handleLinkClick={handleLinkClick}
@@ -259,46 +289,35 @@ const Container = styled.div`
 `;
 
 const MainContent = styled.div`
-  border-left: ${(props) =>
-    props.isDarkMode ? "1px solid gray" : "1px solid #e8e8e8"};
-   margin-left: 20px;
-  /* padding-top: -30px; */
+  /* border-left: ${(props) =>
+    props.isDarkMode ? "1px solid gray" : "1px solid #e8e8e8"}; */
+   /* margin-left: 20px; */
+   /* margin:0 auto; */
+   /* padding-left:50px; */
+
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
  
-  @media (max-width: 995px) {
-    flex-direction:column;
-  margin-top: ${(props) => (props.isDropdownOpen ? '280px' : '20px')}; /* Adjust this value as needed */
-  transition: margin-top 0.2s ease-in-out; /* Add a transition for smooth movement */
-  margin-left: ${(props) => (props.isDropdownOpen ? '-300px' : '-300px')}; /* Adjust this value as needed */
- }
- @media (min-width: 1600px) {
-    margin-left:280px;
-    border-left:none;
-}
+
 
 `;
 const Title = styled.h1`
   font-weight: bold;
   font-size: 45px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};  
-   @media (max-width:995px) {
-    flex-direction:row;
-    /* width:350px; */
- }
+
 `;
 const Details = styled.div`
   padding-top: 15px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width: 900px;
+  width:100%; 
+  display:flex; 
+  flex-wrap:wrap;
+  max-width: 900px;
   line-height: 1.7em;
   font-size: 15px; 
-   @media (max-width:995px) {
-    flex-direction:row;
-width:350px;
-margin-left:5px; 
-    }
+
 `;
 const Subtitle = styled.div`
   padding-top: 30px;
@@ -306,11 +325,7 @@ const Subtitle = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-weight: bold;
   text-decoration: none;  
-   @media (max-width: 995px) {
-    flex-direction:row;
-    width:350px;
-margin-left:5px; 
-  }
+
   a {
     color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
@@ -326,13 +341,11 @@ const Ul = styled.ul`
   padding-top: 20px;
   font-size: 15px;
   line-height: 1.7em;
-  width: 700px;
+  max-width: 700px;
+  /* width:100%;  */
+
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
-   @media (max-width:995px) {
-    flex-direction:row;
-    width:320px;
-margin-left:2px; 
-    }
+
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -340,13 +353,15 @@ const Li = styled.li`
   margin-bottom: 10px;
 `;
 const Button = styled.button`
-  width: 370px;
+  display: flex;
+  flex-wrap: wrap; 
+   max-width: 370px;
   height: 70px;
   background-color: inherit;
   margin-top: 50px;
   margin-bottom: 50px;
   margin-left: 2px;
-  padding-right: 270px;
+  padding-right: 150px;
   border-radius: 5px;
   /* padding-left: 270px; */
   padding-top: -2px;
@@ -355,26 +370,30 @@ const Button = styled.button`
   line-height: 1.7em;
   border: 1px solid #e8e8e8;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  @media (max-width: 995px) {
- width:20px;
-height:120px;
-padding-right:170px;
-    }
+
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
   }
+  div{
+    margin-left:0;
+    padding-left:0;
+    /* width:600px; */
+  /* border:5px solid yellow; */
+ }
   a {
     display: flex;
     flex-direction: row;
-    width: 200px;
-    margin-left: 5px;
+    /* max-width:200px; */
+    margin-left:0;
+    padding-left:0;
+    /* margin-left: 5px; */
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;  
-    @media (max-width: 995px) {
- width:20px;}
+    /* border:5px solid orange; */
+
   }
 `;
 const Icon = styled.div`
