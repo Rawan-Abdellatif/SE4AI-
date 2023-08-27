@@ -150,11 +150,11 @@ const SidebarButton = styled.button`
   border:none;
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-
+padding-left:0;
   @media (min-width: 995px) {
     display: none;
     border:none;
-; margin-right:10px;
+ margin-right:20px;
 padding-right:20px;
   }
 `;
@@ -191,11 +191,13 @@ background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
 `;
 
 const SidebarHeading = styled.h2`
+ color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   display: flex;
   align-items: center;
   height: 40px;
   font-size: 15px;
-  color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
+  /* color: ${({ selected }) => (selected ? "#bb5a7d" : "white")}; */
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 3px;
@@ -205,8 +207,8 @@ const SidebarHeading = styled.h2`
   padding-top: 5px;
   z-index: -1;
   top: -10px;
-  background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
+  /* background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"}; */
   &:hover,
   &:active,
   &.active {
@@ -232,7 +234,8 @@ const SidebarHeading = styled.h2`
 
 const SidebarLink = styled(Link)`
   display: flex;
-  color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
+  color: ${({ selected }) => (selected ? "black" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-size: 15px;
   align-items: center;
   text-decoration: none;
@@ -269,9 +272,10 @@ border-bottom: ${(props) => (props.isDarkMode ? "1px solid #282828" : "1px solid
 const Nav = styled.li`
   /* margin-right: 3px; */
   display: flex;
-  margin-left: -40px;
+  /* margin-left: -10px; */
 width:200px;
   img {
+    padding-left:5px;
     height: 40px;
     cursor: pointer;
     margin-top: -10px;

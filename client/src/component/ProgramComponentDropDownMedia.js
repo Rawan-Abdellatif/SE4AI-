@@ -5,14 +5,16 @@ import { DarkModeContext } from "./DarkModeContext";
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
 const ProgramComponentDropDownMedia = ({
-    activeLink,
+
     isDropdownOpen,
-    toggleDropdown,handleLinkClick
-
-  }) => {
-    const { isDarkMode } = useContext(DarkModeContext);
-
+    toggleDropdown,
+    activeLink, handleLinkClick
+}) => {
   
+    
+    const { isDarkMode } = useContext(DarkModeContext);
+    console.log("handleLinkClick in DropDown",handleLinkClick)
+
     return (
       <SidebarContainer>
             <Grid
@@ -23,21 +25,25 @@ const ProgramComponentDropDownMedia = ({
     
   >        <Grid item xs={12} md={12} lg={12} xl={12}>
 
-        <DropdownHeader onClick={toggleDropdown}>
+        <DropdownHeader onClick={toggleDropdown}  isDarkMode={isDarkMode}>
           On this page{" "}
           <DropdownIcon>
   {isDropdownOpen ? <SlArrowUp /> : <SlArrowDown />}
 </DropdownIcon>
         </DropdownHeader>
         {isDropdownOpen && (
-          <SidebarContent>
+          <SidebarContent           isDarkMode={isDarkMode}
+          >
           {/* Content for the dropdown */}
           <SidebarLink
-     isDarkMode={isDarkMode}
-     isActive={activeLink === "engineering-ai-based-software-systems"}
-     onClick={() => handleLinkClick("engineering-ai-based-software-systems")}
-     href="#engineering-ai-based-software-systems"
-     id="#engineering-ai-based-software-systems"
+          isDarkMode={isDarkMode}
+                 href="#engineering-ai-based-software-systems"
+          id="#engineering-ai-based-software-systems"
+          isActive={activeLink === "engineering-ai-based-software-systems"}
+          onClick={() =>
+            handleLinkClick("engineering-ai-based-software-systems")
+          }
+   
         >
           Engineering AI-based Software Systems
         </SidebarLink>
@@ -48,9 +54,8 @@ const ProgramComponentDropDownMedia = ({
             activeLink === "social-aspects-for-ai-based-software-system"
           }
           onClick={() =>
-            handleLinkClick
-(
-              "social-aspects-for-ai-based-software-system"
+            handleLinkClick(
+              "#social-aspects-for-ai-based-software-system"
             )
           }
           href="#social-aspects-for-ai-based-software-system"
@@ -62,8 +67,7 @@ const ProgramComponentDropDownMedia = ({
           isDarkMode={isDarkMode}
           isActive={activeLink === "professional-development-modules"}
           onClick={() =>
-            handleLinkClick
-("professional-development-modules")
+            handleLinkClick("professional-development-modules")
           }
           href="#professional-development-modules"
         id="#professional-development-modules">
@@ -72,8 +76,7 @@ const ProgramComponentDropDownMedia = ({
         <SidebarLink
           isDarkMode={isDarkMode}
           isActive={activeLink === "industrial-embedding"}
-          onClick={() => handleLinkClick
-            ("industrial-embedding")}
+          onClick={() => handleLinkClick("industrial-embedding")}
           href="#industrial-embedding"
           id="#industrial-embedding"
         >
@@ -83,8 +86,7 @@ const ProgramComponentDropDownMedia = ({
           isDarkMode={isDarkMode}
           isActive={activeLink === "industry-webinars-or-seminars"}
           onClick={() =>
-            handleLinkClick
-("industry-webinars-or-seminars")
+            handleLinkClick("industry-webinars-or-seminars")
           }
           href="#industry-webinars-or-seminars"
           id="#industry-webinars-or-seminars"
@@ -94,8 +96,7 @@ const ProgramComponentDropDownMedia = ({
         <SidebarLink
           isDarkMode={isDarkMode}
           isActive={activeLink === "specialization-courses"}
-          onClick={() => handleLinkClick
-            ("specialization-courses")}
+          onClick={() => handleLinkClick("specialization-courses")}
           href="#specialization-courses"
           id="#specialization-courses"
         >
@@ -106,7 +107,11 @@ const ProgramComponentDropDownMedia = ({
           isActive={
             activeLink === "hands-on-leadership-and-mentorship-training"
           }
-       
+          onClick={() =>
+            handleLinkClick(
+              "hands-on-leadership-and-mentorship-training"
+            )
+          }
           href="#hands-on-leadership-and-mentorship-training"
           id="#hands-on-leadership-and-mentorship-training"
         >
@@ -123,9 +128,7 @@ export default ProgramComponentDropDownMedia;
 const SidebarContainer = styled.div`
 margin-left:-30px;
   height: 40px;
-  /* max-width: 1000px; */
   width:100%;
-  /* padding-left:-5px;; */
    `
   
   const DropdownHeader = styled.div`
@@ -137,34 +140,40 @@ padding-top:10px;
  border-bottom: 1px solid #e8e8e8;
   cursor: pointer;
   top: 0; /* Stick the header to the top of its container */
-  background-color: #f0f0f0;
+  background-color: ${(props) => (props.isDarkMode ? "#303030":"#F0F0F0" )};
+  color: ${(props) => (props.isDarkMode ? "white" : "#282828")};
+
 `;
 
 
 const SidebarContent = styled.div`  
   font-size: 16px;
-  /* padding-left:5px; */
-  background-color:#F0F0F0;
-width:100%;
+  max-width: 1000px;
+  width:100%;   
+  /* background-color:#F0F0F0; */
 padding-top:5px;
-  /* height: 40px; */
-  /* max-width: 335px; */
-  /* left: 5; */
+padding-left:5px;
+position: relative;
+background-color: ${(props) => (props.isDarkMode ? "#303030" : "#F0F0F0")};
+
 `;
 const SidebarLink = styled.a`
-  width: 100%;
-  display: block;
-  margin-left: 5px;
-  font-size: 16px;
-  padding: 6px 5px;
+display: block;
+/* background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")}; */
+
+  color: ${(props) =>
+    props.isActive ? "#bb5a7d" : props.isDarkMode ? "white" : "#484848"};
+  font-size: 13px;
+  padding-top: 5px;
   text-decoration: none;
-  color: black;
+  margin-bottom: 10px;
   cursor: pointer;
 
   &:hover {
     color: #bb5a7d;
   }
 `;
+
 
 const DropdownIcon = styled.div`
   margin-top: -2px; // You can adjust this value as needed

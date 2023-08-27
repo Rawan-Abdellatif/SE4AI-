@@ -168,8 +168,7 @@ const NavbarContainer = styled.nav`
   /* position: ${(props) => (props.scrollPosition > 20 ? "sticky" : "relative")}; */
   top: ${(props) => (props.scrollPosition > 20 ? "20px" : "0")};
   /* z-index: 1; */
-/* border:4px solid orange; */
-
+  width:100%;
 `;
 
 const NavMenu = styled.ul`
@@ -190,10 +189,11 @@ margin-top:-65px;
 const Nav = styled.li`
  display: flex;
   cursor: pointer;
+ 
   /* position: relative; */
 margin-right:20px; 
 /* border:2px solid blue; */
-padding-left:-10px;
+padding-left:-20px;
 align-items:center;
  img {
     height: 40px;

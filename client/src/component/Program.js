@@ -76,15 +76,16 @@ const Program = () => {
           The SE4AI CREATE will prepare our next generation of trainees to take
           on leadership roles such as, team leads, entrepreneurs, policy makers,
           and professors.
-        </Details2>
-        <Button isDarkMode={isDarkMode}>
-          Next
-          <a href="/training-program/objectives">
-            Program Objective{" "}
+        </Details2>    
+        <Button isDarkMode={isDarkMode}> <div>
+            Next
+ 
+        <a href="/training-program/objectives">
+         <div> Program Objective{" "}  </div>
             <Icon>
               <MdKeyboardDoubleArrowRight />
             </Icon>
-          </a>
+          </a></div>
         </Button>
       </MainContent>
     
@@ -96,12 +97,15 @@ const Program = () => {
 export default Program;
 // This part for css part
 const Container = styled.div`
-  display: flex;
+   display: flex;
   font-family: "Open Sans", sans-serif;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
+
+  width: 100%;
+    /* height:100%; */
 
 `;
 
@@ -109,16 +113,14 @@ const Container = styled.div`
 const MainContent = styled.div`
   /* border-left: ${(props) =>
     props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
-  padding-left:0px;
-  margin-left: 5px;
-  width: 100%; /* Set the width to 100% */
+  /* margin-left: 5px; */
+  display:flex;
+  flex-wrap:wrap;
   max-width: 1000px; /* Adjust the maximum width as needed */
-  padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto; /* Center the content horizontally */
 `;
 const Title = styled.h1`
- 
+
   font-weight: bold;
   font-size: 45px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
@@ -137,7 +139,6 @@ const Details2 = styled.div`
   /* width: 800px; */
   line-height: 1.7em;
   font-size: 15px;
-  padding-top: 23px;
   margin-bottom: 70px;
 
 `;
@@ -159,33 +160,40 @@ const Li = styled.li`
 `;
 const Button = styled.button`
   width: 100%; /* Set the width to 100% */
-  max-width: 350px; /* Adjust the maximum width as needed */
+  max-width: 370px; /* Adjust the maximum width as needed */
   height: 70px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   background-color: inherit;
   margin-bottom: 30px;
-  margin-left: auto; /* Center the button horizontally */
-  margin-right: auto; /* Center the button horizontally */
+  /* padding-right:2px; */
+  margin-left: auto; 
   border-radius: 5px;
-  padding-left: 0; /* Reset padding */
+  padding-left: 150px; /* Reset padding */
+  /* padding-right: 150px; */
   padding-top: -2px;
   font-size: 15px;
-  line-height: 1.7em;
+  /* line-height: 1.7em; */
   border: 1px solid #e8e8e8;
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
   }
+  div{
+    margin-right:0;
+    padding-right:0;
+  }
   a {
+    padding-left:30px;
+    /* border:3px solid yellow; */
     display: flex;
     flex-direction: row;
-    width: 100%; /* Set the width to 100% */
     text-decoration: none;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
-    justify-content: center; /* Center the content horizontally */
-  }
+    margin-right:0;
+    padding-right:0;
+ }
 `;
 
 const Icon = styled.div`

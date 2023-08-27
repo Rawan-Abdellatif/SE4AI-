@@ -25,7 +25,7 @@ const Partners = () => {
 
   return (
     <Container>
-            <Grid
+         <Grid
     container
     justifyContent="center"
     alignItems="center"
@@ -36,7 +36,7 @@ const Partners = () => {
     <Grid item xs={12} md={12} lg={12} xl={12}>
 
       <Main isDarkMode={isDarkMode}>
-      <Grid item xs={12} md={12} lg={12} xl={12}>
+      <Grid item xs={6} md={6} lg={12} xl={12}>
 
       <Title isDarkMode={isDarkMode}>Our Partners</Title>
 </Grid>
@@ -182,25 +182,27 @@ const Container = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
 
-  width: 100%;
+  /* width: 100%; */
 
 `;
 
 const Main = styled.div`
-   width: 100%;
-  max-width: 1400px;
+ width: 100%;
+
+  max-width: 1500px;
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin: 0 auto;
+height:100%;
+  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
 
 `;
 
 const Title = styled.div`
-    font-weight: bolder;
+  font-weight: bolder;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  margin-top:-20px;
+ margin-top:-20px;
   padding-top:60px;
   font-size: 45px;
   padding-bottom: 60px;
@@ -209,8 +211,9 @@ const Title = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
   width: 100%; /* Set the width to 100% */
   min-width:100vw;
-  margin-left:-750px;
-padding-left:750px;
+  /* margin-right:-750px; */
+  margin-left:-600px;
+padding-left:600px;
  `;
 
 const ParticipatingSection = styled.div`

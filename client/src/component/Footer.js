@@ -2,10 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import Nserc from "./img/NSERC_WHITE.png";
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import {Grid} from "@mui/material";
 
 const Footer = () => {
   return (
     <FooterContainer>
+      <Grid
+    container
+    justifyContent="center"
+    alignItems="center"
+    style={{ flex: 1, padding: "20px" }}
+    
+  >     
+
+    <Grid item xs={12} md={12} lg={12} xl={12}>
+ 
+
       <div className="container">
         <FooterContent>
           <FooterColumn>
@@ -110,7 +122,8 @@ const Footer = () => {
           </p>
           <p>Copyright&copy; {new Date().getFullYear()} CREATE SE4AI.</p>
         </div>
-      </FooterBottom>
+      </FooterBottom></Grid>
+      </Grid>
     </FooterContainer>
   );
 };
@@ -120,20 +133,16 @@ export default Footer;
 const FooterContainer = styled.footer`
   background-color: #343a40;
   color: #fff;
-  margin-left: -10px;
-  margin-right: -10px;
-
-  padding: 0px 70px;
+  display: flex;
   font-family: "Open Sans", sans-serif;
+  /* border: ${(props) =>
+    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
+
+  bottom: 0;       /* Add this line to stick the footer at the bottom */
   /* width: 100%; */
-  @media (max-width: 995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    align-items: center;
-margin-left:-70px;  }
-@media (min-width: 1440px) {
-  align-items: center;
-  flex-direction: column; /* Display items in a column on mobile */
-    }
+  right: 0;        /* Ensure the footer aligns with the right edge of the viewport */
+  /* width: 100%; */
+
 
 
 `;
@@ -141,27 +150,24 @@ margin-left:-70px;  }
 const FooterContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  @media (max-width: 995px) {
-    flex-direction: column; /* Display items in a column on mobile */
-    align-items: center;
-margin-left:-170px;  }
-@media (min-width: 1440px) {
-  /* align-items: center; */
-  justify-content:center;
-  margin-left:160px;
-   }`;
+  /* justify-content: space-between; */
+  /* padding-left:90px;
+  max-width:1000px;
+  width:100%; */
+  width: 100%;
+  max-width: 1500px;
+  padding-top: -40px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin: 0 auto;
+  padding-left:100px;
+`;
 
 const FooterColumn = styled.div`
-  width: 17%;
-  padding: 5px 30px;
+/* width:20%; */
+  padding: 5px 100px;
   margin-bottom: 20px;
   padding-top: 20px;
-  @media (min-width: 1440px) {
-    width: 16%;
-  justify-content:center;  
 
-}
   h4 {
     font-size: 18px;
     margin-bottom: 15px;
@@ -210,7 +216,7 @@ const SmallIcon = styled.span`
   font-size: 0.8em;
 `;
 const Img = styled.img`
-  width: 150px;
+  max-width: 150px;
   height: 70px;
   /* margin-left: -100px; */
   text-align: center;

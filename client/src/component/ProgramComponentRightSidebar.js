@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 
 const ProgramComponentRightSidebar = ({ activeLink, handleLinkClick }) => {
-  // const [activeLink, setActiveLink] = useState(null);
+console.log("handleLinkClick in Right",handleLinkClick)
   const { isDarkMode } = useContext(DarkModeContext);
 
   // useEffect(() => {

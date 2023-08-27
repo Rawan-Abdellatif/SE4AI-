@@ -24,9 +24,7 @@ const ProgramComponents = () => {
       subtitles.forEach((subtitle) => {
         const rect = subtitle.getBoundingClientRect();
         const linkId = subtitle.getAttribute("id");
-        const handleLinkClick = (id) => {
-          setActiveLink(id);
-        };
+    
         if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
           setActiveLink(linkId);
         }
@@ -41,12 +39,11 @@ const ProgramComponents = () => {
     };
   }, []);
   // const isMobileView = window.innerWidth <= 995;
-
   const handleLinkClick = (id) => {
-    console.log("Link clicked:", id);
+    console.log("Link clicked in:", id);
     setActiveLink(id);
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -71,12 +68,12 @@ const ProgramComponents = () => {
     style={{ flex: 1, padding: "20px" }}
     
   >      
-      {window.innerWidth <=1300 && (
+      {window.innerWidth <=1000 && (
          <ProgramComponentDropDownMedia
          activeLink={activeLink}
+         handleLinkClick={handleLinkClick}
          isDropdownOpen={isDropdownOpen}
          toggleDropdown={toggleDropdown}
-         handleLinkClick={handleLinkClick} // Pass the handleLinkClick function
          />
       
       )}
@@ -285,19 +282,18 @@ const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
   margin-top: 10px;
-  padding-top: 20px;   
+  padding-top: 20px;  
+  /* margin: 0 auto; */
+
 `;
 
 const MainContent = styled.div`
-  /* border-left: ${(props) =>
-    props.isDarkMode ? "1px solid gray" : "1px solid #e8e8e8"}; */
-   /* margin-left: 20px; */
-   /* margin:0 auto; */
-   /* padding-left:50px; */
-
-  /* border: ${(props) =>
-    props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+ /* padding-left:0px; */
+  margin-left: 5px;
+  max-width: 1000px; /* Adjust the maximum width as needed */
+  padding-top: -40px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin: 0 auto; /* Center the content horizontally */
  
 
 

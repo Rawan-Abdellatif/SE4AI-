@@ -16,8 +16,10 @@ const Team = () => {
 
   return (
     <Container isDarkMode={isDarkMode}>       
-   
-      <Grid
+  
+
+
+         <Grid
     container
     justifyContent="center"
     alignItems="center"
@@ -26,14 +28,11 @@ const Team = () => {
   >     
 
     <Grid item xs={12} md={12} lg={12} xl={12}>
- 
-
 
       <Main isDarkMode={isDarkMode}>
-      <Grid item xs={12} md={12} lg={12} xl={12}>
-
+      <Grid item xs={6} md={6} lg={12} xl={12}>
       <Title isDarkMode={isDarkMode}>Our Team</Title>
-</Grid>
+      </Grid>
         <Subtitles isDarkMode={isDarkMode}>
           <RedText>P</RedText>rogram Leadership
         </Subtitles>
@@ -56,11 +55,11 @@ const Team = () => {
           {" "}
           <RedText>S</RedText>tudents
         </Subtitles>
-        <Students />
+        <Students />   
       </Main>
           
       </Grid>
-      </Grid>
+   </Grid>
     </Container>
   );
 };
@@ -72,7 +71,7 @@ const Container = styled.div`
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-    height:100%;
+    /* height:100%; */
 
   width: 100%;
   /* @media (max-width: 995px) {
@@ -81,12 +80,11 @@ margin-left:20px;
 
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   font-weight: bolder;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  margin-top:-20px;
+ margin-top:-20px;
   padding-top:60px;
   font-size: 45px;
   padding-bottom: 60px;
@@ -95,8 +93,10 @@ const Title = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
   width: 100%; /* Set the width to 100% */
   min-width:100vw;
-  margin-left:-750px;
-padding-left:750px;
+  /* margin-right:-750px; */
+  margin-left:-600px;
+padding-left:600px;
+
   `
 
 
@@ -124,6 +124,9 @@ const Main = styled.div`
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin: 0 auto;
+  padding-left:10px;
+  /* flex-wrap:wrap; */
+  /* border:4px solid orange; */
 `;
 
 

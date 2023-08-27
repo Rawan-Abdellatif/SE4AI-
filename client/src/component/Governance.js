@@ -46,8 +46,7 @@ const Title = styled.div`
   font-weight: bolder;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
-  margin-top:-20px;
+ margin-top:-20px;
   padding-top:60px;
   font-size: 45px;
   padding-bottom: 60px;
@@ -57,8 +56,8 @@ const Title = styled.div`
   width: 100%; /* Set the width to 100% */
   min-width:100vw;
   /* margin-right:-750px; */
-  margin-left:-800px;
-padding-left:800px;
+  margin-left:-600px;
+padding-left:600px;
 
 `;
 
