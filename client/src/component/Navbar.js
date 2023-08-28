@@ -168,37 +168,36 @@ const NavbarContainer = styled.nav`
   /* position: ${(props) => (props.scrollPosition > 20 ? "sticky" : "relative")}; */
   top: ${(props) => (props.scrollPosition > 20 ? "20px" : "0")};
   /* z-index: 1; */
-  width:100%;
+ width:100%;
 `;
 
 const NavMenu = styled.ul`
   display:flex;
   flex-direction:row;
   list-style: none;
-/* float:left; */
-  cursor: pointer;
-/* margin-left:-50px; */
-padding-left:0;
+margin-left:12px;  cursor: pointer;
+padding-left:0px;
+/* padding-left:40px; */
 /* border:2px solid yellow; */
 margin-top:-65px;
 /* border:4px solid yellow; */
-
+font-weight:bold;
 
  `
 
 const Nav = styled.li`
  display: flex;
   cursor: pointer;
- 
+ /* border:4px solid blue; */
   /* position: relative; */
 margin-right:20px; 
-/* border:2px solid blue; */
-padding-left:-20px;
+/* margin-left:-20px; */
+padding-left:-60px;
 align-items:center;
  img {
-    height: 40px;
+padding-top:2px;    height: 40px;
   cursor: pointer;
-margin-right:10px/* margin-left:-40px; */
+margin-right:5px/* margin-left:-40px; */
 /* border:2px solid blue; */
   }
   a {
