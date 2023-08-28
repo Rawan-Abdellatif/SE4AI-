@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
@@ -19,6 +19,8 @@ import { DarkModeProvider } from "./component/DarkModeContext";
 import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
 import Contact from "./component/Contact";
+import Favicon from "./component/img/favicon.svg";
+
 const App = () => {
   const [AppointmentId, setAppointmentId] = useState("");
   const [adminId, setAdminId] = useState("");
@@ -41,11 +43,26 @@ const App = () => {
     }
   }
 `;
+useEffect(() => {
+  const img = new Image();
+  img.src = Favicon;
+  img.onload = () => {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    const favicon = canvas.toDataURL("image/png");
+    document.querySelector("link[rel='icon']").href = favicon;
 
+    document.title = "CREAT SE4AI"; // Set your desired title here
+  };
+}, []);
   return (
     <DarkModeProvider>
       <BrowserRouter >
       <GlobalStyle />
+      
         <Navbar />
         <Routes >
           <Route path="/" element={<Homepage />} />
