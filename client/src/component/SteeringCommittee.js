@@ -124,7 +124,7 @@ const SteeringCommittee = () => {
 export default SteeringCommittee;
 const Img = styled.img`
     width: 100%;
-  height: 300px;
+  height: 295px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   @media (max-width: 995px) {
@@ -145,7 +145,7 @@ const MiniContainer = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* ... other styles ... */
   /* margin-left: -5px;  */
-width:320px;  /* width:100vw; */
+width:315px;  /* width:100vw; */
 /* border:5px solid orange;  @media (max-width: 768px) { */
 @media (max-width: 995px) {
   width:370px;
