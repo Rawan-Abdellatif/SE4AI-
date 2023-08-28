@@ -150,7 +150,7 @@ const SidebarButton = styled.button`
   @media (min-width: 995px) {
     display: none;
     border:none;
-; margin-right:10px;
+ margin-right:15px;
 padding-right:20px;
   }
 `;
