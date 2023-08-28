@@ -150,21 +150,23 @@ const FooterContainer = styled.footer`
 const FooterContent = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   /* padding-left:90px;
   max-width:1000px;
   width:100%; */
   width: 100%;
-  max-width: 1500px;
+  max-width: 1000px;
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto;
-  padding-left:100px;
+  margin: 0 auto; 
+ /* padding-left:100px; */
 `;
 
 const FooterColumn = styled.div`
-/* width:20%; */
-  padding: 5px 100px;
+/* width:100%; */
+align-items:center;
+padding-left:100px;
+max-width:1500px;
   margin-bottom: 20px;
   padding-top: 20px;
 

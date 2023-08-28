@@ -562,7 +562,7 @@ const MainContent = styled.div`
   /* flex: 1; */
   /* margin-left: 170px; */
   width: 100%;
-  max-width: 640px;
+  max-width: 660px;
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin: 0 auto;

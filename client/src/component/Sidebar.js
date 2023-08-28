@@ -83,7 +83,7 @@ const Sidebar = () => {
 export default Sidebar;
 
 const SidebarContainer = styled.div`
-  width: 140px;
+  width: 100px;
   padding-left: 70px;
   font-family: "Open Sans", sans-serif;
   position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};

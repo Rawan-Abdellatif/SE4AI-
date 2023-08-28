@@ -10,6 +10,7 @@ const ProgramSidebar = () => {
   const [selectedLink, setSelectedLink] = useState("");
   const [activeLink, setActiveLink] = useState("");
   const { isDarkMode } = useContext(DarkModeContext);
+  const [isNavMenuVisible, setIsNavMenuVisible] = useState(false); // New state
 
   const toggleLinks = () => {
     if (!showLinks) {
@@ -40,7 +41,23 @@ const ProgramSidebar = () => {
   const handleMouseLeave = () => {
     setActiveLink("");
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate the scroll position threshold where you want to show/hide the NavMenu
+      const scrollThreshold = 100; // Adjust this value as needed
 
+      if (window.scrollY > scrollThreshold) {
+        setIsNavMenuVisible(false);
+      } else {
+        setIsNavMenuVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <SidebarContainer isDarkMode={isDarkMode}>
       <SidebarContent className="sidebar-content" isDarkMode={isDarkMode}>
@@ -51,14 +68,15 @@ const ProgramSidebar = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <NavMenu>
+         {!isNavMenuVisible && ( // Conditionally render the NavMenu
+        <NavMenu>
             <Nav isDarkMode={isDarkMode}>
               <a href="/">
                 <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
               </a>
               <a href="/">CREATE SE4AI</a>
             </Nav>{" "}
-          </NavMenu>
+          </NavMenu> )}
         </SidebarHeading>
         <SidebarHeading
           isDarkMode={isDarkMode}
@@ -123,9 +141,9 @@ const SidebarContainer = styled.div`
   margin-left: 1px;
   font-family: "Open Sans", sans-serif;
   position: sticky;
-  margin-top: -90px;
+  /* margin-top: -90px; */
   top: 0;
-  /* z-index: 1; */
+
 
   max-height: calc(70vh - 40px);
   cursor: pointer;
@@ -133,8 +151,7 @@ const SidebarContainer = styled.div`
   /* margin-bottom: 3px; */
   margin-left: 12px;
   /* padding-left: 20px; */
-  /* margin-top: -20px; */
-  padding-top: 5px;
+margin-top:-80px;  /* padding-top: 5px; */
   /* margin-bottom: 15px; */
   font-weight: bold;
   background-color: ${({ selected, isDarkMode }) =>
@@ -155,6 +172,8 @@ const SidebarContent = styled.div`
   position: sticky;
   top: 0;
   width: 280px;
+  /* height:100%; */
+
   `;
 
 const SidebarHeading = styled.h2`
@@ -162,8 +181,9 @@ const SidebarHeading = styled.h2`
   align-items: center;
   height: 40px;
   font-size: 17px;
-  color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
-  cursor: pointer;
+  color: ${({ selected, isDarkMode }) =>
+    selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
+      cursor: pointer;
   text-decoration: none;
   margin-bottom: 3px;
   padding-left:10px;
@@ -179,13 +199,14 @@ const SidebarHeading = styled.h2`
   &:active,
   &.active {
     background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#282828" : "#e8e8e8"};
+      isDarkMode ? "#383838" : "#e8e8e8"};
     color: #bb5a7d;
   }
 
+
   a {
-    color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
-    text-decoration: none;
+    color: ${({ selected, isDarkMode }) =>
+      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};    text-decoration: none;
   }
 
   a:hover,
@@ -200,8 +221,8 @@ const SidebarHeading = styled.h2`
 
 const SidebarLink = styled(Link)`
   display: flex;
-  color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
-  font-size: 15px;
+  color: ${({ selected }) => (selected ? "black" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};  font-size: 15px;
   align-items: center;
   text-decoration: none;
   height: 40px;
@@ -229,48 +250,45 @@ const Icon = styled.span`
   font-weight: bold;
 `;
 const NavMenu = styled.ul`
-  display: flex;
-  margin-left:-10px;
-  margin-top: -5px;
+  display:flex;
+  flex-direction:row;
+  list-style: none;
+  cursor: pointer;
+margin-left:-30px;
+/* padding-left:40px; */
+padding-bottom:-5px;
+margin-top:10px;
   /* padding-top: 10px; */
   position: sticky;
   list-style: none;
-z-index:1 ;`;
+z-index:1 ;
+`;
 const Nav = styled.li`
-  /* margin-right: 3px; */
-  display: flex;
-  width: 140px;
-  /* top: -90px; */
+ display: flex;
+  cursor: pointer;
+ font-weight:bold;
+  /* position: relative; */
+margin-right:20px; 
+/* border:2px solid blue; */
+padding-left:-50px;
+align-items:center;
   cursor: pointer;
   /* position: relative; */
 margin-right:20px; 
 /* border:2px solid blue; */
-padding-left:-16px;
-  img {
-    height: 40px;
+/* padding-left:-16px; */
+img {
+padding-top:1.4px;    height: 40px;
   cursor: pointer;
-margin-right:10px;
-    margin-top: -12px;
-    margin-left: -41px;
-    padding-left: 5px;
-    margin-right: 3px;
-    /* width: 20px; */
+margin-right:3.5px;/* margin-left:-40px; */
+/* padding-left:2px; */
   }
   a {
-    /* margin-top: -10px; */
-    align-items: vertical;
-
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-    padding-top:3px;
     text-decoration: none;
-    font-size: 15px;
-    /* font-weight: bolder; */
-    /* padding-top: -170px; */
-    /* width: 80px; */
-    padding-left: 4px;
-    /* padding-right: -3px; */
-    transition: 0.2s;
-    text-align: center;
+/* padding-left:-10px;  */
+/* padding-top:1.9px; */
+   font-size: 15px;
     &:hover {
       color: #db7093;
     }

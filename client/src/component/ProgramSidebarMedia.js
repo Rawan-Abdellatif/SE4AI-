@@ -150,12 +150,13 @@ const SidebarButton = styled.button`
   border:none;
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-padding-left:0;
-  @media (min-width: 995px) {
+/* margin-right:20px;padding-right:20px; */
+
+  @media (min-width: 1000px) {
     display: none;
     border:none;
- margin-right:20px;
-padding-right:20px;
+    margin-right:0px;
+padding-right:0px;
   }
 `;
 
@@ -191,46 +192,47 @@ background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
 `;
 
 const SidebarHeading = styled.h2`
- color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${({ selected, isDarkMode }) =>
+    selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
   display: flex;
   align-items: center;
   height: 40px;
   font-size: 15px;
-  /* color: ${({ selected }) => (selected ? "#bb5a7d" : "white")}; */
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 3px;
   margin-left: 12px;
-  /* padding-left: 20px; */
-  /* margin-top: -20px; */
   padding-top: 5px;
   z-index: -1;
   top: -10px;
-  /* background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"}; */
+
   &:hover,
   &:active,
   &.active {
     background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#282828" : "#e8e8e8"};
+      isDarkMode ? "#383838" : "#e8e8e8"};
     color: #bb5a7d;
   }
 
   a {
-    color: ${({ selected }) => (selected ? "#bb5a7d" : "#585858")};
+    color: ${({ selected, isDarkMode }) =>
+      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
     text-decoration: none;
   }
 
   a:hover,
   &.active {
     color: #bb5a7d;
-    ${({ selected }) =>
-      selected &&
-      selected !== "/training-program" &&
-      "background-color: #e8e8e8;"}
-  }
+    &:hover,
+  &.active,
+  a:active {
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#383838" : "#e8e8e8"};
+    color: #bb5a7d;
+  }}
 `;
+
+
 
 const SidebarLink = styled(Link)`
   display: flex;
@@ -251,7 +253,7 @@ const SidebarLink = styled(Link)`
   &.active,
   a:active {
     background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#282828" : "#e8e8e8"};
+      isDarkMode ? "#383838" : "#e8e8e8"};
     color: #bb5a7d;
   }
 `;

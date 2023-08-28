@@ -98,18 +98,19 @@ const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  /* border:4px solid orange;  */
+  width:100%;
 `;
 
 const MainContent = styled.div`
-  /* border-left: ${(props) =>
-    props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
-  /* padding-left: -20px; */
-  width: 100%; /* Set the width to 90% of the available space */
+  border-left: ${props => window.innerWidth <= 1000 ? "none" : "1px solid #e8e8e8"};
+  margin:0 auto;
+    /* padding-left:50px; */
+  display:flex;
+  flex-wrap:wrap;
   max-width: 1000px; /* Adjust the maximum width as needed */
-  padding-left:-20px;
-  margin: -20px auto; /* Center the content horizontally */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-height:100%;
+
 `;
 
 

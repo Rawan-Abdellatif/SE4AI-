@@ -16,7 +16,7 @@ const Program = () => {
         alignItems="center"
         style={{ flex: 1, padding: "20px" }}
       >
-        <Grid item xs={10} md={6} lg={6} xl={12}>
+        <Grid item xs={12} md={12} lg={12} xl={12}>
 
       <MainContent isDarkMode={isDarkMode}>
 
@@ -103,7 +103,7 @@ const Container = styled.div`
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
-
+/* margin-left:50px; */
   width: 100%;
     /* height:100%; */
 
@@ -113,7 +113,10 @@ const Container = styled.div`
 const MainContent = styled.div`
   /* border-left: ${(props) =>
     props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
-  /* margin-left: 5px; */
+    /* height:100%; */
+      /* margin-left: 50px; */
+margin:0 auto;
+    /* padding-left:50px; */
   display:flex;
   flex-wrap:wrap;
   max-width: 1000px; /* Adjust the maximum width as needed */

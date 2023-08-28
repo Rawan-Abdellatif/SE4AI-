@@ -288,13 +288,13 @@ const Container = styled.div`
 `;
 
 const MainContent = styled.div`
- /* padding-left:0px; */
-  margin-left: 5px;
+  /* border-left: ${props => window.innerWidth <= 1000 ? "none" : "1px solid #e8e8e8"}; */
+    padding-left:20px;  margin-left: 5px;
   max-width: 1000px; /* Adjust the maximum width as needed */
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin: 0 auto; /* Center the content horizontally */
- 
+ height:100%;
 
 
 `;
