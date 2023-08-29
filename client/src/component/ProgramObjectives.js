@@ -103,7 +103,7 @@ const Container = styled.div`
 `;
 
 const MainContent = styled.div`
-  border-left: ${props => window.innerWidth <= 1000 ? "none" : "1px solid #e8e8e8"};
+  /* border-left: ${props => window.innerWidth <= 1000 ? "none" : "1px solid #e8e8e8"}; */
   margin:0 auto;
     /* padding-left:50px; */
   display:flex;

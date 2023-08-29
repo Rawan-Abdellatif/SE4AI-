@@ -21,7 +21,7 @@ const ProgramSidebar = () => {
   
   
   
-  
+
 
   const location = useLocation();
 
@@ -58,26 +58,32 @@ const ProgramSidebar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const isProgramPage = location.pathname.startsWith("/training-program/components");
+
   return (
-    <SidebarContainer isDarkMode={isDarkMode}>
+    
+    <SidebarContainer isDarkMode={isDarkMode}  isProgramPage={isProgramPage}>
       <SidebarContent className="sidebar-content" isDarkMode={isDarkMode}>
-        <SidebarHeading
+        <SidebarHead
           isDarkMode={isDarkMode}
           selected={selectedLink === "/"}
           isActive={activeLink === "/"}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-         {!isNavMenuVisible && ( // Conditionally render the NavMenu
-        <NavMenu>
-            <Nav isDarkMode={isDarkMode}>
+        {isProgramPage && !isNavMenuVisible && (
+        <NavMenu style={{ backgroundColor: isDarkMode ? 'inherit' : 'inherit' }}>
+<Nav
+  isDarkMode={isDarkMode}
+  style={{ backgroundColor: isDarkMode ? 'inherit' : 'inherit' }}
+>
               <a href="/">
                 <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
               </a>
               <a href="/">CREATE SE4AI</a>
             </Nav>{" "}
           </NavMenu> )}
-        </SidebarHeading>
+        </SidebarHead>
         <SidebarHeading
           isDarkMode={isDarkMode}
           selected={selectedLink === "/intro"}
@@ -117,6 +123,8 @@ const ProgramSidebar = () => {
               to="/training-program/objectives"
               selected={selectedLink === "/training-program/objectives"}
               onClick={() => handleLinkClick("/training-program/objectives")}
+              isActive={activeLink === "/training-program/objectives"}
+
             >
               Program Objectives
             </SidebarLink>
@@ -125,6 +133,8 @@ const ProgramSidebar = () => {
               to="/training-program/components"
               selected={selectedLink === "/training-program/components"}
               onClick={() => handleLinkClick("/training-program/components")}
+              isActive={activeLink === "/training-program/components"}
+
             >
               Program Components
             </SidebarLink>
@@ -140,37 +150,32 @@ export default ProgramSidebar;
 const SidebarContainer = styled.div`
   margin-left: 1px;
   font-family: "Open Sans", sans-serif;
-  position: sticky;
-  /* margin-top: -90px; */
-  top: 0;
-
-
-  max-height: calc(70vh - 40px);
+  padding-top: 20px;
   cursor: pointer;
   text-decoration: none;
-  /* margin-bottom: 3px; */
   margin-left: 12px;
-  /* padding-left: 20px; */
-margin-top:-80px;  /* padding-top: 5px; */
-  /* margin-bottom: 15px; */
+  position: ${({ isProgramPage }) => (isProgramPage ? "sticky" : "static")};
+  top: 0;
+  margin-top: ${({ isProgramPage }) => (isProgramPage ? "-80px" : "-80px")};
+  max-height: ${({ isProgramPage }) => (isProgramPage ? "calc(70vh - 40px)" : "95px")};
+  /* border:4px solid orange; */
   font-weight: bold;
   background-color: ${({ selected, isDarkMode }) =>
     selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
-
   &.active,
   a:active {
-    background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#282828" : "#e8e8e8"};
+    background-color: ${({ isDarkMode }) => (isDarkMode ? "#282828" : "#e8e8e8")};
     color: #bb5a7d;
+    z-index:10;
   }
-  @media (max-width:1000px) {
-    display: none; 
+  @media (max-width: 1000px) {
+    display: none;
   }
 `;
 
 const SidebarContent = styled.div`
   position: sticky;
-  top: 0;
+  top: 5px;
   width: 280px;
   /* height:100%; */
 
@@ -221,8 +226,10 @@ const SidebarHeading = styled.h2`
 
 const SidebarLink = styled(Link)`
   display: flex;
-  color: ${({ selected }) => (selected ? "black" : "white")};
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};  font-size: 15px;
+  color: ${({ selected, isDarkMode }) =>
+      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"}; 
+  /* color: ${(props) => (props.isDarkMode ? "white" : "black")}; */
+    font-size: 15px;
   align-items: center;
   text-decoration: none;
   height: 40px;
@@ -257,11 +264,11 @@ const NavMenu = styled.ul`
 margin-left:-30px;
 /* padding-left:40px; */
 padding-bottom:-5px;
-margin-top:10px;
+/* margin-top:10px; */
   /* padding-top: 10px; */
   position: sticky;
   list-style: none;
-z-index:1 ;
+z-index:-1 ;
 `;
 const Nav = styled.li`
  display: flex;
@@ -276,13 +283,12 @@ align-items:center;
   /* position: relative; */
 margin-right:20px; 
 /* border:2px solid blue; */
-/* padding-left:-16px; */
+z-index: -1; 
 img {
 padding-top:1.4px;    height: 40px;
   cursor: pointer;
 margin-right:3.5px;/* margin-left:-40px; */
-/* padding-left:2px; */
-  }
+ }
   a {
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
     text-decoration: none;
@@ -293,4 +299,38 @@ margin-right:3.5px;/* margin-left:-40px; */
       color: #db7093;
     }
   }
+`;
+const SidebarHead = styled.h2`
+  display: flex;
+  align-items: center;
+  height: 40px;
+  font-size: 17px;
+  color: ${({ selected, isDarkMode }) =>
+    selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
+      cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 3px;
+  padding-left:10px;
+  /* margin-left: 10px; */
+  /* padding-left: 20px; */
+  /* margin-top: -20px; */
+  /* padding-top: 5px; */
+  /* z-index: -1; */
+  /* top: -10px; */
+  background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#282828" : selected ? "#F0F0F0" : "transparent"};
+  &:hover,
+  &:active,
+  &.active {
+
+    color: #bb5a7d;
+  }
+
+
+  a {
+    color: ${({ selected, isDarkMode }) =>
+      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};    text-decoration: none;
+  }
+
+
 `;
