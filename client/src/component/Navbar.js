@@ -157,8 +157,7 @@ const NavbarContainer = styled.nav`
   color: #fff;
   /* margin-top: 0px; */
   height: 45px;
-  /* display: flex; */
-  /* align-items: center; */
+z-index:1;  /* align-items: center; */
   font-weight: bold;
   font-size: 12px;
   /* padding: 5px 0px; */
