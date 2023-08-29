@@ -43,6 +43,8 @@ const App = () => {
     }
   }
 `;
+
+
 useEffect(() => {
   const img = new Image();
   img.src = Favicon;
@@ -55,9 +57,32 @@ useEffect(() => {
     const favicon = canvas.toDataURL("image/png");
     document.querySelector("link[rel='icon']").href = favicon;
 
-    document.title = "CREAT SE4AI"; // Set your desired title here
+    let title = "CREAT SE4AI"; // Default title
+    const routePrefix = {
+      "/team": "Team",
+      "/blog": "Blog",
+      "/training-program/objectives":"Program Objectives",
+"/training-program/components":"Program Components",
+"/partners":"Partners",
+"/apply":"Apply",
+"/governance":"Governance",
+"/blog/past":"Past Events",
+"/blog/upcoming":"Upcoming Events",
+"/adminlogin":"Adminlogin",
+"/intro":"Program Overview"
+
+
+      // Add more routes and their corresponding prefixes here
+    }[window.location.pathname]; // Get the route-specific prefix
+
+    if (routePrefix) {
+      title = `${routePrefix} | ${title}`;
+    }
+
+    document.title = title;
   };
 }, []);
+
   return (
     <DarkModeProvider>
       <BrowserRouter >
