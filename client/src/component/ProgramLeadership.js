@@ -444,7 +444,7 @@ const MiniContainer = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* ... other styles ... */
   /* margin-left: -5px;  */
-width:315px;  /* width:100vw; */
+width:300px;  /* width:100vw; */
 /* border:5px solid orange; */
   @media (max-width: 995px) {
   width:370px;

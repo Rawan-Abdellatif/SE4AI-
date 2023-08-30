@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
-const Admin = require("./userModel");
-const { v4: uuidv4 } = require("uuid");
+"use strict";
+const { MongoClient } = require("mongodb");
+const { v4: uuidv4 } = require("uuid"); // Import uuidv4 from the "uuid" library
 require("dotenv").config();
 
 const MONGO_URI = process.env.MONGO_URI;
-
-// Connect to MongoDB using Mongoose
-mongoose.connect(MONGO_URI, {
+const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+};
+const client = new MongoClient(MONGO_URI, options);
 
 const postAdmin = async (req, res) => {
+
   try {
     // Extract relevant information from the request body
     const {
@@ -34,8 +34,15 @@ const postAdmin = async (req, res) => {
       });
     }
 
+    // Connect to the MongoDB server
+    await client.connect();
+
+    // Access the database and collection
+    const db = client.db("se4ai");
+    const collection = db.collection("Admins");
+
     // Check if the username or name already exists in the database
-    const existingAdmin = await Admin.findOne({
+    const existingAdmin = await collection.findOne({
       $or: [{ username }, { Name }],
     });
     if (existingAdmin) {
@@ -47,7 +54,7 @@ const postAdmin = async (req, res) => {
     }
 
     // Create a new admin object with the provided information and custom _id
-    const newAdmin = new Admin({
+    const newAdmin = {
       _id: uuidv4(), // Generate a unique ID for the new admin
       username,
       password,
@@ -59,19 +66,22 @@ const postAdmin = async (req, res) => {
       LinkedIn,
       Twitter,
       Email,
-    });
+    };
 
-    // Save the new admin to the database
-    const savedAdmin = await newAdmin.save();
+    // Insert the new admin document into the collection
+    const result = await collection.insertOne(newAdmin);
 
     // Send success message with status code 201 Created
     res
       .status(201)
-      .json({ data: savedAdmin, message: "Admin added successfully" });
+      .json({ data: result.ops[0], message: "Admin added successfully" });
   } catch (err) {
     console.error(err);
     // Send an error message if any other error occurred
     res.status(500).json({ message: "Error adding Admin" });
+  } finally {
+    // Close the MongoClient connection
+    client.close();
   }
 };
 
