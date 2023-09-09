@@ -1,6 +1,9 @@
 "use strict";
 const { MongoClient } = require("mongodb");
-const { v4: uuidv4 } = require("uuid"); // Import uuidv4 from the "uuid" library
+const fs = require("fs");
+const grid = require("gridfs-stream");
+const path = require("path");
+const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 
 const MONGO_URI = process.env.MONGO_URI;
@@ -8,79 +11,56 @@ const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
-const client = new MongoClient(MONGO_URI, options);
 
 const postAdmin = async (req, res) => {
+  const client = new MongoClient(MONGO_URI, options);
 
   try {
-    // Extract relevant information from the request body
-    const {
-      username,
-      password,
-      Name,
-      Job,
-      University,
-      Image, // Assuming Image is a valid Buffer containing image data
-      Website,
-      LinkedIn,
-      Twitter,
-      Email,
-    } = req.body;
-
-    // Perform validation checks on the username and password
-    if (!username || !password) {
-      return res.status(400).json({
-        message: "Username and password are required fields.",
-      });
-    }
-
-    // Connect to the MongoDB server
     await client.connect();
-
-    // Access the database and collection
-    const db = client.db("se4ai");
+    const db = client.db("Se4ai");
     const collection = db.collection("Admins");
 
-    // Check if the username or name already exists in the database
-    const existingAdmin = await collection.findOne({
-      $or: [{ username }, { Name }],
-    });
-    if (existingAdmin) {
-      // If the username or name already exists, respond with an error message
-      return res.status(409).json({
-        message:
-          "Username or name already exists. Please choose a different username or name.",
-      });
-    }
-
-    // Create a new admin object with the provided information and custom _id
     const newAdmin = {
-      _id: uuidv4(), // Generate a unique ID for the new admin
-      username,
-      password,
-      Name,
-      Job,
-      University,
-      Image,
-      Website,
-      LinkedIn,
-      Twitter,
-      Email,
+      _id: uuidv4(),
+      username: req.body.username,
+      password: req.body.password,
+      name: req.body.name,
+      specialty: req.body.specialty,
+      phone: req.body.phone,
+      email: req.body.email,
+      image: "", // Store the image ID or other relevant data here
     };
 
-    // Insert the new admin document into the collection
-    const result = await collection.insertOne(newAdmin);
+    const imageFilePath = req.file.path;
+    const imageBuffer = fs.readFileSync(imageFilePath);
 
-    // Send success message with status code 201 Created
-    res
-      .status(201)
-      .json({ data: result.ops[0], message: "Admin added successfully" });
+    const gfsBucket = grid(db, MongoClient);
+    const uploadStream = gfsBucket.createWriteStream({
+      filename: path.basename(imageFilePath),
+      metadata: {
+        adminId: newAdmin._id,
+      },
+    });
+
+    uploadStream.end(imageBuffer);
+
+    uploadStream.on("finish", async () => {
+      newAdmin.image = uploadStream.id.toString();
+
+      const result = await collection.insertOne(newAdmin);
+      res
+        .status(200)
+        .json({ data: result, message: "New admin with image added successfully!" });
+    });
+
+    uploadStream.on("error", (err) => {
+      console.error(err);
+      res.status(500).json({ message: "Error adding admin" });
+    });
   } catch (err) {
-    console.error(err);
-    // Send an error message if any other error occurred
-    res.status(500).json({ message: "Error adding Admin" });
+    console.log(err);
+    res.status(500).json({ message: "Error retrieving admin" });
   } finally {
-    // Close the MongoClient connection
     client.close();
   }
 };

@@ -1,10 +1,11 @@
+const fs = require("fs");
 const { MongoClient } = require("mongodb");
 const { v4: uuidv4 } = require("uuid");
 require("dotenv").config();
 const MONGO_URI = process.env.MONGO_URI;
 
-const  Admin  = require("./data/Admin.json");
-console.log("admins:", Admin); // This line prints the loaded admins data
+const Admin = require("./data/Admin.json");
+console.log("admins:", Admin);
 
 const options = {
   useNewUrlParser: true,
@@ -19,10 +20,17 @@ const addAdmin = async () => {
     const db = client.db("se4ai");
     console.log("Connected to MongoDB!");
 
-    const AdminsWithId = Admin.map((admin) => ({
-      ...admin,
-      _id: uuidv4(),
-    }));
+    const AdminsWithId = Admin.map((admin) => {
+      const imagePath = `${__dirname}/${admin.Image}`;
+      const imageBuffer = fs.readFileSync(imagePath);
+      const imageBase64 = imageBuffer.toString("base64");
+
+      return {
+        ...admin,
+        _id: uuidv4(),
+        ImageBase64: imageBase64,
+      };
+    });
 
     const result = await db.collection("Admins").insertMany(AdminsWithId);
 
