@@ -131,10 +131,10 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled.footer`
-  background-color: #343a40;
+  background-color: #303846;
   color: #fff;
   display: flex;
-  font-family: "Open Sans", sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
 
@@ -155,10 +155,10 @@ const FooterContent = styled.div`
   max-width:1000px;
   width:100%; */
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto; 
+  /* margin: 0 auto;  */
  /* padding-left:100px; */
 `;
 
@@ -166,10 +166,20 @@ const FooterColumn = styled.div`
 /* width:100%; */
 align-items:center;
 padding-left:100px;
-max-width:1500px;
+max-width:1600px;
+/* width:1000%; */
   margin-bottom: 20px;
   padding-top: 20px;
+  @media screen and (max-width: 768px) {
+    width:100%;
 
+   padding-left: 0px; /* Adjust margin for screens up to 768px wide */
+  }
+
+  @media screen and (max-width: 480px) {
+    padding-left: 0px; /* Adjust margin for screens up to 480px wide */
+    width:100%;
+  }
   h4 {
     font-size: 18px;
     margin-bottom: 15px;
@@ -199,7 +209,7 @@ max-width:1500px;
 `;
 
 const FooterBottom = styled.div`
-  background-color: #343a40;
+  background-color:#303846;
   padding: 10px 0;
   text-align: center;
   font-size: 14px;
@@ -207,7 +217,7 @@ const FooterBottom = styled.div`
 `;
 
 const FooterCenter = styled.div`
-  background-color: #343a40;
+  background-color: #303846;
   padding: 20px 0;
   text-align: center;
   font-size: 14px;

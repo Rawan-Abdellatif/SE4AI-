@@ -33,131 +33,180 @@ const ThirdContent = () => {
     
   >     
 
-    <Grid item xs={12} md={12} lg={12} xl={12}>
-      
+<Grid item xs={12} md={12} lg={12} xl={12}>
+  
 <Main>
 <Grid item xs={12} md={12} lg={12} xl={12}>
 
   <Text   isDarkMode={isDarkMode}>
         In Collaboration with World-renowned <RedText>Researchers</RedText> and
-        <RedText>Technology Leaders</RedText>
-      </Text>   </Grid> 
-      <ImgContainer >
-        <Link href="https://www.concordia.ca/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={Concordia} alt={Concordia} />{" "}
-        </Link>
-        </ImgContainer >
-
-
-      <ImgContainer >
-        <Link href="https://www.polymtl.ca/en/" target="_blank">
-          <Img  isDarkMode={isDarkMode}  src={PolyMtl} alt={PolyMtl} />{" "}
-        </Link>
-        </ImgContainer >
-
-      <ImgContainer >
-        <Link href="https://www.queensu.ca/" target="_blank">
-          <Img   isDarkMode={isDarkMode} src={Queens} alt={Queens} />
-        </Link>
-        </ImgContainer >
-
-      <ImgContainer >
-        <Link href="https://www.ualberta.ca/index.html" target="_blank">
-          <Img src={Alberta}  isDarkMode={isDarkMode} alt={Alberta} />
-        </Link>
-        </ImgContainer >
-
-      <ImgContainer >
-        <Link href="https://www.nbc.ca/" target="_blank">
-          <Img  isDarkMode={isDarkMode}  src={NBC} alt={NBC} />
-        </Link>
-        </ImgContainer >
-
-      <ImgContainer >
-        <Link href="https://www.ibm.com/ca-en" target="_blank">
-          <Img src={IBM} alt={IBM}  isDarkMode={isDarkMode} />
-        </Link>
-        </ImgContainer >
-
-      <ImgContainer >
-        <Link href="https://www.cisco.com/" target="_blank">
-          <Img   isDarkMode={isDarkMode} src={Cisco} alt={Cisco} />
-        </Link>
-        </ImgContainer >
+        <RedText> Technology Leaders</RedText>
+      </Text>    </Grid> 
       
-      <ImgContainer >
+<MainRow>
+
+      <Div>
+        
+      <ImgContainer isDarkMode={isDarkMode}>
+        <Link href="https://www.concordia.ca/" target="_blank">
+          <ConcordiaImage  isDarkMode={isDarkMode} src={Concordia} alt={Concordia} />{" "}
+        </Link>
+        </ImgContainer >
+        </Div>
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
+        <Link href="https://www.polymtl.ca/en/" target="_blank">
+          <PolyMtlImage  isDarkMode={isDarkMode}  src={PolyMtl} alt={PolyMtl} />{" "}
+        </Link>
+        </ImgContainer >
+        </Div>
+
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
+        <Link href="https://www.queensu.ca/" target="_blank">
+          <QueensImage  isDarkMode={isDarkMode} src={Queens} alt={Queens} />
+        </Link>
+        </ImgContainer >
+        </Div>
+
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
+        <Link href="https://www.ualberta.ca/index.html" target="_blank">
+          <AlbertaImage src={Alberta}  isDarkMode={isDarkMode} alt={Alberta} />
+        </Link>
+        </ImgContainer >
+        </Div>
+
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
+        <Link href="https://www.nbc.ca/" target="_blank">
+          <NBCImage  isDarkMode={isDarkMode}  src={NBC} alt={NBC} />
+        </Link>
+        </ImgContainer >
+        </Div>
+
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
+        <Link href="https://www.ibm.com/ca-en" target="_blank">
+          <IBMImage src={IBM} alt={IBM}  isDarkMode={isDarkMode} />
+        </Link>
+        </ImgContainer >
+        </Div>
+
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode} >
+        <Link href="https://www.cisco.com/" target="_blank">
+          <CiscoImage   isDarkMode={isDarkMode} src={Cisco} alt={Cisco} />
+        </Link>
+        </ImgContainer >
+        </Div>
+      
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode} >
         <Link href="https://www.td.com/ca/en/personal-banking" target="_blank">
-          <Img   isDarkMode={isDarkMode} src={TD} alt={TD} />
+          <TDImage   isDarkMode={isDarkMode} src={TD} alt={TD} />
         </Link>
         </ImgContainer >
+        </Div>
 
-        <ImgContainer >
+
+        <Div>
+        <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://www.ericsson.com/en" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={Ericsson} alt={Ericsson} />
+          <EricssonImage isDarkMode={isDarkMode} src={Ericsson} alt={Ericsson} />
         </Link>
-        </ImgContainer >
+        </ImgContainer ></Div>
 
-      <ImgContainer >
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode} >
         <Link href="https://airudi.com/en/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={Airudi} alt={Airudi} />
+          <AirudiImage  isDarkMode={isDarkMode} src={Airudi} alt={Airudi} />
         </Link>
         </ImgContainer >
+        </Div>
 
-        <ImgContainer2  isDarkMode={isDarkMode}>
+
+        <Div>
+        <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://www.giro.ca/en-ca/" target="_blank">
-          <img  isDarkMode={isDarkMode} src={GIRO} alt={GIRO} />
+          <GIROImage  isDarkMode={isDarkMode} src={GIRO} alt={GIRO} />
         </Link>
-        </ImgContainer2 >
+        </ImgContainer></Div>
 
-        <ImgContainer >
+
+        <Div>
+        <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://cbc.radio-canada.ca/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={Radio} alt={Radio} />
+          <RadioImage  isDarkMode={isDarkMode} src={Radio} alt={Radio} />
         </Link>
         </ImgContainer >
+        </Div>
 
-        <ImgContainer >
+
+        <Div>
+        <ImgContainer isDarkMode={isDarkMode}>
         <Link
           href="https://www.nserc-crsng.gc.ca/index_eng.asp"
           target="_blank"
         >     
-  
-          <Img  isDarkMode={isDarkMode}  src={NSER} alt={NSER} />
+          <NSERImage  isDarkMode={isDarkMode}  src={NSER} alt={NSER} />
         </Link>
         </ImgContainer >
+        </Div>
 
-        <ImgContainer >
+
+        <Div>
+        <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://ivado.ca/en/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={IVADO} alt={IVADO} />
+          <IVADOImage  isDarkMode={isDarkMode} src={IVADO} alt={IVADO} />
         </Link>
         </ImgContainer >
+        </Div>
 
-      <ImgContainer >
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={OBVIA} alt={OBVIA} />
+          <OBVIAImage  isDarkMode={isDarkMode} src={OBVIA} alt={OBVIA} />
         </Link>
         </ImgContainer >
+        </Div>
 
-      <ImgContainer >
+
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://montrealethics.ai/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={MAIEI} alt={MAIEI} />
+          <MAIEIImage  isDarkMode={isDarkMode} src={MAIEI} alt={MAIEI} />
         </Link>
         </ImgContainer >
+        </Div>
 
-      <ImgContainer >
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
         <Link href="https://www.uni-graz.at/en/" target="_blank">
-          <Img  isDarkMode={isDarkMode} src={Graz} alt={Graz} />
+          <GrazImage  isDarkMode={isDarkMode} src={Graz} alt={Graz} />
         </Link>
-        </ImgContainer >
+        </ImgContainer ></Div>
 
-      <ImgContainer >
+        <Div>
+      <ImgContainer isDarkMode={isDarkMode}>
         <Link
           href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
           target="_blank">
-<Img  isDarkMode={isDarkMode} src={Vercel} alt={Vercel} />
+<VercelImage  isDarkMode={isDarkMode} src={Vercel} alt={Vercel} />
         </Link>
-      </ImgContainer>
-</Main>
-</Grid></Grid>
+      </ImgContainer></Div>
+
+ </MainRow>     </Main>
+   </Grid>
+   </Grid>
     </Container>
   );
 };
@@ -168,8 +217,8 @@ const Container = styled.div`
   text-align: center;
   font-family: "Open Sans", sans-serif;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-    height:100%;
-padding-left:10px;
+    /* height:100%; */
+    display: flex;
   width: 100%;
 `
 
@@ -190,35 +239,31 @@ const RedText = styled.span`
   color: #BB5A7D;
 `;
 const ImgContainer = styled.div`
-padding-left:40px;
-/* align-items:center;
-justify-content:center; */
-
-height: 90px;
-max-width:550px;
-  /* padding-left:100px; */
-  align-items: center;
-margin-top:20; 
-/* padding-left:10px; */
-/* margin-left:5px; */
-padding-right:50px;
-padding-top:0px;
-padding-bottom:20px;
-/* border:4px solid orange; */
-  line-height:1.5;
-  /* text-align: center; */
-border-radius:5px;
+border-radius:10px;
+width:300px ; 
+/* max-width:100%; */
+height:100px;
+position:relative;
+text-align: center;
+ 
+background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
 color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
+/* border:2px solid orange; */
+margin :16px 0px;
+/* padding:16px 0px; */
+@media screen and (max-width: 768px) {
+
+    width:350px ; 
+  }
+
+  @media screen and (max-width: 480px) {
+    width:360px ; 
+  }
+
 `;
 
-const Img = styled.img`
-    height: 50px;
-    width: 140px;
-    padding:20px 70px;
-    background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
-    border-radius:10px;
 
-`;
+
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
@@ -226,43 +271,262 @@ const Link = styled.a`
 
 const Main=styled.div`   
  display: flex;
-/* flex-direction: row; */
 flex-wrap: wrap;
-/* width:100% ; */
-max-width:1500px;
-/* border:4px solid red; */
-  margin: 0 auto;
   padding-top: -40px;
-  /* padding-left:200pc; */
-  /* text-align:center; */
+  max-width: 1800px;
+width:100%;
+
+  margin: 0 auto;
+margin-left:40px;
+@media screen and (max-width: 768px) {
+    /* width:100%; */
+
+  margin-left: -20px; /* Adjust margin for screens up to 768px wide */
+  }
+
+  @media screen and (max-width: 480px) {
+   margin-left: -20px; /* Adjust margin for screens up to 480px wide */
+    /* width:100%; */
+  }
+
+`
+const MainRow=styled.div`
+display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    width:100%;
+    max-width: 1400px;
+
+margin:0 auto;
+
 
 `
 
-//// This part for Giro Partner
-const ImgContainer2=styled.div`  /* background-color: #db7093; */
-height: 90px;
- width:240px;
-  /* width:100%; */
- /* align-items: center; */
-margin-top:20; 
-/* margin-right:2px; */
-/* margin-left:5px; */
-padding-left:40px;
-padding-right:90px;
-padding-top:0px;
-margin-bottom:20px;
-/* border:4px solid blue; */
-  line-height:1.5;
+
+const ConcordiaImage=styled.img` 
+width:100%;
+/* position:absolute; */
 border-radius:5px;
-color: ${(props) => (props.isDarkMode ? "black" : "#f7f7f7")}; 
-img{
+max-width:180px;
+max-height:40.5px;
+margin:25px auto;/* left: 50%; */
+/* padding:0px 16px; */
+background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
 
-    height: 55px;
-    width: 50px;
-    padding:20px  115px;
-    background-color: ${(props) => (props.isDarkMode ?  "	#BEBEBE":"inharit" )};
-    border-radius:10px;
-/* border:3px solid purple; */
-}
+`
 
-`;
+
+
+const PolyMtlImage=styled.img`
+width:100%; 
+border-radius:5px;
+max-height: 60px;
+    max-width: 146.05px;
+    margin:25px auto;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+const QueensImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 53.1px;
+    max-width: 180px;
+    margin:25px auto;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const AlbertaImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 42.3px;
+    max-width: 180px;
+    margin:25px auto;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const NBCImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 173.91px; 
+    margin:25px auto;
+       /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const IBMImage=styled.img`
+background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
+border-radius:5px;
+max-height: 60px;
+    max-width: 162.15px;
+    margin:25px auto;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+
+`
+
+
+const CiscoImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 114.28px; 
+    margin:25px auto;  
+     /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+ const TDImage=styled.img`
+ /* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 58.5px;
+    max-width: 180px; 
+    margin:25px auto;  
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const EricssonImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 37.8px;
+    max-width: 180px;  
+    margin:25px auto;  
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const AirudiImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;    
+max-height: 40.5px;
+    max-width: 180px;
+    margin:25px auto;  
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+    `
+
+const GIROImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 60px;
+    margin:20px auto;  
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const RadioImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 34.2px;
+    max-width: 180px;
+    margin:25px auto;  
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const NSERImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 124.14px;
+    margin:25px auto;  
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const IVADOImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 179.21px;
+    margin:25px auto;  
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const OBVIAImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 44.1px;
+    max-width: 180px; 
+    margin:25px auto;  
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const MAIEIImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 48.6px;
+    max-width: 180px;  
+    margin:25px auto;  
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const GrazImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 49.5px;
+    max-width: 180px;
+    margin:25px auto;  
+   
+     /* position:absolute; */
+/* top: 50%;
+left: 50%; */
+
+  `
+
+
+const VercelImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 40.5px;
+    max-width: 180px;
+    margin:25px auto;  
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const Div = styled.div`
+/* max-width:240px; 
+max-height:132px; */
+padding:0px 16px;
+/* position: absolute; */
+`
