@@ -22,6 +22,11 @@ import Contact from "./component/Contact";
 import Favicon from "./component/img/favicon.svg";
 
 const App = () => {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+
+  const toggleNavbarVisibility = () => {
+    setIsNavbarVisible(!isNavbarVisible);
+  };
   const [AppointmentId, setAppointmentId] = useState("");
   const [adminId, setAdminId] = useState("");
   
@@ -64,12 +69,13 @@ useEffect(() => {
       "/training-program/objectives":"Program Objectives",
 "/training-program/components":"Program Components",
 "/partners":"Partners",
-"/apply":"Apply",
+"/apply":"Apply Now",
 "/governance":"Governance",
 "/blog/past":"Past Events",
 "/blog/upcoming":"Upcoming Events",
 "/adminlogin":"Adminlogin",
-"/intro":"Program Overview"
+"/intro":"Program Overview",
+"/contact":"Contact"
 
 
       // Add more routes and their corresponding prefixes here
