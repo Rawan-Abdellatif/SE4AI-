@@ -215,7 +215,7 @@ export default ThirdContent;
 const Container = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : " #F0F0F0")};
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     /* height:100%; */
     display: flex;

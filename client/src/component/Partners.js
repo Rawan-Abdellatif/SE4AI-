@@ -29,7 +29,7 @@ const Partners = () => {
     container
     justifyContent="center"
     alignItems="center"
-    style={{ flex: 1, padding: "20px" }}
+    style={{ flex: 1}}
     
   >     
 
@@ -40,35 +40,38 @@ const Partners = () => {
 
       <Title isDarkMode={isDarkMode}>Our Partners</Title>
 </Grid>
-      <ParticipatingSection isDarkMode={isDarkMode}>
-  <div className="flex-container">
-    <RedText>P</RedText>articipating
-  </div>
-  <div className="university">Universities</div>
+      <ParticipatingSection isDarkMode={isDarkMode}> 
+       <div className="flex-container">
+
+    <RedText>P</RedText>articipating   Universities
+
+    </div>
+   {/* Universities */}
+
 </ParticipatingSection>
 
         <Choices>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.concordia.ca/" target="_blank">
-              <img src={Concordia} alt={Concordia} />
+              <ConcordiaImage src={Concordia} alt={Concordia} />
             </a>
           </ChoiceItem>
 
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.polymtl.ca/en/" target="_blank">
-              <img src={PolyMtl} alt={PolyMtl} />
+              <PolyMtlImage src={PolyMtl} alt={PolyMtl} />
             </a>
           </ChoiceItem>
 
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.queensu.ca/" target="_blank">
-              <img src={Queens} alt={Queens} />
+              <QueensImage src={Queens} alt={Queens} />
             </a>
           </ChoiceItem>
 
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.ualberta.ca/index.html" target="_blank">
-              <img src={Alberta} alt={Alberta} />
+              <AlbertaImage src={Alberta} alt={Alberta} />
             </a>
           </ChoiceItem>
         </Choices>
@@ -80,42 +83,42 @@ const Partners = () => {
         <Choices>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.nbc.ca/" target="_blank">
-              <img src={NBC} alt={NBC} />
+              <NBCImage src={NBC} alt={NBC} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.ibm.com/ca-en" target="_blank">
-              <img src={IBM} alt={IBM} />
+              <IBMImage src={IBM} alt={IBM} />
             </a>
           </ChoiceItem>
-          <ChoiceItem3 isDarkMode={isDarkMode}>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.cisco.com/" target="_blank">
-              <img src={Cisco} alt={Cisco} />
+              <CiscoImage src={Cisco} alt={Cisco} />
             </a>
-          </ChoiceItem3>
+          </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.td.com/ca/en/personal-banking" target="_blank">
-              <img src={TD} alt={TD} />
+              <TDImage src={TD} alt={TD} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.ericsson.com/en" target="_blank">
-              <img src={Ericsson} alt={Ericsson} />
+              <EricssonImage src={Ericsson} alt={Ericsson} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://airudi.com/en/" target="_blank">
-              <img src={Airudi} alt={Airudi} />
+              <AirudiImage src={Airudi} alt={Airudi} />
             </a>
           </ChoiceItem>
-          <ChoiceItem2 isDarkMode={isDarkMode}>
+          <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.giro.ca/en-ca/" target="_blank">
-              <img src={GIRO} alt={GIRO} />
+              <GIROImage src={GIRO} alt={GIRO} />
             </a>
-          </ChoiceItem2>
+          </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://cbc.radio-canada.ca/" target="_blank">
-              <img src={Radio} alt={Radio} />
+              <RadioImage src={Radio} alt={Radio} />
             </a>
           </ChoiceItem>
         </Choices>
@@ -133,27 +136,27 @@ const Partners = () => {
               href="https://www.nserc-crsng.gc.ca/index_eng.asp"
               target="_blank"
             >
-              <img src={NSER} alt={NSER} />
+              <NSERImage src={NSER} alt={NSER} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://ivado.ca/en/" target="_blank">
-              <img src={IVADO} alt={IVADO} />
+              <IVADOImage src={IVADO} alt={IVADO} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://observatoire-ia.ulaval.ca/en/" target="_blank">
-              <img src={OBVIA} alt={OBVIA} />
+              <OBVIAImage src={OBVIA} alt={OBVIA} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://montrealethics.ai/" target="_blank">
-              <img src={MAIEI} alt={MAIEI} />
+              <MAIEIImage src={MAIEI} alt={MAIEI} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
             <a href="https://www.uni-graz.at/en/" target="_blank">
-              <img src={Graz} alt={Graz} />
+              <GrazImage src={Graz} alt={Graz} />
             </a>
           </ChoiceItem>
           <ChoiceItem isDarkMode={isDarkMode}>
@@ -161,7 +164,7 @@ const Partners = () => {
               href="https://vercel.com/?utm_source=se4ai&utm_campaign=oss"
               target="_blank"
             >
-              <img src={Vercel} alt={Vercel} />
+              <VercelImage src={Vercel} alt={Vercel} />
             </a>
           </ChoiceItem>
         </Choices>
@@ -176,36 +179,43 @@ export default Partners;
 
 const Container = styled.div`
    display: flex;
-  font-family: "Open Sans", sans-serif;
+   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "#EBEDF0" : "#484848")};
 
+margin-left:150px;
+@media screen and (max-width: 768px) {
+    margin-left: 150px; /* Adjust margin for screens up to 768px wide */
+  }
 
-  /* width: 100%; */
+  @media screen and (max-width: 480px) {
+    margin-left: 70px; /* Adjust margin for screens up to 480px wide */
+  }
 
 `;
 
 const Main = styled.div`
  width: 100%;
+ margin-bottom:80px;
 
   max-width: 1500px;
-  padding-top: -40px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto;
+  /* padding-top: -50px; */
+  color: ${(props) => (props.isDarkMode ? "#EBEDF0" : "#484848")};
+  /* margin: 10 auto; */
 height:100%;
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
 
 `;
 
-const Title = styled.div`
-  font-weight: bolder;
+const Title = styled.h1`
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
- margin-top:-20px;
-  padding-top:60px;
-  font-size: 45px;
-  padding-bottom: 60px;
+ margin-top:0.7px;
+  padding-top:80px;
+  font-size: 50px;
+  padding-bottom: 70px;
   border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
@@ -213,42 +223,61 @@ const Title = styled.div`
   min-width:100vw;
   /* margin-right:-750px; */
   margin-left:-600px;
-padding-left:600px;
+padding-left:550px;
+
  `;
 
 const ParticipatingSection = styled.div`
   display: flex;
+  /* flex-direction :row; */
   flex-wrap: wrap;
   margin-top: 40px;
-  /* margin-left:120px; */
+max-width:400px;
+/* border:2px solid green; */
   font-size: 30px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
+  margin-left:-50px;
+padding-left:-600px;
+@media screen and (max-width: 768px) {
+  max-width:350px;
+  width:100%;
 
+}
+
+  @media screen and (max-width: 480px) {
+  max-width:350px;  width:100%;
+
+  }
 
 `;
 
 const IndustrialSection = styled.div`
-display: flex;
+  display: flex;
+  /* flex-direction :row; */
   flex-wrap: wrap;
   margin-top: 40px;
-  /* margin-left:120px; */
+max-width:400px;
+/* border:2px solid green; */
   font-size: 30px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-
+  margin-left:-50px;
+padding-left:-600px;
 `
 
 const CollaboratorsSection = styled.div`
-display: flex;
+  display: flex;
+  /* flex-direction :row; */
   flex-wrap: wrap;
   margin-top: 40px;
-  /* margin-left:120px; */
+max-width:450px;
+/* border:2px solid green; */
   font-size: 30px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-
-
+  margin-left:-50px;
+padding-left:-600px;
 
 `;
 
@@ -256,83 +285,267 @@ const Choices = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
-  width: 100%;
-  /* max-width: 1300px;  */
-   /* padding-left: 20px; */
+  /* width: 100%; */
+  margin-left:-600px;
+padding-left:550px;   /* padding-left: 20px; */
+
 `;
 
 const ChoiceItem = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
+  background-color: ${(props) => (props.isDarkMode ? " #BEC3C9" : "white")};
 height:60px;
   padding: 20px 50px;
-  width:250px;
+  width:200px;
   margin-right:20px;
-  margin-top: 15px;
-  border-radius: 9px;
+  margin-top: 30px;
+  border-radius: 10px;
   a {
     text-decoration: none;
     color: inherit;
   }
-  img {
-    width: 150px;
-    height: 50px;
-    padding-left: 50px;
-    /* text-align: center; */
+  @media screen and (max-width: 768px) {
+    width:100%;
+
+  }
+
+  @media screen and (max-width: 480px) {
+    width:100%;
   }
 
 `
 
 const RedText = styled.span`
   color: #bb5a7d;  
+ 
+ 
 `;
-const ChoiceItem2 = styled.div`
-  /* background-color: #db7093; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
-  background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
-height:60px;
-  padding: 20px 50px;
-  width: 250px;
-  margin-right:20px;
-  margin-top: 15px;
-  /* font-size: 16px; */
-  /* margin: 20px; */
-  border-radius: 9px;
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  img {
-    width: 60px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-    padding-left: 80px;
-    text-align: center;
-    border-radius: 15px;
-  }
 
- `
- const ChoiceItem3 = styled.div`
-  /* background-color: #db7093; */
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* background-color: ${(props) => (props.isDarkMode ? " red" : "#c0c0c0")}; */
-  background-color: ${(props) => (props.isDarkMode ? " #c0c0c0" : "white")};
-height:60px;
-  padding: 20px 50px;
-  width: 250px;
-  margin-right:20px;
-  margin-top: 15px;
-  /* margin: 20px; */
-  border-radius: 9px;
- a {
-   text-decoration: none;
-   color: inherit;
- }
- img {
-   width: 120px; /* Adjust the width as needed */
- height: auto; /* Maintain aspect ratio */
-   padding-left: 60px;
-   border-radius: 15px;
- }
+const ConcordiaImage=styled.img` 
 
+/* position:absolute; */
+border-radius:5px;
+max-width:180px;
+max-height:40.5px;
+padding:5px 5px;
+background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
+
+`
+
+
+
+const PolyMtlImage=styled.img`
+
+border-radius:5px;
+max-height: 60px;
+    max-width: 146.05px;
+    padding:0px 16px;
+/* align-items:center; */
+    /* margin:25px auto; */
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+const QueensImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 53.1px;
+    max-width: 180px;
+    padding:0 16px;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const AlbertaImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 42.3px;
+    max-width: 180px;
+    padding:0 16px;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const NBCImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 173.91px; 
+    padding:0 16px;
+       /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const IBMImage=styled.img`
+background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
+border-radius:5px;
+max-height: 60px;
+    max-width: 162.15px;
+    padding:0 16px;
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+
+`
+
+
+const CiscoImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 114.28px; 
+    padding:0 40px;
+     /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+ const TDImage=styled.img`
+ /* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 58.5px;
+    max-width: 180px; 
+    padding:0 16px;
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const EricssonImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 37.8px;
+    max-width: 180px;  
+    padding:0 16px;
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const AirudiImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;    
+max-height: 40.5px;
+    max-width: 180px;
+    padding:4px 15px;
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+    `
+
+const GIROImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 60px;
+    padding:0 70px;
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const RadioImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 34.2px;
+    max-width: 180px;
+    padding:10px 16px;
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+
+const NSERImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 124.14px;
+    padding:0px 16px;
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const IVADOImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 60px;
+    max-width: 179.21px;
+    padding:0px 16px;
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const OBVIAImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 44.1px;
+    max-width: 180px; 
+    padding:0px 16px;
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const MAIEIImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 48.6px;
+    max-width: 180px;  
+    padding:0px 16px;
+
+      /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const GrazImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 49.5px;
+    max-width: 180px;
+    padding:0px 16px;
+   
+     /* position:absolute; */
+/* top: 50%;
+left: 50%; */
+
+  `
+
+
+const VercelImage=styled.img`
+/* background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )}; */
+border-radius:5px;
+max-height: 40.5px;
+    max-width: 180px;
+    padding:5px 16px;
+
+    /* position:absolute;
+top: 50%;
+left: 50%; */
+`
+
+const Div = styled.div`
+/* max-width:240px; 
+max-height:132px; */
+padding:0px 16px;
+/* position: absolute; */
 `

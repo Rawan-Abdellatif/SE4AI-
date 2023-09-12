@@ -66,28 +66,30 @@ const Team = () => {
 export default Team;
 //style of all of the page
 const Container = styled.div`
-   display: flex;
-  font-family: "Open Sans", sans-serif;
+   /* margin-top: 0px; */
+   margin-left:100px; 
+
+font-family: "Open Sans", sans-serif;
+padding-bottom: 20px;
+/* width: 100%; */
+display: flex;
+font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-    /* height:100%; */
+    height:100%;
 
   width: 100%;
-  /* @media (max-width: 995px) {
-margin-left:20px;
-}   */
-
 `;
 
-const Title = styled.h1`
-  font-weight: bolder;
+const Title = styled.div`
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
  margin-top:-20px;
   padding-top:60px;
   font-size: 45px;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
   border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
@@ -97,22 +99,18 @@ const Title = styled.h1`
   margin-left:-600px;
 padding-left:600px;
 
-  `
-
-
-
-
+`;
 
 const Subtitles = styled.div`
-  display: flex;
+display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
   /* margin-left:120px; */
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 2em;  font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
 
-`;
+;
+`
 
 
 const RedText = styled.span`
@@ -121,12 +119,10 @@ const RedText = styled.span`
 const Main = styled.div`
   width: 100%;
   max-width: 1500px;
-  padding-top: -40px;
+  padding-top: 0.7px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto;
-  padding-left:10px;
-  /* flex-wrap:wrap; */
-  /* border:4px solid orange; */
-`;
-
+  /* margin: 0 auto; */
+height:100%;
+  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
+  `
 
