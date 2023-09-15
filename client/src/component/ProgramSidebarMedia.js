@@ -6,6 +6,8 @@ import { Link} from "react-router-dom";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
 import { AiOutlineClose } from "react-icons/ai";
+import { TfiClose } from "react-icons/tfi";
+
 import {IoIosArrowRoundBack}from "react-icons/io"
 const ProgramSidebarMedia = () => {
   const [showLinks, setShowLinks] = useState(true);
@@ -31,22 +33,32 @@ const ProgramSidebarMedia = () => {
   const handleLinkClick = (link) => {
     setSelectedLink(link);
     setActiveLink(link);
+    toggleSidebar(); // Close the sidebar when a link is clicked
   };
+  
 
 
   return (
 <Container isDarkMode={isDarkMode}>
-      <SidebarButton isDarkMode={isDarkMode} onClick={toggleSidebar}>
-        ☰
+<SidebarButton isDarkMode={isDarkMode} onClick={toggleSidebar}>
+      <svg width="30" height="30" viewBox="0 0 30 30"
+       aria-hidden="true">
+        <path stroke="currentColor"
+         stroke-linecap="round"
+         stroke-miterlimit="10" 
+      stroke-width="2"
+       d="M4 7h22M4 15h22M4 23h22">
+        </path></svg>
       </SidebarButton>
       <SidebarContainer isDarkMode={isDarkMode} isOpen={isOpen}>
-        <NavMenu isDarkMode={isDarkMode}>
-          <Nav isDarkMode={isDarkMode}>
-            <a href="/">
-              <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />
-            </a>
-            <a href="/">CREATE SE4AI</a>
-          </Nav>{" "}
+        <NavMenu >
+        <Nav isDarkMode={isDarkMode} className="logo-nav">
+          <a href="/">
+            <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
+          </a>
+          <Creat>
+          <a href="/">CREATE SE4AI</a></Creat>
+          </Nav>
           <SwitchLabel>
             <SwitchInput
               type="checkbox"
@@ -62,7 +74,7 @@ const ProgramSidebarMedia = () => {
             isDarkMode={isDarkMode}
             onClick={toggleSidebar}
           >
-            <AiOutlineClose />
+            <TfiClose />
           </CloseButton>
         </NavMenu>
         <SidebarHeading
@@ -76,10 +88,10 @@ const ProgramSidebarMedia = () => {
             onClick={() => handleLinkClick("/")}
             isDarkMode={isDarkMode}
           >
-            <IoIosArrowRoundBack/>
-Back to main menue          </Link>
+            <IoIosArrowRoundBack/>Back to main menue
+          </Link>
         </SidebarHeading>
-        <SidebarHeading
+         <SidebarHeading
           isDarkMode={isDarkMode}
           selected={selectedLink === "/intro"}
           isActive={activeLink === "/intro"}
@@ -89,6 +101,7 @@ Back to main menue          </Link>
             to="/intro"
             onClick={() => handleLinkClick("/intro")}
             isDarkMode={isDarkMode}
+            
           >
             Program Overview
           </Link>
@@ -143,22 +156,30 @@ const Container = styled.div`
   height:100%; 
 
 `;
+const Creat=styled.div`
+/* border:2px solid yellow; */
+width:110px;
+    font-weight: bold;/* margin-left:10px; */
+font-size:16px ; 
+text-overflow:ellipsis;
+margin-right:-5px;
+`
 
 const SidebarButton = styled.button`
-  font-size: 24px;
+  font-size: 15px;
   cursor: pointer;
   border:none;
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
-  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-/* margin-right:20px;padding-right:20px; */
-
-  @media (min-width: 1000px) {
+  /* background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")}; */
+  /* color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")}; */
+margin-left:10px;
+  @media (min-width: 995px) {
     display: none;
     border:none;
-    margin-right:0px;
-padding-right:0px;
+ margin-right:15px;
+padding-right:20px;
   }
 `;
+
 
 const SidebarContainer = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
@@ -166,7 +187,8 @@ const SidebarContainer = styled.div`
   width: ${(props) => (props.isOpen ? "99%" : "0")}; 
   display: ${(props) => (props.isOpen ? "block" : "none")};
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.5s;  height:100%; 
+
 
   @media (max-width: 995px) {
     position: absolute;
@@ -178,13 +200,13 @@ padding-left:10px;
 
 
 
-  }
-`;
+  }`
 
 const CloseButton = styled.button`
   font-size: 24px;
   cursor: pointer;
 margin-left:35px;
+/* float:right; */
 border:none;
 color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 
@@ -192,19 +214,19 @@ background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
 `;
 
 const SidebarHeading = styled.h2`
-  color: ${({ selected, isDarkMode }) =>
-    selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
+   color: ${(props) =>
+    props.isSelected ? "white" : props.isDarkMode ? "#DADDE1" : "gray"};  font-size: 15px;
   display: flex;
   align-items: center;
-  height: 40px;
-  font-size: 15px;
+  height: 20px;
+  font-size: 16px;
   cursor: pointer;
   text-decoration: none;
   margin-bottom: 3px;
   margin-left: 12px;
-  padding-top: 5px;
+  padding-top: -10px;
   z-index: -1;
-  top: -10px;
+  top: -12px;
 
   &:hover,
   &:active,
@@ -236,9 +258,9 @@ const SidebarHeading = styled.h2`
 
 const SidebarLink = styled(Link)`
   display: flex;
-  color: ${({ selected }) => (selected ? "black" : "white")};
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  font-size: 15px;
+  /* color: ${({ selected }) => (selected ? "black" : "white")}; */
+  color: ${(props) =>
+    props.isSelected ? "white" : props.isDarkMode ? "#DADDE1" : "gray"};  font-size: 15px;
   align-items: center;
   text-decoration: none;
   height: 40px;
@@ -267,49 +289,59 @@ const Icon = styled.span`
 `;
 const NavMenu = styled.ul`
   display: flex;
-  padding-top: 10px;
+  padding-top: 5px;
+  display:flex;
   list-style: none;
-border-bottom: ${(props) => (props.isDarkMode ? "1px solid #282828" : "1px solid lightGray")};
+margin-left:-25px;  
+/* border:2px solid red; */
+cursor: pointer;
+padding-left:-20px;
+/* border:2px solid yellow; */
 `;
 const Nav = styled.li`
-  /* margin-right: 3px; */
-  display: flex;
-  /* margin-left: -10px; */
-width:200px;
-  img {
-    padding-left:5px;
-    height: 40px;
-    cursor: pointer;
-    margin-top: -10px;
-    /* padding-left: 7px; */
-    /* margin-right: 3px; */
-
+ display: flex;
+  cursor: pointer;
+ /* border:4px solid blue; */
+margin-top: -5px ; 
+margin-right:23px; 
+font-weight:500; 
+align-items:center;
+ img {
+padding-top:0px;    height: 32px;
+  cursor: pointer;
+margin-right:10px;
+/* margin-left:-40px; */
+width:32px; 
   }
   a {
-    /* margin-top: -10px; */
-    align-items: vertical;
-    flex-direction:row;
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
     text-decoration: none;
-    font-size: 15px;
-    font-weight: bolder;
-    padding-top: 1px;
-    width: 150px;
-    
-    margin-left: -40px;
-    /* padding-right: -3px; */
-    transition: 0.2s;
-    text-align: center;
-    &:hover {
+    font-family:   "-apple-system", "Segoe UI", sans-serif;
+   font-size: 16px;
+  margin-top: -2px; 
+  /* padding-left:-20px; */
+/* padding-left:-10px; */
+/* width:80px; */
+ &.selected {
+  color: #BB5A7D;
+    }
+  &:hover {
       color: #BB5A7D;
     }
-  }
-`;
+    /* @media (max-width: 995px) {
+     display: none; 
+   } */
+    
+  }`
+
 const SwitchLabel = styled.label`
   position: relative;
   display: inline-block;
+  /* border:2px solid green; */
+  margin-left:-5px;
+  padding-left:-5px;
   width: 50px;
-  height: 20px;
+  height: 23px;
 `;
 
 const SwitchInput = styled.input`
@@ -359,7 +391,7 @@ const Slider = styled.span`
     content: "${(props) => (props.checked ? "🌜" : "🌞")}";
     color: ${(props) => (props.isDarkMode ? "white" : "black")};
     font-size: 15px;
-    left: ${(props) => (props.checked ? "8px" : "28px")};
+    left: ${(props) => (props.checked ? "2px" : "25px")};
     bottom: 0px;
   }
 

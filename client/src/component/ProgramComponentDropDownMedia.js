@@ -128,7 +128,8 @@ export default ProgramComponentDropDownMedia;
 const SidebarContainer = styled.div`
 margin-left:-30px;
   height: 40px;
-  width:100%;
+  width:388.4px;
+  margin-top:-70px;
    `
   
   const DropdownHeader = styled.div`
@@ -137,11 +138,13 @@ margin-left:-30px;
   padding-left:10px;
   height: 20px;
 padding-top:10px; 
- border-bottom: 1px solid #e8e8e8;
+ /* border-bottom: 1px solid #e8e8e8; */
   cursor: pointer;
   top: 0; /* Stick the header to the top of its container */
   background-color: ${(props) => (props.isDarkMode ? "#303030":"#F0F0F0" )};
   color: ${(props) => (props.isDarkMode ? "white" : "#282828")};
+
+
 
 `;
 

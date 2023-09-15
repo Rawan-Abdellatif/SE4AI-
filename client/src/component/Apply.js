@@ -12,7 +12,7 @@ const Apply = () => {
     container
     justifyContent="center"
     // alignItems="center"
-    style={{ flex: 1 }}
+    style={{ flex: 1,padding:"20px" }}
     
   >     
 
@@ -84,18 +84,27 @@ const Title = styled.h1`
 
 const EmailText = styled.p`
   font-size: 16px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};text-align:center;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  /* text-align:center; */
+  @media screen and (max-width: 1000px) {
+    width: 360px;
+
+}
+
+
+
 
 `;
 
 const EmailLink = styled.a`
   text-decoration: none;
   color:rgb(187, 90, 125);
-
+width:100%;
   &:hover {
     color:rgb(187, 90, 125);;
     text-decoration: underline;
   }
+
 `;
 
 const EmailContent = styled.div`
@@ -106,10 +115,12 @@ const EmailContent = styled.div`
 const List = styled.ul`
   list-style-type: none;
   padding-left: 2rem ;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};  @media (min-width: 1440px) {
- /* margin-left:900px; */
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+  @media screen and (max-width: 1000px) {
+    width: 340px;
+    padding-left: 1rem ;
 
-  }
+}
 `;
 
 const ListItem = styled.li`
@@ -127,14 +138,28 @@ const ListItem = styled.li`
     border-radius: 50%;
     background-color: ${(props) => (props.isDarkMode ? "white" : "black")};
     margin-right: 10px;
+    margin-top:5px;
   }
 `;
 const Main=styled.div` 
 
-width: 1320px;
+width: 1900px;
+/* border:2px solid red; */
+/* width:100%; */
 /* margin:0px 16px ; */
-color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-/* border:2px solid orange; */
+color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; 
+ @media screen and (max-width: 900px) {
+  margin-left:-200px;
+  width: 1900px;
+/* padding-left:20px; */
+  margin-top:-20px;
+  margin-right:0px;
+  padding-right:-500px;
+
+display:flex;
+flex-direction:row;
+
+}
 
 `
 const Row=styled.div`    display: flex;

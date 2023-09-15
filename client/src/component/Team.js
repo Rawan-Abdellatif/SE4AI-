@@ -79,7 +79,12 @@ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'N
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
 
-  width: 100%;
+  width: 100%;  @media screen and (max-width: 768px) {
+  margin-left:0px;
+  display:flex; 
+  flex-wrap:wrap;
+
+}
 `;
 
 const Title = styled.div`

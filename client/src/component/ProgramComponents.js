@@ -289,20 +289,29 @@ const Container = styled.div`
 
 const MainContent = styled.div`
   /* border-left: ${props => window.innerWidth <= 1000 ? "none" : "1px solid #e8e8e8"}; */
-    padding-left:20px;  margin-left: 5px;
+    padding-left:20px;  margin-left: 4px;
   max-width: 1000px; /* Adjust the maximum width as needed */
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin: 0 auto; /* Center the content horizontally */
  height:100%;
+ @media screen and (max-width: 768px) {
+  margin-left:0px;
+  padding-left:5px;
+  padding-top:-10px;
+
+}
 
 
 `;
 const Title = styled.h1`
-  font-weight: bold;
-  font-size: 45px;
+  font-weight:700;
+  font-size: 50px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};  
+  @media screen and (max-width: 768px) {
+ margin-bottom:2px;
 
+}
 `;
 const Details = styled.div`
   padding-top: 15px;
@@ -319,7 +328,7 @@ const Subtitle = styled.div`
   padding-top: 30px;
   font-size: 30px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;  
 
   a {

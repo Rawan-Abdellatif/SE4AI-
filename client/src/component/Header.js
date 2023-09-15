@@ -11,15 +11,16 @@ import { DarkModeContext } from "./DarkModeContext";
     const handleToggle = () => {
     toggleDarkMode(); // Toggle the dark mode state in the context
   };
-    return ( <NavbarContainer isDarkMode={isDarkMode}>
-        <NavMenu>
+    return ( 
+    <NavbarContainer isDarkMode={isDarkMode}>
+        {/* <NavMenu>
           <Nav isDarkMode={isDarkMode}>
             <a href="/">
               <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
             </a>
             <a href="/">CREATE SE4AI</a>
           </Nav>{" "}
-        </NavMenu>
+        </NavMenu> */}
        </NavbarContainer>)
 
  }
@@ -28,10 +29,11 @@ import { DarkModeContext } from "./DarkModeContext";
   /* background-color: #212529; */
   color: #fff;
   /* width: 100%; */
-  margin-top: -10px;
+  /* margin-top: -10px; */
   height: 45px;
   display: flex;
-  align-items: center;
+  margin-left:20px;
+  /* align-items: center; */
   /* justify-content: space-between; */
   font-weight: bold;
   font-size: 12px;
@@ -52,8 +54,13 @@ import { DarkModeContext } from "./DarkModeContext";
 
 const NavMenu = styled.ul`
   display: flex;
-  padding-top: 10px;
-  list-style: none;`
+  flex-wrap:wrap;
+  /* padding-top: 10px; */
+  list-style: none;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;`
   
   const Nav = styled.li`
   /* margin-right: 3px; */

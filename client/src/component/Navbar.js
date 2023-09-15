@@ -12,6 +12,8 @@ import { Grid } from "@mui/material";
 const Navbar = () => {
   const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedLink, setSelectedLink] = useState(null);
 
@@ -103,12 +105,12 @@ const Navbar = () => {
         </Nav>
      
 
-        <Nav isDarkMode={isDarkMode} >
+        {/* <Nav isDarkMode={isDarkMode} >
           {/* Click event for "Login" */}
-          <LoginLink onClick={handleLoginToggle}>Login</LoginLink>
+          {/* <LoginLink onClick={handleLoginToggle}>Login</LoginLink> */}
 
           {/* Dropdown menu */}
-          {showDropdown && (
+          {/* {showDropdown && (
             <DropdownMenuWrapper isDarkMode={isDarkMode}>
               <DropdownMenu isDarkMode={isDarkMode}>
                 <DropdownItem onClick={handleAdminClick}>Admin</DropdownItem>
@@ -121,7 +123,7 @@ const Navbar = () => {
               </DropdownMenu>
             </DropdownMenuWrapper>
           )}
-        </Nav>
+        </Nav>  */}
 
  
 
@@ -129,16 +131,19 @@ const Navbar = () => {
           <Contact isDarkMode={isDarkMode}>
             <a href="/contact">Contact</a>
           </Contact>
+
           <SwitchLabel>
             <SwitchInput
               type="checkbox"
               checked={isDarkMode}
-              onChange={handleToggle}
+              onChange={handleToggle} onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             />
             <Slider
               className={isDarkMode ? "slider round active" : "slider round"}
-              checked={isDarkMode}
+              checked={isDarkMode} 
             />
+        
           </SwitchLabel>
         </Nav>
 
@@ -156,12 +161,12 @@ const NavbarContainer = styled.nav`
   /* background-color: #212529; */
   color: #fff;
   /* margin-top: 0px; */
-  height: 45px;
+  height: 60px;
 z-index:1;  /* align-items: center; */
-  font-weight: bold;
-  font-size: 12px;
+  /* font-weight: bold; */
+  font-size: 16px;
   /* padding: 5px 0px; */
-  font-family: "Open Sans", sans-serif;
+  font-family:   "-apple-system", "Segoe UI", sans-serif;
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   /* border-bottom: 1px solid #dcdcdc; */
   /* position: ${(props) => (props.scrollPosition > 20 ? "sticky" : "relative")}; */
@@ -174,13 +179,15 @@ const NavMenu = styled.ul`
   display:flex;
   flex-direction:row;
   list-style: none;
-margin-left:12px;  cursor: pointer;
+margin-left:0px;  
+cursor: pointer;
 padding-left:0px;
-/* padding-left:40px; */
 /* border:2px solid yellow; */
-margin-top:-65px;
+margin-top:-66px;
 /* border:4px solid yellow; */
-font-weight:bold;
+/* font-weight:bold; */  @media (max-width: 1000px) {
+margin-left:35px;
+}
 
  `
 
@@ -189,23 +196,22 @@ const Nav = styled.li`
   cursor: pointer;
  /* border:4px solid blue; */
   /* position: relative; */
-margin-right:20px; 
-/* margin-left:-20px; */
-padding-left:-60px;
+margin-right:23px; 
+font-weight:500; 
 align-items:center;
  img {
-padding-top:2px;    height: 40px;
+padding-top:0px;    height: 32px;
   cursor: pointer;
-margin-right:5px/* margin-left:-40px; */
-/* border:2px solid blue; */
+margin-right:10px;
+/* margin-left:-40px; */
+width:32px; 
   }
   a {
     color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
     text-decoration: none;
-/* padding-left:-10px;  */
-   font-size: 15px;
-  /* transition: 0.2s; */
-  /* margin-top: 10px;  */
+    font-family:   "-apple-system", "Segoe UI", sans-serif;
+   font-size: 16px;
+  margin-top: -2px; 
   /* padding-left:-20px; */
 /* padding-left:-10px; */
 /* width:80px; */
@@ -236,23 +242,34 @@ margin-right:5px/* margin-left:-40px; */
   }
 `;
 
+const Creat=styled.div`
+
+width:120px;
+    font-weight: bold;/* margin-left:10px; */
+font-size:16px ; 
+text-overflow:ellipsis;
+`
 
 const Contact = styled.div`
-margin-right:20px;`;
+margin-right:12px;
+margin-left:300px;
+`;
 
 const SwitchLabel = styled.label`
   position: relative;
+  margin-right:-10px;
+
   display: inline-block;
-  width: 50px;
-  height: 20px;   @media (max-width: 768px) {
-    display: none; 
-  }
+  width: 48px;
+  height: 24px;
 `;
 
 const SwitchInput = styled.input`
-   @media (max-width: 768px) {
-    display: none; 
-  }
+  opacity: 0;
+  width: 0px;
+  height:0px;
+  
+ 
 
   &:checked + .slider {
     background-color: #404040;
@@ -272,25 +289,33 @@ const Slider = styled.span`
   bottom: 0;
   background-color: #404040;
   transition: 0.2s;
-  border-radius: 34px;   @media (max-width: 768px) {
-    display: none; 
-  }
+  border-radius: 33px;
+
+
 
   &:before {
+    /* Add a shadow to the slider when the label is hovered */
+   
     position: absolute;
     content: "${(props) => (props.checked ? "" : "")}";
+    &:hover {
+      /* Add text-shadow here when hovering over the circle */
+      box-shadow: 2px 2px red;
+    }
     height: 20px;
-    max-width: 20px;
+    width: 18px;
     left: ${(props) => (props.checked ? "2px" : "2px")};
-    bottom: 0px;
+    bottom: 3px;
+    top:2px;
     background-color: ${(props) => (props.checked ? " white" : " white")};
     transition: 0.2s;
-    border-radius: 50%;
+    border-radius:100%;
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
     color: ${(props) => (props.checked ? "white" : "black")};
+   
   }
 
   &:after {
@@ -298,18 +323,20 @@ const Slider = styled.span`
     content: "${(props) => (props.checked ? "🌜" : "🌞")}";
     color: ${(props) => (props.isDarkMode ? "white" : "black")};
     font-size: 15px;
-    left: ${(props) => (props.checked ? "8px" : "28px")};
-    bottom: 0px;
+    left: ${(props) => (props.checked ? "5px" : "25px")};
+    bottom: 2px;
+  
+ 
   }
 
   &.active {
     background-color: #404040;
   }
+   /* Add styles for checked state */
+  
+  
 
-  &.active:before {
-    transform: translateX(26px);
-  }
-`;
+`
 const LoginLink = styled.a`
   cursor: pointer;
 
@@ -347,51 +374,9 @@ const DropdownItem = styled.div`
     color: #BB5A7D;
   }
 `;
-const Creat=styled.div`
-width:120px;
-/* padding-top:17px; */
-margin-left:-3px;
-`
-const NavMenu1 = styled.ul`
-  display: flex;
-  list-style: none;
-  /* position: relative; */
-  cursor: pointer;
-/* margin-left:-50px; */
 
 
- `
- const Nav1 = styled.li`
- display: flex;
-  cursor: pointer;
-  /* position: relative; */
-/* margin-left:5px;  */
- /* border:2px solid orange; */
- /* padding-left:0px; */
-/* width:115px;  */
- img {
-    height: 35px;
-  cursor: pointer;
-  margin-top: 0px;
-margin-left:-40px;
-/* border:2px solid blue; */
-  }
-  a {
-    color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-    text-decoration: none;
-/* padding-left:-10px;  */
-   font-size: 15px;
-  transition: 0.2s;
-  margin-top: 10px; 
-  /* padding-left:-20px; */
-margin-left:2px;
-/* width:80px; */
-  /* border:2px solid green; */
-  &:hover {
-      color: #BB5A7D;
-    }
-  
-    
-  }
- 
-`;
+
+
+
+

@@ -10,8 +10,8 @@ const { getAdmins } = require("./getAdmins.js");
 const { getAdmin } = require("./getAdmin.js");
 // const { updateAdmin } = require("./updateAdmin");
 const { postAdmin } = require("./postAdmin.js"); // Import your route handler
-// const { deleteAdmin } = require("./deleteAdmin");
-// const { adminLogin } = require("./adminLogin");
+const { deleteAdmin } = require("./deleteAdmin");
+const { adminLogin } = require("./adminLogin");
 // Below are methods that are included in express(). We chain them for convenience.
 // --------------------------------------------------------------------------------
 const port = 9999;
@@ -32,9 +32,9 @@ app.get("/api/admins/:adminId", getAdmin);
 // Add new Admin
 app.post("/api/admins", postAdmin);
 // Delete Admin
-// app.delete("/api/admins/:adminId", deleteAdmin);
+app.delete("/api/admins/:adminId", deleteAdmin);
 // Login Admin
-// app.post("/api/admins/login", adminLogin);
+app.post("/api/admins/login", adminLogin);
 app.get("/", (req, res) => {
   res.send("Welcome to the SE4AI Server!");
 });
