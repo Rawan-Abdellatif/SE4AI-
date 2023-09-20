@@ -419,7 +419,8 @@ const SteeringCommitteee=()=>{
     </svg>
     </a>
     </li>
-    <li><a target="_blank" href="https://twitter.com/limingz">
+    <li>
+      <a target="_blank" href="https://twitter.com/limingz">
       <svg aria-hidden="true" 
         width=" 0.875em"
       focusable="false" 
@@ -475,6 +476,7 @@ margin-right:2rem;
 
 `
 const SmallDiv=styled.div`
+border:2px solid #eef0f2;
 
 width:298px; 
 /* height:438.2px; */

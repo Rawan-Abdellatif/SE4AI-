@@ -27,7 +27,6 @@ const Team = () => {
     
   >     
 
-    <Grid item xs={12} md={12} lg={12} xl={12}>
 
       <Main isDarkMode={isDarkMode}>
       <Grid item xs={6} md={6} lg={12} xl={12}>
@@ -59,7 +58,7 @@ const Team = () => {
       </Main>
           
       </Grid>
-   </Grid>
+
     </Container>
   );
 };
@@ -79,11 +78,16 @@ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'N
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
 
-  width: 100%;  @media screen and (max-width: 768px) {
+  width: 100%;
+  @media screen and (max-width: 768px) {
   margin-left:0px;
   display:flex; 
   flex-wrap:wrap;
 
+}
+
+@media screen and (max-width: 480px) {
+  margin-left:0px;
 }
 `;
 
@@ -97,7 +101,7 @@ const Title = styled.div`
   padding-bottom: 80px;
   border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+  background-color: ${(props) => (props.isDarkMode ? "#242526" : "#ffffff")};
   width: 100%; /* Set the width to 100% */
   min-width:100vw;
   /* margin-right:-750px; */
@@ -129,5 +133,5 @@ const Main = styled.div`
   /* margin: 0 auto; */
 height:100%;
   background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
-  `
+`
 

@@ -522,6 +522,7 @@ margin-top:15px;
 /* margin-left:-165px; */
 margin-right:2rem;
 /* flex:0 0 100%; */
+
 @media (max-width: 1000px) {
 
   max-width:358.4px;
@@ -531,7 +532,7 @@ margin-right:2rem;
 
 `
 const SmallDiv=styled.div`
-
+border:2px solid #eef0f2;
 width:298px; 
 /* height:438.2px; */
 background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
