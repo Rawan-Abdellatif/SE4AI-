@@ -1148,13 +1148,12 @@ margin-right:2rem;
 
 `
 const SmallDiv=styled.div`
-border:2px solid #eef0f2;
+border:${(props) => (props.isDarkMode ? "": "2px solid #eef0f2")};
 
 width:298px; 
-/* height:438.2px; */
 background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-border-radius:calc(0.4rem*2);
+border-radius:20px;
 box-shadow:0 1 2 0 rgb(0 0 0 1);
 /* margin-top:20px;
 margin-left:100px;  */
@@ -1169,7 +1168,7 @@ const CardImage=styled.div`
 @media (max-width: 1000px) {
   width:358.4px;
 }
-  border-radius:calc(0.4rem*2);`
+  border-radius:20px;`
 const CardBody=styled.div`
   padding:0.25rem 1rem 0px;
 
@@ -1226,8 +1225,8 @@ text-decoration:none;
 const Image =styled.img`
 width:298px; 
 height:298px; 
-border-top-right-radius :5px; 
-border-top-left-radius:5px;
+border-top-right-radius :15px; 
+border-top-left-radius:15px;
 @media (max-width: 1000px) {
  width:358.4px;
  height:358.4px;
@@ -1239,7 +1238,7 @@ const Main = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  /* width:100%; */
-
+  margin-bottom:80px;
+/* border:2px solid orange; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;

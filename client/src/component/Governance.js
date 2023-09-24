@@ -52,7 +52,7 @@ const Title = styled.div`
   padding-bottom: 80px;
   border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+  background-color: ${(props) => (props.isDarkMode ? "#242526" : "#ffffff")};
   width: 100%; /* Set the width to 100% */
   min-width:100vw;
   /* margin-right:-750px; */
@@ -79,7 +79,7 @@ const RedText = styled.span`
 
 const Container = styled.div`
    /* margin-top: 0px; */
-   margin-left:100px; 
+   margin-left:70px; 
 
 font-family: "Open Sans", sans-serif;
 padding-bottom: 20px;
@@ -106,7 +106,7 @@ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'N
 
 const Main = styled.div`
   width: 100%;
-  max-width: 1500px;
+  max-width: 1400px;
   padding-top: 0.7px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* margin: 0 auto; */

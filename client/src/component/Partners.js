@@ -192,6 +192,11 @@ margin-left:150px;
   @media screen and (max-width: 480px) {
     margin-left: 70px; /* Adjust margin for screens up to 480px wide */
   }
+  @media screen and (min-width: 1700px) {
+    align-items: center;
+    margin-left: calc(30% - 170px); 
+    margin-bottom:calc(13% - 250px);
+  }
 
 `;
 
@@ -218,7 +223,7 @@ const Title = styled.h1`
   padding-bottom: 70px;
   border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : "#ffffff")};
+  background-color: ${(props) => (props.isDarkMode ? "#242526" : "#ffffff")};
   width: 100%; /* Set the width to 100% */
   min-width:100vw;
   /* margin-right:-750px; */
@@ -231,7 +236,7 @@ const ParticipatingSection = styled.div`
   display: flex;
   /* flex-direction :row; */
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 50px;
 max-width:400px;
 /* border:2px solid green; */
   font-size: 30px;
@@ -256,7 +261,7 @@ const IndustrialSection = styled.div`
   display: flex;
   /* flex-direction :row; */
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 50px;
 max-width:400px;
 /* border:2px solid green; */
   font-size: 30px;
@@ -264,13 +269,14 @@ max-width:400px;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
   margin-left:-50px;
 padding-left:-600px;
+/* border:2px solid orange; */
 `
 
 const CollaboratorsSection = styled.div`
   display: flex;
   /* flex-direction :row; */
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 50px;
 max-width:450px;
 /* border:2px solid green; */
   font-size: 30px;
@@ -288,7 +294,8 @@ const Choices = styled.div`
   /* width: 100%; */
   margin-left:-600px;
 padding-left:550px;   /* padding-left: 20px; */
-
+/* border:2px solid orange;  */
+margin-bottom:80px;
 `;
 
 const ChoiceItem = styled.div`
@@ -297,10 +304,10 @@ const ChoiceItem = styled.div`
 height:60px;
   padding: 20px 50px;
   width:200px;
-  margin-right:20px;
-  margin-top: 30px;
+  margin-right:30px;
+  margin-top: 45px;
   border-radius: 10px;
-  a {
+ a {
     text-decoration: none;
     color: inherit;
   }
@@ -312,6 +319,7 @@ height:60px;
   @media screen and (max-width: 480px) {
     width:100%;
   }
+
 
 `
 
@@ -327,7 +335,7 @@ const ConcordiaImage=styled.img`
 border-radius:5px;
 max-width:180px;
 max-height:40.5px;
-padding:5px 5px;
+padding:5px 30px;
 background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
 
 `
@@ -339,7 +347,7 @@ const PolyMtlImage=styled.img`
 border-radius:5px;
 max-height: 60px;
     max-width: 146.05px;
-    padding:0px 16px;
+    padding:0px 50px;
 /* align-items:center; */
     /* margin:25px auto; */
     /* position:absolute;
@@ -351,7 +359,7 @@ const QueensImage=styled.img`
 border-radius:5px;
 max-height: 53.1px;
     max-width: 180px;
-    padding:0 16px;
+    padding:0 30px;
     /* position:absolute;
 top: 50%;
 left: 50%; */
@@ -362,7 +370,7 @@ const AlbertaImage=styled.img`
 border-radius:5px;
 max-height: 42.3px;
     max-width: 180px;
-    padding:0 16px;
+    padding:0 30px;
     /* position:absolute;
 top: 50%;
 left: 50%; */
@@ -374,7 +382,7 @@ const NBCImage=styled.img`
 border-radius:5px;
 max-height: 60px;
     max-width: 173.91px; 
-    padding:0 16px;
+    padding:0 30px;
        /* position:absolute;
 top: 50%;
 left: 50%; */
@@ -385,7 +393,7 @@ background-color: ${(props) => (props.isDarkMode ?  "	#bec3c9":"inharit" )};
 border-radius:5px;
 max-height: 60px;
     max-width: 162.15px;
-    padding:0 16px;
+    padding:0 40px;
     /* position:absolute;
 top: 50%;
 left: 50%; */
@@ -398,7 +406,7 @@ const CiscoImage=styled.img`
 border-radius:5px;
 max-height: 60px;
     max-width: 114.28px; 
-    padding:0 40px;
+    padding:0 60px;
      /* position:absolute;
 top: 50%;
 left: 50%; */
@@ -410,7 +418,7 @@ left: 50%; */
 border-radius:5px;
 max-height: 58.5px;
     max-width: 180px; 
-    padding:0 16px;
+    padding:0 30px;
 
       /* position:absolute;
 top: 50%;
@@ -423,7 +431,7 @@ const EricssonImage=styled.img`
 border-radius:5px;
 max-height: 37.8px;
     max-width: 180px;  
-    padding:0 16px;
+    padding:0 30px;
 
       /* position:absolute;
 top: 50%;
@@ -448,7 +456,7 @@ const GIROImage=styled.img`
 border-radius:5px;
 max-height: 60px;
     max-width: 60px;
-    padding:0 70px;
+    padding:0 90px;
 
     /* position:absolute;
 top: 50%;
@@ -461,7 +469,7 @@ const RadioImage=styled.img`
 border-radius:5px;
 max-height: 34.2px;
     max-width: 180px;
-    padding:10px 16px;
+    padding:10px 30px;
 
     /* position:absolute;
 top: 50%;
@@ -474,7 +482,7 @@ const NSERImage=styled.img`
 border-radius:5px;
 max-height: 60px;
     max-width: 124.14px;
-    padding:0px 16px;
+    padding:0px 65px;
 
     /* position:absolute;
 top: 50%;
@@ -486,7 +494,7 @@ const IVADOImage=styled.img`
 border-radius:5px;
 max-height: 60px;
     max-width: 179.21px;
-    padding:0px 16px;
+    padding:0px 30px;
 
     /* position:absolute;
 top: 50%;
@@ -498,7 +506,7 @@ const OBVIAImage=styled.img`
 border-radius:5px;
 max-height: 44.1px;
     max-width: 180px; 
-    padding:0px 16px;
+    padding:0px 30px;
 
       /* position:absolute;
 top: 50%;
@@ -510,7 +518,7 @@ const MAIEIImage=styled.img`
 border-radius:5px;
 max-height: 48.6px;
     max-width: 180px;  
-    padding:0px 16px;
+    padding:0px 30px;
 
       /* position:absolute;
 top: 50%;
@@ -522,7 +530,7 @@ const GrazImage=styled.img`
 border-radius:5px;
 max-height: 49.5px;
     max-width: 180px;
-    padding:0px 16px;
+    padding:0px 30px;
    
      /* position:absolute; */
 /* top: 50%;
@@ -536,7 +544,7 @@ const VercelImage=styled.img`
 border-radius:5px;
 max-height: 40.5px;
     max-width: 180px;
-    padding:5px 16px;
+    padding:5px 30px;
 
     /* position:absolute;
 top: 50%;
