@@ -71,6 +71,8 @@ useEffect(() => {
 "/partners":"Partners",
 "/apply":"Apply Now",
 "/governance":"Governance",
+"/blog":"Blog",
+
 "/blog/past":"Past Events",
 "/blog/upcoming":"Upcoming Events",
 "/adminlogin":"Adminlogin",
