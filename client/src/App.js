@@ -20,7 +20,7 @@ import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
 import Contact from "./component/Contact";
 import Favicon from "./component/img/favicon.svg";
-
+import Header from "./component/Header"
 const App = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
@@ -96,8 +96,12 @@ useEffect(() => {
       <BrowserRouter >
       <GlobalStyle />
       
-        <Navbar />
-        <Routes >
+      {/* {window.innerWidth <= 995 ? (
+          <Header  />
+        ) : ( */}
+          <Navbar />
+          
+           <Routes >
           <Route path="/" element={<Homepage />} />
           <Route path="/intro" element={<Program />} />
           <Route
