@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import ProgramSidebar from "./ProgramSidebar";
+import Tabindex from "./Tabindex";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import ProgramComponentRightSidebar from "./ProgramComponentRightSidebar";
@@ -59,6 +60,7 @@ const ProgramComponents = () => {
   return (
     <Container isDarkMode={isDarkMode}>
       <ProgramSidebarContainer isDarkMode={isDarkMode}>
+        {/* <Tabindex/> */}
         <ProgramSidebar />
       </ProgramSidebarContainer>              
       <Grid
@@ -84,7 +86,7 @@ const ProgramComponents = () => {
 
       <Grid item xs={12} md={12} lg={12} xl={12}>
 
-        <Title isDarkMode={isDarkMode}>Program components</Title>
+        <Title isDarkMode={isDarkMode}>Program Components</Title>
         </Grid>
 
         <Subtitle
@@ -109,20 +111,22 @@ const ProgramComponents = () => {
           The prepared cases will be used in following years to enrich our
           training and will be disseminated to the international community.
         </Details>
-        <Details isDarkMode={isDarkMode}>
+        <Details2 isDarkMode={isDarkMode}>
+
           Although the course will mainly focus on the engineering of AI-based
           systems, trainees will be asked to reflect on the social aspects and
           how they influenced the engineering aspects of the system.
-        </Details>
+        </Details2>
         <Subtitle
           id="social-aspects-for-ai-based-software-system"
           isDarkMode={isDarkMode}
           className="subtitle"
+         
         >
           Social Aspects for AI-based Software System{" "}
           <a href="#social-aspects-for-ai-based-software-system"> #</a>
         </Subtitle>
-        <Details isDarkMode={isDarkMode}>
+        <Details2 isDarkMode={isDarkMode}>
           A newly developed course that focuses on various social criteria that
           AI-based systems need to consider, e.g., privacy, ethics, equity,
           diversity, inclusion (EDI), human rights and sustainable development
@@ -138,7 +142,7 @@ const ProgramComponents = () => {
           ethical assessment and concrete recommendations for such systems,
           while considering the engineering implications of their
           recommendations.
-        </Details>
+        </Details2>
         <Subtitle
           id="professional-development-modules"
           isDarkMode={isDarkMode}
@@ -147,14 +151,23 @@ const ProgramComponents = () => {
           Professional Development Modules​
           <a href="#professional-development-modules"> #</a>
         </Subtitle>
-        <Details isDarkMode={isDarkMode}>
-          SE4AI CREATE trainees will be offered the opportunity to go on one or
-          more internships with our industrial partners. Master’s trainees will
-          typically serve a single four-month internship, typically after their
-          second term in the program. PhD trainees will typically serve two
-          four-month internships. Trainees will be supported by their academic
-          supervisors and the relevant contact at the host partner.
-        </Details>
+        <Details2 isDarkMode={isDarkMode}>
+        Specialized modules that focus on professional 
+        skills in the context of AI-Software Systems will be provided
+         to trainees. This includes specialized modules on professional
+          skills (e.g., dissemination and presentation skills, commercialization
+           and entrepreneurship, communication and explainability) and aspects
+            of engagement and relation-building with communities and diverse stakeholders. 
+            In addition to newly developed modules, trainees will have access to a curated 
+            list of relevant professional development modules
+             that fit the SE4AI CREATE program offered through the
+              host universities (e.g. Concordia’s GradProSkills, Queen’s
+               Smith School of Business, Centre for Teaching and Learning,
+                University Research Services, and School of Graduate Studies).
+                 Trainees are given full flexibility to choose the modules that 
+                 better fit their expected future career aspirations 
+                 (e.g., academic researcher versus entrepreneur).
+        </Details2>
         <Subtitle
           id="industrial-embedding"
           isDarkMode={isDarkMode}
@@ -164,14 +177,14 @@ const ProgramComponents = () => {
           Industrial Embedding​
           <a href="#industrial-embedding"> #</a>
         </Subtitle>
-        <Details isDarkMode={isDarkMode}>
+        <Details2 isDarkMode={isDarkMode}>
           SE4AI CREATE trainees will be offered the opportunity to go on one or
           more internships with our industrial partners. Master’s trainees will
           typically serve a single four-month internship, typically after their
           second term in the program. PhD trainees will typically serve two
           four-month internships. Trainees will be supported by their academic
           supervisors and the relevant contact at the host partner.
-        </Details>
+        </Details2>
         <Subtitle
           className="subtitle"
           id="industry-webinars-or-seminars"
@@ -215,7 +228,7 @@ const ProgramComponents = () => {
           Social concepts. The exact number of specialization courses depends on
           the trainee’s home institution and program.
         </Details>
-        <Details isDarkMode={isDarkMode}>
+        <Details2 isDarkMode={isDarkMode}>
           Specialization courses include courses in (not a complete list):
           Software Analytics, Software Quality, Software Testing, Product Lines,
           Software Re-engineering, Software Architecture, Advanced Concepts in
@@ -227,7 +240,7 @@ const ProgramComponents = () => {
           the number of specialization courses available to our trainees. The
           exact specialization course(s) a trainee will take will be determined
           in consultation with their supervisor.
-        </Details>
+        </Details2>
         <Subtitle
           className="subtitle"
           id="hands-on-leadership-and-mentorship-training"
@@ -281,52 +294,79 @@ export default ProgramComponents;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  margin-top: 10px;
-  padding-top: 20px;  
+  /* margin-top: 10px; */
   /* margin: 0 auto; */
-
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 `;
 
 const MainContent = styled.div`
   /* border-left: ${props => window.innerWidth <= 1000 ? "none" : "1px solid #e8e8e8"}; */
-    padding-left:20px;  margin-left: 4px;
+    /* padding-left:-1px;  */
+     margin-left: -5px;
   max-width: 1000px; /* Adjust the maximum width as needed */
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto; /* Center the content horizontally */
- height:100%;
+ height:100%; 
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  /* border:2px solid green; */
+margin-top:-10px;
+  
+
  @media screen and (max-width: 768px) {
   margin-left:0px;
-  padding-left:5px;
-  padding-top:-10px;
+  padding-left:-5px;
+  padding-top:10px;
+  /* max-width:300px; */
+  width:100%s
 
-}
+} 
+ @media screen and (min-width: 1700px) {
+    align-items: center;
+    margin-left: calc(30% - 150px); 
+    /* margin-bottom:calc(13% - 150px); */
 
-
+  }
 `;
+
+
+
 const Title = styled.h1`
   font-weight:700;
   font-size: 50px;
+   margin-top: 0px; 
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
   color: ${(props) => (props.isDarkMode ? "white" : "black")};  
   @media screen and (max-width: 768px) {
- margin-bottom:2px;
+ margin-bottom:35px;
 
 }
 `;
 const Details = styled.div`
-  padding-top: 15px;
+  padding-top: 20px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width:100%; 
+  /* width:100%;  */
   display:flex; 
   flex-wrap:wrap;
-  max-width: 900px;
-  line-height: 1.7em;
-  font-size: 15px; 
-
+  max-width: 885px;
+  line-height: 1.65em;
+  font-size: 16px; 
+/* margin-bottom:5px; */
+`;
+const Details2 = styled.div`
+  padding-top: 20px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* width:100%;  */
+  display:flex; 
+  flex-wrap:wrap;
+  max-width: 885px;
+  line-height: 1.65em;
+  font-size: 16px; 
+margin-bottom:50px;
 `;
 const Subtitle = styled.div`
-  padding-top: 30px;
-  font-size: 30px;
+  margin-top: -12px;
+  font-size: 32px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-weight: 700;
   text-decoration: none;  
@@ -343,12 +383,11 @@ const Subtitle = styled.div`
 `;
 const Ul = styled.ul`
   list-style-type: disc;
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 15px;
-  line-height: 1.7em;
-  max-width: 700px;
-  /* width:100%;  */
-
+  line-height: 1.5em;
+  max-width: 800px;
+margin-bottom:50px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
 
 `;
@@ -373,7 +412,7 @@ const Button = styled.button`
   font-size: 13px;
   font-weight: bold;
   line-height: 1.7em;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #606770;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 
   &:hover {

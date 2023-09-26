@@ -134,6 +134,7 @@ const MainContainer = styled.section`
   width:100%; 
   padding: 3.5rem  2rem;
   margin : 1px auto;
+  margin-bottom:-60px;
   /* Media Query for Mobile Devices */
   @media (max-width: 995px) {
     padding: 1.8rem 2rem;
@@ -141,11 +142,11 @@ const MainContainer = styled.section`
 `;
 const Nserc = styled.span`
   font-size: 1.4rem;
-margin-left:-170px;
-/* padding-top:600px;  */
+margin-left:-165px;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 /* border:2px solid orange;  */
 /* padding: 0; */
-margin-top :170px; 
+margin-top :185px; 
 position:absolute;
 
 `;
@@ -157,7 +158,7 @@ position:absolute;
 
 const HeroText = styled.div`
   /* max-width: 600px; */
-  margin: 0 auto;
+  margin: 9px auto;
   padding-bottom:70px;
 
   /* Media Query for Mobile Devices */
@@ -178,16 +179,16 @@ const fadeInAnimation = keyframes`
 const ButtonLink = styled(Link)`
   background-color: ${(props) => (props.isDarkMode ? "#BB5A7D" : "#BB5A7D")};
   color: ${(props) => (props.isDarkMode ? "black" : "white")};
-  font-weight: bold;
-  padding: 12px 35px;
-  font-size: 20px;
+  font-weight:700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  padding: 12px 34px;
+  font-size: 19px;
   border: none;
   border-radius: 8px;
-  width: 180px;
+  width: 82px;
   cursor: pointer;
-  margin-left:-20px;
-  /* margin-top: 150px; */
-  /* padding-bottom:-20px; */
+  margin-left:-65px;
   /* border :5px solid yellow; */
   text-decoration: none;
   animation: ${fadeInAnimation} 1s ease-in-out;
@@ -204,16 +205,19 @@ const ButtonLink = styled(Link)`
 
 
 const CustomText = styled.div`
-  font-size: 50px;
+  font-size: 48px;
   padding-top: 6px;
-  margin-left:-50px;
-  margin-bottom: 5px;
+  margin-left:-65px;
+  margin-bottom: -8px;
   font-weight: 700;
   line-height:1.25;
   font-family:system-ui,-apple-system,Segoe UI,Roboto
   ,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,
   "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji",
   "Segoe UI Emoji","Segoe UI Symbol";
+  @media (max-width: 995px) {
+width:300px;  
+margin-left:-30px;}
 `;
 
 const WhiteText = styled.span`
@@ -225,11 +229,15 @@ const RedText = styled.span`
 `;
 
 const P = styled.p`
-  font-size: 23px;
-margin-left:-50px;  /* text-align: center; */
-  padding-bottom: 20px;
+  font-size: 24px;
+margin-left:-65px;  /* text-align: center; */
+  padding-bottom: 5px;
 align-items:2.5rem;
 line-height:1.75;
+font-family:system-ui,-apple-system,Segoe UI,Roboto
+  ,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,
+  "Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji",
+  "Segoe UI Emoji","Segoe UI Symbol";
 
   /* Media Query for Mobile Devices */
   /* @media (max-width: 995px) {

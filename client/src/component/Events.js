@@ -22,6 +22,7 @@ import group3Image from "../component/2022-09-21-past/group3.jpg";
 import group4Image from "../component/2022-09-21-past/group4.jpg";
 import olivierImage from "../component/2022-09-21-past/olivier.jpg";
 import sumon_biswasImage from "../component/2022-09-21-past/sumon_biswas.jpg";
+import traineeSeptemberImage from "../component/upcoming/traineeSeptember.jpg"
 
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Sidebar from "./Sidebar";
@@ -49,6 +50,33 @@ const Events = () => {
         <Title>
           <a href="/blog/past">Past Events</a>
         </Title></Grid>
+        <Subtitle
+          isDarkMode={isDarkMode}
+          id="trainee-talks-webinar---september-25-2023​"
+          className="subtitle"
+        >
+Trainee Talks Webinar - September 25, 2023​
+           <a href="#trainee-talks-webinar---september-25-2023​
+">  #</a>
+          <Img src={traineeSeptemberImage} alt=" traineeSeptemberImage" />
+        </Subtitle>
+        <Details isDarkMode={isDarkMode}>Our CREATE SE4AI community 
+        came together on September 25th, 2023 for the first Trainee
+         Talks of the fall semester. We heard Queen's Master's candidate
+          Divya Kamath present her thesis research on Pragmatic Approaches
+           to Schedule Less Builds in Continuous Integration. 
+           Then, Mohayeminul Islam, PhD student from University
+         of Alberta shared his work on Characterizing Python Library Migrations.</Details>
+         <YoutubeChannel isDarkMode={isDarkMode}>
+         The video is now available to view on our
+          <a
+            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
+            target="_blank"
+            rel="noreferrer"
+          >
+            CREATE SE4AI YouTube channel
+          </a>
+        </YoutubeChannel>
         <Subtitle
           isDarkMode={isDarkMode}
           id="industry-talks-webinar---april-25-2023"
@@ -497,22 +525,21 @@ const Events = () => {
           Learning Pipeline".
         </Details2>
         <Details2>
-          <Bold isDarkMode={isDarkMode}>Link to presentation:</Bold>
-        </Details2>
-        <Details isDarkMode={isDarkMode}>
+          <Bold isDarkMode={isDarkMode}>Link to presentation: </Bold>
+        
           <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
-            https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
+             https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
           </a>
-        </Details>
+        </Details2>
         <Details2 isDarkMode={isDarkMode}>
           <Bold isDarkMode={isDarkMode}>About the Speaker</Bold>
         </Details2>
         <Group3>
           {" "}
-          <Details3 isDarkMode={isDarkMode}>
+          <Details3 isDarkMode={isDarkMode}><Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
             Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
             University (ISU) and a Research Assistant in Laboratory for Software
-            Design <Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />at ISU under the supervision of Professor Hridesh Rajan. His
+            Design at ISU under the supervision of Professor Hridesh Rajan. His
             research interests are in the intersection of Software Engineering,
             Programming Languages, and Artificial Intelligence. He has worked on
             Machine Learning (ML) software repository mining and analysis in
@@ -529,9 +556,9 @@ const Events = () => {
           
         </Group3>
         <Details2>
-          <Bold isDarkMode={isDarkMode}>Homepage:</Bold>
+          <Bold isDarkMode={isDarkMode}>Homepage: </Bold>
 
-          <a href="https://sumonbis.github.io/">https://sumonbis.github.io/</a>
+          <a href="https://sumonbis.github.io/"> https://sumonbis.github.io</a>
         </Details2>
         <Title>
           <a href="/blog/upcoming">Upcoming Events</a>
@@ -552,9 +579,9 @@ const Container = styled.div`
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
-
+margin-left:-20px;
   width: 100%;  
-
+  @media screen and (max-width: 700px) {margin-left:0px;}
 
 `;
 
@@ -562,10 +589,17 @@ const MainContent = styled.div`
   /* flex: 1; */
   /* margin-left: 170px; */
   width: 100%;
-  max-width: 660px;
+  max-width: 740px;
   padding-top: -40px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   margin: 0 auto;
+  /* border:2px solid orange;  */
+  /* margin-left:0px; */ @media screen and (min-width: 1700px) {
+    /* align-items: center; */
+    margin-left: calc(30% - 4px); 
+    /* margin-bottom:calc(13% - 150px); */
+
+  }
 
 
 `;
@@ -580,7 +614,7 @@ display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
   /* margin-left:120px; */
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
 
@@ -588,6 +622,7 @@ display: flex;
   a {
     color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
+    margin-left:5px;
   }
   a:hover {
     color: #bb5a7d;
@@ -597,8 +632,9 @@ display: flex;
 `;
 const Img = styled.img`
 width:100%;
-  /* max-width: 650px;
-  height: 200px; */
+ max-width: 750px; 
+ height:400px;
+  /* height: 200px; */
   padding-top: 20px;
   padding-bottom:20px;
 
@@ -606,10 +642,11 @@ width:100%;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 width:100%; 
-max-width: 640px;
+max-width: 900px;
   line-height: 1.7em;
-  font-size: 15px;  
+  font-size: 16px;  
 padding-top:20px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
   a {  
 
@@ -626,15 +663,20 @@ padding-top:20px;
 const Bold = styled.span`
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* margin-top:100px; */
-  padding-top:100px;
+width:100%;  padding-top:500px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
 `;
 const Details2 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   width:100%; 
-max-width: 640px;  line-height: 2em;
-  font-size: 15px;
+max-width: 800px;
+  line-height: 2em;
+  font-size: 16px;
   margin-top: 20px;
+  margin-bottom:20px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
 
 
   a {
@@ -648,13 +690,19 @@ max-width: 640px;  line-height: 2em;
 const Bold2 = styled.span`
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  line-height: 5em;
+  /* line-height: 2em; */
+  margin-bottom: -15px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+
 `;
 const YoutubeChannel = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  line-height: 2em;
-
+  /* line-height: 2em; */
+margin-top:15px;
   a {
+    margin-left:5px;
+
     color: #bb5a7d;
     text-decoration: none;
 
@@ -665,36 +713,46 @@ const YoutubeChannel = styled.div`
 `;
 const Ol = styled.ol`
 display:flex;
+flex-direction:column;
 flex-wrap:wrap;
   list-style-type: decimal;
   padding-top: 5px;
-  font-size: 15px;
-  line-height: 1.8em;
-  width:100%;
-  max-width: 500px;
+  font-size: 16px;
+  /* line-height: 1.8em; */
+  width:95%;
+  max-width: 880px;
   margin-left: -4px;
+  /* border:2px solid blue; */
 
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 20px;
-  width:100%;
+  /* border:2px solid red; */
+  max-width:770px;
+  /* width:100%; */
 
 
 `;
+const Img4 = styled.img`
+  max-width: 200px;
+  height: 180px;
+/* border:2px solid red;   */
+/* margin-left: 20px; */
+`;
 const Img2 = styled.img`
- width: 200px;
+ width: 240px;
    /* height: 350px; */
   margin-left: 4px;
   margin-top: 10px;
-
+/* border:2px solid yellow; */
 `;
 const Image = styled.div`display: flex;
 flex-wrap: wrap;
 width:100%;
 
- max-width: 520px;  
+ max-width: 850px;  
 
 `;
 const Group = styled.div`
@@ -735,8 +793,8 @@ const HoverContainer = styled(ImgContainer)`
 `;
 const Group2 = styled.div`
   display: flex;
-  flex-direction:row;
-  /* flex-direction: row; */
+  /* flex-direction:row; */
+/* border:2px solid green; */
   margin-right: 5px;
   padding-top: 10px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -744,16 +802,11 @@ const Group2 = styled.div`
     color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     font-size: 15px;
     margin-bottom: 20px;
-    max-width: 380px;
+    max-width: 400px;
   }
 `;
 
-const Img4 = styled.img`
-  max-width: 200px;
-  height: 180px;
-  /* margin-left: 190px; */
-  /* margin-right: 10px; */
-`;
+
 
 
 const Details3 = styled.div`
@@ -761,8 +814,9 @@ const Details3 = styled.div`
   flex: 1;
   width: calc(100% - 220px); /* Adjust width to leave space for the image */
   line-height: 1.7em;
-  font-size: 15px;
+  font-size: 16px;
   margin-top: 0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 
 `;
@@ -780,6 +834,7 @@ const Group3 = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start; /* Align items to the top of the container */
+
   margin: 10px; /* Adjust margin for spacing around the group */
 
 `;

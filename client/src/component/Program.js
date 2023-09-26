@@ -77,15 +77,17 @@ const Program = () => {
           on leadership roles such as, team leads, entrepreneurs, policy makers,
           and professors.
         </Details2>    
-        <Button isDarkMode={isDarkMode}> <div>
-            Next
- 
-        <a href="/training-program/objectives">
-         <div> Program Objective{" "}  </div>
-            <Icon>
+        <Button isDarkMode={isDarkMode}>
+       
+        <div >Next</div>
+     
+        <a href="/training-program/objectives"> 
+         <div> Program Objective{" "} 
+            {/* <Icon> */}
               <MdKeyboardDoubleArrowRight />
-            </Icon>
-          </a></div>
+            {/* </Icon>  */}
+            </div>
+          </a>
         </Button>
       </MainContent>
     
@@ -103,7 +105,7 @@ const Container = styled.div`
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
-/* margin-left:50px; */
+
   width: 100%;
     /* height:100%; */
 
@@ -115,55 +117,64 @@ const MainContent = styled.div`
     props.isDarkMode ? "1px solid #D0D0D0" : "1px solid #D0D0D0"}; */
     /* height:100%; */
       /* margin-left: 50px; */
-margin:0 auto;
-    /* padding-left:50px; */
+margin:-25px -5px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   display:flex;
   flex-wrap:wrap;
-  max-width: 1000px; /* Adjust the maximum width as needed */
+  max-width: 880px; /* Adjust the maximum width as needed */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* border:2px solid red; */@media screen and (min-width: 1700px) {
+    /* align-items: center; */
+    margin-left: calc(20% - 120px); 
+    /* margin-top: calc(5% - 250px);  */
+    /* max-width: 3000px; /* Adjust the maximum width as needed */
+  }
 `;
 const Title = styled.h1`
 
   font-weight: bold;
-  font-size: 45px;
+  font-size: 47px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
 `;
 const Details = styled.div`
-
+margin-top:-5px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* width: 800px; */
+  /* width: 1700px; */
   line-height: 1.7em;
-  font-size: 15px; 
-
+  font-size: 16px; 
+margin-bottom:15px;
 `;
 
 const Details2 = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};  
-  /* width: 800px; */
-  line-height: 1.7em;
-  font-size: 15px;
-  margin-bottom: 70px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  margin-top:5px;  
+ /* max-width: 890px;  */
+   line-height: 1.7em;
+  font-size: 16px;
+  margin-bottom: 50px;
+  /* border:2px solid green; */
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 `;
 const Ul = styled.ul` 
   margin-top:-40px;
-
+  /* width: 1500px; */
+  width:100%;
   list-style-type: disc;
-  font-size: 15px;
-  line-height: 1.7em;
-  /* width: 800px; */
+  font-size: 16px;
+  line-height: 1.9rem;
+/* border:2px solid green; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 `;
 const Li = styled.li`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   padding-top:-20px;
   font-size: 17px;
-  /* margin-bottom: 10px;  */
-
+width:100%;
 `;
 const Button = styled.button`
   width: 100%; /* Set the width to 100% */
-  max-width: 370px; /* Adjust the maximum width as needed */
+  max-width: 380px; /* Adjust the maximum width as needed */
   height: 70px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   background-color: inherit;
@@ -176,17 +187,19 @@ const Button = styled.button`
   padding-top: -2px;
   font-size: 15px;
   /* line-height: 1.7em; */
-  border: 1px solid #e8e8e8;
+  border: 1px solid #606770;
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
   }
   div{
-    margin-right:0;
-    padding-right:0;
+    margin-left:100px;
+padding-left:0px;    width:180px;
+    /* border:2px solid yellow; */
   }
+
   a {
-    padding-left:30px;
+    padding-left:0px;
     /* border:3px solid yellow; */
     display: flex;
     flex-direction: row;
@@ -194,12 +207,30 @@ const Button = styled.button`
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
-    margin-right:0;
-    padding-right:0;
+    /* margin-right:-20px; */
+    /* padding-right:0; */
  }
+
+
+  @media screen and (max-width: 480px) {
+    max-width: 170px;  
+     height: 90px;
+    div{
+      margin-left:-127px;
+      /* padding-left:0px;  */
+    }
+    a {
+         }}
 `;
 
 const Icon = styled.div`
   padding-top: 3px;
   color: #bb5a7d;
 `;
+const Div=styled.div` 
+  /* margin-left:150px; */
+  border:2px solid orange;
+  /* margin-left:37px;
+padding-left:100px; */
+    width:20px;
+`

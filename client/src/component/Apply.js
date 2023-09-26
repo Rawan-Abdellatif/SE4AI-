@@ -11,7 +11,7 @@ const Apply = () => {
        <Grid
     container
     justifyContent="center"
-    // alignItems="center"
+ alignItems="center"
     style={{ flex: 1,padding:"20px" }}
     
   >     
@@ -65,13 +65,29 @@ const Container = styled.div`
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 /* max-height:1000px; */
-margin-bottom:50px;
-margin-left:220px;
-margin-top:30px;
+margin-bottom:20px;
+margin-left:200px;
+margin-top:45px;
+/* border:2px solid yellow; */
+  @media screen and (min-width: 1700px) {
+    align-items: center;
+    margin-left: calc(30% - 140px); 
+    margin-bottom:calc(13% - 150px);
 
+  }
+  @media screen and (max-width: 768px) {
+    margin-top:15px;
+  }
 
-
+  @media screen and (max-width: 480px) {
+    margin-top:20px;
+  }
 `;
+
+
+
+
+
 
 const Title = styled.h1`
   font-weight: 700;
@@ -85,7 +101,8 @@ const Title = styled.h1`
 const EmailText = styled.p`
   font-size: 16px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  /* text-align:center; */
+line-height:1.7em;
+
   @media screen and (max-width: 1000px) {
     width: 360px;
 
@@ -100,6 +117,7 @@ const EmailLink = styled.a`
   text-decoration: none;
   color:rgb(187, 90, 125);
 width:100%;
+
   &:hover {
     color:rgb(187, 90, 125);;
     text-decoration: underline;
@@ -110,42 +128,53 @@ width:100%;
 const EmailContent = styled.div`
   /* margin-top: 40px; */
   font-size: 16px;
+  line-height:1.25em;
 `;
 
 const List = styled.ul`
   list-style-type: none;
-  padding-left: 2rem ;
+  padding-left: 1rem ;
+  margin-top:10px;
+
+  /* border:2px solid yellow; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
   @media screen and (max-width: 1000px) {
     width: 340px;
     padding-left: 1rem ;
 
-}
+} 
+
 `;
 
 const ListItem = styled.li`
-  margin-bottom: 10px;
-  line-height: 1.2;
+display:list-item;
+  margin-bottom: 15px;
+  line-height:0.75em;
   display: flex;
- 
+ font-size:16px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
-
+  @media screen and (max-width:1000px) {  
+  line-height:1.5em;
+}
   ::before {
     content: "";
     display: inline-block;
-    width: 7px;
-    height: 7px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background-color: ${(props) => (props.isDarkMode ? "white" : "black")};
     margin-right: 10px;
-    margin-top:5px;
+    margin-top:7px;
   }
+
+
 `;
 const Main=styled.div` 
-
-width: 1900px;
+max-width:1900px;
+width:100%;
+/* width: 1900px; */
 /* border:2px solid red; */
-/* width:100%; */
+margin-top:-40px;
 /* margin:0px 16px ; */
 color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; 
  @media screen and (max-width: 900px) {
@@ -159,7 +188,8 @@ color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
 display:flex;
 flex-direction:row;
 
-}
+} 
+
 
 `
 const Row=styled.div`    display: flex;

@@ -66,7 +66,7 @@ export default Team;
 //style of all of the page
 const Container = styled.div`
    /* margin-top: 0px; */
-   margin-left:100px; 
+   margin-left:70px; 
 
 font-family: "Open Sans", sans-serif;
 padding-bottom: 20px;
@@ -114,6 +114,7 @@ const Subtitles = styled.div`
 display: flex;
   flex-wrap: wrap;
   margin-top: 40px;
+  margin-bottom:10px;
   /* margin-left:120px; */
   font-size: 2em;  font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
@@ -127,11 +128,12 @@ const RedText = styled.span`
 `;
 const Main = styled.div`
   width: 100%;
-  max-width: 1500px;
+  max-width: 1400px;
   padding-top: 0.7px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* margin: 0 auto; */
 height:100%;
-  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};
+  background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")}; 
+
 `
 

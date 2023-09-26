@@ -109,27 +109,29 @@ export default SecondContent;
 
 const Container = styled.div`
   /* background-color: black; */
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
-  font-family: "Open Sans", sans-serif;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
     align-items: center;
 margin-left:0px;  }
 `;
 
-const TextContent = styled.div`
+const TextContent = styled.h2`
 
-  font-weight: 900;  
+  font-weight: 800;  
   display: inline-block;
+  align-items:0.05rem;
     font-size: 2rem;
-    margin-bottom: 3rem;
-    max-width: 850px;
+    margin-bottom:1rem;
+    max-width: 855px;
     text-align: center;
   color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
   @media (max-width: 995px) {
-    /* flex-direction: column;  */
- } 
+width:350px;  
+/* margin-left:-30px; \ */
+} 
 `;
 
 const RedText = styled.span`
@@ -147,8 +149,10 @@ const MainContainer = styled.div`
 
 const FirstLine = styled.div`
   display: flex;
+  margin-top:23px;
   justify-content: center;
-  gap: 30px;
+  gap: 80px;
+  /* border:2px solid green; */
   margin-bottom: 50px;
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 
@@ -161,6 +165,8 @@ const FirstLine = styled.div`
 
 const SecondLine = styled.div`
   display: flex;
+  gap:80px;
+  /* border:2px solid green; */
   justify-content: center;
   @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */
@@ -179,7 +185,8 @@ const SmallContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-width:345px; 
+width:360px; 
+/* border:2px solid yellow; */
 /* padding-right:40px; */
 /* padding-left:40px; */
  color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
@@ -192,16 +199,18 @@ width:345px;
 
 
 const Text = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   color: black;
-  /* padding-left: 25px; */
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+/* font-size:40px; */
+/* border:2px solid orange; */
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 `;
 
 const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   text-align: center;
 
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
@@ -214,10 +223,10 @@ display: block;
     /* margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px; */
-    margin-inline-end: 0px;  line-height: 1.7;
+    /* margin-inline-end: 0px; */
+      line-height: 1.8;
   text-align: center;
-  /* width: 75%; */
-/* margin-right:40px; */
+width:357px;/* margin-right:40px; */
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
   @media (max-width: 995px) {
     flex-direction: column; /* Display items in a column on mobile */

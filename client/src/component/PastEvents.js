@@ -22,6 +22,7 @@ import group3Image from "../component/2022-09-21-past/group3.jpg";
 import group4Image from "../component/2022-09-21-past/group4.jpg";
 import olivierImage from "../component/2022-09-21-past/olivier.jpg";
 import sumon_biswasImage from "../component/2022-09-21-past/sumon_biswas.jpg";
+import traineeSeptemberImage from "../component/upcoming/traineeSeptember.jpg"
 
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Sidebar from "./Sidebar";
@@ -30,31 +31,38 @@ const PastEvents = () => {
   const { isDarkMode } = useContext(DarkModeContext);
   const [activeLink, setActiveLink] = useState(null);
 
+
   useEffect(() => {
     const handleScroll = () => {
       const subtitles = document.querySelectorAll(".subtitle");
-
+  
       subtitles.forEach((subtitle) => {
         const rect = subtitle.getBoundingClientRect();
         const linkId = subtitle.getAttribute("id");
-
+    
+        console.log("Subtitle ID:", linkId);
+        console.log("Subtitle Rect Top:", rect.top);
+    
         if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
           setActiveLink(linkId);
+          console.log("Updated activeLink:", linkId);
         }
       });
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Call handleScroll once on mount to initialize the active link
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  
   const handleLinkClick = (id) => {
     setActiveLink(id);
+    console.log ("setActineLink in PastEvent ",setActiveLink)
   };
+  console.log("activeLink in PastEvent",activeLink)
   return (
     <Container isDarkMode={isDarkMode}>
       <StickySidebar>
@@ -70,11 +78,38 @@ const PastEvents = () => {
     <Grid item xs={12} md={12} lg={12} xl={12}>
       <MainContent isDarkMode={isDarkMode}>
       <Grid item xs={12} md={12} lg={12} xl={12}>
-        <Title isDarkMode={isDarkMode}>Past Events</Title></Grid>
-        <Subtitle
+
+      <Title isDarkMode={isDarkMode}>Past Events</Title></Grid>
+      <Subtitle
+          isDarkMode={isDarkMode}
+          id="trainee-talks-webinar---september-25-2023"
           className="subtitle"
+        >
+Trainee Talks Webinar - September 25, 2023​
+           <a href="#trainee-talks-webinar---september-25-2023">  #</a>
+          <Img src={traineeSeptemberImage} alt="traineeSeptemberImage" />
+        </Subtitle>
+        <Details isDarkMode={isDarkMode}>Our CREATE SE4AI community 
+        came together on September 25th, 2023 for the first Trainee
+         Talks of the fall semester. We heard Queen's Master's candidate
+          Divya Kamath present her thesis research on Pragmatic Approaches
+           to Schedule Less Builds in Continuous Integration. 
+           Then, Mohayeminul Islam, PhD student from University
+         of Alberta shared his work on Characterizing Python Library Migrations.</Details>
+         <YoutubeChannel isDarkMode={isDarkMode}>
+         The video is now available to view on our 
+          <a
+            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
+            target="_blank"
+            rel="noreferrer"
+          >
+             CREATE SE4AI YouTube channel
+          </a>
+        </YoutubeChannel>
+        <Subtitle
           isDarkMode={isDarkMode}
           id="industry-talks-webinar---april-25-2023"
+          className="subtitle"
         >
           Industry Talks Webinar - April 25, 2023
           <a href="#industry-talks-webinar---april-25-2023"> #</a>
@@ -87,7 +122,8 @@ const PastEvents = () => {
             {" "}
             on Balancing Data Valorization and Privacy: Industry Challenges and
             Opportunities.
-          </Bold>{" "}</Details ><Details2 isDarkMode={isDarkMode}>
+          </Bold>{" "}</Details>
+          <Details2 isDarkMode={isDarkMode}>
           In his talk, Patrick delved into the distinct characteristics of data
           as a digital asset and examined the challenges of striking a balance
           between data valorization and privacy. Emphasizing the importance of
@@ -158,8 +194,8 @@ const PastEvents = () => {
           isDarkMode={isDarkMode}
           id="women-in-engineering-wie---march-18-2023"
         >
-          Women in Engineering (WIE) - March 18, 2023
-          <a href="#women-in-engineering-wie---march-18-2023"> #</a>
+          Women in Engineering (WIE) - March 18, 2023  
+          <a href="#women-in-engineering-wie---march-18-2023">  #</a>
         </Subtitle>
         <Details2 isDarkMode={isDarkMode}>
           On March 18th , CREATE SE4AI took part in WIE Inspire WIE Empower, an
@@ -188,9 +224,9 @@ const PastEvents = () => {
           <Bold isDarkMode={isDarkMode}> Lorena Barreto </Bold>(Concordia
           University) and <Bold isDarkMode={isDarkMode}>Khaled Badran </Bold>
           (Concordia University), along with Program Coordinator{" "}
-          <Bold isDarkMode={isDarkMode}>Lori Akiyama </Bold> developed and
-          delivered a fun, interactive workshop on AI and Chatbots to 4 groups
-          of students. The goals of the workshop were to:
+          <Bold isDarkMode={isDarkMode}>Lori Akiyama </Bold> developed and delivered a fun, interactive
+          workshop on AI and Chatbots to 4 groups of students. The goals of the
+          workshop were to:
         </Details2>
         <Ol isDarkMode={isDarkMode}>
           <Li isDarkMode={isDarkMode}>
@@ -267,7 +303,7 @@ const PastEvents = () => {
           includes implementing evidence-based solutions and facilitating change
           at large enterprises such as Sony PlayStation, Microsoft, AT&T,
           T-Mobile, and Wal*Mart, as well as at start-ups including Datasage,
-          Meals.com, VigLink,<a href="https://opengov.com/">OpenGov.com</a>, and{" "}
+          Meals.com, VigLink,<a href="https://opengov.com/"> OpenGov.com</a>, and{" "}
           <a href="https://www.medable.com/">Medable.com</a>. Gabor has also
           presented his research at various applied AI research conferences,
           including AAAI, KDD, LREC, and ICDM.
@@ -396,10 +432,9 @@ const PastEvents = () => {
           Testing of AI-based Software Systems
         </Details2>
         <Details2 isDarkMode={isDarkMode}>
-          Our monthly
-          <Bold isDarkMode={isDarkMode}> CREATE SE4AI Trainee Talks</Bold>{" "}
-          webinar series kicked off with 2 graduate Software Engineering
-          students presenting their research.
+          Our monthly<Bold isDarkMode={isDarkMode}> CREATE SE4AI Trainee Talks</Bold> webinar series
+          kicked off with 2 graduate Software Engineering students presenting
+          their research.
         </Details2>
         <Details2 isDarkMode={isDarkMode}>
           In the first of our series of trainee-led webinars, we invited 2
@@ -486,7 +521,6 @@ const PastEvents = () => {
           Learning Models" including:
         </Details>
         <Group2 isDarkMode={isDarkMode}>
-
           <Ol isDarkMode={isDarkMode}>
             <Li isDarkMode={isDarkMode}>
               What it means to develop high quality artificial intelligence
@@ -494,16 +528,18 @@ const PastEvents = () => {
             <Li isDarkMode={isDarkMode}>
               A better approach to ML model evaluation
             </Li>
-            <Li>Existing and future certifications for AI systems</Li>
-            <Details isDarkMode={isDarkMode}>
-              Bio:{" "}
-              <a href="https://moov.ai/en/olivier-blais">
-                https://moov.ai/en/olivier-blais/
-              </a>
-            </Details>
+            <Li isDarkMode={isDarkMode}>
+              Existing and future certifications for AI systems
+            </Li>
+            <Details isDarkMode={isDarkMode} style={{ display: 'flex', width:'100%' }}>
+  <Span>Bio:</Span>
+  <a href="https://moov.ai/en/olivier-blais" >
+    https://moov.ai/en/olivier-blais/
+  </a>
+</Details>
+
           </Ol>
           <Img4 src={olivierImage} alt="olivier.jpg" />
-
         </Group2>{" "}
         <YoutubeChannel isDarkMode={isDarkMode}>
           The webinar recording is available to view on our{" "}
@@ -528,18 +564,19 @@ const PastEvents = () => {
           State University on "Understanding and Reasoning Fairness of Machine
           Learning Pipeline".
         </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          <Bold isDarkMode={isDarkMode}>Link to presentation:</Bold>
-        </Details2>
-        <Details isDarkMode={isDarkMode}>
-          <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos" >
-            https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
+        <Details2>
+          <Bold isDarkMode={isDarkMode}>Link to presentation: </Bold>
+        
+          <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
+             https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
           </a>
-        </Details>
+        </Details2>
         <Details2 isDarkMode={isDarkMode}>
           <Bold isDarkMode={isDarkMode}>About the Speaker</Bold>
         </Details2>
-        <Group3>          <Details3 isDarkMode={isDarkMode}>
+        <Group3>
+          {" "}
+          <Details3 isDarkMode={isDarkMode}><Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
             Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
             University (ISU) and a Research Assistant in Laboratory for Software
             Design at ISU under the supervision of Professor Hridesh Rajan. His
@@ -555,17 +592,17 @@ const PastEvents = () => {
             and reasoning about fairness property and its mitigation in ML
             pipelines. His research results appeared in reputed software
             engineering venues including ICSE and ESEC/FSE.
-          </Details3>{" "}      
-
-          <Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
+          </Details3>{" "}
+          
         </Group3>
-        <Details2 isDarkMode={isDarkMode}>
+        <Details2>
           <Bold isDarkMode={isDarkMode}>Homepage:</Bold>
 
-          <a href="https://sumonbis.github.io/">https://sumonbis.github.io/</a>
+          <a href="https://sumonbis.github.io/">https://sumonbis.github.io</a>
         </Details2>
         <Button isDarkMode={isDarkMode}>
-          Older Post
+          <Span>      Older Post</Span>
+    
           <a href="/blog/upcoming">
             Upcoming Events{" "}
             <Icon>
@@ -574,7 +611,12 @@ const PastEvents = () => {
           </a>
         </Button>
       </MainContent></Grid></Grid>
-      <RightSidebar activeLink={activeLink} handleLinkClick={handleLinkClick} />
+      <RightSidebar
+  activeLink={activeLink}
+  handleLinkClick={handleLinkClick}
+/>
+
+
     </Container>
   );
 };
@@ -605,33 +647,45 @@ const Container = styled.div`
 
 const MainContent = styled.div`
   /* flex: 1; */
-  /* margin-left: 170px; */
-  padding-top: -40px;
+/* border:2px solid orange; */
+/* border:2px solid green; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
- max-width: 640px;
-  margin-bottom: 30px;     width: 100%;
+ max-width: 750px;
+  margin-bottom: 30px;  
+     width: 100%;
   /* max-width: 1500px; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-left:252px;
+  @media screen and (min-width: 1700px) {
+    /* align-items: center; */
+    margin-left: calc(35% - 10px); 
+    /* margin-bottom:calc(13% - 150px); */
 
+  }
 `;
 
 const Title = styled.h1`
   font-weight: bold;
-  font-size: 60px;
+  font-size: 47px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+  margin-top: 18px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 `;
 const Subtitle = styled.div`
-  padding-top: 20px;
- max-width: 560px;
-  /* color: ${(props) => (props.isDarkMode ? "white" : "#484848")}; */
-  display: flex;
+display: flex;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
   flex-wrap: wrap;
-  margin-bottom: 20px;
-  font-size: 30px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  margin-top: 55px;
+width:100%;
+  font-size: 32px;
   font-weight: bold;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
+
+
   a {
+    margin-left:5px;
     color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
     font-weight: bold;
   }
@@ -639,53 +693,63 @@ const Subtitle = styled.div`
     color: #bb5a7d;
     text-decoration: underline;
   }
+
 `;
 const Img = styled.img`
-  /* max-width: 650px; */
-  width:100%;
-  /* height: 350px; */
+  width: 738px;
+  /* width:100%; */
+  height: 415px;
   padding-top: 20px;
-
+  padding-bottom:15px;
 `;
 const Details = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 640px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+width:100%; 
+max-width: 740px;
   line-height: 1.7em;
-  font-size: 15px;
-  a {
-    color: #bb5a7d;
+  font-size: 16px;  
+padding-top:20px;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
-    text-decoration: none;
-      display: flex;
-  flex-wrap: wrap;
+  a {  
+
+    color: #bb5a7d;
+    text-decoration: none;  
+
   }
+
   a:hover {
     text-decoration: underline;
   }
-
-`;
+`
 
 const Bold = styled.span`
   font-weight: bold;
-  display:flex;
-  flex-wrap:wrap;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+width:100%;  
+padding-top:500px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+/* a{
+  margin-left:15px;
+  } */
 `;
 const Details2 = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  max-width: 640px;
-  line-height: 2em;
-  font-size: 15px;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  width:100%; 
+max-width: 738px;
+  line-height: 1.8em;
+  font-size: 16px;
   margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
+  margin-bottom:20px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+
 
   a {
+    width:100%;
     color: #bb5a7d;
-    text-decoration: none;  display: flex;
-  flex-wrap: wrap;
+    text-decoration: none;
+    margin-left:5px
   }
   a:hover {
     text-decoration: underline;
@@ -693,17 +757,21 @@ const Details2 = styled.div`
 `;
 const Bold2 = styled.span`
   font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  line-height: 5em;
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* line-height: 2em; */
+  margin-bottom: -15px;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+
 `;
-const YoutubeChannel = styled.div`  
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  line-height: 5em;
+const YoutubeChannel = styled.div`
+  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+  /* line-height: 2em; */
+margin-top:15px;
   a {
-    display: flex;
-flex-wrap: wrap;
     color: #bb5a7d;
     text-decoration: none;
+
   }
   a:hover {
     text-decoration: underline;
@@ -713,7 +781,7 @@ const Ol = styled.ol`
   list-style-type: decimal;
   padding-top: 5px;
   font-size: 15px;
-  line-height: 1.8em;
+  /* line-height: 1.8em; */
   max-width: 600px;
   /* margin-left: 5px; */
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
@@ -725,7 +793,7 @@ const Li = styled.li`
   max-width: 580px;
 `;
 const Img2 = styled.img`
-  width: 200px;
+  width: 240px;
   /* height: 350px; */
   margin-left: 4px;
   margin-top: 10px;
@@ -734,7 +802,7 @@ const Image = styled.div`
 flex-wrap: wrap;
 width:100%;
 
- max-width: 640px;  
+ max-width: 740px;  
 
 `;
 const Group = styled.div`
@@ -781,14 +849,15 @@ const Group2 = styled.div`
     color: ${(props) => (props.isDarkMode ? "white" : "black")};
     font-size: 15px;
     margin-bottom: 20px;
-    max-width: 380px;
+    max-width: 400px;
+
   }
 `;
 
 const Img4 = styled.img`
   max-width: 200px;
   height: 180px;
-  /* margin-left: -200px; */
+  margin-left:120px;
   /* margin-right: 10px; */
 `;
 const Button = styled.button`
@@ -803,18 +872,19 @@ flex-wrap:wrap;
   /* margin-left: 270px; */
   border-radius: 5px;
   padding-left: 270px;
-  padding-top: -2px;
+  padding-top: 5px;
   font-size: 13px;
   font-weight: bold;
   line-height: 1.7em;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
 
-  border: 1px solid #e8e8e8;
+  border: 1px solid #606770;
   &:hover {
     border: 1px solid #bb5a7d;
     cursor: pointer;
   }
   a {
+  /* border:2px solid green; */
     display: flex;
     flex-direction: row;
     max-width: 200px;
@@ -823,6 +893,7 @@ flex-wrap:wrap;
     color: #bb5a7d;
     font-size: 17px;
     font-weight: bold;
+    /* margin-top:7px; */
   }
 `;
 const Icon = styled.div`
@@ -830,25 +901,36 @@ const Icon = styled.div`
   color: #bb5a7d;
 `;
 const Details3 = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "black")};
-  /* flex: 1; */
-  display: flex;
-
-  /* max-width: 640px; */
+  color: ${(props) => (props.isDarkMode ? 'white' : '#484848')};
+  flex: 1;
+  width: calc(100% - 220px); /* Adjust width to leave space for the image */
   line-height: 1.7em;
-  font-size: 15px;
+  font-size: 16px;
+  margin-top: 0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+
 `;
 const Group3 = styled.div`
   display: flex;
   flex-direction: row;
-  margin-right: 5px;
-  padding-top: 10px;
+  align-items: flex-start; /* Align items to the top of the container */
+
+  margin: 10px; /* Adjust margin for spacing around the group */
+
 `;
 const Img5 = styled.img`
-  max-width: 200px;
+  /* width: 200px; */
   height: 180px;
+  margin: 10px; /* Adjust margin for spacing around the image */
+  float: right;
 
-  align-self:left; /* Center the image horizontally */
-
-  /* margin-right: 170px; */
+ 
+`;
+const Span = styled.span`
+  margin-right: 2px;
+  margin-left: -1px;
+  padding-left: 0;
+  margin-top:5px;
+  border:2px solid yellow;
 `;

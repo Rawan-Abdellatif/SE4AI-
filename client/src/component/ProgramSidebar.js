@@ -2,11 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import {RiArrowRightSLine} from "react-icons/ri";
+import {MdOutlineKeyboardArrowDown} from "react-icons/md"
 import { Link, useLocation } from "react-router-dom";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
+import Tabindex from "./Tabindex";
 const ProgramSidebar = () => {
-  const [showLinks, setShowLinks] = useState(true);
+  const [showLinks, setShowLinks] = useState(false);
   const [selectedLink, setSelectedLink] = useState("");
   const [activeLink, setActiveLink] = useState("");
   const { isDarkMode } = useContext(DarkModeContext);
@@ -31,7 +34,9 @@ const ProgramSidebar = () => {
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
+  
     setActiveLink(link);
+ 
   };
 
   const handleMouseEnter = () => {
@@ -41,6 +46,7 @@ const ProgramSidebar = () => {
   const handleMouseLeave = () => {
     setActiveLink("");
   };
+  
   useEffect(() => {
     const handleScroll = () => {
       // Calculate the scroll position threshold where you want to show/hide the NavMenu
@@ -64,7 +70,10 @@ const ProgramSidebar = () => {
     
     <SidebarContainer isDarkMode={isDarkMode}  isProgramPage={isProgramPage}>
       <SidebarContent className="sidebar-content" isDarkMode={isDarkMode}>
-        <SidebarHead
+      {isProgramPage && (
+
+        <Tabindex/>)}
+        {/* <SidebarHead
           isDarkMode={isDarkMode}
           selected={selectedLink === "/"}
           isActive={activeLink === "/"}
@@ -83,7 +92,7 @@ const ProgramSidebar = () => {
               <a href="/">CREATE SE4AI</a>
             </Nav>{" "}
           </NavMenu> )}
-        </SidebarHead>
+        </SidebarHead> */}
         <SidebarHeading
           isDarkMode={isDarkMode}
           selected={selectedLink === "/intro"}
@@ -107,11 +116,11 @@ const ProgramSidebar = () => {
   Training Program
   {showLinks ? (
     <Icon>
-      <IoIosArrowDown />
+      <MdOutlineKeyboardArrowDown />
     </Icon>
   ) : (
     <Icon>
-      <IoIosArrowForward />
+      <RiArrowRightSLine/>
     </Icon>
   )}
 </SidebarHeading>
@@ -149,74 +158,91 @@ export default ProgramSidebar;
 
 const SidebarContainer = styled.div`
   margin-left: 1px;
-  font-family: "Open Sans", sans-serif;
-  padding-top: 20px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
+  /* padding-top: 90px; */
   cursor: pointer;
   text-decoration: none;
-  margin-left: 12px;
+  margin-left: 10px;
   position: ${({ isProgramPage }) => (isProgramPage ? "sticky" : "static")};
   top: 0;
-  margin-top: ${({ isProgramPage }) => (isProgramPage ? "-80px" : "-80px")};
-  max-height: ${({ isProgramPage }) => (isProgramPage ? "calc(70vh - 40px)" : "95px")};
+  /* margin-top: ${({ isProgramPage }) => (isProgramPage ? "-80px" : "-80px")}; */
+  /* max-height: ${({ isProgramPage }) => (isProgramPage ? "calc(70vh - 40px)" : "95px")}; */
   /* border:4px solid orange; */
-  font-weight: bold;
+  /* font-weight: bold; */
   background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
+    selected && isDarkMode ? "#242526" : selected ? "rgba(0,0,0,0.05)" : "transparent"};
   &.active,
   a:active {
-    background-color: ${({ isDarkMode }) => (isDarkMode ? "#282828" : "#e8e8e8")};
+    background-color: ${({ isDarkMode }) => (isDarkMode ? "#242526" : "rgba(0,0,0,0.05)")};
     color: #bb5a7d;
     z-index:10;
   }
   @media (max-width: 1000px) {
     display: none;
   }
+  border-right: 1px solid ${(props) => (props.isDarkMode ? '#606770' : '#d4d5d8')};
+  width:290px;
+  height:100vh;
+margin-top:6px;
+padding-top:-12px;
 `;
 
 const SidebarContent = styled.div`
   position: sticky;
-  top: 5px;
+  /* margin-top:1px; */
   width: 280px;
-  /* height:100%; */
+  border-radius:5px; 
+/* border:2px solid green; */
+
 
   `;
 
 const SidebarHeading = styled.h2`
+/* border:2px solid yellow; */
   display: flex;
   align-items: center;
-  height: 40px;
-  font-size: 17px;
+  height: 30px;
+  font-size: 16px;
   color: ${({ selected, isDarkMode }) =>
-    selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
+    selected ? "#bb5a7d" : isDarkMode ? "#DADDE1" : "#606770"};
       cursor: pointer;
   text-decoration: none;
-  margin-bottom: 3px;
-  padding-left:10px;
-  /* margin-left: 10px; */
-  /* padding-left: 20px; */
-  /* margin-top: -20px; */
-  /* padding-top: 5px; */
+  margin-bottom: 1px;
+  padding-left:16px;
+  border-radius:5px; 
+font-weight:500;  /* margin-top: -20px; */
+  margin-top: 8px;
   /* z-index: -1; */
   /* top: -10px; */
   background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#F0F0F0" : "transparent"};
-  &:hover,
+    selected && isDarkMode ? "#242526" : selected ? "rgba(0,0,0,0.05)" : "transparent"};
+
   &:active,
   &.active {
     background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#383838" : "#e8e8e8"};
+      isDarkMode ? "#383838" : "rgba(0,0,0,0.05)"};
     color: #bb5a7d;
-  }
+    border-radius:5px; 
 
+  }
+  &:hover{
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#383838" : "rgba(0,0,0,0.05)"};
+  
+    border-radius:5px; 
+  }
 
   a {
     color: ${({ selected, isDarkMode }) =>
-      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};    text-decoration: none;
+      selected ? "#bb5a7d" : isDarkMode ? "#DADDE1" : "#606770"};   
+       text-decoration: none;
   }
 
   a:hover,
   &.active {
     color: #bb5a7d;
+    border-radius:5px; 
+
     ${({ selected }) =>
       selected &&
       selected !== "/training-program" &&
@@ -227,34 +253,44 @@ const SidebarHeading = styled.h2`
 const SidebarLink = styled(Link)`
   display: flex;
   color: ${({ selected, isDarkMode }) =>
-      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"}; 
+      selected ? "#bb5a7d" : isDarkMode ? "#DADDE1" : "#606770"}; 
   /* color: ${(props) => (props.isDarkMode ? "white" : "black")}; */
-    font-size: 15px;
+    font-size: 16px;
   align-items: center;
   text-decoration: none;
-  height: 40px;
-  margin-left: 5px;
+  height: 30px;
+  border-radius:5px;
+  margin-left: 10px;
   padding-left: 20px;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: 500;
+  margin-top:0px;
   background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
+    selected && isDarkMode ? "#242526" : selected ? "#e8e8e8" : "transparent"};
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
 
-  &:hover,
+
   &.active,
   a:active {
+    border-radius:5px; 
     background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#282828" : "#e8e8e8"};
+      isDarkMode ? "#242526" : "rgba(0,0,0,0.05)"};
     color: #bb5a7d;
+  }
+  &:hover{
+    border-radius:5px; 
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#242526" : "rgba(0,0,0,0.05)"};
   }
 `;
 
 const Icon = styled.span`
-  /* margin-top: 50px; */
-  /* padding-top: 1px; */
-  margin-left: 80px;
-  font-size: 20px;
-  font-weight: bold;
+  margin-top: 7px;
+color:#8d949e; 
+font-weight:900; 
+  margin-left: 100px;
+  font-size: 30px;
+  /* font-weight: bold; */
 `;
 const NavMenu = styled.ul`
   display:flex;
@@ -294,7 +330,7 @@ margin-right:3.5px;/* margin-left:-40px; */
     text-decoration: none;
 /* padding-left:-10px;  */
 /* padding-top:1.9px; */
-   font-size: 15px;
+   font-size: 16px;
     &:hover {
       color: #db7093;
     }
@@ -311,8 +347,7 @@ const SidebarHead = styled.h2`
   text-decoration: none;
   margin-bottom: 3px;
   padding-left:10px;
-  /* margin-left: 10px; */
-  /* padding-left: 20px; */
+  border-radius:15px;  /* padding-left: 20px; */
   /* margin-top: -20px; */
   /* padding-top: 5px; */
   /* z-index: -1; */
@@ -322,7 +357,7 @@ const SidebarHead = styled.h2`
   &:hover,
   &:active,
   &.active {
-
+border-radius:15px;
     color: #bb5a7d;
   }
 

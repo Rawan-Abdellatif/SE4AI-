@@ -213,14 +213,15 @@ const ThirdContent = () => {
 export default ThirdContent;
 
 const Container = styled.div`
-  background-color: ${(props) => (props.isDarkMode ? "#282828" : " #F0F0F0")};
+  background-color: ${(props) => (props.isDarkMode ? "#1c1e21" : " #F0F0F0")};
   text-align: center;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     /* height:100%; */
     display: flex;
-  width: 100%;
-`
+  width: 100%; 
+`;
+
 
 const Text = styled.div`
   padding-top: 30px;
@@ -287,6 +288,11 @@ margin-left:40px;
   @media screen and (max-width: 480px) {
    margin-left: -20px; /* Adjust margin for screens up to 480px wide */
     /* width:100%; */
+  } 
+  @media screen and (min-width: 1700px) {
+    text-align: center;
+    margin-left: calc(17% - 150px); 
+
   }
 
 `

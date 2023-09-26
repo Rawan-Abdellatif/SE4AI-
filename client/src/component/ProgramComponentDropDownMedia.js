@@ -28,7 +28,7 @@ const ProgramComponentDropDownMedia = ({
         <DropdownHeader onClick={toggleDropdown}  isDarkMode={isDarkMode}>
           On this page{" "}
           <DropdownIcon>
-  {isDropdownOpen ? <SlArrowUp /> : <SlArrowDown />}
+          {isDropdownOpen ? <SlArrowUp style={{ fontWeight: "bloder" }} /> : <SlArrowDown style={{ fontWeight:"bolder" }} />}
 </DropdownIcon>
         </DropdownHeader>
         {isDropdownOpen && (
@@ -126,18 +126,22 @@ const ProgramComponentDropDownMedia = ({
 export default ProgramComponentDropDownMedia;
 
 const SidebarContainer = styled.div`
-margin-left:-30px;
-  height: 40px;
+margin-left:-20px;
+  height: 45px;
   width:388.4px;
-  margin-top:-70px;
+  margin-top:-10px;
+  
    `
   
   const DropdownHeader = styled.div`
   max-width: 1000px;
   width:100%;
+
   padding-left:10px;
   height: 20px;
-padding-top:10px; 
+padding-top:5px;
+padding-bottom:8px; 
+border-radius:5px;
  /* border-bottom: 1px solid #e8e8e8; */
   cursor: pointer;
   top: 0; /* Stick the header to the top of its container */

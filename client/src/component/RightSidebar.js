@@ -1,35 +1,61 @@
 import React, { useEffect, useContext, useState } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
-
-const RightSidebar = ({ activeLink, handleLinkClick }) => {
-  const { isDarkMode } = useContext(DarkModeContext);
+import { Link } from "react-router-dom";
+const RightSidebar = ({ activeLink = "", handleLinkClick }) => {
+    const { isDarkMode } = useContext(DarkModeContext);
   const [isFixed, setIsFixed] = useState(true);
+console.log("activeLink in RightSidebar",activeLink)
 
-  // const [activeLink, setActiveLink] = useState(""); // Step 1: State to track the active link
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const sidebarContent = document.querySelector(".sidebar-content");
-  //     sidebarContent.style.transform = `translateY(${window.pageYOffset}px)`;
-  //   };
 
-  //   window.addEventListener("scroll", handleScroll);
+useEffect(() => {
+  const handleScroll = () => {
+    const sections = document.querySelectorAll("section");
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const linkId = section.getAttribute("id");
+      const link = document.querySelector(`[href="#${linkId}"]`);
 
-  // const handleLinkClick = (href) => {
-  //   setActiveLink(href); // Step 2: Update active link state when a link is clicked
-  // };
+      if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+        // Remove the "near-top" class from all links
+        document.querySelectorAll(".sidebar-link").forEach((el) => {
+          el.classList.remove("near-top");
+        });
+
+        // Add the "near-top" class to the current link
+        link?.classList.add("near-top");
+      } else {
+        // Remove the "near-top" class if the link is not near the top
+        link?.classList.remove("near-top");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Call handleScroll once on mount to initialize the active link
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
   return (
-    <SidebarContainer isFixed={isFixed}
-    className={isFixed ? "" : "scrolled"}>
-      <SidebarContent isFixed={isFixed}
+    <SidebarContainer isDarkMode={isDarkMode} className={isFixed ? "" : "scrolled"}
+    isFixed={isFixed}>
+      <SidebarContent isDarkMode={isDarkMode}  isFixed={isFixed}
       className={isFixed ? "" : "scrolled"}>
+<SidebarLink
+  isDarkMode={isDarkMode}
+  href="#trainee-talks-webinar---september-25-2023"
+  isActive={activeLink === "trainee-talks-webinar---september-25-2023"}
+  onClick={() => handleLinkClick("trainee-talks-webinar---september-25-2023")}
+>
+  Trainee Talks Webinar - September 25, 2023
+</SidebarLink>
+
+
         <SidebarLink
           isDarkMode={isDarkMode}
           href="#industry-talks-webinar---april-25-2023"
@@ -56,7 +82,7 @@ const RightSidebar = ({ activeLink, handleLinkClick }) => {
           onClick={() =>
             handleLinkClick("women-in-engineering-wie---march-18-2023")
           } // Step 2: Attach onClick event handler
-          isActive={activeLink === "women-in-engineering-wie---march-18-2023"} // Step 3: Add 'active' prop to check if this link is active
+          isActive={activeLink=== "women-in-engineering-wie---march-18-2023"} // Step 3: Add 'active' prop to check if this link is active
         >
           Women in Engineering (WIE) - March 18, 2023
         </SidebarLink>
@@ -146,37 +172,54 @@ const RightSidebar = ({ activeLink, handleLinkClick }) => {
 export default RightSidebar;
 
 const SidebarContainer = styled.div`
-  width: 140px;
-  margin-right: 0px;
+
+  width: 300px;
+  /* margin-right: 0px; */
   font-family: "Open Sans", sans-serif;
-  margin-left: 40px;
-  padding-left: 20px;
-  /* padding-top:40px; */
-
+  margin-left: -65px;
+  padding-left: 15px;
+  max-height: calc(100vh - 20px);
+/* border:2px solid red; */
   position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
-  top: ${({ isFixed }) => (isFixed ? "80px" : "10px")};
-  max-height: calc(40vh - 40px);
-  border-left: 1px solid #f0f0f0;
+  top: 80px;   /* height:900px; */
+  /* border-left: 1px solid #f0f0f0; */
   overflow-y: auto;
-  margin-top: 40px;
-  /* margin-bottom: 20px; */
+  margin-top: 35px;
+/* height:100%; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-
-  
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+/* border:2px solid orange; */
+/* margin-left: -500px; */
+/* border:2px solid orange; */
+  position:sticky;
+  @media screen and (min-width: 1700px) {
+margin-right:290px;
+  }
 `;
 
 const SidebarContent = styled.div`
-/* padding-top: 170px; */
+font-size:12.8px ;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+padding-left: 15px;
+padding-top:15px;
+max-width:165px;
+height:560px;
+border-left:${(props) => (props.isDarkMode ? "1px solid #606770":"1px solid #d4d5d8")};
+/* line-height: 2em; */
 
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
+
 `;
 
 const SidebarLink = styled.a`
   display: block;
   font-size: 13px;
-  padding-top:10px;
+  padding-top:0px;
+  line-height: 1.5em;
+
   color: ${(props) =>
     props.isActive ? "#bb5a7d" : props.isDarkMode ? "white" : "#484848"};
+
 
   text-decoration: none;
   margin-bottom: 10px;

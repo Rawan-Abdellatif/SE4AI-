@@ -142,6 +142,7 @@ const FooterContainer = styled.footer`
   /* width: 100%; */
   right: 0;        /* Ensure the footer aligns with the right edge of the viewport */
   /* width: 100%; */
+/* border:2px solid orange; */
 
 
 
@@ -154,22 +155,44 @@ const FooterContent = styled.div`
   /* padding-left:90px;
   max-width:1000px;
   width:100%; */
-  width: 100%;
+  /* width: 100%; */
   max-width: 1200px;
-  padding-top: -40px;
+margin-left:80px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* margin: 0 auto;  */
- /* padding-left:100px; */
-`;
+margin-top:-5px;
+ /* border:2px solid green; */
+ @media screen and (min-width: 1700px) {
+    align-items: center;
+    margin-left: calc(27% - 150px); 
+    /* margin-bottom:calc(13% - 150px); */
+
+  }
+  
+  @media screen and (max-width: 768px) {
+    width:100%;
+
+   padding-left: 0px; /* Adjust margin for screens up to 768px wide */
+  }
+
+  @media screen and (max-width: 480px) {
+   margin-left: 0px; /* Adjust margin for screens up to 480px wide */
+    width:100%;
+  }`;
 
 const FooterColumn = styled.div`
-/* width:100%; */
-align-items:center;
-padding-left:100px;
-max-width:1600px;
-/* width:1000%; */
+  /* bordeR:2px solid orange; */
+  align-items:center;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
+  margin-left:0px;
+width:200px;
+padding-left:0; 
+ & > *:not(:first-child) {
+  padding-left: -20px; /* Adjust the padding value as needed */
+  }
   margin-bottom: 20px;
-  padding-top: 20px;
+  padding-top: -50px;
+
   @media screen and (max-width: 768px) {
     width:100%;
 
@@ -180,8 +203,10 @@ max-width:1600px;
     padding-left: 0px; /* Adjust margin for screens up to 480px wide */
     width:100%;
   }
+
+
   h4 {
-    font-size: 18px;
+    font-size: 17px;
     margin-bottom: 15px;
     color: #fff;
   }
@@ -210,15 +235,16 @@ max-width:1600px;
 
 const FooterBottom = styled.div`
   background-color:#303846;
-  padding: 10px 0;
+  padding: 5px 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
 `;
 
 const FooterCenter = styled.div`
   background-color: #303846;
-  padding: 20px 0;
+  padding: 5px 0 8px;
+/* margin-left:25px; */
   text-align: center;
   font-size: 14px;
   color: #fff;
@@ -228,8 +254,8 @@ const SmallIcon = styled.span`
   font-size: 0.8em;
 `;
 const Img = styled.img`
-  max-width: 150px;
-  height: 70px;
+ width: 160px;
+  height: 77px;
   /* margin-left: -100px; */
   text-align: center;
 `;

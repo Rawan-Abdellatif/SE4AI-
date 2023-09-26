@@ -1,16 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { MdKeyboardArrowDown, MdOutlineArrowForwardIos } from "react-icons/md";
 import { Link} from "react-router-dom";
 import logo from "./img/logo.svg";
 import logoDark from "./img/logo_dark.svg";
-import { AiOutlineClose } from "react-icons/ai";
+import { IoIosArrowDown } from "react-icons/io";
 import { TfiClose } from "react-icons/tfi";
 
-import {IoIosArrowRoundBack}from "react-icons/io"
 const ProgramSidebarMedia = () => {
-  const [showLinks, setShowLinks] = useState(true);
+  const [showLinks, setShowLinks] = useState(false);
   const [selectedLink, setSelectedLink] = useState("");
   const [activeLink, setActiveLink] = useState("");
   const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
@@ -37,21 +36,32 @@ const ProgramSidebarMedia = () => {
   };
   
 
-
+  
   return (
 <Container isDarkMode={isDarkMode}>
 <SidebarButton isDarkMode={isDarkMode} onClick={toggleSidebar}>
-      <svg width="30" height="30" viewBox="0 0 30 30"
-       aria-hidden="true">
-        <path stroke="currentColor"
-         stroke-linecap="round"
-         stroke-miterlimit="10" 
-      stroke-width="2"
-       d="M4 7h22M4 15h22M4 23h22">
-        </path></svg>
+        <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+          <path
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeMiterlimit="10"
+            strokeWidth="2"
+            d="M4 7h22M4 15h22M4 23h22"
+          />
+        </svg>
       </SidebarButton>
+      <Nav1 isDarkMode={isDarkMode} className="logo-nav">
+          <a href="/">
+            <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
+          </a>
+          <Creat1>
+          <a href="/">CREATE SE4AI</a></Creat1>
+          </Nav1>
+
+
+
       <SidebarContainer isDarkMode={isDarkMode} isOpen={isOpen}>
-        <NavMenu >
+        <NavMenu isDarkMode={isDarkMode}>
         <Nav isDarkMode={isDarkMode} className="logo-nav">
           <a href="/">
             <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
@@ -68,7 +78,8 @@ const ProgramSidebarMedia = () => {
             <Slider
               className={isDarkMode ? "slider round active" : "slider round"}
               checked={isDarkMode}
-            />
+            > <div className="circle-wrapper">
+            </div></Slider>
           </SwitchLabel>
           <CloseButton
             isDarkMode={isDarkMode}
@@ -77,18 +88,22 @@ const ProgramSidebarMedia = () => {
             <TfiClose />
           </CloseButton>
         </NavMenu>
+        <Group isDarkMode={isDarkMode}>
         <SidebarHeading
+                    className="first-heading" // Add a unique class for the first item
+
           isDarkMode={isDarkMode}
           selected={selectedLink === "/"}
           isActive={activeLink === "/"}
-     
+
         >
           <Link
             to="/"
             onClick={() => handleLinkClick("/")}
-            isDarkMode={isDarkMode}
+
           >
-            <IoIosArrowRoundBack/>Back to main menue
+      
+      ← Back to main menu
           </Link>
         </SidebarHeading>
          <SidebarHeading
@@ -110,29 +125,35 @@ const ProgramSidebarMedia = () => {
           isDarkMode={isDarkMode}
           onClick={toggleLinks}
           selected={selectedLink.includes("/training-program")}
-        >
+          style={{ marginTop: '-15px' }}
+          >
           Training Program
           {showLinks ? (
-            <Icon>
-              <IoIosArrowDown />
+            <Icon >
+              <IoIosArrowDown  style={{ fontWeight: '900'}}
+ />
             </Icon>
           ) : (
             <Icon>
-              <IoIosArrowForward />
+              <MdOutlineArrowForwardIos  style={{ fontWeight: '900' }}/>
             </Icon>
           )}
         </SidebarHeading>
         {showLinks && (
           <>
             <SidebarLink
+            className="first"
               isDarkMode={isDarkMode}
               to="/training-program/objectives"
               selected={selectedLink === "/training-program/objectives"}
               onClick={() => handleLinkClick("/training-program/objectives")}
+              // style={{ paddingTop: '-35px' }}
+
             >
               Program Objectives
             </SidebarLink>
             <SidebarLink
+             className="second"
               isDarkMode={isDarkMode}
               to="/training-program/components"
               selected={selectedLink === "/training-program/components"}
@@ -142,6 +163,7 @@ const ProgramSidebarMedia = () => {
             </SidebarLink>
           </>
         )}
+        </Group>
  </SidebarContainer>
 
 </Container>
@@ -165,42 +187,24 @@ text-overflow:ellipsis;
 margin-right:-5px;
 `
 
-const SidebarButton = styled.button`
-  font-size: 15px;
-  cursor: pointer;
-  border:none;
-  /* background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")}; */
-  /* color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")}; */
-margin-left:10px;
-  @media (min-width: 995px) {
-    display: none;
-    border:none;
- margin-right:15px;
-padding-right:20px;
-  }
-`;
 
 
 const SidebarContainer = styled.div`
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
- padding-bottom:100%;
-  width: ${(props) => (props.isOpen ? "99%" : "0")}; 
+  /* padding-bottom: 100%; */
   display: ${(props) => (props.isOpen ? "block" : "none")};
   overflow-x: hidden;
-  transition: 0.5s;  height:100%; 
-
-
+  transition: 0.5s;
+  height: 100%;
   @media (max-width: 995px) {
     position: absolute;
     z-index: 1;
-    width: ${(props) => (props.isOpen ? "85%" : "0")};
-    /* height: ${(props) => (props.isOpen ? "100%" : "0")}; */
-margin-left:-5px;
-padding-left:10px;
+    width: ${(props) => (props.isOpen ? "324px" : "0")};
+    margin-left: -5px;
+    padding-left: 10px;
+  }
+`;
 
-
-
-  }`
 
 const CloseButton = styled.button`
   font-size: 24px;
@@ -213,141 +217,113 @@ color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
 background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
 `;
 
-const SidebarHeading = styled.h2`
-   color: ${(props) =>
-    props.isSelected ? "white" : props.isDarkMode ? "#DADDE1" : "gray"};  font-size: 15px;
-  display: flex;
-  align-items: center;
-  height: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-bottom: 3px;
-  margin-left: 12px;
-  padding-top: -10px;
-  z-index: -1;
-  top: -12px;
-
-  &:hover,
-  &:active,
-  &.active {
-    background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#383838" : "#e8e8e8"};
-    color: #bb5a7d;
-  }
-
-  a {
-    color: ${({ selected, isDarkMode }) =>
-      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
-    text-decoration: none;
-  }
-
-  a:hover,
-  &.active {
-    color: #bb5a7d;
-    &:hover,
-  &.active,
-  a:active {
-    background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#383838" : "#e8e8e8"};
-    color: #bb5a7d;
-  }}
-`;
-
-
-
 const SidebarLink = styled(Link)`
-  display: flex;
-  /* color: ${({ selected }) => (selected ? "black" : "white")}; */
-  color: ${(props) =>
-    props.isSelected ? "white" : props.isDarkMode ? "#DADDE1" : "gray"};  font-size: 15px;
-  align-items: center;
-  text-decoration: none;
-  height: 40px;
-  margin-left: 5px;
-  padding-left: 20px;
-  margin-bottom: 5px;
-  font-weight: bold;
+  display: block;
+  text-align: left;
+  /* border:2px solid orange; */
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight:500;
+margin-left:15px;
+margin-top:-5px;
+width:80%;/* margin-top:-3px; */
+border-radius:5px;
+  font-size:16px;
+padding:6px 16px; 
+ text-decoration:none;
+  color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#bb5a7d" : selected ? "#bb5a7d" : "gray"};
+  /* background-color: ${(props) =>
+    props.isActive  ? "#BB5A7D" : props.isSelected ? "#BB5A7D" : "transparent"}; */
+  transition: background-color 0.3s, color 0.3s;
+
   background-color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#282828" : selected ? "#e8e8e8" : "transparent"};
+    selected && isDarkMode ? "#ffffff0d" : selected ? "#e8e8e8" : "transparent"};
 
   &:hover,
   &.active,
   a:active {
     background-color: ${({ isDarkMode }) =>
-      isDarkMode ? "#383838" : "#e8e8e8"};
+      isDarkMode ? "#282828" : "#e8e8e8"};
     color: #bb5a7d;
+  }
+  &.first  {
+margin-top:-10px;
+  }
+  &.second  {
+margin-top:0px;
   }
 `;
 
-const Icon = styled.span`
-  /* margin-top: 50px; */
-  /* padding-top: 1px; */
-  margin-left: 80px;
-  font-size: 20px;
-  font-weight: bold;
-`;
+
 const NavMenu = styled.ul`
   display: flex;
-  padding-top: 5px;
   display:flex;
   list-style: none;
-margin-left:-25px;  
-/* border:2px solid red; */
+height:57px;
+border-bottom: ${(props) => (props.isDarkMode ? "1px solid #1c1e21" : "1px solid #eef0f2")};
 cursor: pointer;
-padding-left:-20px;
-/* border:2px solid yellow; */
+/* padding-left:-170px; */
+/* border:2px solid blue; */
 `;
+
 const Nav = styled.li`
  display: flex;
-  cursor: pointer;
- /* border:4px solid blue; */
-margin-top: -5px ; 
-margin-right:23px; 
+ cursor: pointer;
+/* border:2px solid orange; */
+margin-left:-30px; 
+margin-right:22px; 
 font-weight:500; 
 align-items:center;
- img {
+img {
 padding-top:0px;    height: 32px;
-  cursor: pointer;
+ cursor: pointer;
 margin-right:10px;
-/* margin-left:-40px; */
+/* border:2px solid orange ;  */
 width:32px; 
-  }
-  a {
-    color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
-    text-decoration: none;
-    font-family:   "-apple-system", "Segoe UI", sans-serif;
-   font-size: 16px;
-  margin-top: -2px; 
-  /* padding-left:-20px; */
+margin-top:1px;
+ }
+ a {
+   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+   text-decoration: none;
+   font-family:   "-apple-system", "Segoe UI", sans-serif;
+  font-size: 16px;
+ /* margin-top: -2px;  */
+ /* padding-left:-20px; */
 /* padding-left:-10px; */
 /* width:80px; */
- &.selected {
-  color: #BB5A7D;
-    }
-  &:hover {
-      color: #BB5A7D;
-    }
-    /* @media (max-width: 995px) {
-     display: none; 
-   } */
-    
-  }`
+&.selected {
+ color: #BB5A7D;
+   }
+ &:hover {
+     color: #BB5A7D;
+   }
+   /* @media (max-width: 995px) {
+    display: none; 
+  } */
+   
+  }
 
+
+
+
+`;
 const SwitchLabel = styled.label`
   position: relative;
+  /* margin-right:-10px; */
+/* border:2px solid orange; */
   display: inline-block;
-  /* border:2px solid green; */
-  margin-left:-5px;
-  padding-left:-5px;
   width: 50px;
-  height: 23px;
+  height: 24px;
+  margin-top:17px;
+  margin-left:-5px;
 `;
 
 const SwitchInput = styled.input`
   opacity: 0;
-  width: 0;
-  height: 0;
+  width: 0px;
+  height:0px;
+  
+ 
 
   &:checked + .slider {
     background-color: #404040;
@@ -365,36 +341,213 @@ const Slider = styled.span`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #404040;
+  background-color:#4d4d4d;
   transition: 0.2s;
-  border-radius: 34px;
-
-  &:before {
+  border-radius: 33px;
+  
+    .circle-wrapper {
     position: absolute;
-    content: "${(props) => (props.checked ? "" : "")}";
     height: 20px;
-    width: 20px;
+    width: 18px;
     left: ${(props) => (props.checked ? "2px" : "2px")};
-    bottom: 0px;
-    background-color: ${(props) => (props.checked ? " white" : " white")};
-    transition: 0.2s;
-    border-radius: 50%;
+    bottom: 3px;
+    top: 2px;
+    /* background-color: ${(props) => (props.checked ? "white" : "white")}; */
+    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 10px;
+/* border:2px solid blue; */
+    /* Add box-shadow for hover effect */
+    &:hover {
+      box-shadow: 2px 2px 2px 2px #bb5a7d;
+      box-shadow: ${(props) => (props.checked ? "0px 0px 3px 3px #bb5a7d" : "2px 2px 2px 2px #bb5a7d")};
+      -webkit-box-shadow:0px 0px 3px 3px #bb5a7d;
+    }
+    transform: translateX(${(props) => (props.checked ? "26px" : "0px")});
+  }
+  &:before {
+    /* Add a shadow to the slider when the label is hovered */
+
+    position: absolute;
+    content: "${(props) => (props.checked ? "" : "")}";
+  
+    height: 20px;
+    width: 18px;
+    left: ${(props) => (props.checked ? "2px" : "2px")};
+    bottom: 4px;
+    top:2px;
+    background-color: ${(props) => (props.checked ? " white" : " white")};
+    transition: 0.2s;
+    border-radius:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
     color: ${(props) => (props.checked ? "white" : "black")};
+
   }
 
   &:after {
     position: absolute;
     content: "${(props) => (props.checked ? "🌜" : "🌞")}";
     color: ${(props) => (props.isDarkMode ? "white" : "black")};
-    font-size: 15px;
-    left: ${(props) => (props.checked ? "2px" : "25px")};
-    bottom: 0px;
+    font-size: 16px;
+    left: ${(props) => (props.checked ? "1px" : "23px")};
+    bottom: 1px;
+   
   }
 
   &.active {
-    background-color: #404040;
-  }`
+    background-color: #4d4d4d;  
+  }
+   /* Add styles for checked state */
+
+`
+
+const SidebarHeading = styled.h2`
+   color: ${(props) =>
+    props.isSelected ? "#DADDE1" : props.isDarkMode ? "#DADDE1" : "gray"};  font-size: 15px;
+  display: block;
+  text-align: left;
+font-size:16px; 
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-weight:500;
+width:87%;/* margin-top:-3px; */
+border-radius:5px;
+padding:6px 16px; 
+ text-decoration:none;
+
+ background-color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#ffffff0d" : selected ? "#e8e8e8" : "transparent"};
+margin-top:2px;
+  &:hover,
+  &:active,
+  &.active {
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#383838" : "#e8e8e8"};
+    color: #bb5a7d;
+  }
+
+  &.first-heading a {
+    font-weight:700;
+    font-size:15px;
+  margin-left:15px;
+  margin-top:-25px;
+    color: ${({ selected, isDarkMode }) =>
+      selected ? "#bb5a7d" : isDarkMode ? "white" : "black"};
+  }
+  &.first-heading{ 
+    margin-top:-15px;
+    width:100%;
+    margin-left:-15px;
+    
+     background-color: ${(props) =>
+    props.isDarkMode ?  "#ffffff0d" : "#f1f2f5"};}
+
+
+  a {
+    color: ${({ selected, isDarkMode }) =>
+      selected ? "#bb5a7d" : isDarkMode ? "white" : "gray"};
+    text-decoration: none;
+  }
+
+  a:hover,
+  &.active {
+    color: #bb5a7d;
+    &:hover,
+  &.active,
+  a:active {
+    background-color: ${({ isDarkMode }) =>
+      isDarkMode ? "#383838" : "#e8e8e8"};
+    color: #bb5a7d;
+  }}
+`;
+
+
+
+
+
+const Icon = styled.span`
+  margin-top: 5px;
+font-weight:bolder;
+  margin-left: 135px;
+  font-size: 18px;
+/* width:1px;
+height:0px;  */
+ /* border:1px solid orange; */
+ color:#8d949e;
+`;
+
+
+  const SidebarButton = styled.button`
+  /* border: 1px solid green; */
+  width: 50px;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  margin-top:29px;
+  background-color: ${(props) => (props.isDarkMode ? "#242526" : "white")};
+  color: ${(props) => (props.isDarkMode ? "white" : "#193c47")};
+  margin-left:6px;
+  width:50px;
+  /* border:2px solid red; */
+
+  @media (min-width: 995px) {
+    display: none;
+    border: none;
+    margin-right: 15px;
+    padding-right: 20px;
+  }
+`;const Nav1 = styled.li`
+
+display: flex;
+ cursor: pointer;
+margin-left:-1.5px ;
+margin-top: -5px ; 
+margin-right:22px; 
+font-weight:500; 
+align-items:center;
+img {
+padding-top:0px;    height: 32px;
+ cursor: pointer;
+margin-right:10px;
+/* border:2px solid orange ;  */
+width:32px; 
+margin-top:42px;
+ }
+ a {
+   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
+   text-decoration: none;
+   font-family:   "-apple-system", "Segoe UI", sans-serif;
+  font-size: 16px;
+ margin-top: -2px; 
+ /* padding-left:-20px; */
+/* padding-left:-10px; */
+/* width:80px; */
+&.selected {
+ color: #BB5A7D;
+   }
+ &:hover {
+     color: #BB5A7D;
+   }
+   @media (min-width: 995px) {
+    display: none; 
+  }
+   
+ }`
+ const Creat1 = styled.div`
+ width: 110px;
+ font-weight: bold;
+ font-size: 16px;
+ text-overflow: ellipsis;
+ /* margin-right: -10px; */
+ margin-top:35px;
+margin-left:-5px;`;
+
+const Group=styled.div`
+/* width:100% ; */
+/* border:2px solid orange; */
+margin-top:-12px;
+margin-left:3px;`

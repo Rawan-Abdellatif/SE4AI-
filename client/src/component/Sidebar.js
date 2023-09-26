@@ -83,14 +83,18 @@ const Sidebar = () => {
 export default Sidebar;
 
 const SidebarContainer = styled.div`
-  width: 100px;
-  padding-left: 70px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
+
+  max-width:50px;
+  width:100%;
+height:100vh;
+  padding-left: -70px;
   font-family: "Open Sans", sans-serif;
   position: ${({ isFixed }) => (isFixed ? "sticky" : "sticky")};
   top: ${({ isFixed }) => (isFixed ? "80px" : "10px")};
   transition: transform 0.3s ease;
-  max-height: calc(70vh - 40px);
-  /* overflow-y: auto; */
+/* border:2px solid blue;  */
+ /* overflow-y: auto; */
   @media (max-width: 995px) {
     display: none; 
   }
@@ -98,18 +102,22 @@ const SidebarContainer = styled.div`
     padding-left: 385px;
 
  }
- 
+  /* margin-left:0px; */ 
+  @media screen and (min-width: 1700px) {
+    /* align-items: center; */
+    margin-left: calc(100% + 50px); 
+    /* margin-bottom:calc(13% - 150px); */
 
+  }
 `;
 
 const SidebarContent = styled.div`
   position: absolute; /* Change position to absolute */
-  width: 150px;
-  height: 110px;
-  /* margin-top: 0px; */
-  /* padding-top: 20px; */
-  /* transition: padding-top 0.3s ease; */
-
+width:180px;  /* transition: padding-top 0.3s ease; */
+/* border:2px solid yellow; */
+margin-left:-260px;
+font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
+font-size:11.2px;
   @media (min-width: 1440px) { 
 /* width:2000px;   */
 
@@ -117,11 +125,13 @@ const SidebarContent = styled.div`
 `;
 
 const SidebarHeading = styled.h2`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: ${(props) => (props.isDarkMode ? "white" : "#333333")};
   margin-top: 15px;
-  padding-top: 1px; 
+  padding-top: -1px; 
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
+/* font-size:11.2px; */
    @media (min-width: 1440px) { 
     /* font-size:20px; */
  }
@@ -129,8 +139,8 @@ const SidebarHeading = styled.h2`
 
 const SidebarLink = styled(NavLink)`
   display: block;
-  font-size: 12px;
-  padding-top: 1px;
+  font-size: 14px;
+  padding-top: -1px;
   text-decoration: none;
   margin-bottom: 1px;
   /* padding-bottom: 2px; */
