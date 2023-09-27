@@ -57,7 +57,7 @@ const Events = () => {
         >
 Trainee Talks Webinar - September 25, 2023​
            <a href="#trainee-talks-webinar---september-25-2023​
-">  #</a>
+"> #</a>
           <Img src={traineeSeptemberImage} alt=" traineeSeptemberImage" />
         </Subtitle>
         <Details isDarkMode={isDarkMode}>Our CREATE SE4AI community 
@@ -581,7 +581,7 @@ const Container = styled.div`
     height:100%;
 margin-left:-20px;
   width: 100%;  
-  @media screen and (max-width: 700px) {margin-left:0px;}
+  @media screen and (max-width: 700px) {margin-left:-1px;}
 
 `;
 
@@ -616,7 +616,7 @@ display: flex;
   /* margin-left:120px; */
   font-size: 32px;
   font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#1c1e21")};
 
 
   a {
@@ -628,7 +628,6 @@ display: flex;
     color: #bb5a7d;
     text-decoration: underline;
   }
-
 `;
 const Img = styled.img`
 width:100%;
@@ -637,7 +636,7 @@ width:100%;
   /* height: 200px; */
   padding-top: 20px;
   padding-bottom:20px;
-
+  @media screen and (max-width: 700px){height:200px;}
 `;
 const Details = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
@@ -669,10 +668,11 @@ width:100%;  padding-top:500px;
 `;
 const Details2 = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  width:100%; 
-max-width: 800px;
+  /* width:100%;  */
+  /* border:2px solid red; */
+max-width: 850px;
   line-height: 2em;
-  font-size: 16px;
+  font-size: 15.5px;
   margin-top: 20px;
   margin-bottom:20px;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -698,15 +698,21 @@ const Bold2 = styled.span`
 `;
 const YoutubeChannel = styled.div`
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* line-height: 2em; */
 margin-top:15px;
-  a {
-    margin-left:5px;
+/* border:2px solid green; */
 
+/* max-width:900px; */
+  a {
+    margin-left:6px;
+    /* width:105%; */
+/* width:100%; */
     color: #bb5a7d;
     text-decoration: none;
+  line-height: 2em;
+    /* @media screen and (max-width: 500px){margin-top:30px;} */
+}
 
-  }
+ 
   a:hover {
     text-decoration: underline;
   }
