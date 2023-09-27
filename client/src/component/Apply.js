@@ -72,7 +72,7 @@ margin-top:45px;
   @media screen and (min-width: 1700px) {
     align-items: center;
     margin-left: calc(30% - 140px); 
-    margin-bottom:calc(13% - 150px);
+    margin-bottom:calc(50% - 140px);
 
   }
   @media screen and (max-width: 768px) {
