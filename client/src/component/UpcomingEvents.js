@@ -47,21 +47,22 @@ const UpcomingEvents = () => {
         <Sidebar />
       </SidebarContainer>
      
-      <Grid
+      {/* <Grid
     container
     justifyContent="center"
     alignItems="center"
     // style={{ flex: 1, padding: "20px" }}
     
-  >     
+  >      */}
 
-    <Grid item xs={12} md={12} lg={12} xl={12}>
+    {/* <Grid item xs={12} md={12} lg={12} xl={12}> */}
       <MainContent isDarkMode={isDarkMode}>
-      <Grid item xs={12} md={12} lg={12} xl={12}>
+      {/* <Grid item xs={12} md={12} lg={12} xl={12}> */}
 
 
 
-        <Title isDarkMode={isDarkMode}>Upcoming Events</Title>     </Grid>
+        <Title isDarkMode={isDarkMode}>Upcoming Events</Title>     
+        {/* </Grid> */}
        
         {/* <Subtitle
           isDarkMode={isDarkMode}
@@ -116,7 +117,7 @@ Trainee Talks Webinar - September 25, 2023​
         </Button1>{" "}
 
         </MainContent>
-        </Grid></Grid>
+        {/* </Grid></Grid> */}
         {/* <UpcomingRightSidebar
   activeLink={activeLink}
   handleLinkClick={handleLinkClick}
@@ -128,10 +129,10 @@ export default UpcomingEvents;
 const Container = styled.div`
   display: flex;
   font-family: "Open Sans", sans-serif;
-  margin-bottom: 20px; 
+  /* margin-bottom: 20px;  */
 
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-    height:100%;
+    /* height:100%; */
 
  `;
 
@@ -141,26 +142,34 @@ const MainContent = styled.div`
   /* padding-top: 10px; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
  max-width: 750px;
-  margin-bottom: 30px;  
-     width: 100%;
-/* border:2px solid orange;  */
+height:100%;  
+   width: 100%;
+
+margin-top:10px; 
  /* margin: 0 auto; */
-  margin-left:60px;
+  margin-left:55px;
   @media screen and (min-width: 1700px) {
     /* align-items: center; */
-    margin-left: calc(85% - 750px); 
-    /* margin-bottom:calc(13% - 150px); */
+    margin-left: calc(25% - 30px); 
+    margin-bottom:calc(13% - 50px);
 
   }
 `;
 
 const Title = styled.h1`
-  font-weight: bold;
+  color: ${(props) => (props.isDarkMode ? "white" : "black")};
+margin-bottom:5px;
+  font-weight: 750;
   font-size: 47px;
-  color: ${(props) => (props.isDarkMode ? "white" : "black")}; 
-  margin-top: 35px;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-/* border:2px solid green; */
+  a {
+    color: #bb5a7d;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #bb5a7d;
+    text-decoration: underline;
+  }   
+
 `;
 const Button1 = styled.button`
   display: flex;
@@ -169,12 +178,12 @@ const Button1 = styled.button`
   /* width:100%; */
   height: 70px;
   background-color: inherit;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   margin-left: 2px;
   padding-right: 200px;
   border-radius: 5px;
   /* padding-left: 270px; */
-margin-top: 25px;
+margin-top: 45px;
   font-size: 13px;
   font-weight: bold;
   line-height: 1.7em;
@@ -214,7 +223,12 @@ const Icon = styled.div`
   color: #bb5a7d;
 `;
 const SidebarContainer = styled.div`
-  margin-bottom: 20px; 
+
+  height:250px;  @media screen and (min-width: 1700px) {
+    /* align-items: center; */
+    margin-left:-150px; 
+    margin-bottom: 20px; 
+  }
 
 `;
 const Subtitle = styled.div`
