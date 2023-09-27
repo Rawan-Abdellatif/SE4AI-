@@ -280,8 +280,10 @@ border-radius:5px;
   font-size:16px;
 padding:7px 16px; 
  text-decoration:none;
-  color: ${({ selected, isDarkMode }) =>
-    selected && isDarkMode ? "#bb5a7d" : selected ? "#DADDE1" : "gray"};
+ color: ${({ selected }) => (selected ? "#bb5a7d" : "gray")};
+
+ color: ${({ selected, isDarkMode }) =>
+    selected && isDarkMode ? "#bb5a7d" : selected ? "#bb5a7d" : "gray"};
   /* background-color: ${(props) =>
     props.isActive  ? "#BB5A7D" : props.isSelected ? "#BB5A7D" : "transparent"}; */
   transition: background-color 0.3s, color 0.3s;
