@@ -126,7 +126,7 @@ font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,s
   /* border:2px solid red; */@media screen and (min-width: 1700px) {
     /* align-items: center; */
     margin-left: calc(20% - 120px); 
-    /* margin-top: calc(5% - 250px);  */
+    margin-top: calc(5% - 90px); 
     /* max-width: 3000px; /* Adjust the maximum width as needed */
   }
 `;

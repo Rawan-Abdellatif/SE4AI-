@@ -65,14 +65,31 @@ const ProgramSidebar = () => {
     };
   }, []);
   const isProgramPage = location.pathname.startsWith("/training-program/components");
+  const [showTabindex, setShowTabindex] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowTabindex(true);
+      } else {
+        setShowTabindex(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     
-    <SidebarContainer isDarkMode={isDarkMode}  isProgramPage={isProgramPage}>
-      <SidebarContent className="sidebar-content" isDarkMode={isDarkMode}>
-      {isProgramPage && (
+    <SidebarContainer isDarkMode={isDarkMode}  isProgramPage={isProgramPage} >
+      <SidebarContent className="sidebar-content" isDarkMode={isDarkMode} >
+      {isProgramPage && showTabindex && (
 
-        <Tabindex/>)}
+
+        <Tabindex  />)}
         {/* <SidebarHead
           isDarkMode={isDarkMode}
           selected={selectedLink === "/"}
@@ -175,7 +192,7 @@ const SidebarContainer = styled.div`
   a:active {
     background-color: ${({ isDarkMode }) => (isDarkMode ? "#242526" : "rgba(0,0,0,0.05)")};
     color: #bb5a7d;
-    z-index:10;
+    /* z-index:0; */
   }
   @media (max-width: 1000px) {
     display: none;
@@ -183,8 +200,10 @@ const SidebarContainer = styled.div`
   border-right: 1px solid ${(props) => (props.isDarkMode ? '#606770' : '#d4d5d8')};
   width:290px;
   height:100vh;
-margin-top:6px;
-padding-top:-12px;
+/* margin-top:6px; */
+/* padding-top:-12px; */
+/* background-color:transparent; */
+/* z-index:5; */
 `;
 
 const SidebarContent = styled.div`
@@ -192,7 +211,6 @@ const SidebarContent = styled.div`
   /* margin-top:1px; */
   width: 280px;
   border-radius:5px; 
-/* border:2px solid green; */
 
 
   `;

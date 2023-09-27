@@ -343,7 +343,7 @@ const Title = styled.h1`
 }
 `;
 const Details = styled.div`
-  padding-top: 20px;
+  padding-top: 5px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* width:100%;  */
   display:flex; 
@@ -354,7 +354,7 @@ const Details = styled.div`
 /* margin-bottom:5px; */
 `;
 const Details2 = styled.div`
-  padding-top: 20px;
+  padding-top: 15px;
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
   /* width:100%;  */
   display:flex; 
@@ -365,7 +365,7 @@ const Details2 = styled.div`
 margin-bottom:50px;
 `;
 const Subtitle = styled.div`
-  margin-top: -12px;
+  margin-top: -25px;
   font-size: 32px;
   color: ${(props) => (props.isDarkMode ? "white" : "black")};
   font-weight: 700;
@@ -448,4 +448,6 @@ const ProgramSidebarContainer = styled.div`
   position: sticky;
   top: 10px; /* Adjust this value to set the distance from the top of the viewport */
   margin-bottom: 200px; /* Adjust this value to set the distance from the bottom of the viewport */
+/* border:1px solid green;
+background-color:white; */
 `;

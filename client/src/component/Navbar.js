@@ -49,7 +49,7 @@ const Navbar = () => {
   };
   return (
     // <NavbarStickyContainer>
-    <NavbarContainer isDarkMode={isDarkMode}>  
+    <NavbarContainer isDarkMode={isDarkMode} style={{ zIndex: 1 }}>  
     {shouldShowProgramSidebar &&<ProgramSidebarMedia/>}    
         {shouldShowSidebar && <HomePageSidebar />}
      
@@ -164,7 +164,7 @@ const NavbarContainer = styled.nav`
 position:static;  
 margin-top:-15px;
 flex-direction:row;
-    /* z-index: 2; */
+    /* z-index: 5; */
 /* border:2px solid blue; */
  flex-direction:row; 
   color: #fff;
@@ -193,7 +193,7 @@ padding-bottom:13px;
 const NavMenu = styled.ul`
   display: flex; /* Display its children in a row */
   align-items: center; /* Vertically center children */
-  z-index:2;  
+  /* z-index:5;   */
 /* height:60px; */
   list-style: none;
 margin-left:-5px;  
@@ -230,7 +230,7 @@ z-index:1;
 const Nav = styled.li`
  display: flex;
   cursor: pointer;
-  z-index:2;
+  z-index:5;
   /* position: relative; */
 margin-right:23px; 
 font-weight:500; 

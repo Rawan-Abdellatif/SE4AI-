@@ -167,10 +167,17 @@ background-color: ${(props) => (props.isDarkMode ? "#303030" : "#F0F0F0")};
 const SidebarLink = styled.a`
 display: block;
 /* background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")}; */
+color: ${(props) =>
+  props.isActive
+    ? "#484848" // Color for the active link
+    : props.isDarkMode
+    ? "white" // Color when isDarkMode is true and link is not active
+    : "#484848" // Color when isDarkMode is false and link is not active
+};
 
-  color: ${(props) =>
+  /* color: ${(props) =>
     props.isActive ? "#bb5a7d" : props.isDarkMode ? "white" : "#484848"};
-  font-size: 13px;
+  font-size: 13px; */
   padding-top: 5px;
   text-decoration: none;
   margin-bottom: 10px;
