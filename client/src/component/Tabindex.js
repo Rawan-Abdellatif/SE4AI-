@@ -17,59 +17,77 @@ const [activeLink, setActiveLink] = useState("");
       };
       const [isNavVisible, setIsNavVisible] = useState(true);
 
-      useEffect(() => {
-        // Function to handle scroll event
-        const handleScroll = () => {
-          const scrollY = window.scrollY;
-          // Adjust this value as needed
-          const scrollThreshold = 50;
+      // useEffect(() => {
+      //   // Function to handle scroll event
+      //   const handleScroll = () => {
+      //     const scrollY = window.scrollY;
+      //     // Adjust this value as needed
+      //     const scrollThreshold = 50;
     
-          if (scrollY > scrollThreshold) {
-            setIsNavVisible(false);
-          } else {
-            setIsNavVisible(true);
-          }
-        };
+      //     if (scrollY > scrollThreshold) {
+      //       setIsNavVisible(false);
+      //     } else {
+      //       setIsNavVisible(true);
+      //     }
+      //   };
     
-        // Attach the scroll event listener when the component mounts
-        window.addEventListener('scroll', handleScroll);
+      //   // Attach the scroll event listener when the component mounts
+      //   window.addEventListener('scroll', handleScroll);
     
-        // Clean up the event listener when the component unmounts
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
-      }, []);
-      useEffect(() => {
-        // Add a scroll event listener to update the margin-top value
-        const handleScroll = () => {
-          // Calculate the scroll position threshold where you want to change the margin-top
-          const scrollThreshold = 50; // Adjust this value as needed
+      //   // Clean up the event listener when the component unmounts
+      //   return () => {
+      //     window.removeEventListener('scroll', handleScroll);
+      //   };
+      // }, []);
+      // useEffect(() => {
+      //   // Add a scroll event listener to update the margin-top value
+      //   const handleScroll = () => {
+      //     // Calculate the scroll position threshold where you want to change the margin-top
+      //     const scrollThreshold = 50; // Adjust this value as needed
     
-          if (window.scrollY = scrollThreshold) {
-            setMarginTop(-10); // Change margin-top when scrolling down
-          } else {
-            setMarginTop(-50); // Reset margin-top when scrolling up
-          }
-        };  window.addEventListener("scroll", handleScroll);
+      //     if (window.scrollY = scrollThreshold) {
+      //       setMarginTop(-10); // Change margin-top when scrolling down
+      //     } else {
+      //       setMarginTop(-50); // Reset margin-top when scrolling up
+      //     }
+      //   };  window.addEventListener("scroll", handleScroll);
 
-        // Remove the event listener when the component unmounts
+      //   // Remove the event listener when the component unmounts
+      //   return () => {
+      //     window.removeEventListener("scroll", handleScroll);
+      //   };
+      // }, []);
+      const [showTabindex, setShowTabindex] = useState(false);
+
+      useEffect(() => {
+        const handleScroll = () => {
+          if (window.scrollY > 0) {
+            setShowTabindex(true);
+          } else {
+            setShowTabindex(false);
+          }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+    
         return () => {
           window.removeEventListener("scroll", handleScroll);
         };
       }, []);
     return(     
      
-
-       
-      <Nav isDarkMode={isDarkMode} className="logo-nav">
+<>
+      {showTabindex && (
+      <Nav isDarkMode={isDarkMode}  className={`logo-nav ${showTabindex ? "scrolled" : ""}`}
+      >
       <a href="/">
         <img src={isDarkMode ? logoDark : logo} alt="CREATE SE4AI" />{" "}
       </a>
       <Creat>
       <a href="/">CREATE SE4AI</a></Creat>
       </Nav>
-      
-   
+       )}
+      </>
    )
 
 
@@ -77,11 +95,12 @@ const [activeLink, setActiveLink] = useState("");
 }
 export default Tabindex
 const Creat=styled.span`
-margin-top:6.7px;
+margin-top:7.4px ;
 margin-left:8px; 
 font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 16px;
-  /* background-color:white; */
+  z-index:-5;
+  /* background-color: ${(props) => (props.isDarkMode ? "" : "white")}; */
 
   `
 
@@ -92,12 +111,17 @@ font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,s
 font-size:16px;
  cursor: pointer;
 color:red ; 
-margin-top: -65px; 
-background-color: ${(props) => (props.isDarkMode ? "#242526" : "white")};
+/* margin-top: -65px;  */
+background-color: ${(props) => (props.isDarkMode ? "" : "white")};
 margin-left:5px;
 font-weight:500; 
 align-items:center;
-z-index:4;
+z-index:-2;
+/* margin-top:65px; */
+
+
+    margin-top: -65px;
+
 img {
 
 /* padding-top:7px;  */
