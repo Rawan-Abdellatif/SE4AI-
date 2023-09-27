@@ -140,7 +140,7 @@ const SidebarContainer = styled.div`
   top: 10px;
   max-height: calc(100vh - 10px);
   border-left: ${(props) =>
-    props.isDarkMode ? " 1px solid 	#606770" : "  1px solid		#606770"};
+    props.isDarkMode ? " 1px solid 	#606770" : "  1px solid	#dadde1"};
 /* border:3px solid orange; */
   overflow-y: auto;
   /* margin-top: 40px; */
