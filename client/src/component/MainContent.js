@@ -16,9 +16,7 @@ const MainContent = () => {
           <Grid item xs={10} md={6} lg={6} xl={12}> 
            <Nserc>NSERC</Nserc>
             <HeroText>
-              {/* <LogoContainer> */}
-                {/* <Logo src={logo} alt="CREATE SE4AI" />
-                <LogoOverlay src={logoDark} alt="CREATE SE4AI" /> */}
+       
           <svg
            xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 496.008 496.008"
