@@ -25,7 +25,7 @@ const getAdmin = async (req, res) => {
     res.status(200).json({ message: "This is the Admin", data: admin });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: "Error retrieving patient" });
+    res.status(500).json({ message: "Error retrieving admin" });
   }
   client.close();
 };
