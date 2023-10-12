@@ -60,7 +60,6 @@ import MrSergeOlignyImage from "../component/team/photos/Mr-Serge-Oligny.jpg";
 import MusfiqurRahmanImage from "../component/team/photos/Musfiqur-Rahman.jpg";
 import PapeWadeImage from "../component/team/photos/Pape-Wade.jpg";
 import PatrickLoicFoalemImage from "../component/team/photos/Patrick-Loic-Foalem.jpg";
-import PatrickYangImage from "../component/team/photos/Patrick-Yang.jpg";
 import PierreOlivierCoteImage from "../component/team/photos/Pierre-Olivier-Cote.jpg";
 import PouyaFathollahzadehImage from "../component/team/photos/Pouya-Fathollahzadeh.jpg";
 import PrasadGarigipatiImage from "../component/team/photos/Prasad-Garigipati.jpg";
@@ -402,11 +401,12 @@ import { Grid } from "@mui/material";
 //     linkedin: "https://www.linkedin.com/in/mruiz27/",
 //     twitter: "",
 //     email: "",
-//   },{  name: "Lin Ling ",
+//   },
+//    {  name: "Lin Ling ",
 //   University: "Concordia University",
 //   img: LinLingImage,
 //   website: "",
-//   linkedin: "z",
+//   linkedin: "https://www.linkedin.com/in/lin-ling-4705b0260/",
 //   twitter: "",
 //   email: "",}
 // ];
