@@ -18,9 +18,12 @@ import ProgramComponents from "./component/ProgramComponents";
 import { DarkModeProvider } from "./component/DarkModeContext";
 import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
+import StudentLogin from "./component/StudentLogin";
+import StudentProfile from "./component/StudentProfile";
 import Contact from "./component/Contact";
 import Favicon from "./component/img/favicon.svg";
 import Header from "./component/Header"
+
 const App = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(true);
 
@@ -121,7 +124,8 @@ useEffect(() => {
           <Route path="/blog/upcoming" element={<UpcomingEvents />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/adminlogin/:adminId" element={<AdminProfile />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/studentlogin" element={<StudentLogin />} />
+          <Route path="/studentlogin/:studentId" element={<StudentProfile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
