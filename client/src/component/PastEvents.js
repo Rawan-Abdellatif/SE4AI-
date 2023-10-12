@@ -932,5 +932,5 @@ const Span = styled.span`
   margin-left: -1px;
   padding-left: 0;
   margin-top:5px;
-  border:2px solid yellow;
+  /* border:2px solid yellow; */
 `;
