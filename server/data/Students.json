@@ -1,0 +1,356 @@
+ [
+     {
+      "username":"Yiping Jia",
+      "password":"Yiping Jia",
+    "name": "Yiping Jia",
+    "University": "Queen's University",
+    "img": "./team/photos/Yiping-Jia.jpg"
+  
+  },
+  {
+    "username":"Fangjian Lei",
+    "password":"Fangjian Lei",
+    "name": "Fangjian Lei",
+    "University": "Queen's University",
+    "img": "./team/photos/Fangjian-Lei.jpg",
+
+    "linkedin": "https://www.linkedin.com/in/fangjian-lei-5b110b204/"
+
+  },
+  {
+    "username":"Junjie Li",
+    "password":"Junjie Li",
+    "name": "Junjie Li",
+    "University": "Concordia University",
+    "img": "./team/photos/Junjie-Li.jpg"
+
+  },
+  {
+    "username":"Sharon Ho",
+    "password":"Sharon Ho",
+    "name": "Sharon Ho",
+    "University": "Concordia University",
+    "img": "./team/photos/Sharon-Ho.jpg",
+    "linkedin": "https://www.linkedin.com/in/sharon-ho/"
+  
+  },
+  {
+    "username":"Amanda Kolopanis",
+    "password":"Amanda Kolopanis",
+    "name": "Amanda Kolopanis",
+    "University": "Concordia University",
+    "img": "./team/photos/Amanda-Kolopanis.jpg",
+    "website": "",
+    "linkedin": "https://www.linkedin.com/in/amanda-kolopanis/"
+
+  },
+  {
+    "username":"Mohayeminul Islam",
+    "password":"Mohayeminul Islam",
+    "name": "Mohayeminul Islam",
+    "University": "University of Alberta",
+    "img": "./team/photos/mohayeminul-islam.jpg",
+ 
+    "linkedin": "https://www.linkedin.com/in/mohayemin/"
+
+  },
+  {
+    "username":"Akalanka Galappaththi",
+    "password":"Akalanka Galappaththi",
+    "name": "Akalanka Galappaththi",
+    "University": "University of Alberta",
+    "img":"./team/photos/Akalanka-Galappaththi.jpg",
+   
+    "linkedin": "https://www.linkedin.com/in/akalanka-galappaththi-67580719/",
+    "twitter": "https://twitter.com/boney_ag",
+    "email": "akalanka@ualberta.ca"
+  },
+  {
+    "username":"Aurel Lucrich Ikama Honey",
+    "password":"Aurel Lucrich Ikama Honey",
+    "name": "Aurel Lucrich Ikama Honey",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Aurel-Lucrich-Ikama-Honey.jpg",
+
+    "linkedin": "https://www.linkedin.com/in/aurel-i-345a91ba/"
+ 
+  },
+  {
+    "username":"Pierre-Olivier Cote",
+    "password":"Pierre-Olivier Cote",
+    "name": "Pierre-Olivier Cote",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Pierre-Olivier-Cote.jpg",
+    "linkedin": "https://www.linkedin.com/in/pierre-olivier-c%C3%B4t%C3%A9/"
+   
+  },
+  {
+    "username":"Vahid Majdinasab",
+    "password":"Vahid Majdinasab",
+    "name": "Vahid Majdinasab",
+    "University": "Ecole Polytechnique",
+    "img":"./team/photos/Vahid-Majdinasab.jpg"
+
+  },
+  {
+    "username":"Patrick Loic Foalem",
+    "password":"Patrick Loic Foalem",
+    "name": "Patrick Loic Foalem",
+    "University": "Ecole Polytechnique",
+    "img":"./team/photos/Patrick-Loic-Foalem.jpg",
+   
+    "linkedin": "https://www.linkedin.com/in/patrick-loïc-foalem-37281a100",
+    "twitter": "https://twitter.com/Patrick_Loic_F"
+
+  },
+  {
+    "username":"Forough Majidi",
+    "password":"Forough Majidi",
+    "name": "Forough Majidi",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Forough-Majidi.jpg",
+    "linkedin": "https://www.linkedin.com/in/forough-majidi-8a35b8227"
+
+  },
+  {
+    "username":"Chunli Yu",
+    "password":"Chunli Yu",
+    "name": "Chunli Yu",
+    "University": "Queen's University",
+    "img": "./team/photos/Chunli-Yu.jpg"
+
+  },
+  {
+    "username":"Divya Kamath",
+    "password":"Divya Kamath",
+    "name": "Divya Kamath",
+    "University": "Queen's University",
+    "img": "./team/photos/Divya-Kamath.jpg",
+    "linkedin": "https://www.linkedin.com/in/divyamkamath/"
+  
+  },
+  {
+    "username":"Antonio Collante",
+    "password":"Antonio Collante",
+    "name": "Antonio Collante",
+    "University": "Concordia University",
+    "img":"./team/photos/Antonio-Collante.jpg",
+    "linkedin": "https://www.linkedin.com/in/antonio-c-737aa566/"
+ 
+  },
+  {
+    "username":"Khaled Badran",
+    "password":"Khaled Badran",
+    "name": "Khaled Badran",
+    "University": "Concordia University",
+    "img": "./team/photos/Khaled-Badran.jpg",
+    "website": "https://das.encs.concordia.ca/members/khaled-badran",
+    "linkedin": "https://www.linkedin.com/in/khaled-badran-6b0908174/",
+    "twitter": "https://twitter.com/khaled_badran9"
+   
+  },
+  {
+    "username":"Rached Bouchoucha",
+    "password":"Rached Bouchoucha",
+    "name": "Rached Bouchoucha",
+    "University": "Ecole Polytechnique",
+    "img":"./team/photos/Rached-Bouchoucha.jpg",
+    "linkedin": "https://www.linkedin.com/in/rached-bouchoucha-1061997/"
+
+  },
+  {
+    "username":"Ahmed Haj Yahmed",
+    "password":"Ahmed Haj Yahmed",
+    "name": "Ahmed Haj Yahmed",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Ahmed-Haj-Yahmed.jpg",
+    "linkedin": "https://www.linkedin.com/in/ahmed-haj-yahmed/"
+  
+  },
+  {
+    "username":"Musfiqur Rahman",
+    "password":"Musfiqur Rahman",
+    "name": "Musfiqur Rahman",
+    "University": "Concordia University",
+    "img": "./team/photos/Musfiqur-Rahman.jpg",
+    "website": "https://das.encs.concordia.ca/members/musfiqur-rahman",
+    "linkedin": "https://www.linkedin.com/in/musfiqur-rahman-37596444/"
+  
+  },
+  {
+    "username":"Jasmine Latendresse",
+    "password":"Jasmine Latendresse",
+    "name": "Jasmine Latendresse",
+    "University": "Concordia University",
+    "img": "./team/photos/Jasmine-Latendresse.jpg",
+    "website": "https://jaslatendresse.github.io/",
+    "linkedin": "https://www.linkedin.com/in/jasmine-latendresse-2835561a6/"
+    
+  },
+  {
+    "username":"Jiawen Liu",
+    "password":"Jiawen Liu",
+    "name": "Jiawen Liu",
+    "University": "Queen's University",
+    "img": "./team/photos/Jiawen-Liu.jpg",
+    "website": "https://seal-queensu.github.io/member-current.html",
+    "linkedin": "https://www.linkedin.com/in/jiawen-liu-691906178/"
+
+  },
+  {
+    "username":"Pouya Fathollahzadeh",
+    "password":"Pouya Fathollahzadeh",
+    "name": "Pouya Fathollahzadeh",
+    "University": "Queen's University",
+    "img":"./team/photos/Pouya-Fathollahzadeh.jpg",
+    "website": "https://seal-queensu.github.io/member-current.html"
+
+  },
+  {
+    "username":"Akshat Malik",
+    "password":"Akshat Malik",
+    "name": "Akshat Malik",
+    "University": "Queen's University",
+    "img": "./team/photos/Akshat-Malik.jpg",
+  
+    "linkedin": "https://www.linkedin.com/in/akshat-malik/"
+ 
+  },
+  {
+    "username":"Harsh Patel",
+    "password":"Harsh Patel",
+    "name": "Harsh Patel",
+    "University": "Queen's University",
+    "img": "./team/photos/Harsh-Patel.jpg",
+    "website": "https://alacrity.dev/",
+    "linkedin": "https://www.linkedin.com/in/harsh8398/"
+ 
+  },
+  {
+    "username":"Jaskirat Singh",
+    "password":"Jaskirat Singh",
+    "name": "Jaskirat Singh",
+    "University": "Queen's University",
+    "img": "./team/photos/Jaskirat-Singh.jpg",
+ 
+    "linkedin": "https://www.linkedin.com/in/jaskirat409/"
+
+  },
+  {
+    "username":"Shenyu Zheng",
+    "password":"Shenyu Zheng",
+    "name": "Shenyu Zheng",
+    "University": "Queen's University",
+    "img": "./team/photos/Shenyu-Zheng.jpg",
+ 
+    "linkedin": "https://www.linkedin.com/in/shenyu-zheng-31146524b/"
+ 
+  },
+  {
+    "username":"Afiya Fahmida Sarah",
+    "password":"Afiya Fahmida Sarah",
+    "name": "Afiya Fahmida Sarah",
+    "University": "University of Alberta",
+    "img":"./team/photos/Afiya-Fahmida-Sarah.jpg",
+   
+    "linkedin": "https://www.linkedin.com/in/afiya-sarah-039007179",
+ 
+    "email": "afiya-sarah-039007179"
+  },
+  {
+    "username":"Fazle Rabbi",
+    "password":"Fazle Rabbi",
+    "name": "Fazle Rabbi",
+    "University": "Concordia University",
+    "img": "./team/photos/Fazle-Rabbi.jpg",
+    "website": "https://frabbisw.github.io/",
+    "linkedin": "https://www.linkedin.com/in/fazle-rabbi-720139207/"
+
+  },
+  {
+    "username":"Lorena Pacheco",
+    "password":"Lorena Pacheco",
+    "name": "Lorena Pacheco",
+    "University": "Concordia University",
+    "img":"./team/photos/Lorena-Pacheco.jpg",
+    "linkedin": "https://www.linkedin.com/in/lorenasimedo/"
+  
+  },
+  {
+    "username":"Samuel Abedu",
+    "password":"Samuel Abedu",
+    "name": "Samuel Abedu",
+    "University": "Concordia University",
+    "img":"./team/photos/Samuel-Abedu.jpg",
+    "website": "",
+    "linkedin": "https://linkedin.com/in/samuel-abedu-42b755103/"
+  
+  },
+  {
+    "username":"Khouloud Oueslati",
+    "password":"Khouloud Oueslati",
+    "name": "Khouloud Oueslati",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Khouloud-Oueslati.jpg",
+
+    "linkedin": "https://www.linkedin.com/in/khouloud-ouesleti/"
+   
+  },
+  {
+    "username":"Yang Liu",
+    "password":"Yang Liu",
+    "name": "Yang Liu",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Yang-Liu.jpg"
+
+  },
+  {
+    "username":"Laila Mahmoud Daw Abodinar",
+    "password":"Laila Mahmoud Daw Abodinar",
+    "name": "Laila Mahmoud Daw Abodinar",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Laila-Mahmoud Daw-Abodinar.jpg",
+
+    "linkedin": "https://www.linkedin.com/in/laila-abodinar-2541491ba/"
+
+  },
+  {
+    "username":"Altaf Allah Abbassi",
+    "password":"Altaf Allah Abbassi",
+    "name": "Altaf Allah Abbassi",
+    "University": "Ecole Polytechnique",
+    "img": "./team/photos/Altaf-Allah-Abbassi.jpg",
+    "website": "",
+    "linkedin": "https://www.linkedin.com/in/altafallahabbassi/"
+
+  },
+  {
+    "username":"Alor Ebube",
+    "password":"Alor Ebube",
+    "name": "Alor Ebube",
+    "University": "Concordia University",
+    "img": "./team/photos/Alor-Ebube.jpg",
+    "website": "https://das.encs.concordia.ca/members/alor-ebube",
+    "linkedin": "https://www.linkedin.com/in/alor-ebubechukwu//"
+
+  },
+  {
+    "username":"Mayra Ruiz",
+    "password":"Mayra Ruiz",
+    "name": "Mayra Ruiz",
+    "University": "Concordia University",
+    "img": "./team/photos/Mayra-Ruiz.jpg",
+    "linkedin": "https://www.linkedin.com/in/mruiz27/"
+
+  },
+   {  
+    "username":"Lin Ling",
+    "password":"Lin Ling",
+    "name": "Lin Ling ",
+  "University": "Concordia University",
+  "img": "./team/photos/Lin-Ling.jpg",
+
+  "linkedin": "https://www.linkedin.com/in/lin-ling-4705b0260/"
+
+}
+]
