@@ -8,6 +8,7 @@ import HomePageSidebar from "./HomePageSidebar";
 import { useLocation } from "react-router-dom";
 import ProgramSidebarMedia from "./ProgramSidebarMedia";
 import { Grid } from "@mui/material";
+import { width } from "@mui/system";
 
 const Navbar = () => {
   const { toggleDarkMode, isDarkMode } = useContext(DarkModeContext);
@@ -43,9 +44,9 @@ const Navbar = () => {
     toggleDarkMode(); // Toggle the dark mode state in the context
   };
 
-  const handleAdminClick = () => {
+  const handleStudentClick = () => {
     // Use navigate to redirect to the /adminlogin route
-    navigate("/adminlogin");
+    navigate("/Studentlogin");
   };
   return (
     // <NavbarStickyContainer>
@@ -106,25 +107,19 @@ const Navbar = () => {
         </Nav>
      
 
-        {/* <Nav isDarkMode={isDarkMode} >
-          {/* Click event for "Login" */}
-          {/* <LoginLink onClick={handleLoginToggle}>Login</LoginLink> */}
-
-          {/* Dropdown menu */}
-          {/* {showDropdown && (
+        <Nav isDarkMode={isDarkMode} style={{ width: "80px" }}>
+          <LoginLink onClick={handleLoginToggle}>Login</LoginLink>
+         
+       {showDropdown && (
             <DropdownMenuWrapper isDarkMode={isDarkMode}>
               <DropdownMenu isDarkMode={isDarkMode}>
-                <DropdownItem onClick={handleAdminClick}>Admin</DropdownItem>
-
-                <DropdownItem
-                  onClick={() => handleDropdownOptionClick("member")}
-                >
-                  Member
-                </DropdownItem>
+                <DropdownItem onClick={handleStudentClick}>Student</DropdownItem>
               </DropdownMenu>
             </DropdownMenuWrapper>
           )}
-        </Nav>  */}
+        </Nav> 
+
+
 </NavmenuLeft>
 
 
@@ -235,6 +230,7 @@ const Nav = styled.li`
 margin-right:23px; 
 font-weight:500; 
 align-items:center;
+/* border:2px solid blue; */
  img {
 padding-top:10px;    height: 32px;
   cursor: pointer;
@@ -394,23 +390,24 @@ const Slider = styled.span`
 `
 const LoginLink = styled.a`
   cursor: pointer;
-
+/* border:2px solid orange; */
   // Add any additional styling for the login link here if needed
 `;
 
 const DropdownMenuWrapper = styled.div`
   position: relative;
   display: inline-block;
-  margin-left: -70px;
+  margin-left: -60px;
 `;
 
 const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  /* border: 1px solid #dcdcdc; */
+  /* border: 2px solid green; */
+  margin-top:20px;
   border-radius: 4px;
-  padding: 8px;
+  /* padding: 8px; */
   z-index: 1; /* Ensure the dropdown menu appears above other elements */
   background-color: ${(props) => (props.isDarkMode ? "#282828" : "white")};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")};
@@ -419,7 +416,8 @@ const DropdownMenu = styled.div`
 const DropdownItem = styled.div`
   cursor: pointer;
   font-size: 16px;
-
+  /* margin-top:16px; */
+/* border:2px solid red; */
   padding: 6px 12px;
   /* color: ${(props) => (props.isDarkMode ? "#fff" : "#212529")}; */
   /* transition: background-color 0.2s; */
