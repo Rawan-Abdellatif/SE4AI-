@@ -20,6 +20,23 @@ import AdminLogin from "./component/AdminLogin";
 import AdminProfile from "./component/AdminProfile";
 import StudentLogin from "./component/StudentLogin";
 import StudentProfile from "./component/StudentProfile";
+
+
+import Trainee_Talks_Webinar from "./component/events/Trainee_Talks_Webinar";
+import Industry_Talks_Webinar from "./component/events/Industry_Talks_Webinar";
+import Trainee_Talks_Webinar_April3rd from "./component/events/Trainee_Talks_Webinar_April3rd";
+import Women_in_Engineering from "./component/events/Women_in_Engineering"
+import Trainee_Talks_Webinar_February27 from "./component/events/Trainee_Talks_Webinar_February27";
+import Industry_Talks_Webinar_February10 from "./component/events/Industry_Talks_Webinar_February10"; 
+import Trainee_Talks_Webinar_December13 from "./component/events/Trainee_Talks_Webinar_December13";
+import Industry_Talks_Webinar_November18 from "./component/events/Industry_Talks_Webinar_November18";
+import Trainee_Talks_Webinar_November4 from "./component/events/Trainee_Talks_Webinar_November4";
+import CREATE_SE4AI_Retreat_June3 from "./component/events/CREATE_SE4AI_Retreat_June3";
+import Guest_Speaker_Webinar_April12 from "./component/events/Guest_Speaker_Webinar_April12";
+import Guest_Speaker_Webinar_February3 from "./component/events/Guest_Speaker_Webinar_February3";  
+import  Future_of_AI_Networking_Event from "./component/events/Future of AI Networking Event";
+
+
 import Contact from "./component/Contact";
 import Favicon from "./component/img/favicon.svg";
 import Header from "./component/Header"
@@ -126,6 +143,22 @@ useEffect(() => {
           <Route path="/adminlogin/:adminId" element={<AdminProfile />} />
           <Route path="/studentlogin" element={<StudentLogin />} />
           <Route path="/studentlogin/:studentId" element={<StudentProfile />} />
+
+
+          <Route path="/blog/Trainee_Talks_Webinar_sptemper25" element={<Trainee_Talks_Webinar />} />
+           <Route path="/blog/Industry_Talks_Webinar_April25" element={<Industry_Talks_Webinar />} />
+           <Route path="/blog/Trainee_Talks_Webinar_April3rd" element={<Trainee_Talks_Webinar_April3rd />} />
+           <Route path="/blog/Women_in_Engineering" element={<Women_in_Engineering />} />
+           <Route path="/blog/Trainee_Talks_Webinar_February27" element={< Trainee_Talks_Webinar_February27 />} />
+           <Route path="/blog/Industry_Talks_Webinar_February10" element={< Industry_Talks_Webinar_February10 />} />
+           <Route path="/blog/Trainee_Talks_Webinar_December13" element={< Trainee_Talks_Webinar_December13 />} />
+           <Route path="/blog/Industry_Talks_Webinar_November18" element={< Industry_Talks_Webinar_November18 />} />
+           <Route path="/blog/Trainee_Talks_Webinar_November4" element={< Trainee_Talks_Webinar_November4/>} />
+           <Route path="/blog/CREATE_SE4AI_Retreat_June3" element={< CREATE_SE4AI_Retreat_June3/>} />
+            <Route path="/blog/Guest_Speaker_Webinar_April12" element={<Guest_Speaker_Webinar_April12/>} />
+            <Route path="/blog/Guest_Speaker_Webinar_February3" element={<Guest_Speaker_Webinar_February3 />} />
+            <Route path="/blog/Future_of_AI_Networking_Event" element={<Future_of_AI_Networking_Event />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>
