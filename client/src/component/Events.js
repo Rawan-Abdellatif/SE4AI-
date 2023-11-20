@@ -1,875 +1,611 @@
-// This is the Events Page
-import React, { useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import styled from "styled-components";
 import { DarkModeContext } from "./DarkModeContext";
-import { Grid } from "@mui/material";
-///// import all of photos
-import apr252023Image from "../component/2022-09-21-past/apr252023.jpg";
-import april32023Image from "../component/2022-09-21-past/april32023.jpg";
-import wie1Image from "../component/2022-09-21-past/wie1.jpg";
-import wie2Image from "../component/2022-09-21-past/wie2.jpg";
-import wie3Image from "../component/2022-09-21-past/wie3.jpg";
-import feb272023Image from "../component/2022-09-21-past/feb272023.jpg";
-import feb102023Image from "../component/2022-09-21-past/feb102023.jpg";
-import trainee_talk_2Image from "../component/2022-09-21-past/trainee_talk_2.jpg";
-import telecom2Image from "../component/2022-09-21-past/telecom2.jpg";
-import trainee_talk_1Image from "../component/2022-09-21-past/trainee_talk_1.jpg";
-import retreat_groupImage from "../component/2022-09-21-past/retreat_group.jpg";
-import brainstormImage from "../component/2022-09-21-past/brainstorm.jpg";
-import group1Image from "../component/2022-09-21-past/group1.jpg";
-import group2Image from "../component/2022-09-21-past/group2.jpg";
-import group3Image from "../component/2022-09-21-past/group3.jpg";
-import group4Image from "../component/2022-09-21-past/group4.jpg";
-import olivierImage from "../component/2022-09-21-past/olivier.jpg";
-import sumon_biswasImage from "../component/2022-09-21-past/sumon_biswas.jpg";
-import traineeSeptemberImage from "../component/upcoming/traineeSeptember.jpg"
+import traineeSeptemberImage from "./2022-09-21-past/traineeSeptember.jpg"
+import apr252023Image from "./2022-09-21-past/apr252023.jpg";
+import april32023Image from "./2022-09-21-past/april32023.jpg";
+import wie1Image from "./2022-09-21-past/wie1.jpg";
+import feb102023Image from "./2022-09-21-past/feb102023.jpg"
+import trainee_talk_2Image from "./2022-09-21-past/trainee_talk_2.jpg"
+import telecom2Image from "./2022-09-21-past/telecom2.jpg";
+import trainee_talk_1Image from "./2022-09-21-past/trainee_talk_1.jpg"
+import retreat_groupImage from "./2022-09-21-past/retreat_group.jpg";
+import olivierImage from "./2022-09-21-past/olivier.jpg"
+import sumon_biswasImage from "./2022-09-21-past/sumon_biswas.jpg";
+import futureaiImage from "./2022-09-21-past/futureai.jpg";
 
-import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import Sidebar from "./Sidebar";
 
-const Events = () => {
-  const { isDarkMode } = useContext(DarkModeContext);
+import wie2Image from "./2022-09-21-past/wie2.jpg";
+import wie3Image from "./2022-09-21-past/wie3.jpg";
+import feb272023Image from "./2022-09-21-past/feb272023.jpg"
+import {Grid} from "@mui/material";
 
-  return (
-    <Container isDarkMode={isDarkMode}>
-      <StickySidebar>
-        <Sidebar />
-      </StickySidebar>
-      <Grid
+import { Link } from "react-router-dom";
+const Events=()=>{
+    const { isDarkMode } = useContext(DarkModeContext);
+
+    return( 
+
+        <Container isDarkMode={isDarkMode}>       
+  
+
+  <Grid
     container
     justifyContent="center"
     alignItems="center"
-    style={{ flex: 1, padding: "20px" }}
+    // style={{ flex: 1, padding: "20px" }}
     
-  >     
+  >
 
-    <Grid item xs={12} md={12} lg={12} xl={12}>
-      <MainContent isDarkMode={isDarkMode}>
-      <Grid item xs={12} md={12} lg={12} xl={12}>
+        
 
-        <Title>
-          <a href="/blog/past">Past Events</a>
-        </Title></Grid>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="trainee-talks-webinar---september-25-2023​"
-          className="subtitle"
-        >
-Trainee Talks Webinar - September 25, 2023​
-           <a href="#trainee-talks-webinar---september-25-2023​
-"> #</a>
-          <Img src={traineeSeptemberImage} alt=" traineeSeptemberImage" />
-        </Subtitle>
-        <Details isDarkMode={isDarkMode}>Our CREATE SE4AI community 
-        came together on September 25th, 2023 for the first Trainee
-         Talks of the fall semester. We heard Queen's Master's candidate
-          Divya Kamath present her thesis research on Pragmatic Approaches
-           to Schedule Less Builds in Continuous Integration. 
-           Then, Mohayeminul Islam, PhD student from University
-         of Alberta shared his work on Characterizing Python Library Migrations.</Details>
-         <YoutubeChannel isDarkMode={isDarkMode}>
-         The video is now available to view on our
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="industry-talks-webinar---april-25-2023"
-        >
-          Industry Talks Webinar - April 25, 2023
-          <a href="#industry-talks-webinar---april-25-2023"> #</a>
-          <Img src={apr252023Image} alt=" apr252023.jpg" />
-        </Subtitle>
-        <Details isDarkMode={isDarkMode}>
-          CREATE SE4AI is pleased to present Patrick Mesana, Consultant at
+
+     <Main isDarkMode={isDarkMode}>
+     <Grid item xs={6} md={6} lg={12} xl={12}>
+
+     <Title isDarkMode={isDarkMode}><h2>Events</h2> </Title>
+     </Grid>
+{/*unComment this part when there is no upcomment Events*/ }
+     {/* <UpcomingEvents sDarkMode={isDarkMode}>UpcomingEvents
+     <h5>No upcoming events at this time.</h5>
+ </UpcomingEvents> */}
+ <Subtitle isDarkMode={isDarkMode}>UpcomingEvents</Subtitle>
+ <PastEvent isDarkMode={isDarkMode}> 
+    <Calinder isDarkMode={isDarkMode}>
+    <Img src={futureaiImage} alt=" futureai.jpg" />
+    {/* <Month>Sep</Month>
+        <Day>25</Day> */}
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Future_of_AI_Networking_Event">Future of AI Networking Event   
+</a>
+   <h5>  CREATE SE4AI has partnered with the Montréal chapter of     
+        Women in AI & Robotics and Concordia's Applied
+                 AI Institute to host a speaker and networking
+                  event on the Future of AI 
+        Join us for a deep dive into the future of AI, 
+        Sustainability, the Societal Impact of Technology 
+        and Innovative Discoveries. The event will be followed by a 
+        networking session and an enjoyable opportunity for socializing over refreshments and finger foods. 
+        Our very own ...<Button isDarkMode={isDarkMode}><Link  to="/blog/Future_of_AI_Networking_Event" className="read-more-link"> Read More
+      </Link></Button></h5> 
+             </Event>
+</PastEvent> 
+
+
+
+
+<Subtitle isDarkMode={isDarkMode}>All Events</Subtitle>
+{/*first Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    <Img src={traineeSeptemberImage} alt=" traineeSeptemberImage" />
+
+    {/* <Month>Sep</Month>
+        <Day>25</Day> */}
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Trainee_Talks_Webinar_sptemper25">Trainee Talks Webinar - September 25, 2023</a>
+   <h5>    Our CREATE SE4AI community came together on 
+              September 25th, 2023 for the first Trainee Our CREATE SE4AI
+               community came together on September 25th, 2023 for the first 
+               Trainee Talks of the fall semester. We heard Queen's Master's candidate
+                Divya Kamath present her thesis research on Pragmatic Approaches to Schedule
+                 Less Builds in Continuous Integration ...<Button isDarkMode={isDarkMode}><Link  to="/blog/Trainee_Talks_Webinar_sptemper25" className="read-more-link"> Read More
+      </Link></Button></h5> 
+             </Event>
+
+</PastEvent>
+{/*second Event*/}
+
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    <Img src={apr252023Image} alt=" apr252023.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Industry_Talks_Webinar_April25">Industry Talks Webinar - April 25, 2023​</a>
+   <h5>     CREATE SE4AI is pleased to present Patrick Mesana, Consultant at
           National Bank of Canada and PhD Candidate at HEC, who spoke
-          <Bold isDarkMode={isDarkMode}>
+
             {" "}
             on Balancing Data Valorization and Privacy: Industry Challenges and
-            Opportunities.
-          </Bold>{" "}</Details>
-          <Details2 isDarkMode={isDarkMode}>
-          In his talk, Patrick delved into the distinct characteristics of data
-          as a digital asset and examined the challenges of striking a balance
-          between data valorization and privacy. Emphasizing the importance of
-          data management in large organizations, such as financial
-          institutions, he addressed the emerging challenges posed by privacy
-          laws and the rapid growth of AI. Through a discussion of evolving
-          practices like privacy-by-design, advances in privacy engineering, and
-          innovative privacy technologies such as data synthesis, he offered
-          valuable insights for navigating the intricate future of data privacy
-          within organizations. Furthermore, he brought to light potential
-          future disruptors, such as open banking in Canada, particularly
-          relevant to the finance sector.
-        </Details2>
-        <Bold2 isDarkMode={isDarkMode}>About the Speaker:</Bold2>
-        <Details isDarkMode={isDarkMode}>
-          Patrick Mesana began his career as a software engineer, gaining
-          experience with consulting companies and startups before transitioning
-          into the field of Data Science. As a former manager in the Data Office
-          of National Bank of Canada (NBC), Patrick encountered numerous data
-          management challenges. He is currently pursuing a PhD in decision
-          science to explore the tradeoffs between data privacy and data value.
-          In addition, Patrick serves as a researcher and scientific lead on
-          these topics for the AI Factory at NBC.
-        </Details>
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="trainee-talks-webinar---april-3rd-2023"
-        >
-          Trainee Talks Webinar - April 3rd, 2023{" "}
-          <a href="#trainee-talks-webinar---april-3rd-2023"> #</a>
-          <Img src={april32023Image} alt=" april32023.jpg" />
-        </Subtitle>
-        <Details isDarkMode={isDarkMode}>
-          The Spring Trainee Talks webinar was a huge success and we were
-          pleased to have 27 participants join!
-        </Details>
-        <Details2 isDarkMode={isDarkMode}>
+            Opportunities. In his talk, Patrick delved into the distinct characteristics of data
+          as a digital asset and examined the challenges of striking a balance ...<Button isDarkMode={isDarkMode}><Link to="/blog/Industry_Talks_Webinar_April25" className="read-more-link"> Read More
+      </Link></Button></h5> </Event>
+
+</PastEvent>
+{/*Third Event*/}
+
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    <Img src={april32023Image} alt=" april32023.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Trainee_Talks_Webinar_April3rd">Trainee Talks Webinar - April 3rd, 2023</a>
+   <h5>  TThe Spring Trainee Talks webinar was a huge success and we were
+          pleased to have 27 participants join! 
           In this webinar, 2 PhD students from Polytechnique Montréal under
           Prof. Foutse Khomh delivered their research topics. Vahid Majdinasab
           spoke on his topic of Mutation Testing of Deep Reinforcement Learning
           Based on Real Faults, followed by Forough Majidi, who shared her
-          Empirical Study on the Usage of Automated Machine Learning Tools. A 10
-          min Q&A session followed after each presentation.
-        </Details2>
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="women-in-engineering-wie---march-18-2023"
-        >
-          Women in Engineering (WIE) - March 18, 2023
-          <a href="#women-in-engineering-wie---march-18-2023"> #</a>
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          On March 18th , CREATE SE4AI took part in WIE Inspire WIE Empower, an
-          annual event hosted by the
-          <a href="https://www.womeninengineeringconcordia.com/ ">
-            {" "}
+          Empirical Study on ... <Button isDarkMode={isDarkMode}><Link to="/blog/Trainee_Talks_Webinar_April3rd" className="read-more-link"> Read More
+      </Link></Button></h5> </Event>
+</PastEvent>
+
+{/*Forth Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Image> */}
+
+          <Img src={wie1Image} alt="wie1Image" />
+          {/* <Img2 src={wie2Image} alt="wie2Image" />
+          <Img2 src={wie3Image} alt="wie3Image" /> */}
+          {/* </Image> */}
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Women_in_Engineering">Women in Engineering (WIE) - March 18, 2023</a>
+   <h5>    On March 18th , CREATE SE4AI took part in WIE Inspire WIE Empower, an annual event hosted  by the
+  
             Women in Engineering (WIE)
-          </a>{" "}
+   
           student association at the
-          <a href="https://www.concordia.ca/ginacody.html">
-            {" "}
-            Gina Cody School of Engineering and Computer Science at Concordia
+          Gina Cody School of Engineering and Computer Science at Concordia
             University.
-          </a>{" "}
+       
           Through their various outreach and mentorship activities, WIE
           encourages young women to explore engineering and computer science as
           career options.
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          This year, WIE welcomed over 80 high school girls aged 12-17 to
-          Concordia for an exciting day of inspiration and exploration. After a
-          welcome address by Dr. Gina Cody, students participated in 4 hands-on,
-          industry-led workshops. CREATE SE4AI trainees and Master’s students
-          <Bold isDarkMode={isDarkMode}> Divya Kamath</Bold> (Queen’s
-          University),
-          <Bold isDarkMode={isDarkMode}> Lorena Barreto </Bold>(Concordia
-          University) and <Bold isDarkMode={isDarkMode}>Khaled Badran </Bold>
-          (Concordia University), along with Program Coordinator{" "}
-          <Bold isDarkMode={isDarkMode}>Lori Akiyama </Bold> developed and delivered a fun, interactive
-          workshop on AI and Chatbots to 4 groups of students. The goals of the
-          workshop were to:
-        </Details2>
-        <Ol isDarkMode={isDarkMode}>
-          <Li isDarkMode={isDarkMode}>
-            Introduce the basic concepts of AI and chatbots to the students
-          </Li>
-          <Li isDarkMode={isDarkMode}>
-            Encourage the students to develop confidence interacting with
-            technology
-          </Li>
-          <Li isDarkMode={isDarkMode}>
-            Stimulate a discussion of ethics of AI in society through a group
-            reflection exercise
-          </Li>
-        </Ol>
-        <Details2 isDarkMode={isDarkMode}>
-          At the end of the workshop, the students shared their experiences
-          interacting with chatbots and reflected on the importance of creating
-          responsible and ethical AI.
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          CREATE was proud to contribute to this important initiative, and we
-          look forward to more opportunities to engage with youth and inspire
-          them to learn more about software engineering and AI in the future.
-        </Details2>
-        <Image>
-          <Img2 src={wie1Image} alt="wie1Image" />
-          <Img2 src={wie2Image} alt="wie2Image" />
-          <Img2 src={wie3Image} alt="wie3Image" />
-        </Image>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="trainee-talks-webinar---february-27-2023"
-        >
-          Trainee Talks Webinar - February 27, 2023
-          <a href="#trainee-talks-webinar---february-27-2023"> #</a>
-          <Img src={feb272023Image} alt=" feb272023.jpg" />
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          In the first Trainee Talks webinar of 2023, Pierre-Olivier Côté, a
+          <Button isDarkMode={isDarkMode}><Link to="/blog/Women_in_Engineering" className="read-more-link"> Read More
+      </Link></Button></h5> </Event>
+
+</PastEvent>
+{/*Fifth Event*/}
+{/* <PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    <Month>Sep</Month>
+        <Day>25</Day>
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Trainee_Talks_Webinar_sptemper25">Trainee Talks Webinar - September 25, 2023</a>
+   <h5>    Our CREATE SE4AI community came together on 
+              September 25th, 2023 for the first Trainee </h5> </Event>
+</PastEvent> */}
+{/*Sixth Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Feb</Month>
+        <Day>27</Day> */}
+        <Img src={feb272023Image} alt=" feb272023.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Trainee_Talks_Webinar_February27">Trainee Talks Webinar - February 27, 2023</a>
+   <h5>    In the first Trainee Talks webinar of 2023, Pierre-Olivier Côté, a
           Master's student at Polytechnique Montréal spoke about Quality Issues
           in Machine Learning Software Systems. Immediately following,
           University of Alberta PhD student Akalanka Galappaththi presented his
-          work on “A Data Set of Generalizable Python Code Change Patterns”.
-        </Details2>
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="industry-talks-webinar---february-10-2023"
-        >
-          Industry Talks Webinar - February 10, 2023
-          <a href="#industry-talks-webinar---february-10-2023">#</a>
-          <Img src={feb102023Image} alt="feb102023.jpg" />
-        </Subtitle>
-        <Bold isDarkMode={isDarkMode}>
-          Deploying Effective Machine Learning Models in Production: Two Use
-          Cases
-        </Bold>
-        <Details2 isDarkMode={isDarkMode}>
-          Dr. Gabor Melli, VP of Engineering, AI/ML at San Francisco-based
+          work on “A Data Set of Generalizable ....        <Button isDarkMode={isDarkMode}><Link to="/blog/Trainee_Talks_Webinar_February27" className="read-more-link"> Read More
+      </Link></Button> </h5> </Event>
+
+</PastEvent>
+{/*Seventh Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Feb</Month>
+        <Day>10</Day> */}
+                <Img src={feb102023Image} alt="feb102023.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Industry_Talks_Webinar_February10">Industry Talks Webinar - February 10, 2023</a>
+   <h5>  Dr. Gabor Melli, VP of Engineering, AI/ML at San Francisco-based
           Medable joined us for our first industry talk webinar of 2023! Gabor
           Melli is a seasoned professional with a proven track record of leading
           teams and driving positive change within organizations. His background
           includes implementing evidence-based solutions and facilitating change
-          at large enterprises such as Sony PlayStation, Microsoft, AT&T,
-          T-Mobile, and Wal*Mart, as well as at start-ups including Datasage,
-          Meals.com, VigLink,<a href="https://opengov.com/">OpenGov.com</a>, and{" "}
-          <a href="https://www.medable.com/">Medable.com</a>. Gabor has also
-          presented his research at various applied AI research conferences,
-          including AAAI, KDD, LREC, and ICDM.
-        </Details2>
-        <Bold2 isDarkMode={isDarkMode}>Abstract</Bold2>
-        <Details isDarkMode={isDarkMode}>
-          Predictive machine learning has the ability to automate and optimize
-          workflows across a wide range of industries. In this session, we will
-          explore real-life examples of how predictive machine learning is being
-          used at Sony Interactive Entertainment (SIE) and Medable. At SIE, we
-          will delve into their scalable, real-time, low-latency predictive
-          ML-based solutions that are implemented on the cloud in order to
-          personalize purchasing and playing experiences. Medable, on the other
-          hand, has implemented an automated, decentralized clinical trials
-          platform on the cloud in order to greatly improve efficiency and
-          accuracy. Throughout this session, we will also discuss the role of
-          machine learning engineering and the exciting opportunities that lie
-          ahead in this field. Overall, this session aims to provide a
-          comprehensive overview of the various applications and potential of
-          predictive machine learning.
-        </Details>
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="trainee-talks-webinar---december-13-2022"
-        >
-          Trainee Talks Webinar - December 13, 2022{" "}
-          <a href="#trainee-talks-webinar---december-13-2022"> #</a>
-          <Img src={trainee_talk_2Image} alt=" trainee_talk_2.jpg" />
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          Trainee Talks is a monthly webinar series featuring CREATE SE4AI
+          at large enterprises such as Sony PlayStation ... <Button isDarkMode={isDarkMode}><Link to="/blog/Industry_Talks_Webinar_February10" className="read-more-link"> Read More
+      </Link></Button> </h5> </Event>
+
+</PastEvent>
+{/*8th Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Dec</Month>
+        <Day>13</Day> */}
+                <Img src={trainee_talk_2Image} alt=" trainee_talk_2.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Trainee_Talks_Webinar_December13">Trainee Talks Webinar - December 13, 2022</a>
+   <h5>      Trainee Talks is a monthly webinar series featuring CREATE SE4AI
           trainees sharing their research topics in software engineering and AI.{" "}
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
+      
           This time, Queen's University Master's student Ernesto Lang Oreamuno
           joined us and spoke about Documentation Practices of Third-Party
           Models and Datasets.
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          Immediately following, Rached Bouchoucha, École Polytechnique Master's
-          student presented his work on de-bugging Deep Reinforcement Learning
-          (DLR) Frameworks.
-        </Details2>
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="industry-talks-webinar---november-18-2022"
-        >
-          Industry Talks Webinar - November 18, 2022{" "}
-          <a href="#industry-talks-webinar---november-18-2022"> #</a>
-          <Img src={telecom2Image} alt=" telecom2.jpg" />
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          CREATE SE4AI is pleased to present{" "}
-          <Bold isDarkMode={isDarkMode}>AI Adoption in Telecom Networks</Bold>{" "}
+          Immediately following, Rached Bouchoucha, École Polytechnique ...<Button isDarkMode={isDarkMode}><Link to="/blog/Trainee_Talks_Webinar_December13" className="read-more-link"> Read More
+      </Link></Button> </h5> </Event>
+
+</PastEvent>
+{/*9th  Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Nov</Month>
+        <Day>18</Day> */}
+                  <Img src={telecom2Image} alt=" telecom2.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Industry_Talks_Webinar_November18">Industry Talks Webinar - November 18, 2022</a>
+   <h5>    CREATE SE4AI is pleased to present
+        AI Adoption in Telecom Networks
           as part of our Industry Talks webinar series.
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
+ 
           Did you know that revenue generated from AI automation in telecom
           networks is expected to reach USD 200 billion by 2027? What are some
           of the current challenges Ericsson, a global leader in ICT solutions
-          faces as they adopt new technologies in AI and ML in their products
-          and services, and how are they overcoming them?
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          In his presentation, Karthikeyan Premkumar, Data Scientist at Ericsson
-          used case studies to highlight several touchpoints involving the ML
-          model development process, tools, data quality, ML Ops (monitoring and
-          retraining) and deployment as part of model industrialization.
-        </Details2>
-        <Bold2 isDarkMode={isDarkMode}>About the Speaker</Bold2>
-        <Details isDarkMode={isDarkMode}>
-          Karthik Premkumar has 18 years of experience in the telecom industry.
-          His expertise lies in industrializing AI/ML solutions, designing
-          system and solution architectures in BSS, Cloud and infrastructure
-          platforms for telecom networks.
-        </Details>
-        <Details2 isDarkMode={isDarkMode}>
-          In his current role as Data Scientist at Ericsson in Montreal, QC,
-          Karthik Premkumar designs knowledge models and machine reasoning
-          technologies for cognitive networks. He has published over 10 patents
-          and papers on telecom analytics.
-        </Details2>
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="trainee-talks-webinar---november-4-2022"
-        >
-          Trainee Talks Webinar - November 4, 2022
-          <a href="#trainee-talks-webinar---november-4-2022"> #</a>
-          <Img src={trainee_talk_1Image} alt="trainee_talk_1.jpg" />
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          <Bold isDarkMode={isDarkMode}>Topics:</Bold> Dependency Management and
-          Testing of AI-based Software Systems
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          Our monthly<Bold isDarkMode={isDarkMode}> CREATE SE4AI Trainee Talks</Bold> webinar series
+          faces as they adopt new technologies in AI and ML ... <Button isDarkMode={isDarkMode}><Link to="/blog/Industry_Talks_Webinar_November18" className="read-more-link"> Read More
+      </Link></Button></h5> </Event>
+
+</PastEvent>
+{/*10th Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Nov</Month>
+        <Day>4</Day> */}
+                <Img src={trainee_talk_1Image} alt="trainee_talk_1.jpg" />   
+               
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Trainee_Talks_Webinar_November4">Trainee Talks Webinar - November 4, 2022</a>
+   <h5> Our monthly CREATE SE4AI Trainee Talks webinar series
           kicked off with 2 graduate Software Engineering students presenting
           their research.
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
+   
           In the first of our series of trainee-led webinars, we invited 2
           graduate students to deliver their research topics to the broader
-          public.
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          <Bold isDarkMode={isDarkMode}>Ahmed Haj Yahmed,</Bold> a Master's
-          student at Polytechnique Montréal presented DiverGet: a Search-based
-          Software Testing Approach for Deep Neural Network Quantization
-          Assessment. Immediately following, Concordia University PhD candidate{" "}
-          <Bold isDarkMode={isDarkMode}>Jasmine Latendresse</Bold>
-          presented her work on software production dependencies which she
-          recently delivered at the IEEE/ACM 2022 Conference on Automated
-          Software Engineering (ASE '22) in Michigan.
-        </Details2>{" "}
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>{" "}
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="create-se4ai-retreat---june-3-2022"
-        >
-          CREATE SE4AI Retreat - June 3, 2022
-          <a href="#create-se4ai-retreat---june-3-2022"> #</a>
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          Our 1st annual CREATE SE4AI Program Retreat is a wrap! It was an
+          public ...  <Button isDarkMode={isDarkMode}> <Link to="/blog/Trainee_Talks_Webinar_November4" className="read-more-link"> Read More
+      </Link></Button></h5> </Event>
+
+</PastEvent>
+{/*11th Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Jun</Month>
+        <Day>03</Day> */}
+            <Img src={retreat_groupImage} alt="retreat_group.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/CREATE_SE4AI_Retreat_June3">CREATE SE4AI Retreat - June 3, 2022</a>
+   <h5>  Our 1st annual CREATE SE4AI Program Retreat is a wrap! It was an
           inspiring day of celebrating our collective accomplishments and
           exchanging ideas amongst an amazing team of students, professors and
           industry partners, live and in person at the Chateau Vaudreuil. The
           future is so bright for this group of talented trainees, they’re gonna
-          need shades…
-        </Details2>
-        <Group>
-          <HoverContainer>
-            <Img3 src={retreat_groupImage} alt="retreat_group.jpg" />
-            <HoverImg3 src={retreat_groupImage} alt="retreat_group.jpg" />
-          </HoverContainer>
-          <HoverContainer>
-            <Img3 src={brainstormImage} alt=" brainstorm.jpg" />
-            <HoverImg3 src={brainstormImage} alt=" brainstorm.jpg" />
-          </HoverContainer>
-          <HoverContainer>
-            <Img3 src={group1Image} alt="  group1.jpg" />
-            <HoverImg3 src={group1Image} alt="  group1.jpg" />
-          </HoverContainer>
+          need shades ...   <Button isDarkMode={isDarkMode}>         
+           <Link to="/blog/CREATE_SE4AI_Retreat_June3" className="read-more-link"> Read More
+      </Link></Button>  </h5> </Event>
 
-          <HoverContainer>
-            <Img3 src={group2Image} alt="  group2.jpg" />
-            <HoverImg3 src={group2Image} alt="  group2.jpg" />
-          </HoverContainer>
+</PastEvent>
+{/*12th Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Apr</Month>
+        <Day>12</Day> */}
+                  <Img src={olivierImage} alt="olivier.jpg" />
 
-          <HoverContainer>
-            <Img3 src={group3Image} alt="  group3.jpg" />
-            <HoverImg3 src={group3Image} alt="  group3.jpg" />
-          </HoverContainer>
-
-          <HoverContainer>
-            <Img3 src={group4Image} alt="  group4.jpg" />
-            <HoverImg3 src={group4Image} alt="  group4.jpg" />
-          </HoverContainer>
-        </Group>
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="guest-speaker-webinar---april-12-2022"
-        >
-          Guest Speaker Webinar - April 12, 2022{" "}
-          <a href="#guest-speaker-webinar---april-12-2022"> #</a>
-        </Subtitle>
-        <Details isDarkMode={isDarkMode}>
-          CREATE SE4AI trainees, profs and partners enjoyed a webinar presented
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Guest_Speaker_Webinar_April12">Guest Speaker Webinar - April 12, 2022</a>
+   <h5>   CREATE SE4AI trainees, profs and partners enjoyed a webinar presented
           by Olivier Blais, co-founder and VP of Decision Science at Moov AI in
           Montréal. Olivier spoke about "Delivering High Quality Machine
-          Learning Models" including:
-        </Details>
-        <Group2 isDarkMode={isDarkMode}>
-          <Ol isDarkMode={isDarkMode}>
-            <Li isDarkMode={isDarkMode}>
-              What it means to develop high quality artificial intelligence
-            </Li>
-            <Li isDarkMode={isDarkMode}>
-              A better approach to ML model evaluation
-            </Li>
-            <Li isDarkMode={isDarkMode}>
-              Existing and future certifications for AI systems
-            </Li>
-            <Details isDarkMode={isDarkMode} style={{ display: 'flex', width:'100%' }}>
-  <Span>Bio:</Span>
-  <a href="https://moov.ai/en/olivier-blais" >
-    https://moov.ai/en/olivier-blais/
-  </a>
-</Details>
+          Learning Models" including ...<Button isDarkMode={isDarkMode}><Link to="/blog/Guest_Speaker_Webinar_April12 " className="read-more-link"> Read More
+      </Link></Button> </h5> </Event>
 
-          </Ol>
-          <Img4 src={olivierImage} alt="olivier.jpg" />
-        </Group2>{" "}
-        <YoutubeChannel isDarkMode={isDarkMode}>
-          The webinar recording is available to view on our{" "}
-          <a
-            href="https://www.youtube.com/watch?v=EEDTbt3Y3Lk&feature=youtu.be"
-            target="_blank"
-            rel="noreferrer"
-          >
-            CREATE SE4AI YouTube channel
-          </a>
-        </YoutubeChannel>{" "}
-        <Subtitle
-          isDarkMode={isDarkMode}
-          id="guest-speaker-webinar---february-3-2022"
-        >
-          Guest Speaker Webinar - February 3, 2022{" "}
-          <a href="#guest-speaker-webinar---february-3-2022"> #</a>
-        </Subtitle>
-        <Details2 isDarkMode={isDarkMode}>
-          CREATE SE4AI hosted a webinar by Sumon Biswas, PhD Candidate at Iowa
+</PastEvent>
+{/*13th Event*/}
+<PastEvent isDarkMode={isDarkMode}>
+    <Calinder isDarkMode={isDarkMode}>
+    {/* <Month>Feb</Month>
+        <Day>03</Day> */}
+<Img src={sumon_biswasImage} alt="sumon_biswas.jpg" />
+
+   </Calinder>
+<Event isDarkMode={isDarkMode}>
+    <a href="/blog/Guest_Speaker_Webinar_February3">Guest Speaker Webinar - February 3, 2022</a>
+   <h5>      CREATE SE4AI hosted a webinar by Sumon Biswas, PhD Candidate at Iowa
           State University on "Understanding and Reasoning Fairness of Machine
-          Learning Pipeline".
-        </Details2>
-        <Details2>
-          <Bold isDarkMode={isDarkMode}>Link to presentation: </Bold>
-        
-          <a href="https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos">
-             https://www.youtube.com/channel/UCjCS6a_K301Ocg9z5Qd1GWA/videos
-          </a>
-        </Details2>
-        <Details2 isDarkMode={isDarkMode}>
-          <Bold isDarkMode={isDarkMode}>About the Speaker</Bold>
-        </Details2>
-        <Group3>
-          {" "}
-          <Details3 isDarkMode={isDarkMode}><Img5 src={sumon_biswasImage} alt="sumon_biswas.jpg" />
-            Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
+          Learning Pipeline". Sumon Biswas is a Computer Science Ph.D. candidate at Iowa State
             University (ISU) and a Research Assistant in Laboratory for Software
             Design at ISU under the supervision of Professor Hridesh Rajan. His
-            research interests are in the intersection of Software Engineering,
-            Programming Languages, and Artificial Intelligence. He has worked on
-            Machine Learning (ML) software repository mining and analysis in
-            large-scale using the Boa framework. He worked on building Python
-            language support for Boa to analyze ML programs and Jupyter
-            Notebooks. Currently, he is working in the D4 (Dependable
-            Data-Driven Discovery) initiative at ISU towards increasing the
-            dependability of data-driven software. Specifically, he is
-            conducting research on understanding the societal bias in ML models
-            and reasoning about fairness property and its mitigation in ML
-            pipelines. His research results appeared in reputed software
-            engineering venues including ICSE and ESEC/FSE.
-          </Details3>{" "}
-          
-        </Group3>
-        <Details2>
-          <Bold isDarkMode={isDarkMode}>Homepage: </Bold>
+            research interests ... <Button isDarkMode={isDarkMode}> <Link to="/blog/Guest_Speaker_Webinar_February3"  className="read-more-link"> Read More</Link></Button> </h5> </Event>
 
-          <a href="https://sumonbis.github.io/"> https://sumonbis.github.io</a>
-        </Details2>
-        <Title>
-          <a href="/blog/upcoming">Upcoming Events</a>
-        </Title>
-      </MainContent>
-      </Grid>
-      </Grid>
+</PastEvent>
+</Main>
+</Grid>
     </Container>
-  );
-};
+    )
 
-export default Events;
-// This part for css part
+}
+export default Events
 const Container = styled.div`
-   display: flex;
-  font-family: "Open Sans", sans-serif;
+   margin-top: 3px;
+   /* margin-left:70px;  */
+/* border:2px solid red; */
+font-family: "Open Sans", sans-serif;
+/* padding-bottom: 20px; */
+/* width: 100%; */
+display: flex;
+font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Helvetica', 'Arial', sans-serif, BlinkMacSystemFont;
   /* border: ${(props) =>
     props.isDarkMode ? "  0px solid #404040" : "  2px solid #f4f0ec"}; */
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
     height:100%;
-margin-left:-20px;
-  width: 100%;  
-  @media screen and (max-width: 700px) {margin-left:-1px;}
 
-`;
+  /* width: 100%; */
+  /* @media screen and (max-width: 768px) {
+  margin-left:0px;
+  display:flex; 
+  flex-wrap:wrap;
 
-const MainContent = styled.div`
-  /* flex: 1; */
-  /* margin-left: 170px; */
-  width: 100%;
-  max-width: 740px;
-  padding-top: -40px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  margin: 0 auto;
-  /* border:2px solid orange;  */
-  /* margin-left:0px; */ @media screen and (min-width: 1700px) {
-    /* align-items: center; */
-    margin-left: calc(30% - 4px); 
-    /* margin-bottom:calc(13% - 150px); */
-
-  }
+} */
 
 
 `;
 
-// const Title = styled.h1`
-//   font-weight: bold;
-//   font-size: 60px;
-//   color: black;
-// `;
-const Subtitle = styled.div`
-display: flex;
-  flex-wrap: wrap;
-  margin-top: 40px;
-  /* margin-left:120px; */
-  font-size: 32px;
-  font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#1c1e21")};
-
-
-  a {
-    color: ${(props) => (props.isDarkMode ? "#181818" : "white")};
-    font-weight: bold;
-    margin-left:5px;
-  }
-  a:hover {
-    color: #bb5a7d;
-    text-decoration: underline;
-  }
-`;
 const Img = styled.img`
 width:100%;
- max-width: 750px; 
- height:400px;
-  /* height: 200px; */
-  padding-top: 20px;
-  padding-bottom:20px;
-  @media screen and (max-width: 700px){height:200px;}
-`;
-const Details = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-width:100%; 
-max-width: 900px;
-  line-height: 1.7em;
-  font-size: 16px;  
-padding-top:20px;
-font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+text-align:center;
+/* width: 150px;  */
+ height:100%;
+/* border:2px solid orange; */
+  /* padding-top: 20px; */
+  /* padding-bottom:20px; */
+  @media screen and (max-width: 480px) {
+height:280px;
+width:350px;
 
-  a {  
-
-    color: #bb5a7d;
-    text-decoration: none;  
-
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
+margin-left:-380px;}
 `;
 
-const Bold = styled.span`
-  font-weight: bold;
+// const Image = styled.div`
+// flex-wrap: wrap;
+// width:100%;
+// height:120px;
+
+//  max-width: 150px;  
+
+// `;
+const Main = styled.div`
+  width: 100%;
+margin-top:16px;  
   color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-width:100%;  padding-top:500px;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
-`;
-const Details2 = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* width:100%;  */
-  /* border:2px solid red; */
-max-width: 850px;
-  line-height: 2em;
-  font-size: 15.5px;
-  margin-top: 20px;
-  margin-bottom:20px;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
-
-
-  a {
-    color: #bb5a7d;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-`;
-const Bold2 = styled.span`
-  font-weight: bold;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  /* line-height: 2em; */
-  margin-bottom: -15px;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
-
-`;
-const YoutubeChannel = styled.div`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-margin-top:15px;
-/* border:2px solid green; */
-
-/* max-width:900px; */
-  a {
-    margin-left:6px;
-    /* width:105%; */
-/* width:100%; */
-    color: #bb5a7d;
-    text-decoration: none;
-  line-height: 2em;
-    /* @media screen and (max-width: 500px){margin-top:30px;} */
+  /* margin: 0 auto; */
+height:100%;
+  /* background-color: ${(props) => (props.isDarkMode ? "#181818" : "#ffffff")};  */
+/* border:2px solid pink; */
+/* padding-left:600px; */
+@media screen and (max-width: 480px) {
+  /* margin-left:-350px; */
+  /* padding-left:-500px; */
+  max-width:480px;
+  
 }
+@media screen and (min-width: 1700px) {
+/* border:2px solid green; */
+align-items: center;
+    margin-left: calc(27% - 150px); 
+  
 
- 
-  a:hover {
-    text-decoration: underline;
-  }
-`;
-const Ol = styled.ol`
-display:flex;
-flex-direction:column;
-flex-wrap:wrap;
-  list-style-type: decimal;
-  padding-top: 5px;
-  font-size: 16px;
-  /* line-height: 1.8em; */
-  width:95%;
-  max-width: 880px;
-  margin-left: -4px;
-  /* border:2px solid blue; */
-
-`;
-const Li = styled.li`
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  font-size: 16px;
-  margin-bottom: 20px;
-  /* border:2px solid red; */
-  max-width:770px;
-  /* width:100%; */
-
-
-`;
-const Img4 = styled.img`
-  max-width: 200px;
-  height: 180px;
-/* border:2px solid red;   */
-/* margin-left: 20px; */
-`;
-const Img2 = styled.img`
- width: 240px;
-   /* height: 350px; */
-  margin-left: 4px;
-  margin-top: 10px;
-/* border:2px solid yellow; */
-`;
-const Image = styled.div`display: flex;
-flex-wrap: wrap;
-width:100%;
-
- max-width: 850px;  
-
-`;
-const Group = styled.div`
+}
+`
+const Title = styled.h2`
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
-
-
-`;
-const ImgContainer = styled.div`
-  position: relative;
-  margin: 2px;
-  margin-bottom: 5px;
-`;
-
-const Img3 = styled.img`
-  width: 200px;
-  height: 150px;
-  padding-left: 2px;
-  padding-top: 4px;
-  transition: transform 0.3s;
-  z-index: 0;   
-
-`;
-
-const HoverImg3 = styled(Img3)`
-  position: absolute;
-  top: 10;
-  left: -10;
-  z-index: 2;
-  transform: scale(2);
-  opacity: 0;
-`;
-
-const HoverContainer = styled(ImgContainer)`
-  &:hover ${HoverImg3} {
-    opacity: 1;
-  }
-`;
-const Group2 = styled.div`
-  display: flex;
-  /* flex-direction:row; */
-/* border:2px solid green; */
-  margin-right: 5px;
-  padding-top: 10px;
-  color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-  Li {
-    color: ${(props) => (props.isDarkMode ? "white" : "#484848")};
-    font-size: 15px;
-    margin-bottom: 20px;
-    max-width: 400px;
-  }
-`;
-
-
-
-
-const Details3 = styled.div`
-  color: ${(props) => (props.isDarkMode ? 'white' : '#484848')};
-  flex: 1;
-  width: calc(100% - 220px); /* Adjust width to leave space for the image */
-  line-height: 1.7em;
-  font-size: 16px;
-  margin-top: 0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-
-
-`;
-
-const Img5 = styled.img`
-  /* width: 200px; */
-  height: 180px;
-  margin: 10px; /* Adjust margin for spacing around the image */
-  float: right;
-
- 
-`;
-
-const Group3 = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* Align items to the top of the container */
-
-  margin: 10px; /* Adjust margin for spacing around the group */
-
-`;
-
-
-const Title = styled.h1`
-  font-weight: bold;
+ margin-top:-18px;
+  padding-top:50px;
   font-size: 45px;
-  a {
-    color: #bb5a7d;
-    text-decoration: none;
+  padding-bottom: 80px;
+  border-bottom: 2px solid ${(props) => (props.isDarkMode ? "#212529" : "#f0f0f0")};
+  color: ${(props) => (props.isDarkMode ? "#ffffff" : "#484848")};
+  background-color: ${(props) => (props.isDarkMode ? "#242526" : "#ffffff")};
+  width: 100%; /* Set the width to 100% */
+h2{
+  /* border:2px solid yellow;  */
+margin-left:220px;
+
+
+}
+@media screen and (max-width: 480px) {
+  margin-left:-200px;
+}
+`;
+  const UpcomingEvents=styled.div`
+  margin-left:380px;
+  display : flex; 
+flex-direction:row;
+width:600px;
+height:150px;
+  /* height:190px; */
+  border:2px solid orange;
+  display: flex;
+  /* flex-wrap: wrap; */
+  margin-top: 50px;
+  /* margin-bottom:10px; */
+  /* padding-left:120px; */
+  font-size: 2em; 
+   font-weight: bold;
+  /* color: ${(props) => (props.isDarkMode ? "#ffffff" : "white")}; */
+  h5{
+    
+margin-left:-240px;
+font-size: 14px;    line-height: 3px;
+    letter-spacing: 0;
+    font-weight: normal;
+    /* padding: 14px 0 0 0; */
+    font-family: 'GillSansMTPro',sans-serif;
+margin-top:50px;
+/* border:2px solid green; */
+
+  a {  
+    font-family: 'GillSansMTPro',sans-serif;
+    font-size: 14px; 
+color: #bb5a7d;
+text-decoration: none;
+font-weight:normal;  
+
+}
+
+a:hover {
+text-decoration: underline;
+}
+
   }
-  a:hover {
+;`
+
+
+
+const PastEvent=styled.div`
+display : flex; 
+flex-direction:row;
+/* text-align:center; */
+height:150px;
+/* align-items:center; */
+/* padding-left:280px; */
+@media screen and (max-width: 480px) {
+padding-left:15px;
+  max-width:360px;
+  display : flex; 
+/* margin-top:5px; */
+flex-wrap:wrap;
+/* border:2px solid blue; */
+height:620px;
+margin-bottom:-90px;
+
+}
+ `
+
+ const Calinder=styled.div`
+ /* border:2px solid green; */
+ width:130px;
+ height:130px;
+ margin-left:380px;
+ padding-top:-2px;
+ `
+ const Day=styled.div` 
+    font-family: Arial,sans-serif;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 48px;
     color: #bb5a7d;
-    text-decoration: underline;
-  }   
-
-`;
-const StickySidebar = styled.div`
-  position: sticky;
-  top: 40; /* Adjust this value if needed */
-  margin-bottom: 90px;
-  /* margin-top: 20px; */
-  width: 170px; /* Adjust this value to set the sidebar width */
-
+    /* padding-left:30px; */
+ `
+ const Month=styled.div`
+ /* border:2px solid orange; */
+ font-family: 'GillSansMTProMedium',sans-serif;
+ font-weight:normal;
+ font-size:24px;
+ color: #bb5a7d;
 `
+//  const Event =styled.div``
 
-const Span = styled.span`
-  margin-right: 2px;
-  margin-left: -25px;
-  padding-left: 0;
-`;
+
+ const Subtitle=styled.div`
+  /* text-align:center;
+  align-items:center; */
+ /* height:190px; */
+margin-left:380px;
+ display: flex;
+ /* flex-wrap: wrap; */
+ margin-top: 40px;
+ margin-bottom:10px;
+/* text-align:center; */
+ font-size: 1em;  font-weight: bold;
+ @media screen and (max-width: 480px) {
+  margin-left:20px;
+  /* margin-top:10px; */
+}
+ /* color: ${(props) => (props.isDarkMode ? "#ffffff" : "white")}; */
+ `
+ const Event=styled.div`
+ /* border:2px solid black ; */
+ /* border:2px solid orange; */
+ display :flex; 
+ flex-direction:column;
+ height:20px ;
+ margin-left:20px;
+ /* border:2px solid green; */
+ width:600px;
+  a{
+  display: flex;
+    flex-direction: row;
+    /* font-size:25px;  */
+ color: ${(props) => (props.isDarkMode ? "white" : "black")};
+ text-decoration: none;
+    /* color: #bb5a7d; */
+    /* font-size: 17px; */
+    font-weight: bold;
+    font-family: 'GillSansMTProBoldCondensed',sans-serif;
+    font-size: 19px;
+    /* line-height: 23px; */
+    letter-spacing: .4px; 
+    &:hover {
+    color: #bb5a7d;
+    cursor: pointer;
+  } }
+  h5{
+    margin-top: -5px;
+    font-size: 15px;
+    /* line-height:6px; */
+    letter-spacing: 0;
+    font-weight: normal;
+    padding: 14px 0 0 0;
+    font-family: 'GillSansMTProBoldCondensed',sans-serif;
+
+  }
+
+  @media screen and (max-width: 480px) {
+  /* margin-left:350px; */
+  margin-top:-75px;
+max-width:380px;
+/* display :flex;  */
+
+margin-left:5px;
+}
+
+
+
+
+ `
+ const Button=styled.button`
+ background-color:inherit;
+ border:none;
+font-weight:normal;
+ /* display:flex; 
+ flex-direction:row; */
+ /* width:450px; */
+ /* border:2px solid blue; */
+ /* font-size: 10px; */
+    /* line-height: 3px; */
+    letter-spacing: 0;
+/* height:20px; */
+    /* padding: 14px 0 0 0; */
+    font-family: 'GillSansMTProBoldCondensed',sans-serif;
+ .read-more-link {
+   color: ${(props) => (props.isDarkMode ? "white" : "black")};
+   font-size: 15px;   
+    font-family: 'GillSansMTProBoldCondensed',sans-serif;
+    font-weight:700;
+
+
+ }
+ .read-more-link:hover {
+   color:#bb5a7d;
+   /* text-decoration:line; */
+ }`
