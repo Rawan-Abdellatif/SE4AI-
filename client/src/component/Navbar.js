@@ -107,17 +107,17 @@ const Navbar = () => {
         </Nav>
      
 
-        <Nav isDarkMode={isDarkMode} style={{ width: "80px" }}>
-          <LoginLink onClick={handleLoginToggle}>Login</LoginLink>
-         
+        {/* <Nav isDarkMode={isDarkMode} style={{ width: "80px" }}>
+          <LoginLink onClick={handleStudentClick}>Login</LoginLink> */}
+{/*          
        {showDropdown && (
             <DropdownMenuWrapper isDarkMode={isDarkMode}>
               <DropdownMenu isDarkMode={isDarkMode}>
                 <DropdownItem onClick={handleStudentClick}>Student</DropdownItem>
               </DropdownMenu>
             </DropdownMenuWrapper>
-          )}
-        </Nav> 
+          )} */}
+        {/* </Nav>  */}
 
 
 </NavmenuLeft>
